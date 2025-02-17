@@ -1,2 +1,3 @@
 # linux-monitoring
-linux-monitoring
+
+Здесь будут задачи по Linux, мониторингу и автоматизации
