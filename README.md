@@ -27,24 +27,24 @@
     │   └── prometheus.yml *(файл конфигурации для Prometheus)*  
     └── prometheus.service *(юнит-файл Prometheus для systemd)*  
 
-**/prometheus**
-  ├── bin
-  │   └── prometheus *(бинарный файл Prometheus)*  
-  ├── etc
-  │   └── prometheus.yml *(файл конфигурации для Prometheus)*  
-  ├── data
-  ├── consoles
-  │   ├── index.html.example
-  │   ├── node-cpu.html
-  │   ├── node-disk.html
-  │   ├── node.html
-  │   ├── node-overview.html
-  │   ├── prometheus.html
-  │   └── prometheus-overview.html
-  ├── console_libraries
-  │   ├── menu.lib
-  │   └── prom.lib
-  └── prometheus.service *(юнит-файл Prometheus для systemd)*  
+                    /prometheus
+                    ├── bin
+                    │   └── prometheus
+                    ├── etc
+                    │   └── prometheus.yml
+                    ├── data
+                    ├── consoles
+                    │   ├── index.html.example
+                    │   ├── node-cpu.html
+                    │   ├── node-disk.html
+                    │   ├── node.html
+                    │   ├── node-overview.html
+                    │   ├── prometheus.html
+                    │   └── prometheus-overview.html
+                    ├── console_libraries
+                    │   ├── menu.lib
+                    │   └── prom.lib
+                    └── prometheus.service
 
 14. Обычно такие права **777** не выдаются (либо выдаются в песочнице), но у нас учебный проект, поэтому имеем это ввиду. Параллельно идем в **ИИ GPT Qwen** и учимся выставлять числовые права, заодно будем понимать, что такое 777 и как эти числа образуются (4+2+1)
 12. Далее нужно создать группу пользователей **prometheus** и добавить туда пользователя **prometheus**, далее проверить эту группу пользователей, что **prometheus** добавился (одновременно идем в **ИИ GPT Qwen** и учимся назначать владельца на директорию и на файлы), при дефолтной установке пакета **Prometheus**, будь то **.rpm** или **.deb** назначение прав и владельца происходят автоматически при установке любого пакета (здесь мы делаем это вручную, чтобы понимать работу команд: chown и chmod)
