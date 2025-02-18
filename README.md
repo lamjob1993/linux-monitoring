@@ -15,52 +15,52 @@
 7. Далее переходим в новую рабочую директорию - **/opt/monitoring/linux-monitoring/prometheus/** и постепенно будем наполнять ее нужными файлами из директории - **prometheus-2.53.2.linux-amd64**
 8. Далее создать директории - **/bin, /etc, /data, /consoles, /console_libraries**, внутри директории - **/opt/monitoring/linux-monitoring/prometheus/**
 9. Скопировать в **/bin** бинарь **Prometheus** (подсказка: **п.4**)
-10. В директории **/etc** создать пустой файл - **prometheus.yml** и положить его в **/etc**, затем наполнить **prometheus.yml** файл дефолтным конфигом **Prometheus** (подсказка: **GitHub** - **prometheus/documentation/examples/prometheus.yml**, а также подумать, что означает этот конфиг построчно на пару с **Qwen GPT**)
+10. В директории **/etc** создать пустой файл - **prometheus.yml**, затем наполнить **prometheus.yml** дефолтным конфигом **Prometheus** (подсказка: **GitHub** - **prometheus/documentation/examples/prometheus.yml**, а также подумать, что означает этот конфиг построчно на пару с **Qwen GPT**)
 11. Наполнить директории: **/data** - оставить пустой, **/consoles** - наполнить по аналогии с директорией - **prometheus-2.53.2.linux-amd64**, **/console_libraries** - наполнить по аналогии с директорией - **prometheus-2.53.2.linux-amd64**
 12. Далее создать пустой файл - **Unit** в корневой директории - **/prometheus** и наполнить (на сленге - написать) его для **Prometheus** (подсказка: логически понять, как назвать **Unit** файл (это будет файл сервиса **Prometheus**) и как он должен быть написан внутри)
 13. Далее одной командой выдать права **777** на корневую директорию **/opt** и на все файлы внутри (это называется рекурсивно), в которой уже должны лежать файлы по структуре ниже (проверить результат выполнения команды): 
 
-                  /prometheus
-                  ├── bin/                           # Директория для бинарных файлов
-                  │   └── prometheus                 # Бинарный файл Prometheus
-                  ├── etc/                           # Директория для конфигурационных файлов
-                  │   └── prometheus.yml             # Основной конфигурационный файл Prometheus
-                  ├── data/                          # Директория для хранения данных, будет наполнена при работе Prometheus
-                  ├── consoles/                      # Директория для шаблонов консолей Prometheus
-                  │   ├── index.html.example         # Пример главной страницы
-                  │   ├── node-cpu.html              # Шаблон консоли для мониторинга CPU узла
-                  │   ├── node-disk.html             # Шаблон консоли для мониторинга диска узла
-                  │   ├── node.html                  # Общий шаблон консоли для узла
-                  │   ├── node-overview.html         # Обзорная консоль для узла
-                  │   ├── prometheus.html            # Шаблон консоли для Prometheus
-                  │   └── prometheus-overview.html   # Обзорная консоль для Prometheus
-                  ├── console_libraries/             # Директория для библиотек шаблонов консолей
-                  │   ├── menu.lib                   # Библиотека меню
-                  │   └── prom.lib                   # Библиотека Prometheus
-                  └── prometheus.service             # Сервисный файл для запуска Prometheus
+                                                        /prometheus
+                                      drwxrwxrwx        ├── bin/                           # Директория для бинарных файлов
+                                      -rwxrwxrwx        │   └── prometheus                 # Бинарный файл Prometheus
+                                      drwxrwxrwx        ├── etc/                           # Директория для конфигурационных файлов
+                                      -rwxrwxrwx        │   └── prometheus.yml             # Основной конфигурационный файл Prometheus
+                                      drwxrwxrwx        ├── data/                          # Директория для хранения данных, будет наполнена при работе Prometheus
+                                      drwxrwxrwx        ├── consoles/                      # Директория для шаблонов консолей Prometheus
+                                      -rwxrwxrwx        │   ├── index.html.example         # Пример главной страницы
+                                      -rwxrwxrwx        │   ├── node-cpu.html              # Шаблон консоли для мониторинга CPU узла
+                                      -rwxrwxrwx        │   ├── node-disk.html             # Шаблон консоли для мониторинга диска узла
+                                      -rwxrwxrwx        │   ├── node.html                  # Общий шаблон консоли для узла
+                                      -rwxrwxrwx        │   ├── node-overview.html         # Обзорная консоль для узла
+                                      -rwxrwxrwx        │   ├── prometheus.html            # Шаблон консоли для Prometheus
+                                      -rwxrwxrwx        │   └── prometheus-overview.html   # Обзорная консоль для Prometheus
+                                      drwxrwxrwx        ├── console_libraries/             # Директория для библиотек шаблонов консолей
+                                      -rwxrwxrwx        │   ├── menu.lib                   # Библиотека меню
+                                      -rwxrwxrwx        │   └── prom.lib                   # Библиотека Prometheus
+                                      -rwxrwxrwx        └── prometheus.service             # Сервисный файл для запуска Prometheus
 
 14. Обычно такие права **777** не выдаются (либо выдаются в песочнице), но у нас учебный проект, поэтому имеем это ввиду. Параллельно идем в **ИИ GPT Qwen** и учимся выставлять числовые права, заодно будем понимать, что такое **777** и как эти числа образуются (**4+2+1**)
 12. Далее нужно создать группу пользователей **prometheus** и добавить туда пользователя **prometheus**, далее проверить эту группу пользователей, что **prometheus** добавился (одновременно идем в **ИИ GPT Qwen** и учимся назначать владельца на директорию и на файлы), при дефолтной установке пакета **Prometheus**, будь то **.rpm** или **.deb** назначение прав и владельца происходят автоматически при установке любого пакета (здесь мы делаем это вручную, чтобы понимать логику работу команд: chown и chmod)
 13. Затем рекурсивно назначить (изменить) владельца (пользователя) - **prometheus** для директории - **/opt** и для всех файлов внутри (проверить результат выполнения):
 
-                  /prometheus
-                  ├── bin/                           # Директория для бинарных файлов
-                  │   └── prometheus                 # Бинарный файл Prometheus
-                  ├── etc/                           # Директория для конфигурационных файлов
-                  │   └── prometheus.yml             # Основной конфигурационный файл Prometheus
-                  ├── data/                          # Директория для хранения данных, будет наполнена при работе Prometheus
-                  ├── consoles/                      # Директория для шаблонов консолей Prometheus
-                  │   ├── index.html.example         # Пример главной страницы
-                  │   ├── node-cpu.html              # Шаблон консоли для мониторинга CPU узла
-                  │   ├── node-disk.html             # Шаблон консоли для мониторинга диска узла
-                  │   ├── node.html                  # Общий шаблон консоли для узла
-                  │   ├── node-overview.html         # Обзорная консоль для узла
-                  │   ├── prometheus.html            # Шаблон консоли для Prometheus
-                  │   └── prometheus-overview.html   # Обзорная консоль для Prometheus
-                  ├── console_libraries/             # Директория для библиотек шаблонов консолей
-                  │   ├── menu.lib                   # Библиотека меню
-                  │   └── prom.lib                   # Библиотека Prometheus
-                  └── prometheus.service             # Сервисный файл для запуска Prometheus
+                                                        /prometheus
+        drwxrwxrwx prometheus prometheus                ├── bin/                           # Директория для бинарных файлов
+        -rwxrwxrwx prometheus prometheus                │   └── prometheus                 # Бинарный файл Prometheus
+        drwxrwxrwx prometheus prometheus                ├── etc/                           # Директория для конфигурационных файлов
+        -rwxrwxrwx prometheus prometheus                │   └── prometheus.yml             # Основной конфигурационный файл Prometheus
+        drwxrwxrwx prometheus prometheus                ├── data/                          # Директория для хранения данных, будет наполнена при работе Prometheus
+        drwxrwxrwx prometheus prometheus                ├── consoles/                      # Директория для шаблонов консолей Prometheus
+        -rwxrwxrwx prometheus prometheus                │   ├── index.html.example         # Пример главной страницы
+        -rwxrwxrwx prometheus prometheus                │   ├── node-cpu.html              # Шаблон консоли для мониторинга CPU узла
+        -rwxrwxrwx prometheus prometheus                │   ├── node-disk.html             # Шаблон консоли для мониторинга диска узла
+        -rwxrwxrwx prometheus prometheus                │   ├── node.html                  # Общий шаблон консоли для узла
+        -rwxrwxrwx prometheus prometheus                │   ├── node-overview.html         # Обзорная консоль для узла
+        -rwxrwxrwx prometheus prometheus                │   ├── prometheus.html            # Шаблон консоли для Prometheus
+        -rwxrwxrwx prometheus prometheus                │   └── prometheus-overview.html   # Обзорная консоль для Prometheus
+        drwxrwxrwx prometheus prometheus                ├── console_libraries/             # Директория для библиотек шаблонов консолей
+        -rwxrwxrwx prometheus prometheus                │   ├── menu.lib                   # Библиотека меню
+        -rwxrwxrwx prometheus prometheus                │   └── prom.lib                   # Библиотека Prometheus
+        -rwxrwxrwx prometheus prometheus                └── prometheus.service             # Сервисный файл для запуска Prometheus
 
 14. Затем скопировать **Unit** в директорию **/etc/systemd/system/** автозапуска Linux с уже выставленными правами **777** и владельцем **prometheus**
 15. Чтобы система Linux поняла, что файл сервиса добавлен (**Unit**) в автозапуск - нужно вбить команду - **sudo systemctl daemon-reload**, тем самым обновляя директорию systemd до актуального состояния (читаем подробно в Qwen про эту команду и заодно еще раз про пороцессы и демоны)
