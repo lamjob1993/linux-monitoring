@@ -152,3 +152,5 @@
 - **Проверка портов**: `ss -tuln | grep 9090`
 - **Тестирование HTTP-статусов**: `curl -X GET http://localhost:9090/api/v1/status/config`
 - **Анализ логов**: `journalctl -u prometheus`
+
+---
