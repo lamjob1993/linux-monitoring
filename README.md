@@ -37,7 +37,7 @@
           drwxrwxrwx        ├── console_libraries/             # Директория для библиотек шаблонов консолей
           -rwxrwxrwx        │   ├── menu.lib                   # Библиотека меню
           -rwxrwxrwx        │   └── prom.lib                   # Библиотека Prometheus
-          -rwxrwxrwx        └── prometheus.service             # Сервисный файл для запуска Prometheus
+          -rwxrwxrwx        └── prometheus.service             # Сервисный Unit-файл для запуска Prometheus
 
 14. Обычно такие права **777** не выдаются (либо выдаются в песочнице), но у нас учебный проект, поэтому имеем это ввиду. Параллельно идем в **ИИ GPT Qwen** и учимся выставлять числовые права, заодно будем понимать, что такое **777** и как эти числа образуются (**4+2+1**)
 12. Далее нужно создать группу пользователей **prometheus** и добавить туда пользователя **prometheus**, далее проверить эту группу пользователей, что **prometheus** добавился (одновременно идем в **ИИ GPT Qwen** и учимся назначать владельца на директорию и на файлы), при дефолтной установке пакета **Prometheus**, будь то **.rpm** или **.deb** назначение прав и владельца происходят автоматически при установке любого пакета (здесь мы делаем это вручную, чтобы понимать логику работу команд: chown и chmod)
@@ -60,7 +60,7 @@
            drwxrwxrwx prometheus prometheus           ├── console_libraries/             # Директория для библиотек шаблонов консолей
            -rwxrwxrwx prometheus prometheus           │   ├── menu.lib                   # Библиотека меню
            -rwxrwxrwx prometheus prometheus           │   └── prom.lib                   # Библиотека Prometheus
-           -rwxrwxrwx prometheus prometheus           └── prometheus.service             # Сервисный файл для запуска Prometheus
+           -rwxrwxrwx prometheus prometheus           └── prometheus.service             # Сервисный Unit-файл для запуска Prometheus
 
 14. Затем скопировать **Unit** в директорию **/etc/systemd/system/** автозапуска Linux с уже выставленными правами **777** и владельцем **prometheus**
 15. Чтобы система Linux поняла, что файл сервиса добавлен (**Unit**) в автозапуск - нужно вбить команду - **sudo systemctl daemon-reload**, тем самым обновляя директорию systemd до актуального состояния (читаем подробно в Qwen про эту команду и заодно еще раз про пороцессы и демоны)
