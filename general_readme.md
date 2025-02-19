@@ -33,7 +33,7 @@
 
 ### Настройка окружения мониторинга
 #### Backend
-- В разрезе настройки бэкенда мониторинга: пропишем **Prometheus**, как data source в **Grafana** и натравим **Prometheus** на **Node Exporter** (когда **Prometheus** собирает данные с экспортеров - это называется скрэйпинг (scrape), помним о том, что экспортеры в сам **Prometheus** ничего не отправляют, **Prometheus** опрашивает их по протоколу **HTTP** на основе таргетов своего же конфиг файла)
+- В разрезе настройки бэкенда мониторинга: пропишем **Prometheus**, как data source в **Grafana** и натравим **Prometheus** на **Node Exporter** (когда **Prometheus** собирает данные с экспортеров - это называется скрэйпинг (scrape), помним о том, что экспортеры в сам **Prometheus** ничего не отправляют, **Prometheus** опрашивает их по протоколу **HTTP** на основе таргетов своего же конфиг-файла)
 - Напишем нагрузочное тестирование [Pushgateway](https://github.com/prometheus/pushgateway "Составной компонент Prometheus, работающий по модели PUSH") через проброс метрик утилитой **Curl**:
   - Метрики будем генерить скриптом Bash в формате [Open Metrics](https://github.com/prometheus/OpenMetrics/tree/main "OpenMetrics a specification built upon and carefully extending Prometheus exposition format in almost 100% backwards-compatible ways")
   - Скрипт будет подсчитывать количество метрик
