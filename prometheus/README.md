@@ -63,38 +63,43 @@
     - Далее проверить эту группу пользователей, что `prometheus` добавился (одновременно идем в `ИИ GPT Qwen` и учимся назначать владельца на директорию и на файлы)
     - При дефолтной установке пакета `Prometheus`, будь то `.rpm` или `.deb` назначение прав и назначение владельца происходит автоматически
     - Здесь мы делаем назначение вручную, чтобы понимать логику работы команд: `chown` и `chmod`
-14. Затем рекурсивно назначить (изменить) владельца (пользователя) `prometheus` для рабочей директории `/opt` и домашней `/Documents/linux-monitoring/` и для всех файлов внутри (проверить результат выполнения):
-    - Ниже консольное представление в виде списка `ls` домашней директории `/Documents/linux-monitoring/prometheus/`:
+14. Затем рекурсивно назначить (изменить) владельца (пользователя) `prometheus` для рабочей директории `/opt`:
 
-           --права--  -владелец-  -группа-            /prometheus
-           drwxrwxrwx prometheus prometheus           ├── prometheus                     # Бинарный файл Prometheus
-           -rwxrwxrwx prometheus prometheus           ├── promtool                       # Утилита для проверки конфигураций
-           drwxrwxrwx prometheus prometheus           ├── prometheus.yml                 # Основной конфигурационный файл Prometheus             
-           drwxrwxrwx prometheus prometheus           ├── consoles/                      # Директория для шаблонов консолей Prometheus
-           -rwxrwxrwx prometheus prometheus           │   ├── index.html.example            # Пример главной страницы
-           -rwxrwxrwx prometheus prometheus           │   ├── node-cpu.html                 # Шаблон консоли для мониторинга CPU узла
-           -rwxrwxrwx prometheus prometheus           │   ├── node-disk.html                # Шаблон консоли для мониторинга диска узла
-           -rwxrwxrwx prometheus prometheus           │   ├── node.html                     # Общий шаблон консоли для узла
-           -rwxrwxrwx prometheus prometheus           │   ├── node-overview.html            # Обзорная консоль для узла
-           -rwxrwxrwx prometheus prometheus           │   ├── prometheus.html               # Шаблон консоли для Prometheus
-           -rwxrwxrwx prometheus prometheus           │   └── prometheus-overview.html      # Обзорная консоль для Prometheus
-           drwxrwxrwx prometheus prometheus           ├── console_libraries/             # Директория для библиотек шаблонов консолей
-           -rwxrwxrwx prometheus prometheus           │   ├── menu.lib                      # Библиотека меню
-           -rwxrwxrwx prometheus prometheus           │   └── prom.lib                      # Библиотека Prometheus
-           -rwxrwxrwx prometheus prometheus           └── prometheus.service             # Сервисный Unit-файл для запуска Prometheus
+              --права--  -владелец-  -группа-           /opt/linux-monitoring      
+              drwxrwxrwx prometheus prometheus          ├── grafana             # Директория Grafana         
+              drwxrwxrwx prometheus prometheus          ├── node-exporter       # Директория Node Exporter
+              drwxrwxrwx prometheus prometheus          ├── prometheus          # Директория Prometheus
 
-16. Затем скопировать уже написанный вами `Unit` в директорию `/etc/systemd/system/` автозапуска `Linux` с уже выставленными правами `777` и владельцем `prometheus`
-17. Чтобы система `Linux` поняла, что файл сервиса `Unit` добавлен в директорию `/systemd`, нужно вбить команду `sudo systemctl daemon-reload`:
+   
+21. Рекурсивно назначить владельца `prometheus` для домашней директории `/Documents/linux-monitoring/`:
+    
+             --права--  -владелец-  -группа-                   /prometheus      
+             -rwxrwxrwx prometheus prometheus                  ├── prometheus.yml                 # Основной конфигурационный файл Prometheus             
+             drwxrwxrwx prometheus prometheus                  ├── consoles/                      # Директория для шаблонов консолей Prometheus
+             -rwxrwxrwx prometheus prometheus                  │   ├── index.html.example            # Пример главной страницы
+             -rwxrwxrwx prometheus prometheus                  │   ├── node-cpu.html                 # Шаблон консоли для мониторинга CPU узла
+             -rwxrwxrwx prometheus prometheus                  │   ├── node-disk.html                # Шаблон консоли для мониторинга диска узла
+             -rwxrwxrwx prometheus prometheus                  │   ├── node.html                     # Общий шаблон консоли для узла
+             -rwxrwxrwx prometheus prometheus                  │   ├── node-overview.html            # Обзорная консоль для узла
+             -rwxrwxrwx prometheus prometheus                  │   ├── prometheus.html               # Шаблон консоли для Prometheus
+             -rwxrwxrwx prometheus prometheus                  │   └── prometheus-overview.html      # Обзорная консоль для Prometheus
+             drwxrwxrwx prometheus prometheus                  ├── console_libraries/             # Директория для библиотек шаблонов консолей
+             -rwxrwxrwx prometheus prometheus                  │   ├── menu.lib                      # Библиотека меню
+             -rwxrwxrwx prometheus prometheus                  │   └── prom.lib                      # Библиотека Prometheus
+             -rwxrwxrwx prometheus prometheus                  └── prometheus.service             # Сервисный Unit-файл для запуска Prometheus
+
+22. Затем скопировать уже написанный вами `Unit` в директорию `/etc/systemd/system/` автозапуска `Linux` с уже выставленными правами `777` и владельцем `prometheus`
+23. Чтобы система `Linux` поняла, что файл сервиса `Unit` добавлен в директорию `/systemd`, нужно вбить команду `sudo systemctl daemon-reload`:
     - Тем самым обновляя директорию `/systemd` до актуального состояния
     - Далее ставим наш сервис на автозапуск (то есть при ребуте системы сервис `Prometheus` будет взлетать автоматом) `sudo systemctl enable`
     - Читаем подробно в `ИИ Qwen` про эту команду и заодно еще раз про пороцессы и демоны
-18. Далее запускаем сервис `Prometheus` утилитой `systemctl` (в дефолте эта утилита смотрит в автозапуск `/systemd` и будет знать о том, что там лежит наш юнит):
+24. Далее запускаем сервис `Prometheus` утилитой `systemctl` (в дефолте эта утилита смотрит в автозапуск `/systemd` и будет знать о том, что там лежит наш юнит):
     - Проверяем после запуска статус `ACTIVE` командой `sudo systemctl status prometheus.service` и смотрим на работающую веб-морду
     - А если `INACTIVE` или `FAIL`, то сразу читаем логи (смотрим следующий пункт темы)
     - Подсказка: смотрим в `Unit` либо смотрим в конфиг `YAML` в `Prometheus`, скорее всего ошиблись в одном из двух, часто бывают проблемы с выдачей прав и с неверными пользователями   
-20. Затем выводим логи `Prometheus` в терминал, которые отбрасывает запущенный `Prometheus` с помощью утилиты `journalctl`:
+25. Затем выводим логи `Prometheus` в терминал, которые отбрасывает запущенный `Prometheus` с помощью утилиты `journalctl`:
     - Параллельно для справки с помощью `Qwen` читаем, что такое: `stdin`, `stdout`, `stderr` 
-22. Далее парсим (фильтруем) логи утилитой `grep` в файл `prometheus.log` по ключевому слову `info` (сохраняем логи в любое удобное место):
+26. Далее парсим (фильтруем) логи утилитой `grep` в файл `prometheus.log` по ключевому слову `info` (сохраняем логи в любое удобное место):
     - То есть конечный результат лога должен содержать только строки с `info`
     - Подсказка: `journalctl | grep` - используем перенаправление вывода из `journalctl` в `grep` с помощью пайпа `|`
     - А также подумайте, как с помощью `grep`:
@@ -103,9 +108,9 @@
           - Поставить мини-скрипт `grep` (перейти в домашнюю директорию `/Documents/linux-monitoring/prometheus`, создать внутри директорию `/scripts` и положить туда ваш первый скрипт `script_logs.sh`) в планировщик `crontab` на выполнение (подсказка: `0 * * * * /путь/к/script_logs.sh`, то есть `crontab` должен будет дёргать ваш мини-скрипт на выполнение раз в минуту):
              - Советую потренироваться в запуске вашего первого скрипта
              - К примеру для начала разобраться какие права ему выдать, чтобы он запустился с тестовой фразой в терминале: `Hello, World!!!`
-24. Далее перезагружаем `Ubuntu-виртуалку` и проверяем автозапуск (`sudo systemctl status prometheus.service`), что юнит автоматически стартовал сервис `Prometheus` - он должен подняться на веб-морде
-25. Далее пушим данные конфига работающего `Prometheus`, находясь в домашней директории `/Documents/linux-monitoring/` в свой удаленный репозиторий (подсказка: сначала сделайте `git add .` потом `git commit -m "напишите, что добавили новые файлы"` и затем `git push`)
-26. Далее, так как мы подняли `Prometheus` и он работает — пробежимся по дебагу (просто представим, что приложению нужен дебаг, а-ля это инцидент в банке и его нужно решать, а `Prometheus` у нас не работает):
+27. Далее перезагружаем `Ubuntu-виртуалку` и проверяем автозапуск (`sudo systemctl status prometheus.service`), что юнит автоматически стартовал сервис `Prometheus` - он должен подняться на веб-морде
+28. Далее пушим данные конфига работающего `Prometheus`, находясь в домашней директории `/Documents/linux-monitoring/` в свой удаленный репозиторий (подсказка: сначала сделайте `git add .` потом `git commit -m "напишите, что добавили новые файлы"` и затем `git push`)
+29. Далее, так как мы подняли `Prometheus` и он работает — пробежимся по дебагу (просто представим, что приложению нужен дебаг, а-ля это инцидент в банке и его нужно решать, а `Prometheus` у нас не работает):
     
     - С помощью утилиты `ss` найдите `prometheus` и посмотрите на каком порту он сидит, заодно посмотрите какой это порт: `TCP` или `UDP`
     - С помощью утилиты `telnet` проверьте доступность соединения `Prometheus` по дефолтному порту `Prometheus` (подумайте как это сделать)
@@ -114,7 +119,7 @@
     - А также в дебаг входит `journactl` и `systemctl status`
     - Команды можно комбинировать между собой
 
-27. В домашнюю директорию `/Documents/linux-monitoring/prometheus` положить второй `Bash` скрипт, который должен делать всю ручную работу выше автоматически:
+30. В домашнюю директорию `/Documents/linux-monitoring/prometheus` положить второй `Bash` скрипт, который должен делать всю ручную работу выше автоматически:
     - Этот скрипт в финале должен поднять `Prometheus` с нуля за секунды и вы должны увидеть в терминале статус сервиса `ACTIVE`, а затем перейти в браузер и увидеть его на веб-морде:
        - То есть ставим всё что мы делали вручную выше на автоматизацию
     - Коммитим изменения и пушим в `GitHub` второй скрипт на установку `Prometheus` (не запускаем)
@@ -126,8 +131,8 @@
                rm -rf /tmp/example && echo "Директория успешно удалена" || { echo "Ошибка удаления директории"; exit 1; }
 
     - Далее протестировать эти два скрипта на текущей машине (с учетом того, что все ваши файлы уже запушены в `GitHub` и вы можете делать всё что угодно на этой машине, имеем только ввиду, что исполняемые файлы (бинарники) нельзя пушить в `GitHub`, поэтому эта тема написана таким образом, что пушить вы будете только текстовые файлы с кодом и с конфигурацией, как раз из директории локального репозитория)
-30. Далее перейти в виртуальную машину `Ubuntu Б` из `п.1` и запустить её рядом с вашей машиной `Ubuntu А`
-31. Прогнать из пункта выше готовый скрипт запуска `Prometheus` на голой машине Б:
+31. Далее перейти в виртуальную машину `Ubuntu Б` из `п.1` и запустить её рядом с вашей машиной `Ubuntu А`
+32. Прогнать из пункта выше готовый скрипт запуска `Prometheus` на голой машине Б:
     - Затем удалить `Prometheus` вторым скриптом (не забываем стопнуть `Prometheus` перед удалением, а после удаления сделать `daemon-reload`)
 33. Подумать, как установить между этими двумя тачками `А` и `Б` соединение `SSH`, чтобы можно было ходить из одной машины в другую:
     - Подсказка: потренироваться генерить `SSH ключи` и понять, что такое публичный и закрытый ключи
