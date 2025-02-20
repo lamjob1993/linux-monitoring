@@ -10,10 +10,10 @@
    - Далее склонировать (подсказка: **git clone**) свой форкнутый репозиторий **linux-monitoring** в свою домашнюю директорию, к примеру в **/Downloads** или в **/Documents**:
       - Должна получиться домашняя клон-директория репозитория **/Documents/linux-monitoring**
 
-           /linux-monitoring      
-           ├── grafana             # Директория Grafana         
-           ├── node-exporter       # Директория Node Exporter
-           ├── prometheus          # Директория Prometheus
+                    /linux-monitoring      
+                    ├── grafana             # Директория Grafana         
+                    ├── node-exporter       # Директория Node Exporter
+                    ├── prometheus          # Директория Prometheus
 
       - Далее скопировать эту директорию **linux-monitoring** с содержимым внутри в рабочую директорию **/opt**
 5. Далее найти и скачать архив **.tar.gz** дистрибутива **Prometheus** для **Linux** самой последней **второй** (не третьей) версии в домашнюю директорию рядом со склонированным репозиторием **/Documents/linux-monitoring** (подсказка: GitHub, AMD64, bin)
