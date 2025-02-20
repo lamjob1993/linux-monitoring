@@ -12,9 +12,9 @@
 
 
            /linux-monitoring      
-           ├── grafana                 # Директория Grafana             
+           ├── grafana                 # Директория Grafana         
            ├── node-exporter           # Директория Node Exporter
-           ├── prometheus              # Директория Prometheus      # Директория для шаблонов консолей Prometheus
+           ├── prometheus              # Директория Prometheus
 
 
       - Далее скопировать эту директорию **linux-monitoring** с содержимым внутри в рабочую директорию **/opt**
