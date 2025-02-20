@@ -15,7 +15,13 @@
                     ├── node-exporter       # Директория Node Exporter
                     ├── prometheus          # Директория Prometheus
 
-      - Далее скопировать эту директорию `linux-monitoring` с содержимым внутри в рабочую директорию `/opt`
+      - Далее скопировать эту директорию `linux-monitoring` с содержимым внутри в рабочую директорию `/opt`:
+   
+                    /linux-monitoring      
+                    ├── grafana             # Директория Grafana         
+                    ├── node-exporter       # Директория Node Exporter
+                    ├── prometheus          # Директория Prometheus
+       
 5. Далее найти и скачать архив `.tar.gz` дистрибутива **Prometheus** для **Linux** самой последней **второй** (не третьей) версии в домашнюю директорию рядом со склонированным репозиторием `/Documents/linux-monitoring` (подсказка: GitHub, AMD64, bin)
 7. Разархивировать архив и найти внутри директории бинарь **Prometheus** (директория после разархивации будет выглядеть, к примеру, вот так - `/Documents/prometheus-2.53.2.linux-amd64`)
 8. Проверить версию **Prometheus** (подсказка: `./prometheus --version`) и запустить бинарь "на коленке" (подсказка: `./bin/prometheus` или `./prometheus`)
