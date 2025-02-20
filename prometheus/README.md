@@ -15,7 +15,7 @@
                     ├── node-exporter       # Директория Node Exporter
                     ├── prometheus          # Директория Prometheus
 
-      - Далее скопировать эту директорию `linux-monitoring` с содержимым внутри в рабочую директорию `/opt`:
+      - Далее скопировать эту директорию `/linux-monitoring` с содержимым внутри в рабочую директорию `/opt`:
    
                     /opt/linux-monitoring      
                     ├── grafana             # Директория Grafana         
