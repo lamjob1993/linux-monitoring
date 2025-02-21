@@ -14,8 +14,6 @@ Node Exporter — это один из самых популярных эксп�
 
 ### Основные метрики:
 
----
-
 #### **1. CPU и процессы**
 - `node_cpu_seconds_total` — общее время, проведенное процессором в каждом режиме (user, system, idle и т.д.).
 - `node_load1`, `node_load5`, `node_load15` — средняя загрузка системы за 1, 5 и 15 минут.
@@ -121,36 +119,3 @@ node_uname_info{domainname="(none)",machine="x86_64",nodename="server1",release=
 # TYPE node_hwmon_temp_celsius gauge
 node_hwmon_temp_celsius{chip="platform_coretemp_0",sensor="temp1"} 45.0
 ```
-
----
-
-### **Пример вывода `/metrics`**
-Вот как может выглядеть часть вывода на странице `/metrics`:
-```plaintext
-# HELP node_cpu_seconds_total Seconds the CPUs spent in each mode.
-# TYPE node_cpu_seconds_total counter
-node_cpu_seconds_total{cpu="0",mode="user"} 12345.67
-node_cpu_seconds_total{cpu="0",mode="system"} 2345.67
-
-# HELP node_memory_MemTotal_bytes Memory information field MemTotal_bytes.
-# TYPE node_memory_MemTotal_bytes gauge
-node_memory_MemTotal_bytes 8589934592
-
-# HELP node_filesystem_size_bytes Filesystem size in bytes.
-# TYPE node_filesystem_size_bytes gauge
-node_filesystem_size_bytes{device="/dev/sda1",fstype="ext4",mountpoint="/"} 10737418240
-
-# HELP node_network_receive_bytes_total Network device statistic receive_bytes.
-# TYPE node_network_receive_bytes_total counter
-node_network_receive_bytes_total{device="eth0"} 987654321
-```
-
----
-
-### **Как использовать?**
-1. Убедитесь, что Node Exporter запущен и доступен на порту по умолчанию (обычно `9100`).
-2. Перейдите по адресу `http://<IP-адрес-сервера>:9100/metrics`.
-3. Настройте Prometheus для сбора метрик с этого эндпоинта.
-4. Визуализируйте данные в Grafana.
-
-Node Exporter — это мощный инструмент для мониторинга состояния серверов, и его метрики охватывают практически все аспекты работы системы.
