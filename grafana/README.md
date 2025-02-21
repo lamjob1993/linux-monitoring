@@ -12,7 +12,7 @@
    - Подумайте, как сделать ссылку-переход с оригинального дашборда `Prometheus` на ваш дашборд
    - Перейдите на страницу `Prometheus` по адресу `/metrics` и дёрните оттуда 4 самые важные метрики на ваш взгляд (подсказка: ссылайтесь на [4 золотых сигнала](https://habr.com/ru/articles/747350/ "Набор метрик, которые Google рекомендует отслеживать в SRE (Site Reliability Engineering) подходе. Это latency, traffic, errors и saturation.")):
      - Попробуйте поискать на странице ключевые слова: `http`, `size`, `byte`, возможно это поможет
-     - Сделайте из метрик виджеты (подсказка: про типы метрик [читаем здесь](https://habr.com/ru/companies/tochka/articles/685636/ "Типы метрикю"))
+     - Сделайте из метрик виджеты (подсказка: про типы метрик [читаем здесь](https://habr.com/ru/companies/tochka/articles/685636/ "Типы метрик: Summary, Histogram, Gauge, Counter."))
      - Опишите их языком PromQL
    - Сохраните дашборд `prometheus_dashboard`
   
