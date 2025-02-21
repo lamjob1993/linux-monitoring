@@ -15,6 +15,8 @@
   - `namedprocess_namegroup_threads` — количество потоков.
   - `namedprocess_namegroup_states` — состояние процессов (например, running, sleeping, zombie).
 
+#### Пример вывода:
+
              # HELP namedprocess_namegroup_cpu_seconds_total CPU usage in seconds
              # TYPE namedprocess_namegroup_cpu_seconds_total counter
              namedprocess_namegroup_cpu_seconds_total{groupname="nginx"} 123.45
