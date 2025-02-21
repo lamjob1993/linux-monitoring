@@ -6,3 +6,15 @@
  - Вам нужно замониторить директорию с процессами `Linux` и вывести на дашборд
  - Скачайте дашборд `Process Exporter` предназначенный для `Prometheus` с сайта `Grafana Lab`
  - Подгрузите дашборд в `Grafana`, убедитесь, что он работает и сохраните
+
+Пример метрик:
+
+`namedprocess_namegroup_cpu_seconds_total — общее время использования CPU процессами.
+
+namedprocess_namegroup_memory_bytes — использование памяти процессами.
+
+namedprocess_namegroup_open_filedesc — количество открытых файловых дескрипторов.
+
+namedprocess_namegroup_threads — количество потоков.
+
+namedprocess_namegroup_states — состояние процессов (например, running, sleeping, zombie).`
