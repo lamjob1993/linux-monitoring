@@ -1,4 +1,4 @@
-## Blackbox Esporter
+## Blackbox Exporter
 
 Этот экспортер предназначен для мониторинга **HTTP** и **SSL**. 
  - Установите `Blackbox Exporter` в систему и натравите на него `Prometheus`
