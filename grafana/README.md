@@ -1,6 +1,6 @@
-## Grafana
+# Grafana
 
-### Frontend
+## Frontend
 
 От вас требуется поднять `Grafana` способом из раздела `Prometheus`. Можете модернизировать скрипт установщика `Prometheus`.
  - Далее прописываем поднятый `Prometheus`, как `Data Source` в настройках `Grafana`
