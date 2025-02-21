@@ -8,8 +8,8 @@
  - Подгрузите дашборд в `Grafana`, убедитесь, что он работает и сохраните
 
 Пример метрик:
-
-`namedprocess_namegroup_cpu_seconds_total — общее время использования CPU процессами.
+```
+namedprocess_namegroup_cpu_seconds_total — общее время использования CPU процессами.
 
 namedprocess_namegroup_memory_bytes — использование памяти процессами.
 
@@ -17,4 +17,5 @@ namedprocess_namegroup_open_filedesc — количество открытых �
 
 namedprocess_namegroup_threads — количество потоков.
 
-namedprocess_namegroup_states — состояние процессов (например, running, sleeping, zombie).`
+namedprocess_namegroup_states — состояние процессов (например, running, sleeping, zombie).
+```
