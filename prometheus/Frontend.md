@@ -1,8 +1,8 @@
-# Grafana
+# Prometheus
 
 ## Frontend
 
-От вас требуется поднять `Grafana` способом из раздела `Prometheus`. Можете модернизировать скрипт установщика `Prometheus`.
+Сначала поднимите `Grafana` способом из раздела [Prometheus Backend](https://github.com/lamjob1993/linux-monitoring/tree/main/grafana). Можете модернизировать скрипт установщика `Prometheus`.
  - Далее прописываем поднятый `Prometheus`, как `Data Source` в настройках `Grafana`
  - Качаем дашборд `Prometheus` в формате `JSON - откройте его в VS Code и посмотрите на структуру` с сайта `Grafana Lab` (подсказка: дашборд должен быть только для `Prometheus`)
  - Подгружаем дашборд и сохраняем в папку Grafana, не забываем в **настройках дашборда** выбрать `Prometheus`, как `Data Source` в `Grafana`
