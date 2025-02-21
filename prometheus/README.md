@@ -149,4 +149,4 @@
 
 ## Продолжение
 
-В разделе [Frontend](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Frontend.md "Переход в раздел Prometheus Frontend.")
+В разделе [Frontend](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Frontend.md "Переход в раздел Prometheus Frontend.").
