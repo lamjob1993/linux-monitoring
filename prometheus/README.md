@@ -147,6 +147,105 @@
 37. Далее подумать, как с помощью утилиты `SCP` перекинуть изначально скачанный архив `Prometheus` с тачки `А` на тачку `Б` (проделать миграцию):
     - Нужно иметь ввиду, что перекидывать архив нужно в директорию `/tmp` (прочитайте за что она отвечает)
 39. Далее скрипт на распаковку смигрированного архива и установку `Prometheus` мы писать не будем (действуем по аналогии с предыдущим пунктом), так как уже было написано достаточно скриптов для понимания их работы
+
+### Разбираемся с базовым функционалом Prometheus и базовыми операциями
+
+Вот подробное описание каждого из указанных компонентов Prometheus с примерами:
+
+1. Таргеты (Targets)
+
+Таргеты - это конечные точки, с которых Prometheus собирает метрики.
+
+Пример конфигурации в YAML:
+```yaml
+scrape_configs:
+  - job_name: 'node_exporter'
+    static_configs:
+      - targets: ['localhost:9100']
+        labels:
+          environment: 'production'
+          instance: 'server1'
+
+  - job_name: 'nginx'
+    static_configs:
+      - targets: ['192.168.1.1:9113', '192.168.1.2:9113']
+```
+
+2. Лэйблы (Labels)
+
+Лейблы - это ключевые пары метаданных, которые используются для идентификации и фильтрации метрик.
+
+Пример использования в PromQL:
+```promql
+# Выбор всех метрик node_cpu с конкретным экземпляром
+node_cpu{instance="server1", job="node_exporter"}
+
+# Группировка по среднему значению CPU для каждого экземпляра
+avg by(instance) (node_cpu)
+
+# Использование matchers
+node_memory_free > 1024 and node_memory_available < 512
+
+# Регулярные выражения
+up{job=~"api.*"}  # Все джобы, начинающиеся с "api"
+up{environment!~"dev|test"}  # Все кроме dev и test
+```
+
+3. Remote Read
+
+Remote Read позволяет Prometheus читать данные из удаленного хранилища.
+
+Пример конфигурации в YAML:
+```yaml
+remote_read:
+  - url: "http://remote-storage:8080/api/v1/read"
+    read_recent: true
+    remote_timeout: 30s
+    headers:
+      Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+4. Remote Write
+
+Remote Write используется для отправки собранных данных в удалённое хранилище.
+
+Пример конфигурации в YAML:
+```yaml
+remote_write:
+  - url: "http://remote-storage:8080/api/v1/write"
+    queue_config:
+      max_samples_per_send: 1000
+      batch_send_deadline: 30s
+    write_relabel_configs:
+      - source_labels: [__name__]
+        regex: 'node_.*'
+        action: keep
+    headers:
+      Authorization: Bearer YOUR_ACCESS_TOKEN
+```
+
+Дополнительные примеры использования лейблов в PromQL:
+
+```promql
+# Агрегация по нескольким лейблам
+sum by(instance, job) (http_requests_total)
+
+# Использование оператора without
+sum without(instance) (http_requests_total)
+
+# Пример использования label_replace
+label_replace(http_requests_total, "new_label", "$1", "old_label", "(.*)")
+
+# Пример использования rate с фильтрацией по лейблам
+rate(http_requests_total{method="GET", status="200"}[5m])
+```
+
+Обратите внимание на следующие важные моменты:
+
+- При использовании remote_read/write можно настроить аутентификацию через headers
+- Relabeling позволяет изменять или удалять лейблы перед отправкой/чтением
+- Многие операции в PromQL зависят от правильного использования лейблов
+- Можно использовать различные функции для работы с лейблами: label_join, label_replace и другие
     
 ## Выводы
 В банке эта задача (здесь она слегка модернизирована) была моим первым кейсом на должности разработчика мониторинга. На задачу мне дали максимум 3 дня. На третий день уже была миграция. **Мой уровень был**: умею создавать файлы, переходить в директории, запускаю скрипты (не пишу), знаю как сохранить файл и выйти из Vim, знаю как выставлять права на файлы и распаковываю архивы.
