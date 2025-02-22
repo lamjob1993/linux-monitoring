@@ -242,3 +242,65 @@
 
 9. **Pushgateway**  
    Промежуточный сервис для сбора метрик от задач с коротким сроком жизни (например, cron-задач).
+
+
+
+
+
+
+
+
+
+   ### Таблица 1: Соответствие четырех золотых сигналов и типов метрик Prometheus
+
+| Золотой сигнал | Описание | Тип метрики Prometheus | Пример использования |
+|----------------|----------|------------------------|----------------------|
+| **Latency** (Латентность) | Время отклика системы | `Histogram` или `Summary` | `http_request_duration_seconds` |
+| **Traffic** (Трафик) | Объем входящих запросов | `Counter` | `http_requests_total` |
+| **Errors** (Ошибки) | Количество ошибок | `Counter` | `http_requests_total{status_code=~"5.."} или http_errors_total` |
+| **Saturation** (Загрузка) | Уровень загруженности ресурсов | `Gauge` | `node_cpu_seconds_total`, `node_memory_MemTotal`, `node_filesystem_size` |
+
+---
+
+### Красивые варианты представления таблиц
+
+#### Таблица 2: Четыре золотых сигнала и их соответствие типам метрик
+
+| **Золотой сигнал** | **Тип метрики** | **Пример метрики** | **Пример запроса** |
+|--------------------|-----------------|---------------------|---------------------|
+| **Latency** | Histogram/Summary | `http_request_duration_seconds` | `histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))` |
+| **Traffic** | Counter | `http_requests_total` | `rate(http_requests_total[5m])` |
+| **Errors** | Counter | `http_requests_total{status_code=~"5.."}` | `sum(rate(http_requests_total{status_code=~"5.."}[5m]))` |
+| **Saturation** | Gauge | `node_cpu_seconds_total`, `node_memory_MemTotal` | `100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)` |
+
+---
+
+#### Таблица 3: Детализация четырех золотых сигналов с примерами запросов
+
+| **Золотой сигнал** | **Описание** | **Тип метрики** | **Пример метрики** | **Пример запроса** |
+|--------------------|--------------|------------------|---------------------|---------------------|
+| **Latency** | Время выполнения запросов | Histogram/Summary | `http_request_duration_seconds` | `histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))` |
+| **Traffic** | Объем трафика или количество запросов | Counter | `http_requests_total` | `rate(http_requests_total[5m])` |
+| **Errors** | Количество ошибочных запросов | Counter | `http_requests_total{status_code=~"5.."}` | `sum(rate(http_requests_total{status_code=~"5.."}[5m]))` |
+| **Saturation** | Уровень загрузки ресурсов (CPU, память, диск) | Gauge | `node_cpu_seconds_total`, `node_memory_MemTotal`, `node_filesystem_size` | `100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)` |
+
+---
+
+#### Таблица 4: Гибкая структура для анализа
+
+| **Золотой сигнал** | **Тип метрики** | **Пример метрики** | **Пример запроса** | **Дополнительные комментарии** |
+|--------------------|-----------------|---------------------|---------------------|--------------------------------|
+| **Latency** | Histogram/Summary | `http_request_duration_seconds` | `histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))` | Используется для расчета процентилей времени отклика |
+| **Traffic** | Counter | `http_requests_total` | `rate(http_requests_total[5m])` | Показывает общее количество запросов за определенный период |
+| **Errors** | Counter | `http_requests_total{status_code=~"5.."}` | `sum(rate(http_requests_total{status_code=~"5.."}[5m]))` | Фильтрует только ошибочные коды ответа (5xx) |
+| **Saturation** | Gauge | `node_cpu_seconds_total`, `node_memory_MemTotal` | `100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)` | Измеряет использование CPU, памяти, дискового пространства |
+
+---
+
+### Комментарий к таблицам:
+
+1. **Latency** обычно измеряется с помощью `Histogram` или `Summary`, так как они позволяют рассчитывать процентили.
+2. **Traffic** и **Errors** чаще всего используются с `Counter`, так как это счетчики событий.
+3. **Saturation** использует `Gauge`, так как показывает текущее состояние ресурсов (например, уровень загрузки CPU или использование памяти).
+
+Эти таблицы можно использовать для быстрого понимания того, какие типы метрик соответствуют каждому из четырех золотых сигналов, а также для создания запросов в Prometheus.
