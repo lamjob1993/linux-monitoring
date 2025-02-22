@@ -2,7 +2,7 @@
 
 ## Frontend
 
-От вас требуется поднять `Grafana` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/grafana):
+От вас требуется поднять `Grafana` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md):
  - Можете модернизировать скрипт установщика `Prometheus`
    - Логин и пароль: **admin** и **admin** по умолчанию 
  - Далее прописываем поднятый `Prometheus`, как `Data Source` в настройках `Grafana`
