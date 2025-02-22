@@ -131,7 +131,7 @@ git clone git@github.com:username/repository.git
 
 - Если вы столкнулись с ошибкой `Permission denied (publickey)`, проверьте, что ключ добавлен в SSH-агент и что вы скопировали **публичный ключ** в GitHub.
 
----
+
 
 ## Если Permission Denied и прочие ошибки
 
