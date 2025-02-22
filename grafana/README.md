@@ -15,7 +15,7 @@
    - Поменяйте скопированные виджеты на кастом варианты в настройках виджетов (поиграйте, как в песочнице)
    - Подумайте, как сделать ссылку-переход с оригинального дашборда `Prometheus` на ваш дашборд
   
- - На основе [изученного материала](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/README.md "Основные понятия Prometheus.") сделайте задания ниже:
+ - **На основе** [изученного материала](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/README.md "Основные понятия Prometheus.") сделайте задания ниже:
      - Перейдите на страницу `Prometheus` по адресу `/metrics` (это называется эндроинт) и дёрните оттуда 4 самые важные метрики на ваш взгляд (подсказка: ссылайтесь на [4 золотых сигнала](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/README.md "Это Latency, Traffic, Errors и Saturation."):
      - Попробуйте поискать на странице ключевые слова: `http`, `size`, `byte`, возможно это поможет
      - Сделайте из метрик простейшие виджеты (подсказка: про типы метрик [читаем здесь](https://habr.com/ru/companies/tochka/articles/685636/ "Типы метрик: Summary, Histogram, Gauge, Counter."))
