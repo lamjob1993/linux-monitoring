@@ -1,6 +1,6 @@
-## Разберём конфигурацию **Prometheus**:ё
+## Разберём конфигурацию Prometheus:
 
-**Node Exporter**, **Process Exporter**, **Blackbox Exporter**, **Alertmanager**, **remote read/write** и **relabel config**. Я добавлю комментарии к каждой строке, чтобы объяснить, что она делает.
+**Node Exporter**, **Process Exporter**, **Blackbox Exporter**, **Alertmanager**, **remote read/write** и **relabel config**.
 
 ---
 
