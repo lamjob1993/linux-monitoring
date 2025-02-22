@@ -26,7 +26,7 @@
 - В правом верхнем углу страницы репозитория найдите кнопку **Fork** (она выглядит как значок с двумя стрелками).
 - Нажмите на эту кнопку.
 
-  ![Fork Button](https://docs.github.com/assets/images/help/repository/fork_button.jpg)
+  ![Fork Button](https://avatars.mds.yandex.net/i?id=b8e311658f5682f0faad36f61a135195_l-5319497-images-thumbs&n=13)
 
 - Если вы состоите в нескольких организациях, GitHub попросит вас выбрать, куда сделать форк (в ваш личный аккаунт или в организацию).
 
