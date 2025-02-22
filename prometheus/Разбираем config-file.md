@@ -1,4 +1,4 @@
-Разберём конфигурацию Prometheus, включая настройки для **Node Exporter**, **Process Exporter**, **Blackbox Exporter**, **Alertmanager**, **remote read/write** и **relabel config**. Я добавлю комментарии к каждой строке, чтобы объяснить, что она делает.
+Разберём конфигурацию **Prometheus**: **Node Exporter**, **Process Exporter**, **Blackbox Exporter**, **Alertmanager**, **remote read/write** и **relabel config**. Я добавлю комментарии к каждой строке, чтобы объяснить, что она делает.
 
 ---
 
