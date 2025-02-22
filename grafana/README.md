@@ -32,7 +32,7 @@
 
 ---
 
-1. Latency (Латентность / Время отклика)
+1. **Latency** (Латентность / Время отклика)
 
 Используя Histogram:
 ```promql
@@ -44,7 +44,7 @@ avg(rate(http_request_duration_seconds_sum[5m])
     / rate(http_request_duration_seconds_count[5m]))
 ```
 
-2. Traffic (Трафик / Объем запросов)
+2. **Traffic** (Трафик / Объем запросов)
 ```promql
 # Общий объем запросов
 rate(http_requests_total[5m])
@@ -56,7 +56,7 @@ sum(rate(http_requests_total[5m])) by (method)
 sum(rate(http_requests_total[5m])) by (status_code)
 ```
 
-3. Errors (Ошибки)
+3. **Errors** (Ошибки)
 ```promql
 # Общее количество ошибок
 sum(rate(http_requests_total{status_code=~"5.."}[5m]))
@@ -70,7 +70,7 @@ sum(rate(http_requests_total{status_code=~"5.."}[5m]))
 sum(rate(http_requests_total{status_code=~"5.."}[5m])) by (method)
 ```
 
-4. Saturation (Нагрузка / Заполненность)
+4. **Saturation** (Нагрузка / Заполненность)
 
 Для CPU:
 ```promql
