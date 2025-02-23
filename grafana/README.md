@@ -1,6 +1,6 @@
 # Grafana
 
-## Frontend
+## Task
 
 #### [Примеры дашбордов](https://play.grafana.org/dashboards)
 
