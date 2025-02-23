@@ -1,5 +1,5 @@
 ## Blackbox Exporter
-
+#### [Пример дашборда](https://play.grafana.org/d/NEzutrbMk/blackbox-exporter-http-prober?orgId=1&from=now-6h&to=now&timezone=utc&var-job=$__all&var-instance=$__all&refresh=1m)
 Используется для проверки доступности и работоспособности внешних сервисов (например, **HTTP**, **TCP**, **ICMP**, **DNS** и т.д.). На странице `/metrics` будут отображаться метрики, связанные с результатами этих проверок.
 
  - Установите `Blackbox Exporter` в систему и натравите на него `Prometheus`
