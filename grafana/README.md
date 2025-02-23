@@ -1,7 +1,5 @@
 # Grafana
 
-## Task
-
 #### [Примеры дашбордов](https://play.grafana.org/dashboards)
 
 **От вас требуется поднять** `Grafana` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md):
