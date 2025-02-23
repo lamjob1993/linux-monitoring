@@ -22,7 +22,7 @@
 ### 2. **Метки (Labels) в Prometheus**
 Метки — это ключ-значение, добавляемые к метрикам. Они позволяют группировать и фильтровать данные.
 
-#### Как добавить метки:
+#### Как добавить лейблы:
 1. **В конфигурации Prometheus** (`prometheus.yml`):
    ```yaml
    scrape_configs:
@@ -30,7 +30,7 @@
        static_configs:
          - targets: ['localhost:9090']
        labels:
-         region: 'europe'  # Добавляет метку `region="europe"` ко всем метрикам этого job.
+         region: 'europe'  # Добавляет лейбл `region="europe"` ко всем метрикам этого job.
    ```
 2. **Через relabel_configs** (более гибко):
    ```yaml
@@ -39,8 +39,8 @@
        target_label: instance
    ```
 
-#### Пример метрики с метками:
-Метрика `http_requests_total` с метками:
+#### Пример метрики с лейблами:
+Метрика `http_requests_total` с лейблами:
 ```
 http_requests_total{method="GET", endpoint="/api", status="200"} 100
 http_requests_total{method="POST", endpoint="/api", status="500"} 5
@@ -48,31 +48,31 @@ http_requests_total{method="POST", endpoint="/api", status="500"} 5
 
 ---
 
-### 3. **Как метки отображаются в Grafana**
+### 3. **Как лейблы отображаются в Grafana**
 1. **В интерфейсе запросов**:
-   - При написании PromQL-запроса, метки доступны для фильтрации:
+   - При написании PromQL-запроса, лейблы доступны для фильтрации:
      ```
      rate(http_requests_total{instance="$instance", job="my_job"}[5m])
      ```
-   - В легенде графика можно использовать шаблоны меток: `{{method}} - {{endpoint}}`.
+   - В легенде графика можно использовать шаблоны лейблов: `{{method}} - {{endpoint}}`.
 
 2. **В переменных**:
-   - Используйте `label_values(<метрика>, <метка>)` для получения значений:
+   - Используйте `label_values(<метрика>, <лейбл>)` для получения значений:
      ```
      label_values(http_requests_total, endpoint)  # Вернет ["/api", ...]
      ```
 
 ---
 
-### 4. **Как метки становятся частью метрики**
-- Каждая уникальная комбинация меток создает отдельный временной ряд.
+### 4. **Как лейблы становятся частью метрики**
+- Каждая уникальная комбинация лейблов создает отдельный временной ряд.
 - Например, `http_requests_total{method="GET"}` и `http_requests_total{method="POST"}` — это два разных ряда.
-- **Важно**: Избегайте высокой кардинальности (уникальных комбинаций меток), чтобы не перегружать Prometheus.
+- **Важно**: Избегайте высокой кардинальности (уникальных комбинаций лейблов), чтобы не перегружать Prometheus.
 
 ---
 
 ### 5. **Пошаговый пример**
-#### Шаг 1: Добавьте метки в Prometheus
+#### Шаг 1: Добавьте лейблы в Prometheus
 ```yaml
 # prometheus.yml
 scrape_configs:
@@ -81,11 +81,11 @@ scrape_configs:
       - targets: ['node1:9100']
     relabel_configs:
       - source_labels: [__address__]
-        target_label: instance  # Добавляет метку `instance="node1:9100"`
+        target_label: instance  # Добавляет лейбл `instance="node1:9100"`
 ```
 
 #### Шаг 2: Убедитесь, что метки есть в Prometheus
-Перейдите в Prometheus → **Graph** → выполните запрос `up{job="node_exporter"}`. Должна отображаться метка `instance`.
+Перейдите в Prometheus → **Graph** → выполните запрос `up{job="node_exporter"}`. Должен отображаться лейбл `instance`.
 
 #### Шаг 3: Создайте переменную в Grafana
 - **Name**: `instance`
