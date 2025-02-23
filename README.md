@@ -11,11 +11,11 @@
       - [Сделайте форк](https://github.com/lamjob1993/linux-monitoring/blob/main/%D0%A4%D0%BE%D1%80%D0%BA%20%D0%B2%20GitHub.md) репозитория [linux-monitoring](https://github.com/lamjob1993/linux-monitoring/tree/main)
       - Далее сделайте клон репозитория себе на локальный ПК
       - Создайте любой текстовый файл в корневой директории клона для теста и сделайте первый пуш
-  2. Открываем директорию `prometheus` -> `README.md` -> `Backend.md` -> `config_file.md`
-  3. Открываем директорию `grafana` -> `README.md` -> `tasks.md`
-  4. Открываем директорию `node-exporter` -> `README.md`
-  5. Открываем директорию `process-exporter` -> `README.md`
-  6. Открываекм директорию `blackbox-exporter` -> `README.md`
+  2. Открываем директорию `prometheus` → `README.md` → `Backend.md` → `config_file.md`
+  3. Открываем директорию `grafana` → `README.md` → `tasks.md`
+  4. Открываем директорию `node-exporter` → `README.md`
+  5. Открываем директорию `process-exporter` → `README.md`
+  6. Открываекм директорию `blackbox-exporter` → `README.md`
   7. После исполнения всех пунктов полностью настройте бэкенд мониторинга и дашборды для всех экспортеров:
       - Натравите `Prometheus` на все экспортеры, написав конфиг файл, и замониторьте ваш сервер (вашу тачку) в `Grafana`
       - Сделайте один глобальный дашборд, который называется `Monitoring_Global` со ссылками на мониторинг ваших дашбордов и подумайте над визуалом странички этого дашборда, можно красиво вывести слева ссылку на дашборд, а справа маленький превью-виджет:
