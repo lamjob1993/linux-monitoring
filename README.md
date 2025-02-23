@@ -11,7 +11,7 @@
       - Далее сделайте клон репозитория себе на локальный ПК
       - Создайте любой текстовый файл в корневой директории клона и сделайте первый пуш
   2. Открываем директорию `prometheus` -> `README.md` -> `Backend.md` -> `config_file.md`
-  3. Открываем директорию `grafana` -> `README.md` --> `tasks.md`
+  3. Открываем директорию `grafana` -> `README.md` -> `tasks.md`
   4. Открываем директорию `process-exporter` -> `README.md`
   5. Открываекм директорию `blackbox-exporter` -> `README.md`
   6. Открываем директорию `node-exporter` -> `README.md`
