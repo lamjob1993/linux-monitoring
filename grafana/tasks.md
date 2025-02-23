@@ -17,8 +17,8 @@
    - Поменяйте скопированные виджеты на кастом варианты в настройках виджетов (поиграйте, как в песочнице)
    - Сделайте ссылку-переход с оригинального дашборда `Prometheus` на ваш дашборд
   
-**На основе** [изученного материала](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/README.md "Основные понятия Prometheus.") сделайте задания ниже:
-     
+**На основе** [изученного материала](https://github.com/lamjob1993/linux-monitoring/blob/main/grafana/README.md "Строим визуал: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
+") сделайте задания ниже:
    - Перейдите на страницу `Prometheus` по адресу `/metrics` (это называется эндроинт)
    - Найдите **4 золотых сигнала** в списке метрик
    - Выведите метрики на дашборд и нарисуйте виджеты
