@@ -1,10 +1,8 @@
 # Grafana
 
 ## Строим визуал
-## Процедура связки: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
-
 ## Разберем основные разделы перед тем как строить визуал
-
+### Процедура связки: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
 ### 1. **Переменные в Grafana**
 Переменные позволяют динамически менять параметры дашборда (например, фильтровать данные по метке `instance` или `job`).
 
