@@ -12,9 +12,9 @@
       - Создайте любой текстовый файл в корневой директории клона и сделайте первый пуш
   2. Открываем директорию `prometheus` -> `README.md` -> `Backend.md` -> `config_file.md`
   3. Открываем директорию `grafana` -> `README.md` -> `tasks.md`
-  4. Открываем директорию `process-exporter` -> `README.md`
-  5. Открываекм директорию `blackbox-exporter` -> `README.md`
-  6. Открываем директорию `node-exporter` -> `README.md`
+  4. Открываем директорию `node-exporter` -> `README.md`
+  5. Открываем директорию `process-exporter` -> `README.md`
+  6. Открываекм директорию `blackbox-exporter` -> `README.md`
   7. После исполнения всех пунктов полностью настройте бэкенд мониторинга и дашборды для всех экспортеров:
       - Натравите `Prometheus` на все экспортеры и замониторьте ваш сервер (ваша тачка) в `Grafana`
 
