@@ -3,7 +3,8 @@
 
 #### [Примеры дашбордов](https://play.grafana.org/dashboards)
 ---
-**От вас требуется поднять** `Grafana` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md):
+**От вас требуется поднять** `Grafana` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
+"):
  - Можете модернизировать скрипт установщика `Prometheus`
  - Логин и пароль `Grafana`: **admin** и **admin** по умолчанию 
  - Далее прописываем поднятый `Prometheus`, как `Data Source` в настройках `Grafana`
