@@ -1,6 +1,8 @@
 # Grafana
 
-## Процедура связки Prometheus + Grafana, чтобы увидеть метрики 
+## Строим визуал. Процедура связки: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (metrics).
+
+### Разберем основные пункты перед сборкой 
 
 ### 1. **Переменные в Grafana**
 Переменные позволяют динамически менять параметры дашборда (например, фильтровать данные по метке `instance` или `job`).
@@ -23,7 +25,7 @@
 
 ---
 
-### 2. **Метки (Labels) в Prometheus**
+### 2. **Лейблы (метки) в Prometheus**
 Метки — это ключ-значение, добавляемые к метрикам. Они позволяют группировать и фильтровать данные.
 
 #### Как добавить лейблы:
@@ -82,10 +84,10 @@ http_requests_total{method="POST", endpoint="/api", status="500"} 5
 scrape_configs:
   - job_name: 'node_exporter'
     static_configs:
-      - targets: ['node1:9100']
+      - targets: ['host_name:9100']
     relabel_configs:
       - source_labels: [__address__]
-        target_label: instance  # Добавляет лейбл `instance="node1:9100"`
+        target_label: instance  # Добавляет лейбл `instance="host_name:9100"`
 ```
 
 #### Шаг 2: Убедитесь, что метки есть в Prometheus
