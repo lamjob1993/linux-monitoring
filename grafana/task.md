@@ -1,8 +1,6 @@
 # Grafana
 
-## Строим визуал
-
-### Процедура связки: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
+## Строим визуал: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
 
 ### Разберем основные разделы перед тем как строить визуал
 
