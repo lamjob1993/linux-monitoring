@@ -80,7 +80,7 @@ http_requests_total{method="POST", endpoint="/api", status="500"} 5
 ---
 
 ## Собираем воедино все разделы и строим визуал
-#### Шаг 1: Добавьте лейблы в Prometheus
+#### 1: Добавьте лейблы в Prometheus
 ```yaml
 # prometheus.yml
 scrape_configs:
@@ -92,15 +92,15 @@ scrape_configs:
         target_label: instance  # Добавляет лейбл `instance="host_name:9100"`
 ```
 
-#### Шаг 2: Убедитесь, что метки есть в Prometheus
+#### 2: Убедитесь, что метки есть в Prometheus
 Перейдите в Prometheus → **Graph** → выполните запрос `up{job="node_exporter"}`. Должен отображаться лейбл `instance`.
 
-#### Шаг 3: Создайте переменную в Grafana
+#### 3: Создайте переменную в Grafana
 - **Name**: `instance`
 - **Type**: **Query**
 - **Query**: `label_values(up{job="node_exporter"}, instance)`
 
-#### Шаг 4: Используйте переменную в дашборде
+#### 4: Используйте переменную в дашборде
 Создайте график с запросом:
 ```
 rate(node_cpu_seconds_total{instance="$instance", job="node_exporter"}[5m])
@@ -108,7 +108,7 @@ rate(node_cpu_seconds_total{instance="$instance", job="node_exporter"}[5m])
 
 ---
 
-### 6. **Best Practices**
+### **Best Practices**
 - Используйте метки для логической группировки (например, `env="prod"`, `team="backend"`).
 - Не создавайте метки с уникальными значениями (например, ID пользователя).
 - В Grafana используйте `$<variable_name>` для подстановки значений в запросы.
