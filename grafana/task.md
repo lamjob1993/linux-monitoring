@@ -79,7 +79,7 @@ http_requests_total{method="POST", endpoint="/api", status="500"} 5
 
 ---
 
-### Собираем воедино все разделы и строим визуал
+## Собираем воедино все разделы и строим визуал
 #### Шаг 1: Добавьте лейблы в Prometheus
 ```yaml
 # prometheus.yml
