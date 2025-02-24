@@ -1,4 +1,4 @@
-# Настройка и запуск Alertmanager для Prometheus
+## Настройка и запуск Alertmanager для Prometheus
 
 ### 1. **Установка Alertmanager**
 
