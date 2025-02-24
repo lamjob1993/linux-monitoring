@@ -191,7 +191,3 @@ sudo systemctl daemon-reload
 sudo systemctl start alertmanager
 sudo systemctl enable alertmanager
 ```
-
----
-
-Теперь ваша система мониторинга с Prometheus и Alertmanager полностью настроена!
