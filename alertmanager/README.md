@@ -34,21 +34,21 @@ Alertmanager использует файл конфигурации `alertmanage
 
 ```yaml
 global:
-  resolve_timeout: 5m
+  resolve_timeout: 5m           # Время, через которое оповещение считается "разрешенным"
 
 route:
-  group_by: ['alertname']
-  group_wait: 30s
-  group_interval: 5m
-  repeat_interval: 1h
-  receiver: 'default-receiver'
+  group_by: ['alertname']       # Группировка оповещений по имени
+  group_wait: 30s               # Время ожидания перед отправкой первой группы
+  group_interval: 5m            # Интервал между отправками новых групп
+  repeat_interval: 1h           # Интервал повторной отправки оповещений
+  receiver: 'default-receiver'  # Получатель оповещений 
 
 receivers:
   - name: 'default-receiver'
     slack_configs:
       - api_url: 'https://hooks.slack.com/services/XXX/YYYYY/ZZZZZ' # URL вебхука Slack
         channel: '#alerts' # Канал в Slack
-        send_resolved: true
+        send_resolved: true     # Отправлять уведомления о разрешении проблемы
 
 inhibit_rules:
   - source_match:
