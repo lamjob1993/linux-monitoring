@@ -1,9 +1,9 @@
 # Node Exporter
 ## Tasks
 
- - От вас требуется поднять `Node Exporter` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
+ - От вас требуется поднять `Node Exporter` частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
 ")
- - Можете модернизировать скрипт установщика `Prometheus`
+ - При этом упростите установку `Node Exporter` - после распаковки архива сделайте директорию распаковки рабочей сразу, чтобы не повторять шаги способом установки `Prometheus`
  - Натравите на него `Prometheus`
  - Перейдите на страницу `/metrics` и удостоверьтесь, что экспортер поднялся
    - Либо используйте `curl` в терминале: `curl -k https://localhost:9100/metrics`
