@@ -135,7 +135,7 @@ groups:
 
 ```yaml
 rule_files:
-  - "/etc/prometheus/rules/*.rules.yml"
+  - "/etc/prometheus/rules/*.rules.yml"   # Файл с правилами оповещений
 ```
 
 Перезапустите Prometheus:
