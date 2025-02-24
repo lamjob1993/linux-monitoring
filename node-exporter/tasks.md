@@ -1,6 +1,7 @@
 ## Node Exporter
 
- - От вас требуется поднять `Node Exporter` способом из раздела `Prometheus`
+ - От вас требуется поднять `Node Exporter` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
+")
  - Можете модернизировать скрипт установщика `Prometheus`
  - Натравите на него `Prometheus`
  - Перейдите на страницу `/metrics` и удостоверьтесь, что экспортер поднялся
