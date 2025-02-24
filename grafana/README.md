@@ -27,6 +27,8 @@ Grafana — это открытая платформа для анализа и 
 
 ---
 
+
+
 ## Строим визуал: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
 
 ### Разберем основные разделы перед тем как строить визуал
