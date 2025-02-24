@@ -1,4 +1,6 @@
-## Разберём конфигурацию Prometheus:
+# Prometheus
+
+## Разберём конфигурацию
 
 Разбор конфига для связки: **Node Exporter**, **Process Exporter**, **Blackbox Exporter**, **Alertmanager**, **remote read/write** и **relabel config**.
 
