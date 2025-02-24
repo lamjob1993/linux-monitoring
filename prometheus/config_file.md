@@ -26,11 +26,11 @@ rule_files:
 
 # Настройки remote read/write.
 remote_write:
-  - url: 'http://remote-storage:8086/write'  # Куда отправлять метрики (например, в Thanos или Cortex).
+  - url: 'http://remote-storage:8086/write'  # Куда отправлять метрики (например, в Thanos, Cortex или Mimir).
     queue_config:
       capacity: 10000  # Максимальное количество метрик в очереди.
 remote_read:
-  - url: 'http://remote-storage:8086/read'  # Откуда читать метрики (например, из Thanos или Cortex).
+  - url: 'http://remote-storage:8086/read'  # Откуда читать метрики (например, из Thanos, Cortex или Mimir).
 
 # Конфигурация сбора метрик (scrape_configs).
 scrape_configs:
