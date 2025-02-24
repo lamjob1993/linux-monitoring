@@ -102,7 +102,7 @@ scrape_configs:
   ```
 
 #### **4. `remote_write` и `remote_read`**
-- **`remote_write`**: Куда отправлять метрики (например, в Thanos, Cortex или другой удалённый storage).
+- **`remote_write`**: Куда отправлять метрики (например, в Mimir, Thanos, Cortex или другой удалённый storage).
 - **`remote_read`**: Откуда читать метрики (например, из удалённого хранилища).
 
 #### **5. `scrape_configs`**
