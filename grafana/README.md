@@ -82,9 +82,9 @@ http_requests_total{method="POST", endpoint="/api", status="500"} 5
 ```yaml
 # prometheus.yml
 scrape_configs:
-  - job_name: 'node_exporter'         # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте он мониторит сам себя
+  - job_name: 'node_exporter'         # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте Prometheus умеет мониторить сам себя
     static_configs:
-      - targets: ['host_name:9100']   # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте он мониторит сам себя
+      - targets: ['host_name:9100']   # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте Prometheus умеет мониторить сам себя
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance        # Добавляет лейбл `instance="host_name:9100"`
