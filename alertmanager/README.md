@@ -1,0 +1,199 @@
+Настройка и запуск Alertmanager для Prometheus — это важный шаг в создании системы мониторинга, которая позволяет эффективно управлять оповещениями. Ниже приведен пошаговый процесс настройки и запуска Alertmanager.
+
+---
+
+### 1. **Установка Alertmanager**
+
+#### a) Скачайте и установите Alertmanager:
+Вы можете скачать последнюю версию Alertmanager с официального сайта [Prometheus](https://prometheus.io/download/).
+
+```bash
+# Создайте директорию для Alertmanager
+mkdir -p /opt/alertmanager
+
+# Скачайте бинарник (замените версию на актуальную)
+wget https://github.com/prometheus/alertmanager/releases/download/v0.26.0/alertmanager-0.26.0.linux-amd64.tar.gz
+
+# Распакуйте архив
+tar xvf alertmanager-0.26.0.linux-amd64.tar.gz -C /opt/alertmanager
+
+# Переименуйте директорию для удобства
+mv /opt/alertmanager/alertmanager-0.26.0.linux-amd64 /opt/alertmanager/bin
+
+# Добавьте исполняемые права
+chmod +x /opt/alertmanager/bin/alertmanager
+```
+
+---
+
+### 2. **Создание конфигурационного файла Alertmanager**
+
+Alertmanager использует файл конфигурации `alertmanager.yml`, где вы можете настроить способы отправки уведомлений (например, через email, Slack, webhook и т.д.).
+
+#### Пример базового конфигурационного файла:
+
+Создайте файл `/opt/alertmanager/alertmanager.yml` со следующим содержимым:
+
+```yaml
+global:
+  resolve_timeout: 5m
+
+route:
+  group_by: ['alertname']
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 1h
+  receiver: 'default-receiver'
+
+receivers:
+  - name: 'default-receiver'
+    slack_configs:
+      - api_url: 'https://hooks.slack.com/services/XXX/YYYYY/ZZZZZ' # URL вебхука Slack
+        channel: '#alerts' # Канал в Slack
+        send_resolved: true
+
+inhibit_rules:
+  - source_match:
+      severity: 'critical'
+    target_match:
+      severity: 'warning'
+    equal: ['alertname', 'dev', 'instance']
+```
+
+**Объяснение параметров:**
+- `resolve_timeout`: Время, через которое считается, что инцидент решен.
+- `route`: Описывает логику маршрутизации уведомлений.
+- `receivers`: Описывает методы отправки уведомлений.
+- `inhibit_rules`: Правила подавления дублирующихся или менее важных алертов.
+
+> **Примечание:** Если вы хотите использовать другие каналы уведомлений (например, email), добавьте соответствующие секции в `receivers`.
+
+---
+
+### 3. **Запуск Alertmanager**
+
+Запустите Alertmanager из командной строки:
+
+```bash
+/opt/alertmanager/bin/alertmanager --config.file=/opt/alertmanager/alertmanager.yml
+```
+
+Проверьте, что Alertmanager работает, открыв его веб-интерфейс по адресу:  
+[http://localhost:9093](http://localhost:9093)
+
+Если все настроено правильно, вы увидите интерфейс Alertmanager.
+
+---
+
+### 4. **Интеграция Alertmanager с Prometheus**
+
+Чтобы Prometheus мог отправлять алерты в Alertmanager, нужно настроить его конфигурацию.
+
+#### Настройка `prometheus.yml`:
+
+Откройте файл конфигурации Prometheus (`prometheus.yml`) и добавьте секцию `alerting`:
+
+```yaml
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - localhost:9093 # Адрес вашего Alertmanager
+```
+
+> **Важно:** Убедитесь, что порт `9093` открыт и доступен для Prometheus.
+
+#### Перезапустите Prometheus:
+
+```bash
+systemctl restart prometheus
+```
+
+---
+
+### 5. **Создание правил алертов в Prometheus**
+
+Чтобы создать правила алертов, добавьте их в файл конфигурации Prometheus (`prometheus.yml`) или поместите в отдельную директорию.
+
+#### Пример правила алерта:
+
+Создайте файл `/etc/prometheus/rules/example.rules.yml`:
+
+```yaml
+groups:
+  - name: example
+    rules:
+      - alert: HighCPUUsage
+        expr: 100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU usage on {{ $labels.instance }}"
+          description: "CPU usage is above 80% for more than 5 minutes."
+```
+
+Добавьте ссылку на этот файл в `prometheus.yml`:
+
+```yaml
+rule_files:
+  - "/etc/prometheus/rules/*.rules.yml"
+```
+
+Перезапустите Prometheus:
+
+```bash
+systemctl restart prometheus
+```
+
+---
+
+### 6. **Тестирование алертов**
+
+Чтобы проверить работу алертов:
+1. Загрузите метрики в Prometheus так, чтобы они триггерили правило (например, искусственно увеличьте нагрузку на CPU).
+2. Проверьте статус алертов в веб-интерфейсе Alertmanager ([http://localhost:9093](http://localhost:9093)).
+3. Убедитесь, что уведомление пришло на указанный канал (Slack, email и т.д.).
+
+---
+
+### 7. **Настройка автозапуска Alertmanager**
+
+Для удобства можно настроить автозапуск Alertmanager с помощью systemd.
+
+#### Создайте файл службы:
+
+```bash
+sudo nano /etc/systemd/system/alertmanager.service
+```
+
+Добавьте следующее содержимое:
+
+```ini
+[Unit]
+Description=Alertmanager
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+User=prometheus
+Group=prometheus
+Type=simple
+ExecStart=/opt/alertmanager/bin/alertmanager --config.file=/opt/alertmanager/alertmanager.yml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+```
+
+#### Перезагрузите systemd и запустите службу:
+
+```bash
+sudo systemctl daemon-reload
+sudo systemctl start alertmanager
+sudo systemctl enable alertmanager
+```
+
+---
+
+Теперь ваша система мониторинга с Prometheus и Alertmanager полностью настроена!
