@@ -5,7 +5,7 @@ Alertmanager — это компонент экосистемы Prometheus, пр
 ### 1. **Установка Alertmanager**
 
 #### a) Скачайте и установите Alertmanager:
-Вы можете скачать последнюю версию Alertmanager с официального сайта [Prometheus](https://prometheus.io/download/).
+Вы можете скачать последнюю версию Alertmanager с официального сайта [Prometheus](https://prometheus.io/download/) (директории указаны условно - имеем это ввиду, так что распаковку производим в вашу рабочую директорию).
 
 ```bash
 # Создайте директорию для Alertmanager
