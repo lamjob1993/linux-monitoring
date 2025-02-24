@@ -87,7 +87,7 @@ scrape_configs:
       - targets: ['host_name:9100']   # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте он мониторит сам себя
     relabel_configs:
       - source_labels: [__address__]
-        target_label: instance  # Добавляет лейбл `instance="host_name:9100"`
+        target_label: instance        # Добавляет лейбл `instance="host_name:9100"`
 ```
 
 ### 2: Убедитесь, что метки есть в Prometheus
