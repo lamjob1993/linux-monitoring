@@ -4,7 +4,6 @@ Grafana — это открытая платформа для анализа и 
 
 ---
 
-Схематичное изображение
 <img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/5e1/96a/e93/5e196ae934aec8a537e57e8aef97c1fa.png" alt="Нажмите на эту кнопку." width="500" />
 
 ---
