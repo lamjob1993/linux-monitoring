@@ -3,7 +3,7 @@
 
 #### [Примеры дашбордов](https://play.grafana.org/dashboards)
 ---
-**От вас требуется поднять** `Grafana` способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
+**От вас требуется поднять** `Grafana` частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
 "):
  - Включите VPN на хостовой машине перед скачиванием `Grafana`, чтобы виртуалка подхватила загрузку (серверы Grafana заблокировали на территории РФ)
  - При этом упростите установку `Grafana` - после распаковки архива сделайте директорию распаковки рабочей сразу, чтобы не повторять шаги способом установки `Prometheus`
