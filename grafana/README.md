@@ -28,7 +28,7 @@ Grafana — это открытая платформа для анализа и 
 ---
 
 
-## Как строится визуал в Grafana пошагово: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
+## Как строить визуал в Grafana пошагово: Grafana (Frontend GUI) + Prometheus (Backend) + Node Exporter (Metrics)
 
 ### Разберем основные разделы перед тем как строить визуал
 
@@ -118,7 +118,7 @@ scrape_configs:
         target_label: instance        # Добавляет лейбл `instance="host_name:9100"`
 ```
 
-### 2: Убедитесь, что метки есть в Prometheus
+### 2: Убедитесь, что лейблы есть в Prometheus
 Перейдите в Prometheus → **Graph** → выполните запрос `up{job="node_exporter"}`. Должен отображаться лейбл `instance`.
 
 ### 3: Создайте переменную в Grafana
