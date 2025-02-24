@@ -36,7 +36,7 @@
        static_configs:
          - targets: ['localhost:9090']
        labels:
-         region: 'europe'  # Добавляет лейбл `region="europe"` ко всем метрикам этого job.
+         env: 'prod'  # Добавляет лейбл `env="prod"` ко всем метрикам этого job.
    ```
 2. **Через relabel_configs** (более гибко):
    ```yaml
