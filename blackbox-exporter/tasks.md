@@ -1,6 +1,6 @@
-# Exporters
+# Blackbox Exporter
 
-## Blckbox Exporter
+## Tasks
 
  - Установите `Blackbox Exporter` в систему и натравите на него `Prometheus`
  - Подумайте, как настроить конфиг экспортера (подсказка: возможно правильный конфиг нужен не один?)
