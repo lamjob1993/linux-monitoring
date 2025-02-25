@@ -1,1 +1,95 @@
+1. **Четыре золотых сигнала (Four Golden Signals)**:
+   [Четыре золотых сигнала](https://play.grafana.org/d/000000109/the-four-golden-signals?orgId=1&from=now-12h&to=now&timezone=browser) — это набор метрик, предложенный Google для мониторинга производительности и здоровья распределённых систем. Они помогают быстро выявлять проблемы и обеспечивать стабильность работы приложений. Эти сигналы включают:
 
+   1. **Latency** (Задержка / Время отклика)
+
+        - Время, которое требуется для обработки запроса.
+        - Важно измерять как успешные, так и неудачные запросы.
+        - Пример: 95-й перцентиль времени ответа API.
+
+         **Запросы**
+         
+         Используя Histogram:
+         ```promql
+         # 95-й процентиль латентности
+         histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
+         
+         # Среднее время отклика
+         avg(rate(http_request_duration_seconds_sum[5m]) 
+             / rate(http_request_duration_seconds_count[5m]))
+         ```
+   
+   2. **Traffic** (Трафик / Объем запросов)
+      
+       - Объём запросов, которые обрабатывает система.
+       - Отражает нагрузку на систему.
+       - Пример: количество HTTP-запросов в секунду.
+
+         **Запросы**
+      
+         ```promql
+         # Общий объем запросов
+         rate(http_requests_total[5m])
+         
+         # По HTTP методам
+         sum(rate(http_requests_total[5m])) by (method)
+         
+         # По кодам ответов
+         sum(rate(http_requests_total[5m])) by (status_code)
+         ```
+   
+   3. **Errors** (Ошибки)
+
+      - Частота ошибок в системе.
+      - Включает явные ошибки (например, HTTP 500) и некорректные ответы (например, неверные данные).
+      - Пример: процент ошибок от общего числа запросов.
+        
+         **Запросы**
+           
+         ```promql
+         # Общее количество ошибок
+         sum(rate(http_requests_total{status_code=~"5.."}[5m]))
+         
+         # Процент ошибок (Error Budget)
+         (sum(rate(http_requests_total{status_code=~"5.."}[5m]))
+          /
+          sum(rate(http_requests_total[5m]))) * 100
+         
+         # Ошибки по методам
+         sum(rate(http_requests_total{status_code=~"5.."}[5m])) by (method)
+         ```
+   
+   4. **Saturation** (Нагрузка / Заполненность)
+
+      - Степень загруженности ресурсов системы (CPU, память, диски, сеть).
+      - Показывает, насколько система близка к пределу своих возможностей.
+      - Пример: использование CPU выше 80%.
+
+         Для CPU:
+         ```promql
+         # Использование CPU
+         100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+         
+         # Средняя загрузка CPU
+         avg(node_load1) by (instance)
+         ```
+         
+         Для памяти:
+         ```promql
+         # Использование памяти
+         (node_memory_MemTotal - node_memory_MemFree - node_memory_Buffers - node_memory_Cached)
+         / node_memory_MemTotal * 100
+         ```
+         
+         Для дискового пространства:
+         ```promql
+         # Занятое место на диске
+         (node_filesystem_size - node_filesystem_free)
+         / node_filesystem_size * 100
+         ```
+         
+         Для сетевого трафика:
+         ```promql
+         # Пропускная способность сети
+         sum(rate(node_network_receive_bytes_total[5m]))
+         sum(rate(node_network_transmit_bytes_total[5m]))
