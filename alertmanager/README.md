@@ -1,6 +1,6 @@
 # Alerting
 **Alertmanager** — это компонент экосистемы Prometheus, предназначенный для управления алертами. Он принимает алерты от Prometheus, группирует их, подавляет ненужные уведомления и доставляет их в различные системы оповещения.
-## Расширенная схема с Alertmanager и Grafana
+## Расширенная схема: Alertmanager + Grafana
 
 ```mermaid
 sequenceDiagram
