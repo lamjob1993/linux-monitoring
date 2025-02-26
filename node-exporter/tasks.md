@@ -1,7 +1,7 @@
 # Node Exporter
 ## Tasks
 
- - От вас требуется поднять `Node Exporter` частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/Backend.md "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
+ - От вас требуется поднять `Node Exporter` частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/prometheus "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
 ")
  - При этом упростите установку `Node Exporter` - после распаковки архива сделайте директорию распаковки рабочей сразу, чтобы не повторять шаги способом установки `Prometheus`
  - Натравите на него `Prometheus`
