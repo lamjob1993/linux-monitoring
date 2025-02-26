@@ -7,6 +7,7 @@
 - [Четыре золотых сигнала (Four Golden Signals)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/4.%20%D0%A7%D0%B5%D1%82%D1%8B%D1%80%D0%B5%20%D0%B7%D0%BE%D0%BB%D0%BE%D1%82%D1%8B%D1%85%20%D1%81%D0%B8%D0%B3%D0%BD%D0%B0%D0%BB%D0%B0%20(Four%20Golden%20Signals).md)
 - [Prometheus TSDB (Time Series Database)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/5.%20Prometheus%20TSDB%20(Time%20Series%20Database).md)
 - [PromQL (Язык запросов Prometheus)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/6.%20PromQL%20(%D0%AF%D0%B7%D1%8B%D0%BA%20%D0%B7%D0%B0%D0%BF%D1%80%D0%BE%D1%81%D0%BE%D0%B2%20Prometheus).md)
+- [Регулярные выражения (Regular Expressions)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/6.1%20%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5%20%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F.md)
 - [Экспортеры (Exporters)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/7.%20%D0%AD%D0%BA%D1%81%D0%BF%D0%BE%D1%80%D1%82%D0%B5%D1%80%D1%8B%20(Exporters).md)
 - [Сервис-дискавери (Service Discovery)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/8.%20%D0%A1%D0%B5%D1%80%D0%B2%D0%B8%D1%81-%D0%B4%D0%B8%D1%81%D0%BA%D0%B0%D0%B2%D0%B5%D1%80%D0%B8%20(Service%20Discovery).md)
 - [Алертинг. Alertmanager](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/9.%20%D0%90%D0%BB%D0%B5%D1%80%D1%82%D0%B8%D0%BD%D0%B3.%20Alertmanager.md)
