@@ -1,6 +1,34 @@
 # Grafana
 ## **Что такое Grafana?**
-Grafana — это открытая платформа для анализа и визуализации данных [GUI](https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F "Графический интерфейс пользователя сокр. ГИП (от англ. Graphical User Interface (GUI)) — это способ взаимодействия пользователя с компьютером с использованием графических элементов, таких как окна, кнопки и меню."). Она позволяет создавать дашборды, на которых можно отображать различные метрики, логи и другие данные из разных источников. Главные особенности Grafana:
+Grafana — это открытая платформа для анализа и визуализации данных GUI — это способ взаимодействия пользователя с компьютером с использованием графических элементов, таких как окна, кнопки и меню."). Она позволяет создавать дашборды, на которых можно отображать различные метрики, логи и другие данные из разных источников. Главные особенности Grafana:
+
+### **3. Расширенная схема с Alertmanager и Grafana**
+```mermaid
+sequenceDiagram
+    participant App as "Приложение (App)"
+    participant Exporter as "Экспортер"
+    participant Prometheus as "Prometheus Server"
+    participant Alertmanager as "Alertmanager"
+    participant Grafana as "Grafana"
+
+    Exporter->>App: Вызов API приложения или чтение системных файлов/логов
+    App-->>Exporter: Предоставление данных через API, файлы или библиотеки
+
+    loop Каждые N секунд
+        Prometheus->>Exporter: HTTP GET (Pull метрик)
+        Exporter-->>Prometheus: HTTP 200 OK + Текстовые метрики
+    end
+
+    opt Если условия алерта выполнены
+        Prometheus->>Alertmanager: HTTP POST (Отправка алертов)
+        Alertmanager->>Grafana: Интеграция алертов в интерфейс Grafana
+    end
+
+    loop По запросу пользователя в Grafana
+        Grafana->>Prometheus: HTTP GET (Запрос метрик)
+        Prometheus-->>Grafana: HTTP 200 OK + Метрики в формате JSON
+    end
+```
 
 ---
 
