@@ -30,12 +30,6 @@ sequenceDiagram
     end
 ```
 
----
-
-<img src="https://habrastorage.org/r/w1560/getpro/habr/upload_files/5e1/96a/e93/5e196ae934aec8a537e57e8aef97c1fa.png" alt="" width="850" />
-
----
-
 1. **Множество источников данных**: Grafana поддерживает интеграцию с различными системами хранения данных, такими как:
    - Prometheus
    - InfluxDB
