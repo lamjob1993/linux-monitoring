@@ -84,9 +84,9 @@ route:
 
 receivers:
   - name: 'default-receiver'
-    slack_configs:
-      - api_url: 'https://hooks.slack.com/services/XXX/YYYYY/ZZZZZ' # URL вебхука Slack
-        channel: '#alerts' # Канал в Slack
+    telegram_configs:
+      - api_url: 'https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage' # URL API Telegram
+        chat_id: <YOUR_CHAT_ID> # ID чата в Telegram
         send_resolved: true     # Отправлять уведомления о разрешении проблемы
 
 inhibit_rules:
