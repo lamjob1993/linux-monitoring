@@ -11,8 +11,8 @@ sequenceDiagram
     participant Alertmanager as "Alertmanager"
     participant Grafana as "Grafana"
 
-    Exporter->>App: Вызов API приложения или чтение системных файлов/логов
-    App-->>Exporter: Предоставление данных через API, файлы или библиотеки
+    Exporter->>App: Вызов API приложения
+    App-->>Exporter: Предоставление данных через API
 
     loop Каждые N секунд
         Prometheus->>Exporter: HTTP GET (Pull метрик)
