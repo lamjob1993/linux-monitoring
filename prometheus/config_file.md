@@ -138,5 +138,5 @@ relabel_configs:
 - **Process Exporter**: Собирает метрики по процессам.
 - **Blackbox Exporter**: Проверяет доступность сервисов (HTTP, TCP, ICMP).
 - **Alertmanager**: Управляет алертами.
-- **Remote Read/Write**: Интеграция с удалёнными хранилищами (например, Thanos).
+- **Remote Read/Write**: Интеграция с удалёнными хранилищами (например, Thanos или Mimir).
 - **Relabel Configs**: Переименование и фильтрация лейблов.
