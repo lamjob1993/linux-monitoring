@@ -3,8 +3,7 @@
 
 **Grafana** — это открытая платформа для анализа и визуализации данных GUI — это способ взаимодействия пользователя с компьютером с использованием графических элементов, таких как окна, кнопки и меню."). Она позволяет создавать дашборды, на которых можно отображать различные метрики, логи и другие данные из разных источников.
 
-**Пример использования PromQL с Grafana:**
-
+### **Базовая схема**
 ```mermaid
 sequenceDiagram
     participant App as "Приложение (App)"
@@ -20,9 +19,9 @@ sequenceDiagram
         Exporter-->>Prometheus: HTTP 200 OK + Текстовые метрики
     end
 
-    note over Grafana,Prometheus: Использование PromQL для запросов
-    Grafana->>Prometheus: HTTP GET (Запрос с PromQL-запросом)
-    Prometheus-->>Grafana: HTTP 200 OK + Результаты запроса в формате JSON
+    note over Prometheus,Grafana: Prometheus предоставляет данные для визуализации
+    Grafana->>Prometheus: Запрос метрик для построения графиков
+    Prometheus-->>Grafana: Ответ с метриками в формате JSON [[8]]
 ```
 
 **Описание:**  
