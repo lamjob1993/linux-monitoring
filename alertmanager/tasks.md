@@ -35,21 +35,21 @@ chmod +x /opt/linux-monitoring/alertmanager/alertmanager
 
 ```yaml
 global:
-  resolve_timeout: 5m           # Время, через которое оповещение считается "разрешенным"
+  resolve_timeout: 5m            # Время, через которое оповещение считается "разрешенным"
 
 route:
-  group_by: ['alertname']       # Группировка оповещений по имени
-  group_wait: 30s               # Время ожидания перед отправкой первой группы
-  group_interval: 5m            # Интервал между отправками новых групп
-  repeat_interval: 1h           # Интервал повторной отправки оповещений
-  receiver: 'default-receiver'  # Получатель оповещений 
+  group_by: ['alertname']        # Группировка оповещений по имени
+  group_wait: 30s                # Время ожидания перед отправкой первой группы
+  group_interval: 5m             # Интервал между отправками новых групп
+  repeat_interval: 1h            # Интервал повторной отправки оповещений
+  receiver: 'default-receiver'   # Получатель оповещений 
 
 receivers:
   - name: 'default-receiver'
     telegram_configs:
       - api_url: 'https://api.telegram.org/bot<YOUR_BOT_TOKEN>/sendMessage' # URL API Telegram
-        chat_id: <YOUR_CHAT_ID> # ID чата в Telegram
-        send_resolved: true     # Отправлять уведомления о разрешении проблемы
+        chat_id: <YOUR_CHAT_ID>   # ID чата в Telegram
+        send_resolved: true       # Отправлять уведомления о разрешении проблемы
 
 inhibit_rules:
   - source_match:
@@ -97,7 +97,7 @@ alerting:
   alertmanagers:
     - static_configs:
         - targets:
-          - localhost:9093 # Адрес вашего Alertmanager
+          - localhost:9093   # Адрес вашего Alertmanager
 ```
 
 > **Важно:** Убедитесь, что порт `9093` открыт и доступен для Prometheus.
@@ -105,7 +105,7 @@ alerting:
 #### Перезапустите Prometheus:
 
 ```bash
-systemctl restart prometheus # перезапуск нужен для того, чтобы Prometheus перечитал конфиг
+systemctl restart prometheus   # перезапуск нужен для того, чтобы Prometheus перечитал конфиг
 ```
 
 ---
