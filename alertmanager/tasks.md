@@ -190,5 +190,5 @@ WantedBy=multi-user.target
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start alertmanager
-sudo systemctl enable alertmanager # добавить в автозапуск
+sudo systemctl enable alertmanager   # добавить в автозапуск
 ```
