@@ -105,7 +105,7 @@ alerting:
 #### Перезапустите Prometheus:
 
 ```bash
-systemctl restart prometheus
+systemctl restart prometheus # перезапуск нужен для того, чтобы Prometheus перечитал конфиг
 ```
 
 ---
