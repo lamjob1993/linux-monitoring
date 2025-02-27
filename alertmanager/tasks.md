@@ -10,19 +10,16 @@ _Пользуемся официальной документацией на Git
 
 ```bash
 # Создайте директорию для Alertmanager
-mkdir -p /opt/alertmanager
+mkdir -p /opt/linux-monitoring/alertmanager
 
 # Скачайте бинарник (замените версию на актуальную)
 wget https://github.com/prometheus/alertmanager/releases/download/v0.26.0/alertmanager-0.26.0.linux-amd64.tar.gz
 
 # Распакуйте архив
-tar xvf alertmanager-0.26.0.linux-amd64.tar.gz -C /opt/alertmanager
+tar xvf alertmanager-0.26.0.linux-amd64.tar.gz -C /opt/linux-monitoring/alertmanager
 
-# Переименуйте директорию для удобства
-mv /opt/alertmanager/alertmanager-0.26.0.linux-amd64 /opt/alertmanager/bin
-
-# Добавьте исполняемые права
-chmod +x /opt/alertmanager/bin/alertmanager
+# Добавьте исполняемые права на бинарь
+chmod +x /opt/linux-monitoring/alertmanager/alertmanager
 ```
 
 ---
@@ -34,7 +31,7 @@ chmod +x /opt/alertmanager/bin/alertmanager
 
 #### Пример базового конфигурационного файла:
 
-Создайте файл `/opt/alertmanager/alertmanager.yml` со следующим содержимым:
+Создайте файл `/opt/linux-monitoring/alertmanager/alertmanager.yml` со следующим содержимым:
 
 ```yaml
 global:
@@ -77,7 +74,7 @@ inhibit_rules:
 Запустите Alertmanager из командной строки:
 
 ```bash
-/opt/alertmanager/bin/alertmanager --config.file=/opt/alertmanager/alertmanager.yml
+/opt/linux-monitoring/alertmanager/alertmanager --config.file=/opt/linux-monitoring/alertmanager/alertmanager.yml
 ```
 
 Проверьте, что Alertmanager работает, открыв его веб-интерфейс по адресу:  
@@ -119,7 +116,7 @@ systemctl restart prometheus
 
 #### Пример правила алерта:
 
-Создайте файл `/etc/prometheus/rules/example.rules.yml`:
+Создайте файл `/opt/linux-monitoring/prometheus/rules/example.rules.yml`:
 
 ```yaml
 groups:
@@ -139,7 +136,7 @@ groups:
 
 ```yaml
 rule_files:
-  - "/etc/prometheus/rules/*.rules.yml"   # Файл с правилами оповещений
+  - "/opt/linux-monitoring/prometheus/rules/*.rules.yml"   # Файл с правилами оповещений
 ```
 
 Перезапустите Prometheus:
@@ -155,13 +152,13 @@ systemctl restart prometheus
 Чтобы проверить работу алертов:
 1. Загрузите метрики в Prometheus так, чтобы они триггерили правило (например, искусственно увеличьте нагрузку на CPU).
 2. Проверьте статус алертов в веб-интерфейсе Alertmanager ([http://localhost:9093](http://localhost:9093)).
-3. Убедитесь, что уведомление пришло на указанный канал (Slack, email и т.д.).
+3. Убедитесь, что уведомление пришло на указанный канал (Telegram, email и т.д.).
 
 ---
 
 ### 7. **Настройка автозапуска Alertmanager**
 
-Для удобства можно настроить автозапуск Alertmanager с помощью systemd.
+Для удобства нужно настроить автозапуск Alertmanager с помощью **systemd**.
 
 #### Создайте файл службы:
 
@@ -181,7 +178,7 @@ After=network-online.target
 User=prometheus
 Group=prometheus
 Type=simple
-ExecStart=/opt/alertmanager/bin/alertmanager --config.file=/opt/alertmanager/alertmanager.yml
+ExecStart=/opt/linux-monitoring/alertmanager/alertmanager --config.file=/opt/linux-monitoring/alertmanager/alertmanager.yml
 Restart=on-failure
 
 [Install]
@@ -193,5 +190,5 @@ WantedBy=multi-user.target
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl start alertmanager
-sudo systemctl enable alertmanager
+sudo systemctl enable alertmanager # добавить в автозапуск
 ```
