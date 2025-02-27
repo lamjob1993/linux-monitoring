@@ -21,7 +21,7 @@ sequenceDiagram
 
     note over Prometheus,Grafana: Prometheus предоставляет данные для визуализации
     Grafana->>Prometheus: Запрос метрик для построения графиков
-    Prometheus-->>Grafana: Ответ с метриками в формате JSON [[8]]
+    Prometheus-->>Grafana: Ответ с метриками в формате JSON
 ```
 
 **Описание:**  
