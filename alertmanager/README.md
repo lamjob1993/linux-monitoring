@@ -126,7 +126,7 @@ sequenceDiagram
         Alertmanager->>Alertmanager: Обработка и группировка алертов
         note over Alertmanager: Alertmanager группирует алерты по заданным правилам и планирует отправку уведомлений.
 
-        Alertmanager->>User: Отправка уведомления (Email, SMS, Slack и т.д.)
+        Alertmanager->>User: Отправка уведомления (Email, SMS, Telegram и т.д.)
         note over Alertmanager, User: Уведомления могут быть отправлены через различные каналы связи, настроенные в конфигурации Alertmanager.
 
         Alertmanager->>Grafana: Интеграция алертов в интерфейс Grafana
@@ -158,7 +158,7 @@ sequenceDiagram
 3. **Обработка алертов Prometheus и Alertmanager**:
    - Если выполняются условия, определенные в правилах алертинга Prometheus, сервер отправляет алерты в Alertmanager.
    - Alertmanager обрабатывает алерты, группируя их по заданным параметрам (например, по сервису, окружению или уровню критичности).
-   - После группировки Alertmanager отправляет уведомления через настроенные каналы связи (например, email, SMS, Slack, PagerDuty и т.д.).
+   - После группировки Alertmanager отправляет уведомления через настроенные каналы связи (например, email, SMS, Telegram и т.д.).
 
 4. **Интеграция с Grafana**:
    - Alertmanager интегрируется с Grafana, чтобы алерты отображались в интерфейсе Grafana.
