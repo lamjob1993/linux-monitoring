@@ -1,43 +1,6 @@
 # Alerting
 **Alertmanager** — это компонент экосистемы Prometheus, который отвечает за обработку, группировку, подавление и отправку оповещений (алертов) на основе данных, полученных от Prometheus или других источников. Его основная задача — управлять потоком оповещений, чтобы избежать перегрузки пользователей или систем уведомлений, а также обеспечить удобное и своевременное информирование о проблемах.
 
-## Расширенная схема: Alertmanager + Grafana
-
-```mermaid
-sequenceDiagram
-    participant App as "Приложение (App)"
-    participant Exporter as "Экспортер"
-    participant Prometheus as "Prometheus Server"
-    participant Alertmanager as "Alertmanager"
-    participant Grafana as "Grafana"
-
-    Exporter->>App: Вызов API приложения
-    App-->>Exporter: Предоставление данных через API
-
-    loop Каждые N секунд
-        Prometheus->>Exporter: HTTP GET (Pull метрик)
-        Exporter-->>Prometheus: HTTP 200 OK + Текстовые метрики
-    end
-
-    opt Если условия алерта выполнены
-        Prometheus->>Alertmanager: HTTP POST (Отправка алертов)
-        Alertmanager->>Grafana: Интеграция алертов в интерфейс Grafana
-    end
-
-    loop По запросу пользователя в Grafana
-        Grafana->>Prometheus: HTTP GET (Запрос метрик)
-        Prometheus-->>Grafana: HTTP 200 OK + Метрики в формате JSON
-    end
-```
-
-**Описание схемы:**  
-- Prometheus собирает метрики и проверяет условия алертов.
-- Если условия выполнены, Prometheus отправляет алерты в Alertmanager.
-- Alertmanager может интегрироваться с Grafana для отображения алертов.
-- Grafana запрашивает метрики у Prometheus для визуализации.
-
----
-
 ### **Основные задачи Alertmanager:**
 1. **Группировка оповещений**:
    - Объединяет несколько связанных оповещений в одно, чтобы избежать дублирования и уменьшить количество уведомлений.
@@ -93,9 +56,122 @@ sequenceDiagram
 
 ---
 
-### **Ключевые преимущества Alertmanager:**
+### **Преимущества Alertmanager:**
 - **Гибкость**: Настройка маршрутизации и группировки под конкретные нужды.
 - **Масштабируемость**: Обработка большого количества оповещений без перегрузки пользователей.
 - **Интеграция**: Поддержка множества каналов уведомлений.
 - **Подавление шума**: Уменьшение количества уведомлений за счет группировки и подавления.
 ---
+
+
+## Схема: Alertmanager + Grafana
+
+```mermaid
+sequenceDiagram
+    participant App as "Приложение (App)"
+    participant Exporter as "Экспортер"
+    participant Prometheus as "Prometheus Server"
+    participant Alertmanager as "Alertmanager"
+    participant Grafana as "Grafana"
+
+    Exporter->>App: Вызов API приложения
+    App-->>Exporter: Предоставление данных через API
+
+    loop Каждые N секунд
+        Prometheus->>Exporter: HTTP GET (Pull метрик)
+        Exporter-->>Prometheus: HTTP 200 OK + Текстовые метрики
+    end
+
+    opt Если условия алерта выполнены
+        Prometheus->>Alertmanager: HTTP POST (Отправка алертов)
+        Alertmanager->>Grafana: Интеграция алертов в интерфейс Grafana
+    end
+
+    loop По запросу пользователя в Grafana
+        Grafana->>Prometheus: HTTP GET (Запрос метрик)
+        Prometheus-->>Grafana: HTTP 200 OK + Метрики в формате JSON
+    end
+```
+
+**Описание схемы:**  
+- Prometheus собирает метрики и проверяет условия алертов.
+- Если условия выполнены, Prometheus отправляет алерты в Alertmanager.
+- Alertmanager может интегрироваться с Grafana для отображения алертов.
+- Grafana запрашивает метрики у Prometheus для визуализации.
+
+---
+
+## Расширенная схема с процессами уведомлений в Alertmanager, а также дополнительным описанием того, как работает вся система:
+
+```mermaid
+sequenceDiagram
+    participant App as "Приложение (App)"
+    participant Exporter as "Экспортер"
+    participant Prometheus as "Prometheus Server"
+    participant Alertmanager as "Alertmanager"
+    participant Grafana as "Grafana"
+
+    Exporter->>App: Вызов API приложения для получения данных
+    App-->>Exporter: Предоставление данных через API
+
+    loop Каждые N секунд
+        Prometheus->>Exporter: HTTP GET (Pull метрик)
+        Exporter-->>Prometheus: HTTP 200 OK + Текстовые метрики
+    end
+
+    opt Если условия алерта выполнены
+        Prometheus->>Alertmanager: HTTP POST (Отправка алертов)
+        note over Prometheus, Alertmanager: Prometheus отправляет алерты в Alertmanager, если срабатывает правило мониторинга.
+        
+        Alertmanager->>Alertmanager: Обработка и группировка алертов
+        note over Alertmanager: Alertmanager группирует алерты по заданным правилам и планирует отправку уведомлений.
+
+        Alertmanager->>User: Отправка уведомления (Email, SMS, Slack и т.д.)
+        note over Alertmanager, User: Уведомления могут быть отправлены через различные каналы связи, настроенные в конфигурации Alertmanager.
+
+        Alertmanager->>Grafana: Интеграция алертов в интерфейс Grafana
+        note over Alertmanager, Grafana: Алерты отображаются в интерфейсе Grafana для удобства мониторинга.
+    end
+
+    loop По запросу пользователя в Grafana
+        Grafana->>Prometheus: HTTP GET (Запрос метрик)
+        Prometheus-->>Grafana: HTTP 200 OK + Метрики в формате JSON
+    end
+
+    opt При необходимости ручного управления алертами
+        User->>Grafana: Ручное подтверждение или отключение алерта через интерфейс Grafana
+        Grafana->>Alertmanager: Передача команды (например, mute или resolve)
+        Alertmanager->>Alertmanager: Обновление состояния алерта
+    end
+```
+
+### Описание процессов на схеме:
+
+1. **Получение метрик из приложения через экспортер**:
+   - Приложение предоставляет данные через свой API, который вызывается экспортером.
+   - Экспортер преобразует эти данные в формат, понятный Prometheus, и предоставляет их для сбора.
+
+2. **Сбор метрик Prometheus**:
+   - Prometheus регулярно запрашивает метрики у экспортера через HTTP-запросы (pull-модель).
+   - Полученные метрики сохраняются в базе данных Prometheus для дальнейшего анализа.
+
+3. **Обработка алертов Prometheus и Alertmanager**:
+   - Если выполняются условия, определенные в правилах алертинга Prometheus, сервер отправляет алерты в Alertmanager.
+   - Alertmanager обрабатывает алерты, группируя их по заданным параметрам (например, по сервису, окружению или уровню критичности).
+   - После группировки Alertmanager отправляет уведомления через настроенные каналы связи (например, email, SMS, Slack, PagerDuty и т.д.).
+
+4. **Интеграция с Grafana**:
+   - Alertmanager интегрируется с Grafana, чтобы алерты отображались в интерфейсе Grafana.
+   - Пользователи могут просматривать статус алертов и детали метрик в Grafana.
+
+5. **Запрос метрик из Grafana**:
+   - Когда пользователь открывает панель мониторинга в Grafana, она отправляет запрос к Prometheus за актуальными данными.
+   - Prometheus возвращает метрики в формате JSON, которые затем отображаются на графиках в Grafana.
+
+6. **Ручное управление алертами**:
+   - Пользователь может взаимодействовать с алертами через интерфейс Grafana, например, подтвердить получение уведомления или временно отключить алерт.
+   - Команды передаются в Alertmanager, который обновляет состояние алерта соответственно.
+
+### Примечания:
+- Конфигурация Alertmanager позволяет настраивать сложные маршруты для доставки уведомлений в зависимости от уровня важности, времени суток, типа инцидента и других факторов.
+- Prometheus и Alertmanager работают независимо, но тесно интегрированы друг с другом для обеспечения надежной системы мониторинга и оповещения.
