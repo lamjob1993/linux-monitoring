@@ -64,7 +64,7 @@
 ---
 
 
-## Схема: Alertmanager + Grafana
+### Схема: Alertmanager + Grafana
 
 ```mermaid
 sequenceDiagram
@@ -101,7 +101,7 @@ sequenceDiagram
 
 ---
 
-## Расширенная схема с процессами уведомлений в Alertmanager, а также дополнительным описанием того, как работает вся система:
+### Расширенная схема с процессами уведомлений в Alertmanager, а также дополнительным описанием того, как работает вся система:
 
 ```mermaid
 sequenceDiagram
