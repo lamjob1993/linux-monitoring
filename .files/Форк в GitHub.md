@@ -35,7 +35,7 @@
 - В правом верхнем углу страницы репозитория найдите кнопку **Fork** (она выглядит как значок с двумя стрелками).
 - Нажмите на эту кнопку:
 
-   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/fork_repo.png" alt="Мое изображение" width="500">
+   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/fork_repo.png" alt="Мое изображение" width="800">
 
 - Если вы состоите в нескольких организациях, GitHub попросит вас выбрать, куда сделать форк (в ваш личный аккаунт или в организацию).
 
