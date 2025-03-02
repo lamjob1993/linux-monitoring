@@ -37,6 +37,7 @@
 
    - <img src="[Нажмите на эту кнопку](https://raw.githubusercontent.com/lamjob1993/linux-monitoring/refs/heads/main/.files/.bucket/fork_repo.png)" width="500" />
    - <img src="[images/example.png](https://raw.githubusercontent.com/lamjob1993/linux-monitoring/refs/heads/main/.files/.bucket/fork_repo.png)" alt="Мое изображение" width="500">
+   - https://github.com/lamjob1993/linux-monitoring/blob/main/.files/[https:/raw.githubusercontent.com/lamjob1993/linux-monitoring/refs/heads/main/.files/.bucket/fork_repo.png](https:/raw.githubusercontent.com/lamjob1993/linux-monitoring/refs/heads/main/.files/.bucket/fork_repo.png)
 - Если вы состоите в нескольких организациях, GitHub попросит вас выбрать, куда сделать форк (в ваш личный аккаунт или в организацию).
 
 #### **5. Дождитесь завершения процесса**
