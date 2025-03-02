@@ -59,7 +59,7 @@
 - Нажмите кнопку **Code** и скопируйте URL репозитория (HTTPS или SSH - в нашем случае SSH, так как SSH у нас уже должен быть настроен).
 - Откройте терминал и выполните команду:
   ```bash
-  git clone git@github.com:lamjob1993/linux-monitoring.git
+  git clone https://github.com/lamjob1993/linux-monitoring.git
   ```
   Замените `your-username` на ваш логин GitHub, а `repository-name` на имя репозитория.
 
