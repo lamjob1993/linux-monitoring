@@ -13,7 +13,7 @@
   2. Открываем директорию `prometheus` → `README.md` → `beginning` → `tasks.md`
   3. Открываем директорию `grafana` → `README.md` → `tasks_1.md`
   4. Открываем директорию `node-exporter` → `README.md` → `tasks.md`
-  5. Открываекм директорию `prometheus-federate` → `README.md` → `tasks.md`
+  5. Открываекм директорию `prometheus-federate` → `README.md` → `tasks.md` → `После проверки закомментировать федерацию в основном конфиге`
   6. **Открываекм директорию** `pushgateway` → `README.md` → `tasks.md` 
   7. **Открываекм директорию** `custom-exporter` → `README.md` → `tasks.md`
   8. **Открываем директорию** `process-exporter` → `README.md` → `tasks.md`
