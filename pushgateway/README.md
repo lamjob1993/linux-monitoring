@@ -1,4 +1,4 @@
-# Push
+# Подход Push
 
 ## Pushgateway
 
