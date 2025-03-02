@@ -3,7 +3,17 @@
 
 ## Tasks
 
-Написать простейший `Custom Exporter`, который будет проверять доступность кастомных сайтов (Facebook, VK, Twitter, Yandex, GitHub, BBC, Wiki, X.com) с помощью команды `curl`, формировать метрики для **Prometheus** и интегрироваться с **Node Exporter Textfile Collector**. Все скрипты должны быть написаны на **Bash** и размещены в директории **Linux** под названием `custom_exporter`.
+- Написать простейший `Custom Exporter`, который будет проверять доступность кастомных сайтов:
+- Facebook
+   - VK
+   - Twitter
+   - Yandex
+   - GitHub
+   - BBC
+   - Wiki
+   - X.com
+- С помощью команды `curl`, формировать метрики для **Prometheus** и интегрироваться с **Node Exporter Textfile Collector**.
+- Все скрипты должны быть написаны на **Bash** и размещены в директории **Linux** под названием `custom_exporter`.
 
 ---
 
