@@ -12,7 +12,7 @@
    - **BBC**      # недоступен в РФ
    - **Wiki**     # доступен в РФ
    - **X.com**    # недоступен в РФ
-- Скрипт будет формировать метрики для **Prometheus** и интегрироваться с Node Exporter Textfile Collector.
+- Скрипт будет формировать метрики для **Prometheus** и интегрироваться с **Node Exporter Textfile Collector**.
 - Скрипт должен быть размещен в директории **Linux** под названием `custom_exporter`.
 - В скрипт должен смотреть `cron-планировщик` каждую минуту и перезаписывать результаты (все результаты перезаписи будут сохранены во временном ряду - [time series](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/5.%20Prometheus%20TSDB%20(Time%20Series%20Database).md)).
 - Далее нужно натравить Node Exporter в режиме `textfile collector` на результат вашего скрипта.
