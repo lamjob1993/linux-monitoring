@@ -17,7 +17,7 @@
 - В скрипт должен смотреть `cron-планировщик` каждую минуту и перезаписывать результаты (все результаты перезаписи будут сохранены во временном ряду - [time series](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/5.%20Prometheus%20TSDB%20(Time%20Series%20Database).md)).
 - Далее нужно натравить Node Exporter в режиме `textfile collector` на результат вашего скрипта.
    - На этом этапе будет собран ваш кастомный экспортер "на коленке" с задействованием Node Exporter-а:
-      - То есть написанный вами `1. Bash-скрипт + 2. его результат + 3. textfile collector` = `4. кастомный экспортер` - такая модель используется в мониторинге, если модель сбора метрик по [модели Push](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/1.%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20(%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Prometheus).md) невозможна.
+      - То есть написанный вами `1. Bash-скрипт + 2. его результат + 3. textfile collector` = `4. кастомный экспортер` - такая модель используется в мониторинге, если модель сбора метрик по [модели Push](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/1.%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20(%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Prometheus).md#%D1%81%D0%B8%D1%81%D1%82%D0%B5%D0%BC%D1%8B-%D1%81%D0%B1%D0%BE%D1%80%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85-%D1%81%D1%80%D0%B0%D0%B2%D0%BD%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9-%D0%B0%D0%BD%D0%B0%D0%BB%D0%B8%D0%B7-pull-%D0%B8-push-%D0%BF%D0%BE%D0%B4%D1%85%D0%BE%D0%B4%D0%BE%D0%B2) невозможна.
 - Теперь в результат вашего экспортера можно добавлять какую угодно логику и сохранять файл в читаемом формате для Prometheus.
 
 ---
