@@ -1,6 +1,8 @@
 # Exporters
 
-## Custom Exporter
+## Подход Pull
+
+### Custom Exporter
 
 **Custom Exporter** — это набор Bash-скриптов, которые выполняют HTTP-запросы к сайтам (например, Google, VK, Yandex, GitHub), анализируют результаты и преобразуют их в метрики, читаемые Prometheus через Node Exporter Textfile Collector.
 
