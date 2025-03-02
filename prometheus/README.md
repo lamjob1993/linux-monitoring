@@ -1,5 +1,5 @@
 ## Содержание
-По данному содержанию ничего не нужно выполнять, только знакомимся с теорией (вся практика будет в разделах `tasks.md`).
+По данному содержанию ничего не нужно выполнять, только знакомимся с теорией, если где-то не указано обратное (вся практика будет в разделах `tasks.md`).
 - [Введение (Основы Prometheus)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/1.%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5%20(%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B%20Prometheus).md)
 - [Метрики (четыре основных типа метрик)](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/2.%20%D0%9C%D0%B5%D1%82%D1%80%D0%B8%D0%BA%D0%B8%20(%D1%87%D0%B5%D1%82%D1%8B%D1%80%D0%B5%20%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%BD%D1%8B%D1%85%20%D1%82%D0%B8%D0%BF%D0%B0%20%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA).md)
 - [Лейблы (Labels) или метки.md](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/3.%20%D0%9B%D0%B5%D0%B9%D0%B1%D0%BB%D1%8B%20(Labels)%20%D0%B8%D0%BB%D0%B8%20%D0%BC%D0%B5%D1%82%D0%BA%D0%B8.md)
