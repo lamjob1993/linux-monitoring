@@ -1,6 +1,6 @@
-## Pushgateway
+# Pushgateway
 
-### Tasks
+## Tasks
 
 - Установить Pushgateway
 - Настроить интеграцию с Prometheus
