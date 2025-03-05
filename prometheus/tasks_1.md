@@ -1,6 +1,4 @@
-# Prometheus
-
-## Backend
+# Prometheus Backend
 
 ## Rules
 
