@@ -18,8 +18,8 @@
   7. Открываем директорию `pushgateway` → `README.md` → `tasks.md`
   8. Открываем директорию `prometheus-federate` → `README.md` → `tasks.md` → `После проверки закомментировать федерацию в основном конфиге`
   9. Открываем директорию `alertmanager` → `README.md` → `tasks.md`
-  10. **Открываем директорию** `process-exporter` → `README.md` → `tasks.md`
-  11. **Открываем директорию** `blackbox-exporter` → `README.md` → `tasks.md`
+  10. Открываем директорию `process-exporter` → `README.md` → `tasks.md`
+  11. Открываем директорию `blackbox-exporter` → `README.md` → `tasks.md`
   12. **Открываем директорию** `mimir` → `README.md` → `tasks.md`
   13. **Открываем директорию** `nginx` → `README.md` → `tasks.md`
   14. **Открываем директорию** `nginx-exporter` → `README.md` → `tasks.md`
