@@ -15,9 +15,9 @@
   4. Открываем директорию `grafana` → `README.md` → `tasks_1.md`
   5. Открываем директорию `node-exporter` → `README.md` → `tasks.md`
   6. Открываем директорию `custom-exporter` → `README.md` → `tasks_1.md` → `tasks_2.md`
-  7. **Открываем директорию** `pushgateway` → `README.md` → `tasks.md`
+  7. Открываем директорию `pushgateway` → `README.md` → `tasks.md`
   8. Открываем директорию `prometheus-federate` → `README.md` → `tasks.md` → `После проверки закомментировать федерацию в основном конфиге`
-  9. **Открываем директорию** `alertmanager` → `README.md` → `tasks.md`
+  9. Открываем директорию `alertmanager` → `README.md` → `tasks.md`
   10. **Открываем директорию** `process-exporter` → `README.md` → `tasks.md`
   11. **Открываем директорию** `blackbox-exporter` → `README.md` → `tasks.md`
   12. **Открываем директорию** `mimir` → `README.md` → `tasks.md`
