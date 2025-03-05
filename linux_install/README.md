@@ -14,4 +14,4 @@
   - **CPU**: 2
 - Далее при установке выбираем установка через GUI
 - В дальнейшем нужно будет снять все галочки и поставить, как на скрине ниже:
-  - <img [https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install.jpg]()>
+  - <img [https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install.jpg](Pic)>
