@@ -10,20 +10,21 @@
 
 ### Последовательность выполнения следующая
   1. Зарегистрируйтесь и настройте доступ по `SSH` в `GitHub` по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
-  2. Открываем директорию `prometheus` → `README.md` → `beginning` → `tasks.md`
-  3. Открываем директорию `grafana` → `README.md` → `tasks_1.md`
-  4. Открываем директорию `node-exporter` → `README.md` → `tasks.md`
-  5. Открываем директорию `custom-exporter` → `README.md` → `tasks_1.md` → `tasks_2.md`
-  6. **Открываем директорию** `pushgateway` → `README.md` → `tasks.md`
-  7. Открываем директорию `prometheus-federate` → `README.md` → `tasks.md` → `После проверки закомментировать федерацию в основном конфиге`
-  8. **Открываем директорию** `alertmanager` → `README.md` → `tasks.md`
-  9. **Открываем директорию** `process-exporter` → `README.md` → `tasks.md`
-  10. **Открываем директорию** `blackbox-exporter` → `README.md` → `tasks.md`
-  11. **Открываем директорию** `mimir` → `README.md` → `tasks.md`
-  12. **Открываем директорию** `nginx` → `README.md` → `tasks.md`
-  13. **Открываем директорию** `nginx-exporter` → `README.md` → `tasks.md`
-  14. Открываем директорию `grafana` → `README.md` → `tasks_2.md`
-  15. После исполнения всех пунктов полностью настройте бэкенд мониторинга и дашборды для всех экспортеров
+  2. Открываем директорию `linux_install` → `README.md`
+  3. Открываем директорию `prometheus` → `README.md` → `beginning` → `tasks_1.md` → `tasks_2.md`
+  4. Открываем директорию `grafana` → `README.md` → `tasks_1.md`
+  5. Открываем директорию `node-exporter` → `README.md` → `tasks.md`
+  6. Открываем директорию `custom-exporter` → `README.md` → `tasks_1.md` → `tasks_2.md`
+  7. **Открываем директорию** `pushgateway` → `README.md` → `tasks.md`
+  8. Открываем директорию `prometheus-federate` → `README.md` → `tasks.md` → `После проверки закомментировать федерацию в основном конфиге`
+  9. **Открываем директорию** `alertmanager` → `README.md` → `tasks.md`
+  10. **Открываем директорию** `process-exporter` → `README.md` → `tasks.md`
+  11. **Открываем директорию** `blackbox-exporter` → `README.md` → `tasks.md`
+  12. **Открываем директорию** `mimir` → `README.md` → `tasks.md`
+  13. **Открываем директорию** `nginx` → `README.md` → `tasks.md`
+  14. **Открываем директорию** `nginx-exporter` → `README.md` → `tasks.md`
+  15. Открываем директорию `grafana` → `README.md` → `tasks_2.md`
+  16. После исполнения всех пунктов полностью настройте бэкенд мониторинга и дашборды для всех экспортеров
 
 ### О заданиях
 
