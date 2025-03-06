@@ -9,8 +9,8 @@
 
 
 ### Последовательность выполнения следующая
-  1. Зарегистрируйтесь и настройте доступ по `SSH` в `GitHub` по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
-  2. Открываем директорию `linux_install` → `README.md`
+  1. Открываем директорию `linux_install` → `README.md`
+  2. Зарегистрируйтесь и настройте доступ по `SSH` в `GitHub` по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
   3. Открываем директорию `prometheus` → `README.md` → `beginning` → `tasks_1.md` → `tasks_2.md`
   4. Открываем директорию `grafana` → `README.md` → `tasks_1.md`
   5. Открываем директорию `node-exporter` → `README.md` → `tasks.md`
