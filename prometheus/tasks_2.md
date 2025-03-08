@@ -31,22 +31,22 @@
 6. Проверить запущенный на коленке `Prometheus` на веб-морде (подсказка: проверка должна быть в браузере на порту `:9090`, чтобы понять по какому ip адресу стучаться в `Prometheus`, нужно знать ip адрес интерфейса своей тачки (тачками называют машины и серверы - это синонимы))
 7. Затем скопировать из директории `/Documents/prometheus-2.53.2.linux-amd64` в домашнюю директорию `/Documents/linux-monitoring/prometheus` файлы:
  
-                                      /prometheus      
-                  НЕ КОПИРОВАТЬ       ├── prometheus.yml                    # ЭТОТ ФАЙЛ НУЖНО БУДЕТ СОЗДАТЬ САМОСТОЯТЕЛЬНО ПУСТЫМ / Основной конфигурационный файл Prometheus
-                                      ├── prometheus                        # Бинарный файл Prometheus
-                                      ├── data                              # Директория, куда Prometheus пишет данные временных рядов
-                                      ├── consoles/                         # Директория для шаблонов консолей Prometheus
-                                      │   ├── index.html.example            # Пример главной страницы
-                                      │   ├── node-cpu.html                 # Шаблон консоли для мониторинга CPU узла
-                                      │   ├── node-disk.html                # Шаблон консоли для мониторинга диска узла
-                                      │   ├── node.html                     # Общий шаблон консоли для узла
-                                      │   ├── node-overview.html            # Обзорная консоль для узла
-                                      │   ├── prometheus.html               # Шаблон консоли для Prometheus
-                                      │   └── prometheus-overview.html      # Обзорная консоль для Prometheus
-                                      ├── console_libraries/                # Директория для библиотек шаблонов консолей
-                                      │   ├── menu.lib                      # Библиотека меню
-                                      │   └── prom.lib                      # Библиотека Prometheus
-                                      └── prometheus.service                # ЭТОТ ФАЙЛ НУЖНО БУДЕТ СОЗДАТЬ САМОСТОЯТЕЛЬНО ПУСТЫМ / Сервисный Unit-файл для запуска Prometheus
+                                /prometheus      
+            НЕ КОПИРОВАТЬ       ├── prometheus.yml                    # ЭТОТ ФАЙЛ НУЖНО БУДЕТ СОЗДАТЬ САМОСТОЯТЕЛЬНО ПУСТЫМ / Основной конфигурационный файл Prometheus
+                                ├── prometheus                        # Бинарный файл Prometheus
+                                ├── data                              # Директория, куда Prometheus пишет данные временных рядов
+                                ├── consoles/                         # Директория для шаблонов консолей Prometheus
+                                │   ├── index.html.example            # Пример главной страницы
+                                │   ├── node-cpu.html                 # Шаблон консоли для мониторинга CPU узла
+                                │   ├── node-disk.html                # Шаблон консоли для мониторинга диска узла
+                                │   ├── node.html                     # Общий шаблон консоли для узла
+                                │   ├── node-overview.html            # Обзорная консоль для узла
+                                │   ├── prometheus.html               # Шаблон консоли для Prometheus
+                                │   └── prometheus-overview.html      # Обзорная консоль для Prometheus
+                                ├── console_libraries/                # Директория для библиотек шаблонов консолей
+                                │   ├── menu.lib                      # Библиотека меню
+                                │   └── prom.lib                      # Библиотека Prometheus
+            НЕ КОПИРОВАТЬ       └── prometheus.service                # ЭТОТ ФАЙЛ НУЖНО БУДЕТ СОЗДАТЬ САМОСТОЯТЕЛЬНО ПУСТЫМ / Сервисный Unit-файл для запуска Prometheus
 
 8. Где файл `unit_file` нужно написать с нуля (это файл отвечающий за запуск `Prometheus`)
 9. Где файл `prometheus.yml` нужно написать с нуля (это основной конфиг-файл `Prometheus`). Подсказка, как этот файл написать: `GitHub` - `prometheus/documentation/examples/prometheus.yml`
