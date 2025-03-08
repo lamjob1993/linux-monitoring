@@ -70,7 +70,7 @@
                   
 13. Далее выдать права:
    - `sudo chown -R prometheus:prometheus /opt/linux-monitoring/prometheus` # назначаем пользователя и группу пользователя
-   - `sudo chmod +x /opt/linux-monitoring/prometheus/prometheus` # назначаем на исполнение бинарный файл
+   - `sudo chmod +x /opt/linux-monitoring/prometheus/prometheus` # назначаем права на исполнение на бинарный файл
    - `sudo chmod 640 /opt/linux-monitoring/prometheus/prometheus.yaml` # выдаем права на конфиг-файл
 14. Представьте себе, что вы инженер по разработке и работаете на платформе `DEV` в песочнице, у вас полностью развязаны руки, поэтому имеем это ввиду:
     - Параллельно идем в `ИИ GPT Qwen` и учимся выставлять числовые права
