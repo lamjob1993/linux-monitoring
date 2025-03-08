@@ -5,4 +5,6 @@ _Пользуемся официальной документацией на Git
  - От вас требуется поднять `Mimir` частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/prometheus "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
 ")
  - При этом упростите установку `Mimir` - после распаковки архива сделайте директорию распаковки рабочей сразу, чтобы не повторять шаги способом установки `Prometheus`
- - Настройте `Prometheus` на `remote-write`
+ - Настройте `Prometheus` на `remote-write` в `Mimir`
+ - Пропишите Data Source в Grafana
+ - Снимите метрики в `Grafana`
