@@ -2,6 +2,12 @@
 _Пользуемся официальной документацией на GitHub (в основном там прописаны Docker файлы на запуск и всегда есть конфиги)_
 ## Tasks
 
+---
+- https://habr.com/ru/companies/kts/articles/775050/ - статья на тему Grafana Mimir: remote storage
+- https://github.com/ktsstudio/mimir-demo/tree/main/simple - готовая связка grafana + mimir + prometheus на порту 9009
+
+---
+
  - От вас требуется поднять `Mimir` частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/prometheus "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
 ")
  - При этом упростите установку `Mimir` - после распаковки архива сделайте директорию распаковки рабочей сразу, чтобы не повторять шаги способом установки `Prometheus`
