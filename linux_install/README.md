@@ -13,7 +13,7 @@
 
 ### Установка Linux. Часть 1
 
-- Для установки берем чистый образ [Debian Netinst 12.9.0 amd64](https://www.debian.org/CD/netinst/) и ставим без Desktop Environment (DE)
+- Для установки берем чистый образ [Debian Netinst 12.9.0 (amd64)](https://www.debian.org/CD/netinst/) и ставим без Desktop Environment (DE)
 - Для **VirtualBox** выбираем следующие параметры:
   - **RAM**: `1536Mb`
   - **HDD**: `10Gb`
