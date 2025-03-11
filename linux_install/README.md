@@ -18,13 +18,24 @@
   - **RAM**: `1536Mb`
   - **HDD**: `10Gb`
   - **CPU**: `2 Cores`
-- Далее при установке выбираем: установка через GUI
+- Далее при установке выбираем: установка через **GUI**
 - Выбираем обязательно английский язык
-- В дальнейшем нужно будет снять все галочки и поставить, как на скрине ниже:
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%206.jpg" alt="Выбрать следующие пункты" width="450">
-
+- Выбираем разделение по разделам
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%201.png" alt="Выбрать следующие пункты" width="450">
+- Записываем изменения на диск
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%202.png" alt="Выбрать следующие пункты" width="450">
+- Форматируем разделы
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%203.png" alt="Выбрать следующие пункты" width="450">
+- Оставляем дефолтный пакетный менеджер **apt**
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%204.png" alt="Выбрать следующие пункты" width="450">
+- Отказываемся от участия в сборе анонимной статистики
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%205.png" alt="Выбрать следующие пункты" width="450">
+- В дальнейшем нужно будет снять все галочки и поставить, как на скрине ниже (нас интересует чистый терминальный Debian)
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%206.jpg" alt="Выбрать следующие пункты" width="450"> 
+- Здесь система предлагает вам выбрать устройство, на которое будет установлен загрузчик GRUB (нас интересует наш диск)
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%207.png" alt="Выбрать следующие пункты" width="450"> 
 - После первого запуска машины нужно добавить вашего пользователя в группу `sudo`, чтобы была возможность использовать команду `sudo` под вашим пользователем (это делается в рамках безопасности)
-- При необхоимости доустановите дополнительные пакеты с необходимым ПО
+- При необхоимости доустановите дополнительные пакеты с необходимым ПО: curl, net-tools и прочие пакеты
 
 ### Установка Linux. Часть 2
 
