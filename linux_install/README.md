@@ -44,7 +44,6 @@
      ```bash
      sudo usermod -aG sudo user1
      ```
-  - 
 - Далее [доустановите](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md) дополнительные пакеты по ходу выполнения курса с [необходимым ПО](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md): curl, net-tools и прочие пакеты
 
 ### Установка Linux. Часть 2
