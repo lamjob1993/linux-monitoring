@@ -34,8 +34,9 @@
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%206.jpg" alt="Выбрать следующие пункты" width="450"> 
 - Здесь система предлагает вам выбрать устройство, на которое будет установлен загрузчик GRUB (нас интересует наш диск)
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%207.png" alt="Выбрать следующие пункты" width="450"> 
+---
 - После первого запуска машины нужно добавить вашего пользователя в группу `sudo`, чтобы была возможность использовать команду `sudo` под вашим пользователем (это делается в рамках безопасности)
-- При необхоимости доустановите дополнительные пакеты с необходимым ПО: curl, net-tools и прочие пакеты
+- Далее [доустановите](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md) дополнительные пакеты по ходу выполнения курса с [необходимым ПО](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md) (всё устанавливать не нужно): curl, net-tools и прочие пакеты
 
 ### Установка Linux. Часть 2
 
