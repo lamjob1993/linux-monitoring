@@ -1,0 +1,39 @@
+# node_exporter/tasks/main.yml
+---
+- name: Create node_exporter user and group
+  user:
+    name: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    create_home: no
+    system: yes
+
+- name: Download node_exporter binary
+  get_url:
+    url: "{{ node_exporter_download_url }}"
+    dest: "/tmp/node_exporter.tar.gz"
+
+- name: Extract node_exporter binary
+  unarchive:
+    src: "/tmp/node_exporter.tar.gz"
+    dest: "/tmp"
+    remote_src: yes
+
+- name: Copy binary to system directory
+  copy:
+    src: "/tmp/node_exporter-{{ node_exporter_version }}.linux-amd64/node_exporter"
+    dest: "{{ node_exporter_binary_dir }}/node_exporter"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    mode: '0755'
+
+- name: Create systemd service file
+  template:
+    src: node_exporter.service.j2
+    dest: /etc/systemd/system/node_exporter.service
+  notify: Reload systemd and restart node_exporter
+
+- name: Enable and start node_exporter service
+  systemd:
+    name: node_exporter
+    enabled: yes
+    state: started
