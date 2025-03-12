@@ -1,3 +1,4 @@
+```bash
 .
 ├── inventory.ini
 ├── playbook.yml
@@ -88,3 +89,4 @@
         │   └── main.yml
         └── templates
             └── postgresql.conf.j2
+```
