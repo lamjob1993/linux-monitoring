@@ -1,0 +1,245 @@
+# Ansible
+## Basic Functionality
+
+Кроме основных элементов Ansible (inventory, playbook, roles), есть несколько важных аспектов, на которые стоит обратить внимание для эффективного использования системы. Вот ключевые моменты:
+
+---
+
+### **1. Модули (Modules)**
+- **Что это**: Модули — это "building blocks" Ansible, которые выполняют конкретные задачи (установка ПО, управление файлами, работа с сервисами).
+- **Примеры**:
+  - `apt` — для управления пакетами в Debian/Ubuntu.
+  - `file` — для создания/удаления файлов/директорий.
+  - `template` — для генерации конфигурационных файлов из шаблонов.
+  - `service` — для управления сервисами (start/stop).
+- **Совет**: Используйте официальную документацию, чтобы найти подходящий модуль: [Ansible Modules](https://docs.ansible.com/ansible/latest/modules/modules_by_category.html).
+
+---
+
+### **2. Переменные (Variables)**
+- **Где хранить**:
+  - В playbook (`vars` секция).
+  - В файлах `group_vars/` и `host_vars/` (для групп и отдельных хостов).
+  - В roles (`defaults/main.yml` и `vars/main.yml`).
+  - Через командную строку: `ansible-playbook -e "var=value"`.
+- **Пример**:
+  ```yaml
+  # В playbook:
+  vars:
+    app_port: 8080
+
+  # В group_vars/webservers.yml:
+  nginx_conf_path: "/etc/nginx/conf.d/"
+  ```
+
+---
+
+### **3. Обработчики (Handlers)**
+- **Что это**: Задачи, которые запускаются при событии `notify`.
+- **Использование**: Например, перезапустить сервис после изменения конфигурации.
+- **Пример**:
+  ```yaml
+  # В playbook:
+  tasks:
+    - name: Изменить конфиг Nginx
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify: Перезапустить Nginx
+
+  handlers:
+    - name: Перезапустить Nginx
+      service:
+        name: nginx
+        state: restarted
+  ```
+
+---
+
+### **4. Плагины (Plugins)**
+- **Что это**: Расширяют функциональность Ansible (например, для кэширования, шифрования, работы с облачными провайдерами).
+- **Примеры**:
+  - **Inventory plugins**: Загрузка хостов из AWS, Docker, и других источников.
+  - **Connection plugins**: Подключение через SSH, WinRM, Docker.
+  - **Vault plugins**: Управление зашифрованными данными.
+- **Настройка**: В файле `ansible.cfg`.
+
+---
+
+### **5. Безопасность**
+- **Ansible Vault**: Шифрование чувствительных данных (паролей, ключей).
+  ```bash
+  ansible-vault create secret.yml
+  ansible-playbook --vault-id @prompt playbook.yml
+  ```
+- **SSH-ключи**: Используйте ключи вместо паролей для подключения.
+- **Расширенная аутентификация**: Например, через AWS IAM или GCP Service Accounts.
+
+---
+
+### **6. Фильтры и выражения Jinja2**
+- **Фильтры**: Манипулирование данными в шаблонах.
+  ```jinja2
+  {{ "192.168.0.1" | ipaddr('network') }}  # Выводит сеть 192.168.0.0/24
+  ```
+- **Циклы и условия**: 
+  ```jinja2
+  {% for host in groups['webservers'] %}
+    server {{ host }} {{ hostvars[host]['ip'] }}
+  {% endfor %}
+  ```
+
+---
+
+### **7. Интеграция с CI/CD**
+- **Ansible в GitLab CI/CD**:
+  ```yaml
+  deploy:
+    stage: deploy
+    script:
+      - ansible-playbook -i inventory.ini deploy.yml
+  ```
+- **GitHub Actions**:
+  ```yaml
+  - name: Run Ansible playbook
+    run: |
+      ansible-playbook -i inventory.ini deploy.yml
+  ```
+
+---
+
+### **8. Проверка и тестирование**
+- **Check mode**: Эмуляция выполнения без изменений.
+  ```bash
+  ansible-playbook -C deploy.yml
+  ```
+- **Molecule**: Тестирование ролей в изолированных окружениях (например, Docker).
+- **Ansible-Lint**: Проверка playbook на соответствие best practices.
+  ```bash
+  ansible-lint deploy.yml
+  ```
+
+---
+
+### **9. Роли из Ansible Galaxy**
+- **Где найти**: [Ansible Galaxy](https://galaxy.ansible.com/).
+- **Установка**:
+  ```bash
+  ansible-galaxy install geerlingguy.docker
+  ```
+- **Использование**:
+  ```yaml
+  roles:
+    - geerlingguy.docker
+  ```
+
+---
+
+### **10. Блоки (Blocks)**
+- **Для управления ошибками**:
+  ```yaml
+  tasks:
+    - block:
+        - name: Установить пакет
+          apt:
+            name: myapp
+        - name: Запустить сервис
+          service:
+            name: myapp
+            state: started
+      rescue:
+        - name: Логировать ошибку
+          debug:
+            msg: "Ошибка при установке!"
+      always:
+        - name: Очистить временные файлы
+          file:
+            path: /tmp/app
+            state: absent
+  ```
+
+---
+
+### **11. Динамический inventory**
+- **Для облачных провайдеров**:
+  ```bash
+  # Пример для AWS EC2
+  ansible-inventory -i aws_ec2.yaml --graph
+  ```
+- **Скрипты**: Напишите свой скрипт на Python/Shell для генерации хостов.
+
+---
+
+### **12. Переменные окружения**
+- **Передача через переменные**:
+  ```bash
+  export ANSIBLE_HOST_KEY_CHECKING=False
+  ansible-playbook deploy.yml
+  ```
+- **Доступ в playbook**:
+  ```yaml
+  vars:
+    env_var: "{{ lookup('env', 'MY_ENV_VAR') }}"
+  ```
+
+---
+
+### **13. Практические советы**
+- **Используйте roles для повторного использования**.
+- **Организуйте inventory через группы и переменные**.
+- **Тестируйте playbook на тестовых хостах**.
+- **Используйте Ansible Vault для секретов**.
+- **Автоматизируйте через CI/CD**.
+
+---
+
+### **14. Документация и сообщество**
+- **Официальная документация**: [Ansible Docs](https://docs.ansible.com/).
+- **Ansible Galaxy**: Библиотека готовых ролей.
+- **Stack Overflow и форумы**: Решения проблем и best practices.
+
+---
+
+### **Пример полного playbook с переменными и обработчиками**
+```yaml
+---
+- name: Установить и настроить Nginx
+  hosts: webservers
+  become: yes
+  vars:
+    nginx_port: 8080
+    nginx_root: "/var/www/html"
+
+  roles:
+    - common
+
+  tasks:
+    - name: Клонировать репозиторий
+      git:
+        repo: "https://github.com/example/app.git"
+        dest: "{{ nginx_root }}"
+      notify: Перезапустить Nginx
+
+    - name: Создать конфигурацию
+      template:
+        src: nginx.conf.j2
+        dest: /etc/nginx/nginx.conf
+      notify: Перезапустить Nginx
+
+  handlers:
+    - name: Перезапустить Nginx
+      service:
+        name: nginx
+        state: restarted
+```
+
+---
+
+### **Итог**
+Ansible — это не только inventory, playbook и roles. Для продвинутого использования важно:
+- Расширять функционал через **модули и плагины**.
+- Управлять данными через **переменные** и **Ansible Vault**.
+- Автоматизировать процессы через **интеграцию с CI/CD**.
+- Тестировать и документировать решения для надёжности.
+
+Эти аспекты помогут создать чистые, безопасные и масштабируемые конфигурации.
