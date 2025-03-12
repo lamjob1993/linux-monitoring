@@ -1,0 +1,12 @@
+# node_exporter/templates/node_exporter.service.j2
+[Unit]
+Description=Node Exporter
+After=network.target
+
+[Service]
+User={{ node_exporter_user }}
+Group={{ node_exporter_group }}
+ExecStart={{ node_exporter_binary_dir }}/node_exporter
+
+[Install]
+WantedBy=multi-user.target
