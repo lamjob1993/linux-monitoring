@@ -66,8 +66,8 @@
 - После подключения задействуйте мультиоконный (MultiExec) режим:
   - Одновременно на трех машинах запустятся три терминала
   - Одновременно исполните команду `top` и проверьте потребление RAM
-  - На скриншоте одновременное исполнение команды `sudo systemctl status prometheus.service`
-    - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/MultiExec.png" alt="Выбрать следующие пункты" width="450">
+  - На скриншоте одновременное исполнение команды `sudo systemctl status prometheus.service` на трех машинах сразу
+    - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/MultiExec.png" alt="Выбрать следующие пункты" width="650">
 - С данного этапа на ваши машины Debian вы будете заходить только в фоновом режиме и только через **Mobaxterm**
 --- 
 ### Установка Linux. Часть 4
