@@ -1,6 +1,6 @@
 # Prometheus Backend
 
-## Процесс загрузки Linux системы от BIOS/UEFI до system.d -> unit
+## Процесс загрузки Linux системы от BIOS/UEFI до старта prometheus.service
 
 Схема описывает процесс загрузки операционной системы Linux, начиная от выполнения POST (Power-On Self Test) и заканчивая запуском службы Prometheus через системный менеджер `systemd`.
 
