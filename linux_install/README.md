@@ -49,11 +49,11 @@
 ### Клонирование Debian. Часть 2
 
 - Выключаем виртуальную машину Debian
+- Теперь заходим в сетевые настройки нашей виртуалки и ставим только бридж (мост)
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%202).png" alt="Выбрать следующие пункты" width="750"> 
 - Клонируем 2 раза виртуальную машину Debian со следующими настройками и получаем 3 машины
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5).png" alt="Выбрать следующие пункты" width="750"> 
 - Переименуйте их по порядку 1, 2, 3
-- Теперь заходим в сетевые настройки каждой виртуалки и ставим только бридж (мост)
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%202).png" alt="Выбрать следующие пункты" width="750"> 
 - Запустите 3 виртуальные машины одновременно и войдите в профиль пользователя
   - Проверьте какие выдались IP адреса каждой машине и перепишите их в блокнот (должны выдаться разные IP из одной маски подсети)
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/2%20machines%20ip_a.png" alt="Выбрать следующие пункты" width="750"> 
