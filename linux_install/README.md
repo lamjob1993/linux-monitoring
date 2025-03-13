@@ -73,7 +73,7 @@
   - Одновременно исполните команду `top` и проверьте потребление RAM
   - На скриншоте одновременное исполнение команды `sudo systemctl status prometheus.service` на трех машинах сразу
     - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/MultiExec.png" alt="Выбрать следующие пункты" width="750">
-- С данного этапа на ваши машины Debian вы будете заходить из-под VirtualBox только в фоновом режиме (клик правой кнопкой на запуск в фоне) и только через **Mobaxterm**
+- С данного этапа на ваши машины Debian вы будете заходить из-под VirtualBox только в фоновом режиме (клик правой кнопкой на запуск в фоне) и только через **MobaXterm**
 --- 
 ### Установка Microsoft Visual Studio Code. Часть 4
 
