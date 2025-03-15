@@ -22,7 +22,7 @@
   11. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md`
   12. Открываем директорию **`postgresql`** → `README.md` → `tasks.md`
   13. Открываем директорию **`postgres_exporter`** → `README.md` → `tasks.md`
-  14. Открываем директорию **`mimir`** → `README.md` → `tasks.md`
+  14. Открываем директорию **`mimir`** → `README.md` → `tasks_1.md` → `tasks_2.md`
   15. Открываем директорию **`nginx`** → `README.md` → `tasks.md`
   16. Открываем директорию **`nginx-exporter`** → `README.md` → `tasks.md`
   17. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md`
