@@ -1,6 +1,6 @@
-### Настройка балансировщика нагрузки
+## Настройка балансировщика нагрузки
 
-## Nginx
+### Nginx
 
 https://grafana.com/docs/mimir/next/get-started/play-with-grafana-mimir/
 
