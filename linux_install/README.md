@@ -21,19 +21,19 @@
 - Далее при установке выбираем: установка через [GUI](https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F "Графический интерфейс пользователя сокр. ГИП (от англ. Graphical User Interface (GUI)), также графическая оболочка, — это способ взаимодействия пользователя с компьютером с использованием графических элементов, таких как окна, кнопки и меню.")
 - Выбираем обязательно английский язык
 - Выбираем разделение по разделам
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%201.png" alt="Выбрать следующие пункты" width="450">
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%201.png" alt="Выбрать следующие пункты" width="550">
 - Записываем изменения на диск
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%202.png" alt="Выбрать следующие пункты" width="450">
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%202.png" alt="Выбрать следующие пункты" width="550">
 - Форматируем разделы
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%203.png" alt="Выбрать следующие пункты" width="450">
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%203.png" alt="Выбрать следующие пункты" width="550">
 - Оставляем дефолтный пакетный менеджер [apt](https://ru.wikipedia.org/wiki/Advanced_Packaging_Tool "apt (advanced packaging tool) — программа для установки, обновления и удаления программных пакетов в операционных системах Debian и основанных на них дистрибутивах (например: Ubuntu, Linux Mint и т. п.), иногда также используется в дистрибутивах, основанных на Mandrake, например Mandriva, ALT Linux и PCLinuxOS. Способна автоматически устанавливать и настраивать программы для UNIX-подобных операционных систем как из предварительно откомпилированных пакетов, так и из исходных кодов.")
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%204.png" alt="Выбрать следующие пункты" width="450">
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%204.png" alt="Выбрать следующие пункты" width="550">
 - Отказываемся от участия в сборе анонимной статистики
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%205.png" alt="Выбрать следующие пункты" width="450">
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%205.png" alt="Выбрать следующие пункты" width="550">
 - В дальнейшем нужно будет снять все галочки и поставить, как на скрине ниже (нас интересует чистый терминальный Debian)
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%206.jpg" alt="Выбрать следующие пункты" width="450"> 
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%206.jpg" alt="Выбрать следующие пункты" width="550"> 
 - Здесь система предлагает вам выбрать устройство, на которое будет установлен загрузчик [GRUB](https://ru.wikipedia.org/wiki/GNU_GRUB "GRUB (англ. GRand Unified Bootloader) — загрузчик операционной системы от проекта GNU. GRUB позволяет пользователю иметь несколько установленных операционных систем и при включении компьютера выбирать одну из них для загрузки.") (нас интересует наш диск)
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%207.png" alt="Выбрать следующие пункты" width="450"> 
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%207.png" alt="Выбрать следующие пункты" width="550"> 
 ---
 - После первого запуска машины нужно добавить вашего пользователя в группу `sudo`, чтобы была возможность использовать команду `sudo` под вашим пользователем (это делается в рамках безопасности)
   - Чтобы добавить пользователя в группу `sudo`, выполните:
@@ -50,15 +50,15 @@
 
 - Выключаем виртуальную машину Debian
 - Теперь заходим в сетевые настройки нашей виртуалки и ставим только бридж (мост)
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%202).png" alt="Выбрать следующие пункты" width="750"> 
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%202).png" alt="Выбрать следующие пункты" width="850"> 
 - Клонируем 2 раза виртуальную машину Debian со следующими настройками и получаем 3 машины
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5).png" alt="Выбрать следующие пункты" width="750"> 
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5).png" alt="Выбрать следующие пункты" width="850"> 
 - Переименуйте их по порядку 1, 2, 3
 - Запустите 3 виртуальные машины одновременно и войдите в профиль пользователя
   - Проверьте какие выдались IP адреса каждой машине и перепишите их в блокнот (должны выдаться разные IP из одной маски подсети)
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/2%20machines%20ip_a.png" alt="Выбрать следующие пункты" width="750"> 
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/2%20machines%20ip_a.png" alt="Выбрать следующие пункты" width="850"> 
 - Сделайте ping трех машин друг до друга (слева на скриншоте указано два клона пингующих друг друга), сделайте пинг этих клонов с хостовой системы Windows (справа на скриншоте пинг двух клонов)
-  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Ping%20All.png" alt="Выбрать следующие пункты" width="750"> 
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Ping%20All.png" alt="Выбрать следующие пункты" width="850"> 
 - Во избежание ошибок с IP адресами в режиме моста (бридж), недоступности хостов по команде `ping` или недоступности интернета по пингу [DNS](https://ru.wikipedia.org/wiki/DNS "DNS (англ. Domain Name System «система доменных имён») — компьютерная распределённая система для получения информации о доменах. Чаще всего используется для получения IP-адреса по имени хоста (компьютера или устройства), получения информации о маршрутизации почты и/или обслуживающих узлах для протоколов в домене (SRV-запись)."): `ya.ru` - переустановите Debian еще раз по инструкции с полным удалением диска
   - Если проблема сохраняется - идите дальше с одной Debian машиной в режиме [NAT](https://ru.wikipedia.org/wiki/NAT "NAT (от англ. Network Address Translation — «преобразование сетевых адресов») — это механизм в сетях TCP/IP, позволяющий преобразовывать IP-адреса транзитных пакетов. Также имеет названия IP Masquerading, Network Masquerading и Native Address Translation.") и не задерживайтесь
     - Три Debian машины понадобятся при поднятии федерации и далее по репозиторию
@@ -72,7 +72,7 @@
   - Одновременно на трех машинах запустятся три терминала
   - Одновременно исполните команду `top` и проверьте потребление RAM
   - На скриншоте одновременное исполнение команды `sudo systemctl status prometheus.service` на трех машинах сразу
-    - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/MultiExec.png" alt="Выбрать следующие пункты" width="750">
+    - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/MultiExec.png" alt="Выбрать следующие пункты" width="850">
 - С данного этапа на ваши машины Debian вы будете заходить из-под VirtualBox только в фоновом режиме (клик правой кнопкой на запуск в фоне) и только через **MobaXterm**
 --- 
 ### Установка Microsoft Visual Studio Code. Часть 4
