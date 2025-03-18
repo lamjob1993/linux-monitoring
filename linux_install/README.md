@@ -44,7 +44,7 @@
   ```
 - Далее используйте команду `sudo nano /etc/sudoers` и добавьте снизу строку в файл
      ```bash
-     lamjob  ALL=(ALL:ALL) ALL
+     user_name  ALL=(ALL:ALL) ALL
      ```
 - Сохраните изменения
 
