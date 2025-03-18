@@ -68,6 +68,7 @@
 
 
 
+```mermaid
 sequenceDiagram
     participant PostgreSQL
     participant Nginx
@@ -108,4 +109,4 @@ sequenceDiagram
     Grafana->>Prometheus: Query PromQL (e.g., avg_over_time(jvm_memory_bytes_used[1h]))
     Grafana->>Elasticsearch: Query Elastic DSL (e.g., search for "ERROR")
     Grafana->>Admin: Дашборды с метриками и логами
-
+```
