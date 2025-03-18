@@ -75,17 +75,91 @@ sequenceDiagram
     participant Host
     participant Filebeat
     participant Kafka
+    participant Logstash
+    participant Elasticsearch
+    participant Kibana
     participant Prometheus
     participant Grafana
 
+    %% Сбор метрик
     PostgreSQL->>PostgresExporter: Публикация метрик
     JavaApp->>JMXExporter: Публикация JVM-метрик
     Host->>NodeExporter: Публикация хост-метрик
+
+    %% Prometheus забирает метрики
     Prometheus->>PostgresExporter: HTTP GET /metrics
     Prometheus->>JMXExporter: HTTP GET /metrics
     Prometheus->>NodeExporter: HTTP GET /metrics
+
+    %% Сбор логов
     PostgreSQL->>Filebeat: Логи БД
     JavaApp->>Filebeat: Логи приложения
     Filebeat->>Kafka: Отправка логов в Kafka
-    Grafana->>Prometheus: Query PromQL
+
+    %% Обработка логов через ELK
+    Kafka->>Logstash: Потребление логов
+    Logstash->>Elasticsearch: Индексация логов
+    Elasticsearch->>Kibana: Визуализация логов
+
+    %% Визуализация и оповещение
+    Grafana->>Prometheus: Query PromQL (e.g., avg_over_time(jvm_memory_bytes_used[1h]))
+    Grafana->>Elasticsearch: Query Elastic DSL (e.g., search for "ERROR")
+    Grafana->>Admin: Дашборды с метриками и логами
+```
+
+---
+
+### **Описание обновленной схемы**
+
+1. **Сбор метрик**:
+   - **PostgreSQL**, **JavaApp** и **Host** публикуют метрики через соответствующие экспортеры (например, `PostgresExporter`, `JMXExporter`, `NodeExporter`).  
+   - **Prometheus** забирает метрики через HTTP GET `/metrics` (pull-метод).  
+
+2. **Сбор логов**:
+   - **PostgreSQL** и **JavaApp** отправляют свои логи в **Filebeat**.  
+   - **Filebeat** передает логи в **Kafka** для буферизации и распределения.  
+
+3. **Обработка логов через ELK**:
+   - **Kafka** отправляет логи в **Logstash** для обработки (фильтрация, парсинг).  
+   - **Logstash** индексирует логи в **Elasticsearch**.  
+   - **Kibana** визуализирует логи для анализа.  
+
+4. **Анализ и визуализация**:
+   - **Grafana** подключается к **Prometheus** для анализа метрик через PromQL.  
+   - **Grafana** также подключается к **Elasticsearch** для анализа логов через Elastic DSL.  
+   - Результаты отображаются на дашбордах (например, тренды нагрузки на PostgreSQL, статус репликации, ошибки Nginx).  
+
+5. **Оповещение**:
+   - **Prometheus** может отправлять алерты в **Alertmanager**, который уведомляет администраторов через Slack, Email или PagerDuty.  
+
+---
+
+### **Зачем нужен ELK?**
+
+1. **Централизованное хранение логов**:  
+   - Все логи собираются в одном месте (**Elasticsearch**) для удобного поиска и анализа.  
+
+2. **Поиск и фильтрация**:  
+   - **Kibana** предоставляет мощные инструменты для поиска ошибок (например, "ERROR") и анализа тенденций.  
+
+3. **Масштабируемость**:  
+   - ELK поддерживает горизонтальное масштабирование, что позволяет обрабатывать огромные объемы логов.  
+
+4. **Реальное время**:  
+   - Логи обрабатываются и становятся доступны для анализа практически в реальном времени.  
+
+5. **Интеграция с Grafana**:  
+   - Grafana может использовать данные из Elasticsearch для создания единого дашборда с метриками и логами.  
+
+---
+
+### **Итог**
+- **Prometheus** активно забирает метрики из всех экспортеров (pull-метод).  
+- **Kafka** дополняет мониторинг, обеспечивая надежную доставку логов.  
+- **ELK** анализирует логи, а **Grafana** объединяет метрики и логи в единой панели.  
+
+**Рекомендации**:
+- Настройте Kafka для масштабирования системы сбора логов.  
+- Используйте Kibana для создания дашбордов логов.  
+- Добавьте TLS для защиты endpoints `/metrics` и логов.  
 ```
