@@ -11,6 +11,6 @@
 ## Beginning
 - Переходим прямо сейчас в раздел `beginning` и погнали
 - По данному содержанию ничего не нужно выполнять по практике, только знакомимся с теорией, если где-то не указано обратное
-  - К примеру, если нужно будет пробежаться по практике по [регуляркам](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/6.1%20%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5%20%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20(Regular%20Expressions).md), то об этом будет явно указано
+  - К примеру, если нужно будет пробежаться по практике по [регуляркам](https://github.com/lamjob1993/linux-monitoring/blob/main/prometheus/beginning/6.1%20%D0%A0%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%80%D0%BD%D1%8B%D0%B5%20%D0%B2%D1%8B%D1%80%D0%B0%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F%20(Regular%20Expressions).md), то об этом будет указано явно
 - Вся основная практика только в разделах `tasks.md`
 
