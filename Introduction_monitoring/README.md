@@ -74,8 +74,8 @@ sequenceDiagram
     Elasticsearch->>Kibana: Визуализация логов
 
     %% Визуализация и оповещение
-    Grafana->>Prometheus: Query PromQL (e.g., avg_over_time(jvm_memory_bytes_used[1h]))
-    Grafana->>Elasticsearch: Query Elastic DSL (e.g., search for "ERROR")
+    Grafana->>Prometheus: Query PromQL
+    Grafana->>Elasticsearch: Query Elastic DSL
     Grafana->>Admin: Дашборды с метриками и логами
 ```
 
