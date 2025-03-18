@@ -8,7 +8,7 @@
 ---
 ### Установка VirtualBox. Часть 0
 
-- Скачайте последнюю версию VirtualBox с официального сайта
+- Скачайте последнюю версию [VirtualBox](https://ru.wikipedia.org/wiki/VirtualBox "VirtualBox (Oracle VM VirtualBox) — программный продукт виртуализации для операционных систем Windows, Linux, FreeBSD, macOS, Solaris/OpenSolaris, ReactOS, DOS и других.") с официального сайта
 - Установите VirtualBox
 ---
 ### Установка Debian. Часть 1
