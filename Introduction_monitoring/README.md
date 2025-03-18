@@ -1,157 +1,170 @@
-### 1. Введение в мониторинг
-Мониторинг — это процесс непрерывного сбора, анализа и визуализации метрик ИТ-инфраструктуры и приложений для обеспечения их надежности, производительности и безопасности.  
-**Цели мониторинга**:  
-- Обнаружение аномалий и сбоев в реальном времени.  
-- Прогнозирование нагрузки и масштабирование ресурсов.  
-- Аудит соответствия SLA (Service Level Agreement).  
-- Оптимизация использования ресурсов (CPU, RAM, disk I/O, network).  
+### 1. Введение в мониторинг  
+**Мониторинг** — процесс непрерывного сбора, анализа и визуализации метрик, логов и состояний инфраструктуры, приложений и сервисов.  
+**Цели**:  
+- Обнаружение аномалий (сбои, деградация производительности).  
+- Прогнозирование нагрузки и планирование ресурсов.  
+- Обеспечение SLA/SLO (Service Level Agreements/Objectives).  
+- Ускорение RCA (Root Cause Analysis).  
 
 ---
 
-### 1.1 Сравнение Prometheus и Zabbix. Роль зонтичного мониторинга
+### 1.1 Сравнение Prometheus и Zabbix  
 
-| **Критерий**          | **Prometheus + экспортеры**                          | **Zabbix + агенты**                                  |
-|------------------------|------------------------------------------------------|-----------------------------------------------------|
-| **Архитектура**        | Pull-based (метрики забираются по HTTP)             | Push/pull-based (агенты отправляют данные на сервер)|
-| **Сбор данных**        | Экспортеры (например, Node Exporter, Blackbox)       | Агенты (Zabbix Agent, SNMP)                         |
-| **Масштабируемость**   | Горизонтальная (через federation и Thanos)           | Вертикальная (требует ресурсов на сервере)          |
-| **Интеграции**         | Нативная поддержка Kubernetes, облачных сервисов     | Широкий спектр шаблонов для HW/SW                   |
-| **Оповещения**         | Alertmanager (гибкие правила на PromQL)              | Встроенные триггеры и уведомления                   |
-| **Типовые кейсы**      | Контейнеризированные среды, микросервисы             | Enterprise-инфраструктура, legacy-системы           |
+| **Критерий**          | **Prometheus**                          | **Zabbix**                              |  
+|-----------------------|-----------------------------------------|-----------------------------------------|  
+| **Архитектура**        | Pull-модель (сервер запрашивает метрики)| Push/Pull (агенты отправляют/сервер запрашивает)|  
+| **Протоколы**          | HTTP(S)/PromQL                          | Zabbix-протокол, SNMP, HTTP, JMX        |  
+| **Хранение данных**    | Временные ряды (TSDB)                   | Реляционная БД (MySQL, PostgreSQL)      |  
+| **Масштабируемость**   | Горизонтальное (Thanos, Cortex)         | Вертикальное + прокси-серверы           |  
+| **Обнаружение сервисов**| Динамическое (Kubernetes, Consul)       | Статическое + Zabbix Discovery          |  
+| **Экспортеры/Агенты**  | Node Exporter, Blackbox Exporter        | Zabbix Agent, SNMP-агенты               |  
+| **Зонтичный мониторинг**| Интеграция с Grafana, Alertmanager      | Встроенные дашборды, триггеры           |  
 
-**Зонтичный мониторинг** — унификация данных из разных источников (Prometheus, Zabbix, CloudWatch) в единой системе (например, Grafana) для комплексного анализа.
+**Зонтичный мониторинг** — объединение инструментов для комплексного покрытия (напр., Prometheus + ELK для логов + Jaeger для трейсов).  
 
 ---
 
-### 2. Grafana: визуализация данных
-**Grafana** — платформа для создания дашбордов и анализа метрик.  
+### 2. Grafana  
+**Grafana** — платформа визуализации и анализа метрик, логов и трейсов.  
 **Пример**:  
-- Источник данных: Prometheus (CPU usage).  
-- Визуализация: График загрузки CPU с алертингом при превышении 90%.  
+- Подключение к Prometheus для отображения CPU-нагрузки серверов.  
+- Создание дашбордов с графиками, heatmap-ами и алертами.  
+
 **Роль**:  
-- Агрегация данных из Prometheus, Zabbix, Elasticsearch и других.  
-- Настройка оповещений через Alerting Engine.  
+- Агрегация данных из разнородных источников (Prometheus, Loki, Elasticsearch).  
+- Интерактивное исследование метрик через GUI.  
 
 ---
 
-### 2.1 Prometheus: сбор метрик
-**Prometheus** — TSDB (Time Series Database) для мониторинга динамических сред.  
-**Зачем нужен**:  
-- Забирает метрики по HTTP (pull-метод).  
-- Использует PromQL для сложных запросов.  
-- Интегрируется с Kubernetes через Service Discovery.  
+### 2.1 Prometheus  
+**Prometheus** — TSDB (Time-Series Database) с pull-моделью сбора данных и языком запросов PromQL.  
+**Цели**:  
+- Мониторинг состояния сервисов через HTTP-эндпоинты.  
+- Автоматическое обнаружение целей (Kubernetes, Consul).  
+- Обработка метрик для алертинга (Alertmanager).  
 
 ---
 
-### 2.2 Экспортеры: Node Exporter
-**Экспортер** — сервис, предоставляющий метрики в формате, понятном Prometheus.  
-**Node Exporter**:  
-- Собирает данные о CPU, RAM, дисках, сетевых интерфейсах.  
-- Запускается на каждом узле и предоставляет `/metrics` по HTTP.  
+### 2.2 Экспортер  
+**Экспортер** — промежуточный агент, преобразующий системные/прикладные метрики в формат, совместимый с Prometheus.  
+**Пример: Node Exporter**  
+- Собирает метрики ОС (CPU, RAM, диск, сеть).  
+- Предоставляет их через HTTP-эндпоинт (`/metrics`) на порту 9100.  
+- Prometheus парсит их по расписанию (напр., каждые 15 сек).  
 
 ---
 
-### 2.3 Mermaid Sequence Diagram
-```mermaid
-sequenceDiagram
-    participant User
-    participant Grafana
-    participant Prometheus
-    participant NodeExporter
-    participant Alertmanager
+### 2.3 Sequence Diagram: Grafana + Prometheus + Node Exporter + Alertmanager  
+```mermaid  
+sequenceDiagram  
+    participant NodeExporter  
+    participant Prometheus  
+    participant Alertmanager  
+    participant Grafana  
 
-    Prometheus->>NodeExporter: HTTP GET /metrics (scrape)
-    NodeExporter-->>Prometheus: Ответ с метриками (text/plain)
-    Prometheus->>Prometheus: Хранение данных в TSDB
-    Grafana->>Prometheus: HTTP GET query (PromQL)
-    Prometheus-->>Grafana: Результат запроса (JSON)
-    Prometheus->>Alertmanager: POST alert (при срабатывании правила)
-    Alertmanager->>User: Оповещение (email/Slack/PagerDuty)
-```
+    Prometheus->>NodeExporter: HTTP GET /metrics (TCP/9100)  
+    NodeExporter-->>Prometheus: 200 OK (текст/plain)  
+    Prometheus->>Prometheus: Сохранение в TSDB  
+    Grafana->>Prometheus: HTTP GET /api/v1/query (PromQL)  
+    Prometheus-->>Grafana: JSON-ответ  
+    Prometheus->>Alertmanager: HTTP POST /api/v2/alerts (JSON)  
+    Alertmanager->>Slack: Отправка алерта (webhook)  
+```  
 
 ---
 
-### 3. Mermaid Quadrant Chart
-```mermaid
-quadrantChart
-    title Мониторинг 10 ВМ через Node Exporter
-    x-axis Сложность интеграции --> Простота
-    y-axis Централизация --> Децентрализация
-    quadrant-1 Prometheus Server
-    quadrant-2 Node Exporters
-    quadrant-3 Alertmanager
-    quadrant-4 Grafana
-    NodeExporter1: 10, 20
-    NodeExporter2: 15, 25
-    Prometheus: 70, 80
-    Grafana: 85, 85
-    Alertmanager: 60, 60
-```
+### 3. Quadrant Chart: Инфраструктура из 10 ВМ  
+```mermaid  
+quadrantChart  
+    title Мониторинг 10 ВМ через Node Exporter  
+    x-axis Сложность реализации  
+    y-axis Критичность  
+
+    quadrant-1 Высокая критичность, низкая сложность: [Node Exporter]  
+    quadrant-2 Высокая критичность, высокая сложность: [Prometheus, Alertmanager]  
+    quadrant-3 Низкая критичность, низкая сложность: [Grafana Dashboards]  
+    quadrant-4 Низкая критичность, высокая сложность: [Кастомные алерты]  
+
+    "Node Exporter (10 ВМ)": [x=0.1, y=0.9]  
+    "Prometheus": [x=0.7, y=0.8]  
+    "Alertmanager": [x=0.6, y=0.7]  
+    "Grafana": [x=0.3, y=0.4]  
+```  
 
 **Процессы**:  
-1. **Node Exporters** публикуют метрики на порту 9100.  
-2. **Prometheus** скребет данные по HTTP каждые 15 секунд.  
-3. **Alertmanager** получает алерты при превышении пороговых значений.  
-4. **Grafana** визуализирует метрики через дашборды.  
+1. **Сбор данных**: Node Exporter на каждой ВМ предоставляет метрики через HTTP.  
+2. **Получение метрик**: Prometheus опрашивает `/metrics` всех ВМ по расписанию.  
+3. **Хранение**: TSDB Prometheus сохраняет данные с временными метками.  
+4. **Визуализация**: Grafana запрашивает Prometheus через PromQL.  
+5. **Алертинг**: При превышении порогов Prometheus отправляет алерты в Alertmanager.  
 
 ---
 
-### 4. Мониторинг в финтехе
-**Мониторят**:  
-- **Инфраструктура**: Загрузка серверов, сетевая latency.  
-- **Приложения**: Время обработки транзакций, ошибки API.  
-- **Безопасность**: Количество несанкционированных запросов.  
-- **Пользователи**: DAU (Daily Active Users), конверсии.  
+### 4. Мониторинг в финтехе  
+**Метрики**:  
+- **Инфраструктура**: CPU, RAM, сеть (пропускная способность, задержки).  
+- **Приложения**: Время обработки транзакций, ошибки JVM (Java).  
+- **Бизнес-логика**: Количество операций, фрод-события.  
 
-**Роль в финтехе**:  
-- Обеспечение 99.99% uptime для платежных шлюзов.  
-- Обнаружение фрода через аномалии в транзакциях.  
-
----
-
-### 5. Sequence Diagram: Java-приложение в ВМ
-```mermaid
-sequenceDiagram
-    participant JavaApp
-    participant JMXExporter
-    participant Prometheus
-    participant Alertmanager
-    participant Grafana
-
-    JavaApp->>JMXExporter: Публикация JMX-метрик
-    JMXExporter->>JMXExporter: HTTP endpoint /metrics
-    Prometheus->>JMXExporter: Scrape метрик (HTTP GET)
-    Prometheus->>Alertmanager: Alert (e.g., high GC pauses)
-    Alertmanager->>Admin: Slack notification
-    Grafana->>Prometheus: Query JVM metrics
-    Grafana->>Admin: Дашборд с CPU, memory, threads
-```
+**Пример для финтеха**:  
+- Prometheus отслеживает задержки API платежного шлюза.  
+- Alertmanager отправляет SMS при падении доступности ниже 99.9%.  
+- Grafana отображает SLA в реальном времени.  
 
 ---
 
-### 6. Sequence Diagram: Java-приложение в Kubernetes
-```mermaid
-sequenceDiagram
-    participant K8sPod
-    participant PrometheusOperator
-    participant Prometheus
-    participant Grafana
+### 5. Sequence Diagram: Java-приложение в ВМ  
+```mermaid  
+sequenceDiagram  
+    participant JavaApp  
+    participant JMXExporter  
+    participant Prometheus  
+    participant Grafana  
 
-    K8sPod->>K8sPod: Аннотация prometheus.io/scrape: true
-    PrometheusOperator->>Prometheus: Создание ServiceMonitor
-    Prometheus->>K8sPod: Scrape /metrics через Kubernetes API
-    Prometheus->>Prometheus: Хранение метрик в TSDB
-    Grafana->>Prometheus: Запрос метрик (PromQL)
-    Grafana->>SRE: Визуализация CPU/RAM pod-ов
-```
+    JavaApp->>JMXExporter: JMX-метрики (TCP/12345)  
+    Prometheus->>JMXExporter: HTTP GET /metrics (TCP/9404)  
+    JMXExporter-->>Prometheus: Данные в формате Prometheus  
+    Grafana->>Prometheus: Запросы PromQL (HTTP)  
+```  
 
 ---
 
-### 7. Завершение
-**Итог**:  
-- Prometheus + Grafana = стандарт де-факто для облачных и контейнеризированных сред.  
-- Zabbix эффективен для гибридных инфраструктур с legacy-системами.  
-- В финтехе мониторинг критичен для соблюдения SLA и защиты от фрода.  
-- Используйте **зонтичные решения** для унификации данных из множества источников.  
-- **Алертинг** должен быть настроен по принципу SRE (Service Level Objectives).  
+### 6. Sequence Diagram: Java-приложение в Kubernetes  
+```mermaid  
+sequenceDiagram  
+    participant JavaPod  
+    participant ServiceMonitor  
+    participant Prometheus  
+    participant Grafana  
 
+    JavaPod->>Prometheus: Предоставляет метрики через /actuator/prometheus (HTTP)  
+    Prometheus->>Kubernetes API: Обнаружение Pods (HTTP)  
+    Kubernetes API-->>Prometheus: Endpoints списки  
+    Prometheus->>JavaPod: Сбор метрик каждые 15 сек  
+    Grafana->>Prometheus: Визуализация через PromQL  
+```  
+
+---
+
+### 7. Итог  
+**Мониторинг** — критическая компонента DevOps-цикла, обеспечивающая:  
+- **Наблюдаемость** (observability) через связку Prometheus + Grafana.  
+- **Раннее реагирование** на инциденты (Alertmanager).  
+- **Анализ трендов** для Capacity Planning.  
+
+**Недостающие темы**:  
+- Интеграция с логами (Loki, ELK).  
+- Трассировка (Jaeger, Zipkin).  
+- Оптимизация запросов PromQL.  
+
+**Финальная схема**:  
+```mermaid  
+graph TD  
+    A[Node Exporter] -->|HTTP| B(Prometheus)  
+    B -->|PromQL| C[Grafana]  
+    B -->|Alerts| D[Alertmanager]  
+    D -->|Webhook| E[Slack/Email]  
+    C -->|Dashboard| F[Анализ SLA]  
+```  
+
+**Заключение**: Современный мониторинг — это синергия pull-модели (Prometheus), гибкой визуализации (Grafana) и автоматизированного алертинга, обеспечивающая устойчивость и прозрачность инфраструктуры, особенно в высоконагруженных средах (финтех, банкинг).
