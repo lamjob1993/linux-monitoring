@@ -65,7 +65,7 @@
 ---
 ### Установка MobaXterm. Часть 3
 
-- [Скачайте крякнутую программу](https://rutracker.org/forum/viewtopic.php?t=6511089) для удаленного администрирования серверов <abbr title="MobaXterm — это расширенный терминал для Windows, который предоставляет множество инструментов для работы с удаленными системами и сетями. Он сочетает в себе функции терминала, SSH-клиента, инструментов для работы с сетью и многого другого, что делает его удобным решением для системных администраторов, разработчиков и IT-специалистов.">MobaXterm</abbr> с торрента
+- [Скачайте крякнутую программу](https://rutracker.org/forum/viewtopic.php?t=6511089) для удаленного администрирования серверов <span title="MobaXterm — это расширенный терминал для Windows, который предоставляет множество инструментов для работы с удаленными системами и сетями. Он сочетает в себе функции терминала, SSH-клиента, инструментов для работы с сетью и многого другого, что делает его удобным решением для системных администраторов, разработчиков и IT-специалистов.">MobaXterm</span> с торрента
 - Если не умеете лечить инсталлятор, то [возьмите демо-версию](https://mobaxterm.mobatek.net/ "MobaXterm is your ultimate toolbox for remote computing. In a single Windows application, it provides loads of functions that are tailored for programmers, webmasters, IT administrators and pretty much all users who need to handle their remote jobs in a more simple fashion.") с официального сайта, она с ограничениями, но работает
 - Запустите **Mobaxterm** и подключитесь к трем виртуалкам по SSH одновременно
 - После подключения задействуйте мультиоконный (MultiExec) режим:
