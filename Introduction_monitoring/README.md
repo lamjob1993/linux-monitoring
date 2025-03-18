@@ -165,7 +165,7 @@ flowchart TD
 
 
 
-```markdown
+
 ### 2.3 Flowchart TD: Grafana + Prometheus/Mimir + Экспортеры + Alertmanager
 
 Ниже представлена улучшенная и более наглядная схема, где Prometheus активно забирает метрики из всех экспортеров (pull-метод), а Grafana использует Prometheus как единый источник данных (Data Source).
@@ -283,4 +283,4 @@ flowchart TD
 - Настройте алертинг на ключевые метрики (например, `pg_replication_lag` или `nginx_http_errors`).  
 - Используйте Mimir для масштабирования Prometheus в крупных системах.  
 - Добавьте TLS для защиты endpoints `/metrics` (например, в Nginx).  
-```
+
