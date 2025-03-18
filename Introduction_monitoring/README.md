@@ -1,5 +1,6 @@
 ### 1. Обновленные схемы в формате `flowchart TD` с детальным описанием этапов  
 #### 2.3 Flowchart: Взаимодействие Java-приложения, Prometheus, Grafana и ELK  
+
 ```mermaid  
 flowchart TD  
     A[Банковское Java-приложение] -->|1. JMX-метрики\n(Port 12345)| B(JMX Exporter)  
