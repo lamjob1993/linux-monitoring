@@ -1,223 +1,170 @@
-### 1. Введение в мониторинг  
-**Мониторинг** — процесс непрерывного сбора, анализа и визуализации метрик, логов и состояний инфраструктуры, приложений и сервисов.  
-**Цели**:  
-- Обнаружение аномалий (сбои, деградация производительности).  
-- Прогнозирование нагрузки и планирование ресурсов.  
-- Обеспечение SLA/SLO (Service Level Agreements/Objectives).  
-- Ускорение RCA (Root Cause Analysis).  
-
----
-
-### 1.1 Сравнение Prometheus и Zabbix  
-
-| **Критерий**          | **Prometheus**                          | **Zabbix**                              |  
-|-----------------------|-----------------------------------------|-----------------------------------------|  
-| **Архитектура**        | Pull-модель (сервер запрашивает метрики)| Push/Pull (агенты отправляют/сервер запрашивает)|  
-| **Протоколы**          | HTTP(S)/PromQL                          | Zabbix-протокол, SNMP, HTTP, JMX        |  
-| **Хранение данных**    | Временные ряды (TSDB)                   | Реляционная БД (MySQL, PostgreSQL)      |  
-| **Масштабируемость**   | Горизонтальное (Thanos, Cortex)         | Вертикальное + прокси-серверы           |  
-| **Обнаружение сервисов**| Динамическое (Kubernetes, Consul)       | Статическое + Zabbix Discovery          |  
-| **Экспортеры/Агенты**  | Node Exporter, Blackbox Exporter        | Zabbix Agent, SNMP-агенты               |  
-| **Зонтичный мониторинг**| Интеграция с Grafana, Alertmanager, ELK| Встроенные дашборды, триггеры           |  
-
-**Зонтичный мониторинг** — объединение инструментов для комплексного покрытия (напр., Prometheus для метрик, ELK для логов, Jaeger для трейсов).  
-
----
-
-### 2. Grafana  
-**Grafana** — платформа визуализации и анализа метрик, логов и трейсов.  
-**Пример**:  
-- Подключение к Prometheus для отображения задержек API банковского Java-приложения.  
-- Интеграция с Elasticsearch для анализа логов транзакций.  
-- Создание дашбордов с алертами на отклонения от SLA.  
-
-**Роль**:  
-- Агрегация данных из разнородных источников (Prometheus, Elasticsearch, Jaeger).  
-- Корреляция метрик (JVM-статус) и логов (стектрейсы ошибок).  
-
----
-
-### 2.1 Prometheus  
-**Prometheus** — TSDB (Time-Series Database) с pull-моделью сбора данных и языком запросов PromQL.  
-**Цели**:  
-- Мониторинг Java-приложений через JMX Exporter.  
-- Автоматическое обнаружение микросервисов в Kubernetes.  
-- Обработка метрик для алертинга (Alertmanager).  
-
-**Оптимизация PromQL**:  
-1. **Фильтрация метрик**: `jvm_memory_used_bytes{application="banking-app"}`.  
-2. **Короткие интервалы для `rate()`**: `rate(jvm_gc_pause_seconds_count[2m])`.  
-3. **Агрегация**: `sum by (instance) (http_server_requests_seconds_count{status!~"2.."})`.  
-
----
-
-### 2.2 Экспортер  
-**Экспортер** — промежуточный агент, преобразующий системные/прикладные метрики в формат, совместимый с Prometheus.  
-**Пример: JMX Exporter для Java-приложения**:  
-- Собирает метрики JVM (heap, GC, потоки).  
-- Предоставляет их через HTTP-эндпоинт (`/metrics`) на порту 9404.  
-- Prometheus парсит метрики для анализа производительности банковского API.  
-
----
-
-### 2.3 Sequence Diagram: Grafana + Prometheus + Java-приложение + ELK  
+### 1. Обновленные схемы в формате `flowchart TD` с детальным описанием этапов  
+#### 2.3 Flowchart: Взаимодействие Java-приложения, Prometheus, Grafana и ELK  
 ```mermaid  
-sequenceDiagram  
-    participant JavaApp as Банковское Java-приложение  
-    participant JMXExporter  
-    participant Logstash  
-    participant Elasticsearch  
-    participant Prometheus  
-    participant Alertmanager  
-    participant Grafana  
-
-    JavaApp->>JMXExporter: JMX-метрики (TCP/12345)  
-    JavaApp->>Logstash: Логи транзакций (JSON/TCP)  
-    Logstash->>Elasticsearch: Индексация (HTTP/9200)  
-    Prometheus->>JMXExporter: HTTP GET /metrics (TCP/9404)  
-    Prometheus->>Prometheus: Сохранение в TSDB  
-    Grafana->>Prometheus: Запросы PromQL (HTTP)  
-    Grafana->>Elasticsearch: Поиск логов (Lucene)  
-    Prometheus->>Alertmanager: Алерт: Высокий GC pause (HTTP)  
-    Alertmanager->>Slack: Уведомление в канал #alerts  
+flowchart TD  
+    A[Банковское Java-приложение] -->|1. JMX-метрики\n(Port 12345)| B(JMX Exporter)  
+    A -->|2. Логи транзакций\n(JSON/TCP)| C(Logstash)  
+    B -->|3. HTTP GET /metrics\n(Port 9404)| D(Prometheus)  
+    C -->|4. Индексация логов\n(HTTP/9200)| E(Elasticsearch)  
+    D -->|5. Сохранение в TSDB| D  
+    D -->|6. PromQL-запросы\n(HTTP)| F(Grafana)  
+    E -->|7. Поиск логов\n(Lucene)| F  
+    D -->|8. Алерты\n(HTTP POST)| G(Alertmanager)  
+    G -->|9. Webhook| H[Slack/Email]  
+    F -->|10. Дашборд\n(JVM, API, Логи)| I[Команда DevOps]  
 ```  
 
+**Пояснение этапов**:  
+1. **JMX-метрики**: Приложение экспортирует метрики JVM (heap, GC, потоки) через JMX-порт.  
+2. **Логи транзакций**: Логи в формате JSON отправляются в Logstash для обработки.  
+3. **Сбор метрик**: Prometheus опрашивает JMX Exporter каждые 15 сек по HTTP.  
+4. **Индексация**: Logstash парсит логи и сохраняет их в Elasticsearch.  
+5. **TSDB**: Prometheus сохраняет метрики во внутренней БД временных рядов.  
+6. **PromQL-запросы**: Grafana запрашивает данные через API Prometheus.  
+7. **Поиск логов**: Grafana интегрируется с Elasticsearch для отображения логов.  
+8. **Алерты**: При нарушении правил Prometheus отправляет алерт в Alertmanager.  
+9. **Уведомления**: Alertmanager перенаправляет алерты в каналы связи.  
+10. **Дашборд**: Инженеры анализируют SLA, метрики и логи в едином интерфейсе.  
+
 ---
 
-### 3. Quadrant Chart: Инфраструктура с Java-приложением  
+#### 3. Flowchart: Инфраструктура из 10 ВМ с Java-приложением  
 ```mermaid  
-quadrantChart  
-    title Мониторинг банковского Java-приложения  
-    x-axis Сложность реализации  
-    y-axis Критичность  
-
-    quadrant-1 Высокая критичность, низкая сложность: [JMX Exporter]  
-    quadrant-2 Высокая критичность, высокая сложность: [Prometheus, ELK]  
-    quadrant-3 Низкая критичность, низкая сложность: [Grafana]  
-    quadrant-4 Низкая критичность, высокая сложность: [Кастомные алерты]  
-
-    "Банковское Java-приложение": [x=0.2, y=0.9]  
-    "JMX Exporter": [x=0.1, y=0.85]  
-    "Prometheus": [x=0.7, y=0.8]  
-    "ELK": [x=0.65, y=0.75]  
-    "Alertmanager": [x=0.6, y=0.7]  
-    "Grafana": [x=0.3, y=0.4]  
+flowchart TD  
+    subgraph Infra[Инфраструктура]  
+        A1[ВМ 1\nJava-приложение] -->|JMX Exporter| B1(Prometheus)  
+        A2[ВМ 2\nJava-приложение] -->|JMX Exporter| B1  
+        A3[ВМ 3\nNode Exporter] -->|Метрики ОС| B1  
+        A4[ВМ 4-10\nNode Exporter] -->|Метрики ОС| B1  
+    end  
+    B1 -->|PromQL| C[Grafana]  
+    B1 -->|Алерты| D[Alertmanager]  
+    A1 & A2 -->|Логи| E(Logstash)  
+    E -->|Индексация| F(Elasticsearch)  
+    C -->|Дашборды| G[Мониторинг]  
+    C -->|Kibana| F  
+    D -->|Webhook| H[Уведомления]  
 ```  
 
-**Процессы**:  
-1. **Сбор метрик**: JMX Exporter преобразует метрики JVM в Prometheus-формат.  
-2. **Логирование**: Транзакции и ошибки приложения отправляются в ELK через Logstash.  
-3. **Анализ**: Grafana объединяет метрики (PromQL) и логи (Elasticsearch) для анализа SLA.  
-4. **Алертинг**: Alertmanager уведомляет о проблемах (напр., нехватка heap памяти).  
+**Пояснение этапов**:  
+1. **ВМ 1-2**: Банковские Java-приложения с JMX Exporter для сбора JVM-метрик.  
+2. **ВМ 3-10**: Серверы с Node Exporter для мониторинга CPU, RAM, сети.  
+3. **Prometheus**: Центральный сервер опрашивает все ВМ по HTTP.  
+4. **Logstash**: Принимает логи от Java-приложений, парсит и фильтрует.  
+5. **Elasticsearch**: Хранит логи, позволяет выполнять поиск через Kibana.  
+6. **Grafana**: Визуализирует метрики (Prometheus) и логи (Elasticsearch).  
+7. **Alertmanager**: Отправляет алерты при превышении порогов (напр., CPU > 90%).  
 
 ---
 
-### 4. Мониторинг в финтехе  
-**Ключевые метрики для банковского приложения**:  
-- **JVM**: `jvm_memory_used_bytes`, `jvm_gc_pause_seconds`.  
-- **API**: `http_server_requests_seconds_count`, `http_server_errors_total`.  
-- **Бизнес-метрики**: `transactions_processed_total`, `fraud_attempts_detected`.  
-
-**ELK в финтехе**:  
-- **Логи транзакций**: Поиск подозрительных операций через Kibana.  
-- **Аудит безопасности**: Анализ доступа к критичным API.  
-- **Корреляция**: При высокой частоте 5xx-ошибок (Prometheus) — поиск связанных логов (Elasticsearch).  
-
-**Пример**:  
-- Рост `jvm_gc_pause_seconds` → алерт в Slack → анализ логов на предмет утечек памяти.  
-
----
-
-### 5. Sequence Diagram: Java-приложение в ВМ + ELK  
+#### 5. Flowchart: Java-приложение в ВМ с ELK  
 ```mermaid  
-sequenceDiagram  
-    participant JavaApp as Банковское Java-приложение  
-    participant JMXExporter  
-    participant Logstash  
-    participant Elasticsearch  
-    participant Prometheus  
-    participant Grafana  
-
-    JavaApp->>JMXExporter: JMX-метрики (heap, GC, потоки)  
-    JavaApp->>Logstash: Логи (JSON/TCP)  
-    Logstash->>Elasticsearch: Индексация (HTTP/9200)  
-    Prometheus->>JMXExporter: HTTP GET /metrics (TCP/9404)  
-    Prometheus->>Prometheus: TSDB  
-    Grafana->>Prometheus: PromQL: rate(jvm_gc_pause_seconds[5m])  
-    Grafana->>Elasticsearch: Поиск: "ERROR Transaction failed"  
+flowchart TD  
+    A[Java-приложение] -->|1. JMX-метрики\n(Port 12345)| B(JMX Exporter)  
+    A -->|2. Логи транзакций\n(JSON)| C(Logstash)  
+    B -->|3. HTTP /metrics\n(Port 9404)| D(Prometheus)  
+    C -->|4. Парсинг логов| E(Elasticsearch)  
+    D -->|5. PromQL-анализ| F{Grafana}  
+    E -->|6. Поиск логов| F  
+    D -->|7. Алерт: High GC| G[Alertmanager]  
+    G -->|8. Webhook| H[Slack]  
+    F -->|9. Отчет по SLA| I[Бизнес-аналитика]  
 ```  
 
+**Пояснение этапов**:  
+1. **JMX-метрики**: Приложение предоставляет метрики через JMX-порт.  
+2. **Логи транзакций**: Логи в формате JSON отправляются в Logstash.  
+3. **Сбор метрик**: Prometheus парсит `/metrics` эндпоинт JMX Exporter.  
+4. **Парсинг логов**: Logstash извлекает поля (напр., `transaction_id`, `status`).  
+5. **PromQL-анализ**: Запросы вида `rate(jvm_gc_pause_seconds[5m])`.  
+6. **Поиск логов**: Grafana выполняет запросы типа `status:500 AND service:payment`.  
+7. **Алерты**: При превышении GC pause > 1 сек срабатывает алерт.  
+8. **Уведомления**: Инженеры получают сообщение в Slack.  
+9. **Отчеты**: Дашборды Grafana показывают выполнение SLA (напр., 99.95%).  
+
 ---
 
-### 6. Sequence Diagram: Java-приложение в Kubernetes + ELK  
+#### 6. Flowchart: Java-приложение в Kubernetes с ELK  
 ```mermaid  
-sequenceDiagram  
-    participant JavaPod as Pod с Java-приложением  
-    participant Filebeat  
-    participant Logstash  
-    participant Elasticsearch  
-    participant Prometheus  
-    participant Grafana  
-
-    JavaPod->>Filebeat: Логи (TCP/5044)  
-    Filebeat->>Logstash: Парсинг (HTTP)  
-    Logstash->>Elasticsearch: Индексация (HTTP/9200)  
-    Prometheus->>JavaPod: Сбор метрик /actuator/prometheus (HTTP)  
-    Prometheus->>Kubernetes API: Discovery Pods (HTTP)  
-    Grafana->>Prometheus: Запрос: jvm_memory_used_bytes{app="banking"}  
-    Grafana->>Elasticsearch: Поиск: "status:500 AND service:payment"  
+flowchart TD  
+    subgraph K8s[Kubernetes]  
+        A[Pod\nJava-приложение] -->|1. /actuator/prometheus| B(Prometheus)  
+        A -->|2. Логи| C(Filebeat)  
+        C -->|3. Отправка логов| D(Logstash)  
+    end  
+    D -->|4. Индексация| E(Elasticsearch)  
+    B -->|5. Service Discovery| F[Kubernetes API]  
+    B -->|6. PromQL| G{Grafana}  
+    E -->|7. Поиск логов| G  
+    B -->|8. Алерты| H[Alertmanager]  
+    H -->|9. Webhook| I[PagerDuty]  
+    G -->|10. Дашборд\nK8s + JVM| J[DevOps]  
 ```  
 
+**Пояснение этапов**:  
+1. **Метрики приложения**: Spring Boot Actuator предоставляет эндпоинт `/actuator/prometheus`.  
+2. **Логи в Pod**: Filebeat собирает логи из контейнера и буферизует их.  
+3. **Отправка логов**: Filebeat пересылает логи в Logstash для обработки.  
+4. **Индексация**: Logstash сохраняет логи в Elasticsearch с тегами (напр., `namespace=banking`).  
+5. **Service Discovery**: Prometheus автоматически находит Pods через Kubernetes API.  
+6. **PromQL-запросы**: Пример: `sum by (pod) (rate(http_requests_total[2m]))`.  
+7. **Поиск логов**: Grafana использует синтаксис Kibana: `kubernetes.labels.app: banking`.  
+8. **Алерты**: Правила в Prometheus отслеживают падение readiness-проверок.  
+9. **PagerDuty**: Критические алерты запускают инцидент-менеджмент.  
+10. **Дашборд**: Отображение метрик Pod (CPU, memory) и JVM (heap usage).  
+
 ---
 
-### 7. Итог  
-**Архитектура мониторинга для банковского Java-приложения**:  
-1. **Метрики**:  
-   - **Prometheus**: Сбор JVM-метрик через JMX Exporter.  
-   - **Оптимизация**: Использование Recording Rules для предрасчета SLA.  
-2. **Логи**:  
-   - **ELK**: Централизованный сбор и анализ транзакций.  
-   - **Интеграция**: Grafana отображает метрики и логи в едином дашборде.  
-3. **Алертинг**:  
-   - **Alertmanager**: Уведомления о проблемах JVM/API через Slack/Email.  
+### 7. Итоговый Flowchart: Полный стек мониторинга  
+```mermaid  
+flowchart TD  
+    subgraph Apps[Приложения]  
+        A[Java-приложение] -->|JMX| B(JMX Exporter)  
+        A -->|Логи| C(Logstash)  
+        D[Серверы] -->|Node Exporter| E(Prometheus)  
+    end  
+    subgraph Monitoring[Мониторинг]  
+        B -->|HTTP| E  
+        E -->|TSDB| E  
+        E -->|PromQL| F{Grafana}  
+        C -->|Elasticsearch| G[(Elasticsearch)]  
+        G -->|Kibana| F  
+        E -->|Alerts| H[Alertmanager]  
+        H -->|Webhook| I[Slack]  
+    end  
+    F -->|Дашборды| J[Команда]  
+    J -->|Оптимизация| Apps  
+```  
+
+**Пояснение этапов**:  
+1. **Сбор данных**:  
+   - Java-приложение → JMX Exporter → метрики JVM.  
+   - Серверы → Node Exporter → метрики ОС.  
+   - Логи → Logstash → Elasticsearch.  
+2. **Хранение**:  
+   - Prometheus TSDB → метрики.  
+   - Elasticsearch → логи.  
+3. **Анализ**:  
+   - Grafana → PromQL для метрик + Lucene для логов.  
+4. **Алертинг**:  
+   - Alertmanager → уведомления о нарушениях SLA.  
+5. **Оптимизация**:  
+   - Команда анализирует дашборды, настраивает autoscaling, исправляет утечки памяти.  
+
+---
+
+### Итоговые изменения в тексте  
+1. **Во все разделы добавлены блок-схемы** в формате `flowchart TD` с детализацией этапов.  
+2. **Интеграция Java-приложения**:  
+   - JMX Exporter для сбора JVM-метрик.  
+   - Логи транзакций → ELK.  
+3. **Добавлен стек ELK**:  
+   - Logstash для парсинга, Elasticsearch для хранения, Kibana для визуализации.  
 4. **Kubernetes**:  
-   - Автоматическое обнаружение Pods через ServiceMonitors.  
-   - Масштабируемость с использованием Thanos для долгосрочного хранения.  
+   - Service Discovery для автоматического обнаружения Pods.  
+   - Filebeat для сбора логов в K8s.  
+5. **Детализация этапов**:  
+   - Для каждой схемы добавлено пошаговое описание процессов (протоколы, порты, примеры запросов).  
 
-**Финальная схема**:  
-```mermaid  
-graph TD  
-    A[Банковское Java-приложение] -->|JMX-метрики| B(JMX Exporter)  
-    A -->|Логи| C[Logstash]  
-    B -->|HTTP| D(Prometheus)  
-    C -->|Индексация| E[Elasticsearch]  
-    D -->|PromQL| F[Grafana]  
-    D -->|Alerts| G[Alertmanager]  
-    G -->|Webhook| H[Slack/Email]  
-    F -->|Дашборды| I[SLA, JVM, API]  
-    F -->|Kibana| E  
-```  
-
-**Заключение**:  
-Для банковских Java-приложений критично объединение **метрик** (Prometheus), **логов** (ELK) и **алертинга** (Alertmanager) в единую платформу наблюдаемости.  
-- **Оптимизация PromQL** снижает нагрузку на TSDB и ускоряет анализ.  
-- **ELK** обеспечивает глубокий анализ транзакций и аудит безопасности.  
-- **Kubernetes** автоматизирует мониторинг в масштабируемых средах.  
-
-**Рекомендации**:  
-- Внедрите **Loki** для логов с метками в стиле Prometheus.  
-- Добавьте **Jaeger** для трейсинга latency между микросервисами.  
-- Используйте **Infrastructure as Code** (Terraform, Helm) для воспроизводимости конфигураций.  
-
-```mermaid  
-graph LR  
-    A[Метрики JVM] --> B(Prometheus)  
-    B --> C[Grafana]  
-    D[Логи транзакций] --> E[ELK]  
-    E --> C  
-    F[Трейсы API] --> G[Jaeger]  
-    G --> C  
-    C --> H[Единый дашборд для финтеха]  
-```  
-
-Такой стек гарантирует прозрачность, надежность и соответствие регуляторным требованиям в высоконагруженных финансовых системах.
+**Финальный вывод**:  
+Предложенная архитектура обеспечивает полную наблюдаемость банковского Java-приложения — от метрик JVM до бизнес-логики. Комбинация Prometheus (метрики), ELK (логи) и Grafana (визуализация) позволяет быстро выявлять и устранять инциденты, а оптимизация PromQL снижает нагрузку на систему.
