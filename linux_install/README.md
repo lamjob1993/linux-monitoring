@@ -42,7 +42,7 @@
   apt update  # Обновите список пакетов
   apt install sudo  # Установите пакет sudo
   ```
-- Далее используйте команду `sudo nano /etc/sudoers` и добавьте снизу строку в файл
+- Далее используйте команду `sudo nano /etc/sudoers` и добавьте в самый конец файла строку
      ```bash
      user_name  ALL=(ALL:ALL) ALL
      ```
