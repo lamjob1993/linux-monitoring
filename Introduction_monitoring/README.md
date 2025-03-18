@@ -282,5 +282,143 @@ flowchart TD
 **Рекомендации**:
 - Настройте алертинг на ключевые метрики (например, `pg_replication_lag` или `nginx_http_errors`).  
 - Используйте Mimir для масштабирования Prometheus в крупных системах.  
-- Добавьте TLS для защиты endpoints `/metrics` (например, в Nginx).  
+- Добавьте TLS для защиты endpoints `/metrics` (например, в Nginx).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```markdown
+### 1. Flowchart TD: Взаимодействие Prometheus с экспортерами и ELK
+
+Ниже представлена улучшенная схема, включающая интеграцию **ELK** (Elasticsearch, Logstash, Kibana) для сбора и анализа логов, а также взаимодействие **Prometheus** с экспортерами.
+
+```mermaid
+flowchart TD
+    subgraph Инфраструктура
+        PostgreSQL -->|Метрики| PostgresExporter[PostgreSQL Exporter]
+        Nginx -->|Метрики| NginxExporter[Nginx Exporter]
+        JavaApp -->|JMX метрики| JMXExporter[JMX Exporter]
+        Host -->|Хост-метрики| NodeExporter[Node Exporter]
+        JavaApp -->|Логи| Filebeat
+        PostgreSQL -->|Логи| Filebeat
+    end
+
+    subgraph Мониторинг
+        Prometheus -->|HTTP GET /metrics| PostgresExporter
+        Prometheus -->|HTTP GET /metrics| NginxExporter
+        Prometheus -->|HTTP GET /metrics| JMXExporter
+        Prometheus -->|HTTP GET /metrics| NodeExporter
+        Prometheus -->|TSDB| Alertmanager
+    end
+
+    subgraph Логирование_ELK
+        Filebeat -->|HTTP POST| Elasticsearch
+        Elasticsearch -->|Индексы| Kibana
+    end
+
+    subgraph Визуализация
+        Grafana -->|Data Source| Prometheus
+        Grafana -->|Elastic DSL| Elasticsearch
+        Grafana -->|Дашборды| Admin
+    end
+
+    subgraph Оповещения
+        Alertmanager -->|Slack/Email| Admin
+    end
+```
+
+---
+
+### **Описание схемы**
+
+1. **Сбор метрик (Pull-метод)**:
+   - **PostgreSQL Exporter**:  
+     - PostgreSQL предоставляет метрики через `pg_stat_activity`, `pg_replication_lag` и другие.  
+     - Prometheus забирает данные по HTTP GET `/metrics`.  
+   - **Nginx Exporter**:  
+     - Nginx предоставляет статус через модуль `stub_status`.  
+     - Prometheus забирает данные по HTTP GET `/metrics`.  
+   - **JMX Exporter**:  
+     - Java-приложение публикует JVM-метрики (heap memory, GC pauses) через `/metrics`.  
+     - Prometheus забирает данные по HTTP GET `/metrics`.  
+   - **Node Exporter**:  
+     - Хост предоставляет метрики (CPU, RAM, диски, сетевые интерфейсы).  
+     - Prometheus забирает данные по HTTP GET `/metrics`.
+
+2. **Сбор логов (ELK)**:
+   - **Filebeat**:  
+     - Собирает логи PostgreSQL и Java-приложения.  
+     - Отправляет логи в Elasticsearch через HTTP POST.  
+   - **Elasticsearch**:  
+     - Индексирует логи для последующего анализа.  
+   - **Kibana**:  
+     - Предоставляет визуализацию логов через Elastic DSL.
+
+3. **Агрегация и хранение**:
+   - Prometheus складывает все собранные метрики в TSDB (Time Series Database).  
+   - Mimir может использоваться для распределенного хранения больших объемов данных.
+
+4. **Анализ и визуализация**:
+   - Grafana подключается к Prometheus как Data Source для анализа метрик.  
+   - Grafana также подключается к Elasticsearch для анализа логов.  
+   - Результаты отображаются на дашбордах (например, тренды нагрузки на PostgreSQL, статус репликации, ошибки Nginx).
+
+5. **Оповещение**:
+   - Prometheus отправляет алерты в Alertmanager при срабатывании правил (например, лаг репликации > 30 секунд).  
+   - Alertmanager отправляет уведомления администраторам через Slack, Email или PagerDuty.
+
+---
+
+### **Примеры использования ELK**
+1. **Анализ логов PostgreSQL**:
+   - Поиск ошибок репликации:
+     ```json
+     {
+       "query": {
+         "match": {
+           "message": "replication lag"
+         }
+       }
+     }
+     ```
+
+2. **Анализ логов Java-приложения**:
+   - Поиск исключений:
+     ```json
+     {
+       "query": {
+         "match": {
+           "level": "ERROR"
+         }
+       }
+     }
+     ```
+
+---
+
+### **Итог**
+- **Prometheus** активно забирает метрики из всех экспортеров (pull-метод).  
+- **ELK** дополняет мониторинг логами PostgreSQL и Java-приложений.  
+- **Grafana** объединяет метрики и логи в единой панели для анализа.  
+
+**Рекомендации**:
+- Настройте Filebeat для сбора логов с минимальной задержкой.  
+- Используйте Kibana для создания дашбордов логов.  
+- Добавьте TLS для защиты endpoints `/metrics` и логов.  
+```
 
