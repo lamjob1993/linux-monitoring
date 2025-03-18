@@ -1,6 +1,6 @@
 # Содержание
 
-## Мониторинг
+## Введение в мониторинг
 
 1. [Введение](https://github.com/lamjob1993/linux-monitoring/blob/main/Introduction_monitoring/1.%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5.md)
 2. [Сбор метрик](https://github.com/lamjob1993/linux-monitoring/blob/main/Introduction_monitoring/2.%20%D0%A1%D0%B1%D0%BE%D1%80%20%D0%BC%D0%B5%D1%82%D1%80%D0%B8%D0%BA.md)
