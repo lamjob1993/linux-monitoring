@@ -9,27 +9,28 @@
 - И всё это разрезе **Linux** (Terminal Debian)
 
 ### Последовательность выполнения заданий
-  1. Открываем директорию **`linux_install`** → `README.md` → `Список пакетов.md` → `Установка пакетов.md`
-  2. Регистрируем и настраиваем доступ по **`SSH`** в **`GitHub`** по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
-  3. Открываем директорию **`prometheus`** → `README.md` → `beginning` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md`
-  4. Открываем директорию **`grafana`** → `README.md` → `tasks_1.md`
-  5. Открываем директорию **`node-exporter`** → `README.md` → `tasks.md`
-  6. Открываем директорию **`pushgateway`** → `README.md` → `tasks.md`
-  7. Открываем директорию **`prometheus-federate`** → `README.md` → `tasks.md`
-  8. Открываем директорию **`alertmanager`** → `README.md` → `tasks.md`
-  9. Открываем директорию **`process-exporter`** → `README.md` → `tasks.md`
-  10. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks.md`
-  11. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md`
-  12. Открываем директорию **`postgresql`** → `README.md` → `tasks.md`
-  13. Открываем директорию **`postgres_exporter`** → `README.md` → `tasks.md`
-  14. Открываем директорию **`mimir`** → `README.md` → `tasks_1.md` → `tasks_2.md`
-  15. Открываем директорию **`nginx`** → `README.md` → `tasks.md`
-  16. Открываем директорию **`nginx-exporter`** → `README.md` → `tasks.md`
-  17. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md`
-  18. После исполнения всех пунктов:
+  1. Открываем директорию **introduction_monitoring** → `README.md`
+  2. Открываем директорию **`linux_install`** → `README.md` → `Список пакетов.md` → `Установка пакетов.md`
+  3. Регистрируем и настраиваем доступ по **`SSH`** в **`GitHub`** по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
+  4. Открываем директорию **`prometheus`** → `README.md` → `beginning` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md`
+  5. Открываем директорию **`grafana`** → `README.md` → `tasks_1.md`
+  6. Открываем директорию **`node-exporter`** → `README.md` → `tasks.md`
+  7. Открываем директорию **`pushgateway`** → `README.md` → `tasks.md`
+  8. Открываем директорию **`prometheus-federate`** → `README.md` → `tasks.md`
+  9. Открываем директорию **`alertmanager`** → `README.md` → `tasks.md`
+  10. Открываем директорию **`process-exporter`** → `README.md` → `tasks.md`
+  11. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks.md`
+  12. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md`
+  13. Открываем директорию **`postgresql`** → `README.md` → `tasks.md`
+  14. Открываем директорию **`postgres_exporter`** → `README.md` → `tasks.md`
+  15. Открываем директорию **`mimir`** → `README.md` → `tasks_1.md` → `tasks_2.md`
+  16. Открываем директорию **`nginx`** → `README.md` → `tasks.md`
+  17. Открываем директорию **`nginx-exporter`** → `README.md` → `tasks.md`
+  18. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md`
+  19. После исполнения всех пунктов:
       - У вас должна быть написана полная Bash-автоматизация на деплой бэкенда мониторинга
       - Должны быть построены дашборды для всех экспортеров, включая глобальный дашборд с ссылками на них
-  19. Далее нужно будет создать от своего лица публичный репозиторий в **GitHub** на тему мониторинга, который будет служить для вас, как портфолио для работодателя (так называемый [Pet-проект](https://practicum.yandex.ru/blog/chto-takoe-pet-proekty-idei-dlya-novichkov/ "С помощью пет-проектов можно улучшить навыки и найти работу. Рассказываем, как их создавать, чем вдохновляться, а также какие у таких проектов есть плюсы и минусы."))
+  20. Далее нужно будет создать от своего лица публичный репозиторий в **GitHub** на тему мониторинга, который будет служить для вас, как портфолио для работодателя (так называемый [Pet-проект](https://practicum.yandex.ru/blog/chto-takoe-pet-proekty-idei-dlya-novichkov/ "С помощью пет-проектов можно улучшить навыки и найти работу. Рассказываем, как их создавать, чем вдохновляться, а также какие у таких проектов есть плюсы и минусы."))
 
 ### О заданиях
 **Задания написаны с техническим уклоном** в мониторинг и в `Linux` и таким образом, что о тех инструментах, которые в них используются спрашивают в 90% случаев на собеседованиях по части `Linux` у джунов:
