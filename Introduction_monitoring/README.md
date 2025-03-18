@@ -71,42 +71,21 @@
 ```mermaid
 sequenceDiagram
     participant PostgreSQL
-    participant Nginx
     participant JavaApp
     participant Host
     participant Filebeat
     participant Kafka
-    participant Logstash
-    participant Elasticsearch
     participant Prometheus
-    participant Alertmanager
     participant Grafana
 
-    %% Сбор метрик
     PostgreSQL->>PostgresExporter: Публикация метрик
-    Nginx->>NginxExporter: Публикация метрик
     JavaApp->>JMXExporter: Публикация JVM-метрик
     Host->>NodeExporter: Публикация хост-метрик
-
-    %% Prometheus забирает метрики
     Prometheus->>PostgresExporter: HTTP GET /metrics
-    Prometheus->>NginxExporter: HTTP GET /metrics
     Prometheus->>JMXExporter: HTTP GET /metrics
     Prometheus->>NodeExporter: HTTP GET /metrics
-
-    %% Сбор логов
     PostgreSQL->>Filebeat: Логи БД
     JavaApp->>Filebeat: Логи приложения
     Filebeat->>Kafka: Отправка логов в Kafka
-
-    %% Обработка логов
-    Kafka->>Logstash: Потребление логов
-    Logstash->>Elasticsearch: Индексация логов
-
-    %% Визуализация и оповещение
-    Prometheus->>Alertmanager: Alert (e.g., high GC pauses)
-    Alertmanager->>Admin: Slack notification
-    Grafana->>Prometheus: Query PromQL (e.g., avg_over_time(jvm_memory_bytes_used[1h]))
-    Grafana->>Elasticsearch: Query Elastic DSL (e.g., search for "ERROR")
-    Grafana->>Admin: Дашборды с метриками и логами
+    Grafana->>Prometheus: Query PromQL
 ```
