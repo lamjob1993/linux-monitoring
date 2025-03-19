@@ -84,7 +84,7 @@ sequenceDiagram
    scrape_configs:
      - job_name: 'my_job'
        static_configs:
-         - targets: ['localhost:9090']
+         - targets: ['ip_address:9090']
        labels:
          env: 'prod'  # Добавляет лейбл `env="prod"` ко всем метрикам этого job.
    ```
@@ -134,7 +134,7 @@ http_requests_total{method="POST", endpoint="/api", status="500"} 5
 scrape_configs:
   - job_name: 'node_exporter'         # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте Prometheus умеет мониторить сам себя
     static_configs:
-      - targets: ['host_name:9100']   # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте Prometheus умеет мониторить сам себя
+      - targets: ['ip_address:9100']   # по курсу мы будем брать в работу сначала таргет Prometheus (не Node Exporter), в дефолте Prometheus умеет мониторить сам себя
     relabel_configs:
       - source_labels: [__address__]
         target_label: instance        # Добавляет лейбл `instance="host_name:9100"`
