@@ -34,7 +34,9 @@
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%206.jpg" alt="Выбрать следующие пункты" width="550"> 
 - Здесь система предлагает вам выбрать устройство, на которое будет установлен загрузчик [GRUB](https://ru.wikipedia.org/wiki/GNU_GRUB "GRUB (англ. GRand Unified Bootloader) — загрузчик операционной системы от проекта GNU. GRUB позволяет пользователю иметь несколько установленных операционных систем и при включении компьютера выбирать одну из них для загрузки.") (нас интересует наш диск)
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20install%207.png" alt="Выбрать следующие пункты" width="550"> 
+
 ---
+
 - После первого запуска машины нужно установить пакет sudo
       
 ```bash
@@ -42,6 +44,7 @@ su -  # Переключитесь на пользователя root
 apt update  # Обновите список пакетов
 apt install sudo  # Установите пакет sudo
 ```
+
 - Далее используйте команду `sudo nano /etc/sudoers` и добавьте в самый конец файла строку
   
 ```bash
@@ -55,11 +58,6 @@ user_name  ALL=(ALL:ALL) ALL
 sudo apt install musl musl-tools
 ```
 
-- Далее добавьте по пути `sudo nano /etc/resolv.conf` в конец файла строки
-```bash
-    nameserver 8.8.8.8
-    nameserver 8.8.4.4
-```
 - Сохраните изменения
 - Перезагрузите машину
 
