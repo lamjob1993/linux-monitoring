@@ -37,22 +37,23 @@
 ---
 - После первого запуска машины нужно установить пакет sudo
       
-  ```bash
-  su -  # Переключитесь на пользователя root
-  apt update  # Обновите список пакетов
-  apt install sudo  # Установите пакет sudo
-  ```
+      ```bash
+      su -  # Переключитесь на пользователя root
+      apt update  # Обновите список пакетов
+      apt install sudo  # Установите пакет sudo
+      ```
 - Далее используйте команду `sudo nano /etc/sudoers` и добавьте в самый конец файла строку
-     ```bash
-     user_name  ALL=(ALL:ALL) ALL
-     ```
+      ```bash
+      user_name  ALL=(ALL:ALL) ALL
+      ```
 - Сохраните изменения
 - Далее установите зависимости
 
-  ```sudo apt install musl musl-tools
-  ```
+      ```bash
+      sudo apt install musl musl-tools
+      ```
 
-- Далее [доустановите](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Debian и других дистрибутивах на основе Debian (например, Ubuntu) сетевые утилиты и программы обычно входят в состав различных пакетов.") дополнительные пакеты по ходу выполнения курса с [необходимым ПО](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Linux существует множество сетевых программ, которые помогают в диагностике, мониторинге, настройке и управлении сетевыми соединениями."): **curl**, **net-tools** и прочие пакеты
+- Далее [установите](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Debian и других дистрибутивах на основе Debian (например, Ubuntu) сетевые утилиты и программы обычно входят в состав различных пакетов.") дополнительные пакеты по ходу выполнения курса с [необходимым ПО](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Linux существует множество сетевых программ, которые помогают в диагностике, мониторинге, настройке и управлении сетевыми соединениями."): **curl**, **net-tools** и прочие пакеты
 ---
 ### Клонирование Debian. Часть 2
 
