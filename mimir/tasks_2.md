@@ -11,7 +11,6 @@ _Пользуемся официальной документацией на Git
     | Memberlist Cluster Members |               |        |
     |----------------------------|---------------|--------|
     | **Name**                   | **Address**   | **State** |
-    | debian-2f01f116            | 10.49.71.205:7946 | <span style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px;">Alive</span>  |
-    | debian-4ce0a848            | 10.49.71.206:7946 | <span style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px;">Alive</span>  |
-    | debian-b1a9343d            | 10.49.71.167:7946 | <span style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px;">Alive</span>  |
-<span style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px;">Alive</span>
+    | debian-2f01f116            | 10.49.71.205:7946 | 🟢 Alive  |
+    | debian-4ce0a848            | 10.49.71.206:7946 | 🟢 Alive  |
+    | debian-b1a9343d            | 10.49.71.167:7946 | 🟢 Alive  |
