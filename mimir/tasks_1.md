@@ -19,7 +19,7 @@ _Пользуемся официальной документацией на Git
 # Отключаем мультитенантность
 # Мультиарендность (multi-tenancy) в системах мониторинга, таких как Grafana Mimir, предназначена для разделения данных между различными пользователями, организациями или командами
 # Даже если мультиарендность отключена, Grafana может требовать указания tenant ID
-# В настройках источника данных в Grafana добавьте HTTP-заголовок: X-Scope-OrgID: anonymous
+# В настройках источника данных (Data Source) в Grafana добавьте HTTP-заголовок: X-Scope-OrgID: anonymous
 multitenancy_enabled: false 
 
 # Режим работы: monolithic (все компоненты в одном процессе)
@@ -91,6 +91,7 @@ remote_write:
 #### 3. Добавление Data Source Mimir в Grafana
 - Prometheus server URL: http://ip-address-mimir:9009/prometheus
   - **prometheus** указываем явно после `ip address Mimir` и порта
+  - В настройках источника данных (Data Source) в Grafana добавьте HTTP-заголовок: `X-Scope-OrgID: anonymous`
 
 #### 4. Grafana должна четко в разделе Explore отображать метрики проэкспонированные с Mimir
 - Выбрать Explore → Выбрать Datasource → Mimir → Вбить метрику `up` в поле ввода
