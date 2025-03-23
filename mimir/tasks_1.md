@@ -75,7 +75,7 @@ scrape_configs:
       - targets: ['localhost:9090'] # Сбор метрик с самого Prometheus
 
 remote_write:
-  - url: http://<MIMIR_IP>:9009/api/v1/push             # имеем ввиду, что это не Data Source для Grafana
+  - url: http://<MIMIR_IP>:9009/api/v1/push     # имеем ввиду, что это не Data Source для Grafana
     # Если используется аутентификация (например, Basic Auth):
     #basic_auth:
     #  username: "user"
