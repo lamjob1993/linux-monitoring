@@ -26,6 +26,8 @@
 - Выбираем обязательно английский язык
 - Вписываем имя пользователя
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%200.1.png" alt="Выбрать следующие пункты" width="550">
+- Выбираем `Guided - use entire disk:` Автоматическое использование всего диска без дополнительной конфигурации
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%200.2.png" alt="Выбрать следующие пункты" width="550">
 - Выбираем все файлы в одном разделе
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%201.png" alt="Выбрать следующие пункты" width="550">
 - Записываем изменения на диск
