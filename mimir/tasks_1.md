@@ -5,7 +5,7 @@ _Пользуемся официальной документацией на Git
 ## Tasks
 
  - [Вспоминаем нашу схему](https://github.com/lamjob1993/linux-monitoring/blob/main/mimir/README.md#%D1%81%D1%85%D0%B5%D0%BC%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-mimir)
-   - По данному разделу нужно выплнить только деплой:
+   - По данному разделу нужно выполнить только деплой:
      - Grafana
      - Mimir
      - Prometheus
