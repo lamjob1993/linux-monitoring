@@ -12,7 +12,7 @@ _Пользуемся официальной документацией на Git
        - **Поднимаем с нуля**
      - `Prometheus` на отдельной виртуалке
        - Если Prometheus уже поднят, то отлично
- - [Далее обязательно смотрим на режимы деплоя Mimir с официального сайта](https://grafana.com/docs/mimir/latest/references/architecture/deployment-modes/)
+ - [Далее обязательно смотрим на режимы деплоя Mimir на официальном сайте](https://grafana.com/docs/mimir/latest/references/architecture/deployment-modes/)
    - А также постепенно погружаемся в схему балансировки, в следующих `Tasks` будет горизонтальное масштабирование Prometheus в разрезе трех инстансов Mimir (так называемый хэшринг из кольца Mimir, или кольцо хэшринга) завязанных на Nginx
  - [Далее обязательно смотрим этот ролик](https://grafana.com/docs/mimir/latest/get-started/)
  - [Далее обязательно смотрим на этот репозиторий с конфигами и черпаем вдохновение для деплоя Mimir](https://github.com/ktsstudio/mimir-demo/tree/main/simple)
