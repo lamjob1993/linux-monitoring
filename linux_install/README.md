@@ -34,6 +34,8 @@
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%202.png" alt="Выбрать следующие пункты" width="550">
 - Записываем изменения на диск
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%203.png" alt="Выбрать следующие пункты" width="550">
+- Форматируем разделы
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%203.1.png" alt="Выбрать следующие пункты" width="550">
 - Оставляем дефолтный пакетный менеджер [apt](https://ru.wikipedia.org/wiki/Advanced_Packaging_Tool "apt (advanced packaging tool) — программа для установки, обновления и удаления программных пакетов в операционных системах Debian и основанных на них дистрибутивах (например: Ubuntu, Linux Mint и т. п.), иногда также используется в дистрибутивах, основанных на Mandrake, например Mandriva, ALT Linux и PCLinuxOS. Способна автоматически устанавливать и настраивать программы для UNIX-подобных операционных систем как из предварительно откомпилированных пакетов, так и из исходных кодов.")
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%204.png" alt="Выбрать следующие пункты" width="550">
 - Отказываемся от участия в сборе анонимной статистики
