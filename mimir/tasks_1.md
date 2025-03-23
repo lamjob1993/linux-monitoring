@@ -9,8 +9,10 @@ _Пользуемся официальной документацией на Git
  - [Далее обязательно смотрим на этот репозиторий с конфигами для деплоя Mimir](https://github.com/ktsstudio/mimir-demo/tree/main/simple)
  - От вас требуется поднять один инстанс `Mimir` в монолитном режиме частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/prometheus "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию.")
  - При этом упростите установку `Mimir` - после распаковки архива сделайте директорию распаковки рабочей сразу, чтобы не повторять шаги способом установки `Prometheus`
+ - Настройте рабочий конфиг `Mimir` 
  - Настройте `Prometheus` на `remote-write` в `Mimir`
- - Пропишите `Data Source` в `Grafana`
- - Снимите метрики `Prometheus` из `Mimir` в `Grafana`
+ - Пропишите `Data Source Mimir` в `Grafana`
+ - Снимите метрики в разделе Explore из `Data Source Mimir` в `Grafana`
+   - Достаточно метрики `up`
 
 ---
