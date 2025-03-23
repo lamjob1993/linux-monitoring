@@ -1,0 +1,1858 @@
+target: all
+multitenancy_enabled: false
+no_auth_tenant: anonymous
+shutdown_delay: 0s
+max_separate_metrics_groups_per_user: 1000
+enable_go_runtime_metrics: false
+api:
+    skip_label_name_validation_header_enabled: false
+    skip_label_count_validation_header_enabled: false
+    alertmanager_http_prefix: /alertmanager
+    prometheus_http_prefix: /prometheus
+server:
+    http_listen_network: tcp
+    http_listen_address: ""
+    http_listen_port: 9009
+    http_listen_conn_limit: 0
+    grpc_listen_network: tcp
+    grpc_listen_address: ""
+    grpc_listen_port: 9095
+    grpc_listen_conn_limit: 0
+    proxy_protocol_enabled: false
+    tls_cipher_suites: ""
+    tls_min_version: ""
+    http_tls_config:
+        cert: ""
+        key: null
+        client_ca: ""
+        cert_file: ""
+        key_file: ""
+        client_auth_type: ""
+        client_ca_file: ""
+    grpc_tls_config:
+        cert: ""
+        key: null
+        client_ca: ""
+        cert_file: ""
+        key_file: ""
+        client_auth_type: ""
+        client_ca_file: ""
+    register_instrumentation: true
+    report_grpc_codes_in_instrumentation_label_enabled: true
+    graceful_shutdown_timeout: 30s
+    http_server_read_timeout: 30s
+    http_server_read_header_timeout: 0s
+    http_server_write_timeout: 2m0s
+    http_server_idle_timeout: 2m0s
+    http_log_closed_connections_without_response_enabled: false
+    grpc_server_max_recv_msg_size: 104857600
+    grpc_server_max_send_msg_size: 104857600
+    grpc_server_max_concurrent_streams: 100
+    grpc_server_max_connection_idle: 2562047h47m16.854775807s
+    grpc_server_max_connection_age: 2562047h47m16.854775807s
+    grpc_server_max_connection_age_grace: 2562047h47m16.854775807s
+    grpc_server_keepalive_time: 2h0m0s
+    grpc_server_keepalive_timeout: 20s
+    grpc_server_min_time_between_pings: 10s
+    grpc_server_ping_without_stream_allowed: true
+    grpc_server_num_workers: 100
+    grpc_server_stats_tracking_enabled: true
+    grpc_server_recv_buffer_pools_enabled: false
+    log_format: logfmt
+    log_level: info
+    log_source_ips_enabled: false
+    log_source_ips_full: false
+    log_source_ips_header: ""
+    log_source_ips_regex: ""
+    log_request_headers: false
+    log_request_at_info_level_enabled: false
+    log_request_exclude_headers_list: ""
+    http_path_prefix: ""
+distributor:
+    pool:
+        client_cleanup_period: 15s
+        health_check_ingesters: true
+    retry_after_header:
+        enabled: true
+        min_backoff: 6s
+        max_backoff: 1m36s
+    ha_tracker:
+        enable_ha_tracker: false
+        ha_tracker_update_timeout: 15s
+        ha_tracker_update_timeout_jitter_max: 5s
+        ha_tracker_failover_timeout: 30s
+        kvstore:
+            store: consul
+            prefix: ha-tracker/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+    max_recv_msg_size: 104857600
+    max_otlp_request_size: 104857600
+    max_request_pool_buffer_size: 0
+    remote_timeout: 2s
+    ring:
+        kvstore:
+            store: memberlist
+            prefix: collectors/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: 127.0.0.1
+        instance_enable_ipv6: false
+    instance_limits:
+        max_ingestion_rate: 0
+        max_inflight_push_requests: 2000
+        max_inflight_push_requests_bytes: 0
+    write_requests_buffer_pooling_enabled: true
+    reusable_ingester_push_workers: 2000
+querier:
+    query_store_after: 12h0m0s
+    store_gateway_client:
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+    shuffle_sharding_ingesters_enabled: true
+    prefer_availability_zone: ""
+    streaming_chunks_per_ingester_series_buffer_size: 256
+    streaming_chunks_per_store_gateway_series_buffer_size: 256
+    minimize_ingester_requests: true
+    minimize_ingester_requests_hedging_delay: 3s
+    query_engine: prometheus
+    enable_query_engine_fallback: true
+    max_concurrent: 20
+    timeout: 2m0s
+    max_samples: 50000000
+    default_evaluation_interval: 1m0s
+    lookback_delta: 5m0s
+    promql_experimental_functions_enabled: false
+    mimir_query_engine:
+        enable_aggregation_operations: true
+        enable_vector_vector_binary_comparison_operations: true
+        enable_vector_scalar_binary_comparison_operations: true
+        enable_scalar_scalar_binary_comparison_operations: true
+        enable_binary_logical_operations: true
+        enable_scalars: true
+        enable_subqueries: true
+        enable_histogram_quantile_function: true
+ingester_client:
+    grpc_client_config:
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+        grpc_compression: ""
+        rate_limit: 0
+        rate_limit_burst: 0
+        backoff_on_ratelimits: false
+        backoff_config:
+            min_period: 100ms
+            max_period: 10s
+            max_retries: 10
+        initial_stream_window_size: 63KiB1023B
+        initial_connection_window_size: 63KiB1023B
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        connect_timeout: 5s
+        connect_backoff_base_delay: 1s
+        connect_backoff_max_delay: 5s
+ingester:
+    ring:
+        kvstore:
+            store: memberlist
+            prefix: collectors/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        replication_factor: 1
+        zone_awareness_enabled: false
+        excluded_zones: ""
+        tokens_file_path: ""
+        num_tokens: 128
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: 127.0.0.1
+        instance_enable_ipv6: false
+        instance_availability_zone: ""
+        unregister_on_shutdown: true
+        observe_period: 0s
+        min_ready_duration: 15s
+        final_sleep: 0s
+        token_generation_strategy: random
+        spread_minimizing_join_ring_in_order: false
+        spread_minimizing_zones: ""
+    partition_ring:
+        kvstore:
+            store: memberlist
+            prefix: collectors/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        min_partition_owners_count: 1
+        min_partition_owners_duration: 10s
+        delete_inactive_partition_after: 13h0m0s
+    metadata_retain_period: 10m0s
+    rate_update_period: 15s
+    active_series_metrics_enabled: true
+    active_series_metrics_update_period: 1m0s
+    active_series_metrics_idle_timeout: 20m0s
+    tsdb_config_update_period: 15s
+    instance_limits:
+        max_ingestion_rate: 0
+        max_tenants: 0
+        max_series: 0
+        max_inflight_push_requests: 30000
+        max_inflight_push_requests_bytes: 0
+    ignore_series_limit_for_metric_names: ""
+    read_path_cpu_utilization_limit: 0
+    read_path_memory_utilization_limit: 0
+    log_utilization_based_limiter_cpu_samples: false
+    error_sample_rate: 10
+    use_ingester_owned_series_for_limits: false
+    track_ingester_owned_series: false
+    owned_series_update_interval: 15s
+    push_circuit_breaker:
+        enabled: false
+        failure_threshold_percentage: 10
+        failure_execution_threshold: 100
+        thresholding_period: 1m0s
+        cooldown_period: 10s
+        initial_delay: 0s
+        request_timeout: 2s
+    read_circuit_breaker:
+        enabled: false
+        failure_threshold_percentage: 10
+        failure_execution_threshold: 100
+        thresholding_period: 1m0s
+        cooldown_period: 10s
+        initial_delay: 0s
+        request_timeout: 30s
+    push_grpc_method_enabled: true
+flusher:
+    exit_after_flush: true
+limits:
+    request_rate: 0
+    request_burst_size: 0
+    ingestion_rate: 10000
+    ingestion_burst_size: 200000
+    ingestion_burst_factor: 0
+    accept_ha_samples: false
+    ha_cluster_label: cluster
+    ha_replica_label: __replica__
+    ha_max_clusters: 100
+    drop_labels: []
+    max_label_name_length: 1024
+    max_label_value_length: 2048
+    max_label_names_per_series: 30
+    max_label_names_per_info_series: 80
+    max_metadata_length: 1024
+    max_native_histogram_buckets: 0
+    max_exemplars_per_series_per_request: 0
+    reduce_native_histogram_over_max_buckets: true
+    creation_grace_period: 10m
+    past_grace_period: 0s
+    enforce_metadata_metric_name: true
+    ingestion_tenant_shard_size: 0
+    metric_relabeling_enabled: true
+    service_overload_status_code_on_rate_limit_enabled: false
+    ingestion_artificial_delay: 0s
+    max_global_series_per_user: 150000
+    max_global_series_per_metric: 0
+    max_global_metadata_per_user: 0
+    max_global_metadata_per_metric: 0
+    max_global_exemplars_per_user: 0
+    ignore_ooo_exemplars: false
+    native_histograms_ingestion_enabled: false
+    ooo_native_histograms_ingestion_enabled: false
+    active_series_custom_trackers: {}
+    out_of_order_time_window: 0s
+    out_of_order_blocks_external_label_enabled: false
+    separate_metrics_group_label: ""
+    max_fetched_chunks_per_query: 2000000
+    max_estimated_fetched_chunks_per_query_multiplier: 0
+    max_fetched_series_per_query: 0
+    max_fetched_chunk_bytes_per_query: 0
+    max_estimated_memory_consumption_per_query: 0
+    max_query_lookback: 0s
+    max_partial_query_length: 0s
+    max_query_parallelism: 14
+    max_labels_query_length: 0s
+    max_cache_freshness: 10m
+    max_queriers_per_tenant: 0
+    query_sharding_total_shards: 16
+    query_sharding_max_sharded_queries: 128
+    query_sharding_max_regexp_size_bytes: 4096
+    split_instant_queries_by_interval: 0s
+    query_ingesters_within: 13h
+    max_total_query_length: 0s
+    results_cache_ttl: 1w
+    results_cache_ttl_for_out_of_order_time_window: 10m
+    results_cache_ttl_for_cardinality_query: 0s
+    results_cache_ttl_for_labels_query: 0s
+    results_cache_ttl_for_errors: 5m
+    cache_unaligned_requests: false
+    max_query_expression_size_bytes: 0
+    align_queries_with_step: false
+    enabled_promql_experimental_functions: ""
+    cardinality_analysis_enabled: false
+    label_names_and_values_results_max_size_bytes: 419430400
+    label_values_max_cardinality_label_names_per_request: 100
+    active_series_results_max_size_bytes: 419430400
+    ruler_evaluation_delay_duration: 1m
+    ruler_tenant_shard_size: 0
+    ruler_max_rules_per_rule_group: 20
+    ruler_max_rule_groups_per_tenant: 70
+    ruler_recording_rules_evaluation_enabled: true
+    ruler_alerting_rules_evaluation_enabled: true
+    ruler_sync_rules_on_changes_enabled: true
+    ruler_max_rules_per_rule_group_by_namespace: {}
+    ruler_max_rule_groups_per_tenant_by_namespace: {}
+    ruler_protected_namespaces: ""
+    ruler_max_independent_rule_evaluation_concurrency_per_tenant: 4
+    store_gateway_tenant_shard_size: 0
+    compactor_blocks_retention_period: 0s
+    compactor_split_and_merge_shards: 0
+    compactor_split_groups: 1
+    compactor_tenant_shard_size: 0
+    compactor_partial_block_deletion_delay: 1d
+    compactor_block_upload_enabled: false
+    compactor_block_upload_validation_enabled: true
+    compactor_block_upload_verify_chunks: true
+    compactor_block_upload_max_block_size_bytes: 0
+    compactor_in_memory_tenant_meta_cache_size: 0
+    s3_sse_type: ""
+    s3_sse_kms_key_id: ""
+    s3_sse_kms_encryption_context: ""
+    alertmanager_receivers_firewall_block_cidr_networks: ""
+    alertmanager_receivers_firewall_block_private_addresses: false
+    alertmanager_notification_rate_limit: 0
+    alertmanager_notification_rate_limit_per_integration: {}
+    alertmanager_max_grafana_config_size_bytes: 0B
+    alertmanager_max_config_size_bytes: 0
+    alertmanager_max_grafana_state_size_bytes: 0B
+    alertmanager_max_silences_count: 0
+    alertmanager_max_silence_size_bytes: 0
+    alertmanager_max_templates_count: 0
+    alertmanager_max_template_size_bytes: 0
+    alertmanager_max_dispatcher_aggregation_groups: 0
+    alertmanager_max_alerts_count: 0
+    alertmanager_max_alerts_size_bytes: 0
+    otel_metric_suffixes_enabled: false
+    otel_created_timestamp_zero_ingestion_enabled: false
+    promote_otel_resource_attributes: ""
+    ingest_storage_read_consistency: eventual
+    ingestion_partitions_tenant_shard_size: 0
+frontend_worker:
+    frontend_address: ""
+    scheduler_address: ""
+    dns_lookup_duration: 10s
+    id: ""
+    grpc_client_config:
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+        grpc_compression: ""
+        rate_limit: 0
+        rate_limit_burst: 0
+        backoff_on_ratelimits: false
+        backoff_config:
+            min_period: 100ms
+            max_period: 10s
+            max_retries: 10
+        initial_stream_window_size: 63KiB1023B
+        initial_connection_window_size: 63KiB1023B
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        connect_timeout: 5s
+        connect_backoff_base_delay: 1s
+        connect_backoff_max_delay: 5s
+    query_scheduler_grpc_client_config:
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+        grpc_compression: ""
+        rate_limit: 0
+        rate_limit_burst: 0
+        backoff_on_ratelimits: false
+        backoff_config:
+            min_period: 100ms
+            max_period: 10s
+            max_retries: 10
+        initial_stream_window_size: 63KiB1023B
+        initial_connection_window_size: 63KiB1023B
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        connect_timeout: 5s
+        connect_backoff_base_delay: 1s
+        connect_backoff_max_delay: 5s
+    response_streaming_enabled: false
+frontend:
+    log_queries_longer_than: 0s
+    log_query_request_headers: ""
+    max_body_size: 10485760
+    query_stats_enabled: true
+    active_series_write_timeout: 5m0s
+    max_outstanding_per_tenant: 100
+    querier_forget_delay: 0s
+    scheduler_address: ""
+    scheduler_dns_lookup_period: 10s
+    scheduler_worker_concurrency: 5
+    grpc_client_config:
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+        grpc_compression: ""
+        rate_limit: 0
+        rate_limit_burst: 0
+        backoff_on_ratelimits: false
+        backoff_config:
+            min_period: 100ms
+            max_period: 10s
+            max_retries: 10
+        initial_stream_window_size: 63KiB1023B
+        initial_connection_window_size: 63KiB1023B
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        connect_timeout: 5s
+        connect_backoff_base_delay: 1s
+        connect_backoff_max_delay: 5s
+    instance_interface_names:
+        - enp0s3
+    instance_enable_ipv6: false
+    address: ""
+    port: 0
+    split_queries_by_interval: 24h0m0s
+    results_cache:
+        backend: ""
+        memcached:
+            addresses: ""
+            timeout: 200ms
+            connect_timeout: 200ms
+            write_buffer_size_bytes: 4096
+            read_buffer_size_bytes: 4096
+            min_idle_connections_headroom_percentage: -1
+            max_idle_connections: 100
+            max_async_concurrency: 50
+            max_async_buffer_size: 25000
+            max_get_multi_concurrency: 100
+            max_get_multi_batch_size: 100
+            max_item_size: 1048576
+            tls_enabled: false
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_ca_path: ""
+            tls_server_name: ""
+            tls_insecure_skip_verify: false
+            tls_cipher_suites: ""
+            tls_min_version: ""
+        redis:
+            endpoint: ""
+            username: ""
+            password: ""
+            db: 0
+            master_name: ""
+            dial_timeout: 5s
+            read_timeout: 3s
+            write_timeout: 3s
+            connection_pool_size: 100
+            connection_pool_timeout: 4s
+            min_idle_connections: 10
+            idle_timeout: 5m0s
+            max_connection_age: 0s
+            max_item_size: 16777216
+            max_async_concurrency: 50
+            max_async_buffer_size: 25000
+            max_get_multi_concurrency: 100
+            max_get_multi_batch_size: 100
+            tls_enabled: false
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_ca_path: ""
+            tls_server_name: ""
+            tls_insecure_skip_verify: false
+            tls_cipher_suites: ""
+            tls_min_version: ""
+        compression: ""
+    cache_results: false
+    cache_errors: false
+    max_retries: 5
+    not_running_timeout: 2s
+    parallelize_shardable_queries: false
+    prune_queries: false
+    block_promql_experimental_functions: false
+    query_sharding_target_series_per_shard: 0
+    shard_active_series_queries: false
+    use_active_series_decoder: false
+    query_result_response_format: protobuf
+    downstream_url: ""
+ingest_storage:
+    enabled: false
+    kafka:
+        address: ""
+        topic: ""
+        client_id: ""
+        dial_timeout: 2s
+        write_timeout: 10s
+        write_clients: 1
+        sasl_username: ""
+        sasl_password: ""
+        consumer_group: ""
+        consumer_group_offset_commit_interval: 1s
+        last_produced_offset_poll_interval: 1s
+        last_produced_offset_retry_timeout: 10s
+        consume_from_position_at_startup: last-offset
+        consume_from_timestamp_at_startup: 0
+        target_consumer_lag_at_startup: 2s
+        max_consumer_lag_at_startup: 15s
+        auto_create_topic_enabled: true
+        auto_create_topic_default_partitions: -1
+        producer_max_record_size_bytes: 15983616
+        producer_max_buffered_bytes: 1073741824
+        wait_strong_read_consistency_timeout: 20s
+        startup_fetch_concurrency: 0
+        ongoing_fetch_concurrency: 0
+        use_compressed_bytes_as_fetch_max_bytes: true
+        max_buffered_bytes: 100000000
+        ingestion_concurrency_max: 0
+        ingestion_concurrency_batch_size: 150
+        ingestion_concurrency_queue_capacity: 5
+        ingestion_concurrency_target_flushes_per_shard: 80
+        ingestion_concurrency_estimated_bytes_per_sample: 500
+    migration:
+        distributor_send_to_ingesters_enabled: false
+block_builder:
+    instance_id: debian
+    partition_assignment: {}
+    data_dir: ./data-block-builder/
+    consumer_group: block-builder
+    consume_interval: 1h0m0s
+    consume_interval_buffer: 15m0s
+    lookback_on_no_commit: 12h0m0s
+    apply_max_global_series_per_user_below: 0
+block_builder_scheduler:
+    consumer_group: block-builder
+    kafka_monitor_interval: 20s
+    consume_interval: 1h0m0s
+    startup_observe_time: 25s
+    job_lease_expiry: 2m0s
+blocks_storage:
+    backend: filesystem
+    s3:
+        endpoint: ""
+        region: ""
+        bucket_name: ""
+        secret_access_key: ""
+        access_key_id: ""
+        session_token: ""
+        insecure: false
+        signature_version: v4
+        list_objects_version: ""
+        bucket_lookup_type: auto
+        dualstack_enabled: true
+        storage_class: ""
+        native_aws_auth_enabled: false
+        part_size: 0
+        send_content_md5: false
+        sts_endpoint: ""
+        sse:
+            type: ""
+            kms_key_id: ""
+            kms_encryption_context: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+        trace:
+            enabled: false
+    gcs:
+        bucket_name: ""
+        service_account: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+    azure:
+        account_name: ""
+        account_key: ""
+        connection_string: ""
+        container_name: ""
+        endpoint_suffix: ""
+        max_retries: 20
+        user_assigned_id: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+    swift:
+        application_credential_id: ""
+        application_credential_name: ""
+        application_credential_secret: ""
+        auth_version: 0
+        auth_url: ""
+        username: ""
+        user_domain_name: ""
+        user_domain_id: ""
+        user_id: ""
+        password: ""
+        domain_id: ""
+        domain_name: ""
+        project_id: ""
+        project_name: ""
+        project_domain_id: ""
+        project_domain_name: ""
+        region_name: ""
+        container_name: ""
+        max_retries: 3
+        connect_timeout: 10s
+        request_timeout: 5s
+    filesystem:
+        dir: /var/lib/mimir/data
+    storage_prefix: ""
+    bucket_store:
+        sync_dir: ./tsdb-sync/
+        sync_interval: 15m0s
+        max_concurrent: 200
+        max_concurrent_queue_timeout: 5s
+        tenant_sync_concurrency: 1
+        block_sync_concurrency: 4
+        meta_sync_concurrency: 20
+        index_cache:
+            backend: inmemory
+            memcached:
+                addresses: ""
+                timeout: 200ms
+                connect_timeout: 200ms
+                write_buffer_size_bytes: 4096
+                read_buffer_size_bytes: 4096
+                min_idle_connections_headroom_percentage: -1
+                max_idle_connections: 100
+                max_async_concurrency: 50
+                max_async_buffer_size: 25000
+                max_get_multi_concurrency: 100
+                max_get_multi_batch_size: 100
+                max_item_size: 1048576
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+            redis:
+                endpoint: ""
+                username: ""
+                password: ""
+                db: 0
+                master_name: ""
+                dial_timeout: 5s
+                read_timeout: 3s
+                write_timeout: 3s
+                connection_pool_size: 100
+                connection_pool_timeout: 4s
+                min_idle_connections: 10
+                idle_timeout: 5m0s
+                max_connection_age: 0s
+                max_item_size: 16777216
+                max_async_concurrency: 50
+                max_async_buffer_size: 25000
+                max_get_multi_concurrency: 100
+                max_get_multi_batch_size: 100
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+            inmemory:
+                max_size_bytes: 1073741824
+        chunks_cache:
+            backend: ""
+            memcached:
+                addresses: ""
+                timeout: 200ms
+                connect_timeout: 200ms
+                write_buffer_size_bytes: 4096
+                read_buffer_size_bytes: 4096
+                min_idle_connections_headroom_percentage: -1
+                max_idle_connections: 100
+                max_async_concurrency: 50
+                max_async_buffer_size: 25000
+                max_get_multi_concurrency: 100
+                max_get_multi_batch_size: 100
+                max_item_size: 1048576
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+            redis:
+                endpoint: ""
+                username: ""
+                password: ""
+                db: 0
+                master_name: ""
+                dial_timeout: 5s
+                read_timeout: 3s
+                write_timeout: 3s
+                connection_pool_size: 100
+                connection_pool_timeout: 4s
+                min_idle_connections: 10
+                idle_timeout: 5m0s
+                max_connection_age: 0s
+                max_item_size: 16777216
+                max_async_concurrency: 50
+                max_async_buffer_size: 25000
+                max_get_multi_concurrency: 100
+                max_get_multi_batch_size: 100
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+            max_get_range_requests: 3
+            attributes_ttl: 168h0m0s
+            attributes_in_memory_max_items: 50000
+            subrange_ttl: 24h0m0s
+        metadata_cache:
+            backend: ""
+            memcached:
+                addresses: ""
+                timeout: 200ms
+                connect_timeout: 200ms
+                write_buffer_size_bytes: 4096
+                read_buffer_size_bytes: 4096
+                min_idle_connections_headroom_percentage: -1
+                max_idle_connections: 100
+                max_async_concurrency: 50
+                max_async_buffer_size: 25000
+                max_get_multi_concurrency: 100
+                max_get_multi_batch_size: 100
+                max_item_size: 1048576
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+            redis:
+                endpoint: ""
+                username: ""
+                password: ""
+                db: 0
+                master_name: ""
+                dial_timeout: 5s
+                read_timeout: 3s
+                write_timeout: 3s
+                connection_pool_size: 100
+                connection_pool_timeout: 4s
+                min_idle_connections: 10
+                idle_timeout: 5m0s
+                max_connection_age: 0s
+                max_item_size: 16777216
+                max_async_concurrency: 50
+                max_async_buffer_size: 25000
+                max_get_multi_concurrency: 100
+                max_get_multi_batch_size: 100
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+            tenants_list_ttl: 15m0s
+            tenant_blocks_list_ttl: 5m0s
+            chunks_list_ttl: 24h0m0s
+            metafile_exists_ttl: 2h0m0s
+            metafile_doesnt_exist_ttl: 5m0s
+            metafile_content_ttl: 24h0m0s
+            metafile_max_size_bytes: 1048576
+            metafile_attributes_ttl: 168h0m0s
+            block_index_attributes_ttl: 168h0m0s
+            bucket_index_content_ttl: 5m0s
+            bucket_index_max_size_bytes: 1048576
+        ignore_deletion_mark_delay: 1h0m0s
+        ignore_deletion_mark_while_querying_delay: 50m0s
+        bucket_index:
+            update_on_error_interval: 1m0s
+            idle_timeout: 1h0m0s
+            max_stale_period: 1h0m0s
+        ignore_blocks_within: 10h0m0s
+        series_hash_cache_max_size_bytes: 1073741824
+        partitioner_max_gap_bytes: 524288
+        postings_offsets_in_mem_sampling: 32
+        index_header:
+            max_idle_file_handles: 1
+            eager_loading_startup_enabled: true
+            lazy_loading_enabled: true
+            lazy_loading_idle_timeout: 1h0m0s
+            lazy_loading_concurrency: 4
+            lazy_loading_concurrency_queue_timeout: 5s
+            verify_on_load: false
+        streaming_series_batch_size: 5000
+        series_fetch_preference: 0.75
+    tsdb:
+        dir: ./tsdb/
+        block_ranges_period:
+            - 2h0m0s
+        retention_period: 13h0m0s
+        ship_interval: 1m0s
+        ship_concurrency: 10
+        head_compaction_interval: 1m0s
+        head_compaction_concurrency: 1
+        head_compaction_idle_timeout: 1h0m0s
+        head_chunks_write_buffer_size_bytes: 4194304
+        head_chunks_end_time_variance: 0
+        stripe_size: 16384
+        wal_compression_enabled: false
+        wal_segment_size_bytes: 134217728
+        wal_replay_concurrency: 0
+        flush_blocks_on_shutdown: false
+        close_idle_tsdb_timeout: 13h0m0s
+        memory_snapshot_on_shutdown: false
+        head_chunks_write_queue_size: 1000000
+        bigger_out_of_order_blocks_for_old_samples: false
+        series_hash_cache_max_size_bytes: 367001600
+        out_of_order_capacity_max: 32
+        head_postings_for_matchers_cache_ttl: 10s
+        head_postings_for_matchers_cache_size: 100
+        head_postings_for_matchers_cache_max_bytes: 104857600
+        head_postings_for_matchers_cache_force: false
+        block_postings_for_matchers_cache_ttl: 10s
+        block_postings_for_matchers_cache_size: 100
+        block_postings_for_matchers_cache_max_bytes: 104857600
+        block_postings_for_matchers_cache_force: false
+        early_head_compaction_min_in_memory_series: 0
+        early_head_compaction_min_estimated_series_reduction_percentage: 15
+        timely_head_compaction_enabled: false
+compactor:
+    block_ranges:
+        - 2h0m0s
+        - 12h0m0s
+        - 24h0m0s
+    block_sync_concurrency: 8
+    meta_sync_concurrency: 20
+    data_dir: /tmp/mimir/compactor
+    compaction_interval: 1h0m0s
+    compaction_retries: 3
+    compaction_concurrency: 1
+    first_level_compaction_wait_period: 25m0s
+    cleanup_interval: 15m0s
+    cleanup_concurrency: 20
+    deletion_delay: 12h0m0s
+    tenant_cleanup_delay: 6h0m0s
+    max_compaction_time: 1h0m0s
+    no_blocks_file_cleanup_enabled: false
+    max_opening_blocks_concurrency: 1
+    max_closing_blocks_concurrency: 1
+    symbols_flushers_concurrency: 1
+    max_block_upload_validation_concurrency: 1
+    enabled_tenants: ""
+    disabled_tenants: ""
+    sharding_ring:
+        kvstore:
+            store: memberlist
+            prefix: collectors/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: ""
+        instance_enable_ipv6: false
+        wait_stability_min_duration: 0s
+        wait_stability_max_duration: 5m0s
+        wait_active_instance_timeout: 10m0s
+    compaction_jobs_order: smallest-range-oldest-blocks-first
+store_gateway:
+    sharding_ring:
+        kvstore:
+            store: memberlist
+            prefix: collectors/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        replication_factor: 1
+        tokens_file_path: ""
+        num_tokens: 512
+        zone_awareness_enabled: false
+        auto_forget_enabled: true
+        wait_stability_min_duration: 0s
+        wait_stability_max_duration: 5m0s
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: ""
+        instance_enable_ipv6: false
+        instance_availability_zone: ""
+        unregister_on_shutdown: true
+    enabled_tenants: ""
+    disabled_tenants: ""
+tenant_federation:
+    enabled: false
+    max_concurrent: 16
+    max_tenants: 0
+activity_tracker:
+    filepath: ./metrics-activity.log
+    max_entries: 1024
+vault:
+    enabled: false
+    url: ""
+    mount_path: ""
+    auth:
+        type: ""
+ruler:
+    external_url: ""
+    ruler_client:
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+        grpc_compression: ""
+        rate_limit: 0
+        rate_limit_burst: 0
+        backoff_on_ratelimits: false
+        backoff_config:
+            min_period: 100ms
+            max_period: 10s
+            max_retries: 10
+        initial_stream_window_size: 63KiB1023B
+        initial_connection_window_size: 63KiB1023B
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        connect_timeout: 5s
+        connect_backoff_base_delay: 1s
+        connect_backoff_max_delay: 5s
+    evaluation_interval: 1m0s
+    poll_interval: 10m0s
+    rule_path: ./data-ruler/
+    alertmanager_url: ""
+    alertmanager_refresh_interval: 1m0s
+    notification_queue_capacity: 10000
+    notification_timeout: 10s
+    alertmanager_client:
+        tls_enabled: true
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        basic_auth_username: ""
+        basic_auth_password: ""
+        oauth2:
+            client_id: ""
+            client_secret: ""
+            token_url: ""
+            endpoint_params: {}
+        proxy_url: ""
+    for_outage_tolerance: 1h0m0s
+    for_grace_period: 2m0s
+    resend_delay: 1m0s
+    ring:
+        kvstore:
+            store: memberlist
+            prefix: rulers/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: ""
+        instance_enable_ipv6: false
+        num_tokens: 128
+    enable_api: true
+    enabled_tenants: ""
+    disabled_tenants: ""
+    query_stats_enabled: false
+    query_frontend:
+        address: ""
+        grpc_client_config:
+            max_recv_msg_size: 104857600
+            max_send_msg_size: 104857600
+            grpc_compression: ""
+            rate_limit: 0
+            rate_limit_burst: 0
+            backoff_on_ratelimits: false
+            backoff_config:
+                min_period: 100ms
+                max_period: 10s
+                max_retries: 10
+            initial_stream_window_size: 63KiB1023B
+            initial_connection_window_size: 63KiB1023B
+            tls_enabled: false
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_ca_path: ""
+            tls_server_name: ""
+            tls_insecure_skip_verify: false
+            tls_cipher_suites: ""
+            tls_min_version: ""
+            connect_timeout: 5s
+            connect_backoff_base_delay: 1s
+            connect_backoff_max_delay: 5s
+        query_result_response_format: protobuf
+    tenant_federation:
+        enabled: false
+    outbound_sync_queue_poll_interval: 10s
+    inbound_sync_queue_poll_interval: 10s
+    max_independent_rule_evaluation_concurrency: 0
+    independent_rule_evaluation_concurrency_min_duration_percentage: 50
+    rule_evaluation_write_enabled: true
+ruler_storage:
+    backend: filesystem
+    s3:
+        endpoint: ""
+        region: ""
+        bucket_name: ""
+        secret_access_key: ""
+        access_key_id: ""
+        session_token: ""
+        insecure: false
+        signature_version: v4
+        list_objects_version: ""
+        bucket_lookup_type: auto
+        dualstack_enabled: true
+        storage_class: ""
+        native_aws_auth_enabled: false
+        part_size: 0
+        send_content_md5: false
+        sts_endpoint: ""
+        sse:
+            type: ""
+            kms_key_id: ""
+            kms_encryption_context: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+        trace:
+            enabled: false
+    gcs:
+        bucket_name: ""
+        service_account: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+    azure:
+        account_name: ""
+        account_key: ""
+        connection_string: ""
+        container_name: ""
+        endpoint_suffix: ""
+        max_retries: 20
+        user_assigned_id: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+    swift:
+        application_credential_id: ""
+        application_credential_name: ""
+        application_credential_secret: ""
+        auth_version: 0
+        auth_url: ""
+        username: ""
+        user_domain_name: ""
+        user_domain_id: ""
+        user_id: ""
+        password: ""
+        domain_id: ""
+        domain_name: ""
+        project_id: ""
+        project_name: ""
+        project_domain_id: ""
+        project_domain_name: ""
+        region_name: ""
+        container_name: ""
+        max_retries: 3
+        connect_timeout: 10s
+        request_timeout: 5s
+    filesystem:
+        dir: /tmp/mimir/rules
+    storage_prefix: ""
+    local:
+        directory: ""
+    cache:
+        rule_group_enabled: false
+        backend: ""
+        memcached:
+            addresses: ""
+            timeout: 200ms
+            connect_timeout: 200ms
+            write_buffer_size_bytes: 4096
+            read_buffer_size_bytes: 4096
+            min_idle_connections_headroom_percentage: -1
+            max_idle_connections: 100
+            max_async_concurrency: 50
+            max_async_buffer_size: 25000
+            max_get_multi_concurrency: 100
+            max_get_multi_batch_size: 100
+            max_item_size: 1048576
+            tls_enabled: false
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_ca_path: ""
+            tls_server_name: ""
+            tls_insecure_skip_verify: false
+            tls_cipher_suites: ""
+            tls_min_version: ""
+        redis:
+            endpoint: ""
+            username: ""
+            password: ""
+            db: 0
+            master_name: ""
+            dial_timeout: 5s
+            read_timeout: 3s
+            write_timeout: 3s
+            connection_pool_size: 100
+            connection_pool_timeout: 4s
+            min_idle_connections: 10
+            idle_timeout: 5m0s
+            max_connection_age: 0s
+            max_item_size: 16777216
+            max_async_concurrency: 50
+            max_async_buffer_size: 25000
+            max_get_multi_concurrency: 100
+            max_get_multi_batch_size: 100
+            tls_enabled: false
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_ca_path: ""
+            tls_server_name: ""
+            tls_insecure_skip_verify: false
+            tls_cipher_suites: ""
+            tls_min_version: ""
+alertmanager:
+    data_dir: ./data-alertmanager/
+    retention: 120h0m0s
+    external_url: http://localhost:8080/alertmanager
+    poll_interval: 15s
+    max_recv_msg_size: 104857600
+    sharding_ring:
+        kvstore:
+            store: memberlist
+            prefix: alertmanagers/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: ""
+        instance_enable_ipv6: false
+        replication_factor: 3
+        zone_awareness_enabled: false
+        instance_availability_zone: ""
+    fallback_config_file: ""
+    peer_timeout: 15s
+    enable_api: true
+    grafana_alertmanager_compatibility_enabled: false
+    max_concurrent_get_requests_per_tenant: 0
+    alertmanager_client:
+        remote_timeout: 2s
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+        grpc_compression: ""
+        rate_limit: 0
+        rate_limit_burst: 0
+        backoff_on_ratelimits: false
+        backoff_config:
+            min_period: 100ms
+            max_period: 10s
+            max_retries: 10
+        initial_stream_window_size: 63KiB1023B
+        initial_connection_window_size: 63KiB1023B
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        connect_timeout: 5s
+        connect_backoff_base_delay: 1s
+        connect_backoff_max_delay: 5s
+    persist_interval: 15m0s
+    enable_state_cleanup: true
+    utf8_strict_mode: false
+    log_parsing_label_matchers: false
+    utf8_migration_logging: false
+alertmanager_storage:
+    backend: filesystem
+    s3:
+        endpoint: ""
+        region: ""
+        bucket_name: ""
+        secret_access_key: ""
+        access_key_id: ""
+        session_token: ""
+        insecure: false
+        signature_version: v4
+        list_objects_version: ""
+        bucket_lookup_type: auto
+        dualstack_enabled: true
+        storage_class: ""
+        native_aws_auth_enabled: false
+        part_size: 0
+        send_content_md5: false
+        sts_endpoint: ""
+        sse:
+            type: ""
+            kms_key_id: ""
+            kms_encryption_context: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+        trace:
+            enabled: false
+    gcs:
+        bucket_name: ""
+        service_account: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+    azure:
+        account_name: ""
+        account_key: ""
+        connection_string: ""
+        container_name: ""
+        endpoint_suffix: ""
+        max_retries: 20
+        user_assigned_id: ""
+        http:
+            idle_conn_timeout: 1m30s
+            response_header_timeout: 2m0s
+            insecure_skip_verify: false
+            tls_handshake_timeout: 10s
+            expect_continue_timeout: 1s
+            max_idle_connections: 100
+            max_idle_connections_per_host: 100
+            max_connections_per_host: 0
+            tls_ca_path: ""
+            tls_cert_path: ""
+            tls_key_path: ""
+            tls_server_name: ""
+    swift:
+        application_credential_id: ""
+        application_credential_name: ""
+        application_credential_secret: ""
+        auth_version: 0
+        auth_url: ""
+        username: ""
+        user_domain_name: ""
+        user_domain_id: ""
+        user_id: ""
+        password: ""
+        domain_id: ""
+        domain_name: ""
+        project_id: ""
+        project_name: ""
+        project_domain_id: ""
+        project_domain_name: ""
+        region_name: ""
+        container_name: ""
+        max_retries: 3
+        connect_timeout: 10s
+        request_timeout: 5s
+    filesystem:
+        dir: alertmanager
+    storage_prefix: ""
+    local:
+        path: ""
+runtime_config:
+    period: 10s
+    file: /etc/mimir/runtime_config.yml
+memberlist:
+    node_name: ""
+    randomize_node_name: true
+    stream_timeout: 2s
+    retransmit_factor: 4
+    pull_push_interval: 30s
+    gossip_interval: 200ms
+    gossip_nodes: 3
+    gossip_to_dead_nodes_time: 30s
+    dead_node_reclaim_time: 0s
+    compression_enabled: true
+    notify_interval: 0s
+    advertise_addr: ""
+    advertise_port: 7946
+    cluster_label: ""
+    cluster_label_verification_disabled: false
+    join_members:
+        - 10.49.71.167
+        - 10.49.71.205
+        - 10.49.71.206
+    min_join_backoff: 1s
+    max_join_backoff: 1m0s
+    max_join_retries: 10
+    abort_if_cluster_join_fails: false
+    rejoin_interval: 0s
+    left_ingesters_timeout: 5m0s
+    leave_timeout: 20s
+    broadcast_timeout_for_local_updates_on_shutdown: 10s
+    message_history_buffer_bytes: 0
+    bind_addr: []
+    bind_port: 7946
+    packet_dial_timeout: 2s
+    packet_write_timeout: 5s
+    max_concurrent_writes: 3
+    acquire_writer_timeout: 250ms
+    tls_enabled: false
+    tls_cert_path: ""
+    tls_key_path: ""
+    tls_ca_path: ""
+    tls_server_name: ""
+    tls_insecure_skip_verify: false
+    tls_cipher_suites: ""
+    tls_min_version: ""
+query_scheduler:
+    max_outstanding_requests_per_tenant: 100
+    querier_forget_delay: 0s
+    grpc_client_config:
+        max_recv_msg_size: 104857600
+        max_send_msg_size: 104857600
+        grpc_compression: ""
+        rate_limit: 0
+        rate_limit_burst: 0
+        backoff_on_ratelimits: false
+        backoff_config:
+            min_period: 100ms
+            max_period: 10s
+            max_retries: 10
+        initial_stream_window_size: 63KiB1023B
+        initial_connection_window_size: 63KiB1023B
+        tls_enabled: false
+        tls_cert_path: ""
+        tls_key_path: ""
+        tls_ca_path: ""
+        tls_server_name: ""
+        tls_insecure_skip_verify: false
+        tls_cipher_suites: ""
+        tls_min_version: ""
+        connect_timeout: 5s
+        connect_backoff_base_delay: 1s
+        connect_backoff_max_delay: 5s
+    service_discovery_mode: dns
+    ring:
+        kvstore:
+            store: memberlist
+            prefix: collectors/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: ""
+        instance_enable_ipv6: false
+    max_used_instances: 0
+usage_stats:
+    enabled: true
+    installation_mode: custom
+overrides_exporter:
+    ring:
+        enabled: false
+        kvstore:
+            store: memberlist
+            prefix: collectors/
+            consul:
+                host: localhost:8500
+                acl_token: ""
+                http_client_timeout: 20s
+                consistent_reads: false
+                watch_rate_limit: 1
+                watch_burst_size: 1
+                cas_retry_delay: 1s
+            etcd:
+                endpoints: []
+                dial_timeout: 10s
+                max_retries: 10
+                tls_enabled: false
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_ca_path: ""
+                tls_server_name: ""
+                tls_insecure_skip_verify: false
+                tls_cipher_suites: ""
+                tls_min_version: ""
+                username: ""
+                password: ""
+            multi:
+                primary: ""
+                secondary: ""
+                mirror_enabled: false
+                mirror_timeout: 2s
+        heartbeat_period: 15s
+        heartbeat_timeout: 1m0s
+        instance_id: debian
+        instance_interface_names:
+            - enp0s3
+        instance_port: 0
+        instance_addr: ""
+        instance_enable_ipv6: false
+        wait_stability_min_duration: 0s
+        wait_stability_max_duration: 5m0s
+    enabled_metrics: ingestion_rate,ingestion_burst_size,max_global_series_per_user,max_global_series_per_metric,max_global_exemplars_per_user,max_fetched_chunks_per_query,max_fetched_series_per_query,max_fetched_chunk_bytes_per_query,ruler_max_rules_per_rule_group,ruler_max_rule_groups_per_tenant
+common:
+    storage:
+        backend: filesystem
+        s3:
+            endpoint: ""
+            region: ""
+            bucket_name: ""
+            secret_access_key: ""
+            access_key_id: ""
+            session_token: ""
+            insecure: false
+            signature_version: v4
+            list_objects_version: ""
+            bucket_lookup_type: auto
+            dualstack_enabled: true
+            storage_class: ""
+            native_aws_auth_enabled: false
+            part_size: 0
+            send_content_md5: false
+            sts_endpoint: ""
+            sse:
+                type: ""
+                kms_key_id: ""
+                kms_encryption_context: ""
+            http:
+                idle_conn_timeout: 1m30s
+                response_header_timeout: 2m0s
+                insecure_skip_verify: false
+                tls_handshake_timeout: 10s
+                expect_continue_timeout: 1s
+                max_idle_connections: 100
+                max_idle_connections_per_host: 100
+                max_connections_per_host: 0
+                tls_ca_path: ""
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_server_name: ""
+            trace:
+                enabled: false
+        gcs:
+            bucket_name: ""
+            service_account: ""
+            http:
+                idle_conn_timeout: 1m30s
+                response_header_timeout: 2m0s
+                insecure_skip_verify: false
+                tls_handshake_timeout: 10s
+                expect_continue_timeout: 1s
+                max_idle_connections: 100
+                max_idle_connections_per_host: 100
+                max_connections_per_host: 0
+                tls_ca_path: ""
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_server_name: ""
+        azure:
+            account_name: ""
+            account_key: ""
+            connection_string: ""
+            container_name: ""
+            endpoint_suffix: ""
+            max_retries: 20
+            user_assigned_id: ""
+            http:
+                idle_conn_timeout: 1m30s
+                response_header_timeout: 2m0s
+                insecure_skip_verify: false
+                tls_handshake_timeout: 10s
+                expect_continue_timeout: 1s
+                max_idle_connections: 100
+                max_idle_connections_per_host: 100
+                max_connections_per_host: 0
+                tls_ca_path: ""
+                tls_cert_path: ""
+                tls_key_path: ""
+                tls_server_name: ""
+        swift:
+            application_credential_id: ""
+            application_credential_name: ""
+            application_credential_secret: ""
+            auth_version: 0
+            auth_url: ""
+            username: ""
+            user_domain_name: ""
+            user_domain_id: ""
+            user_id: ""
+            password: ""
+            domain_id: ""
+            domain_name: ""
+            project_id: ""
+            project_name: ""
+            project_domain_id: ""
+            project_domain_name: ""
+            region_name: ""
+            container_name: ""
+            max_retries: 3
+            connect_timeout: 10s
+            request_timeout: 5s
+        filesystem:
+            dir: ""
+timeseries_unmarshal_caching_optimization_enabled: true
