@@ -84,3 +84,6 @@ remote_write:
     # bearer_token: "your_token"
 
 ```
+
+#### 3. Добавление Data Source Mimir в Grafana
+- Prometheus server URL: http://IP-ADDRESS-MIMIR:9009/**prometheus** - prometheus указываем явно после `ip address Mimir`
