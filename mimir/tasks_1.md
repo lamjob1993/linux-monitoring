@@ -120,3 +120,50 @@ remote_write:
 
 #### 4. Grafana должна четко в разделе Explore отображать метрики проэкспонированные с Mimir
 - Выбрать Explore → Выбрать Datasource → Mimir → Вбить метрику `up` в поле ввода
+
+
+
+
+multitenancy_enabled: false
+
+# Режим работы: monolithic (все компоненты в одном процессе)
+target: all
+
+# Настройки хранилища (например, локальная файловая система)
+blocks_storage:
+  backend: filesystem
+  filesystem:
+    dir: /var/lib/mimir/data
+
+# Порт для HTTP API
+server:
+  http_listen_port: 9009
+
+compactor:
+  data_dir: /tmp/mimir/compactor
+  sharding_ring:
+    kvstore:
+      store: memberlist
+
+distributor:
+  ring:
+    instance_addr: 127.0.0.1
+    kvstore:
+      store: memberlist
+
+ingester:
+  ring:
+    instance_addr: 127.0.0.1
+    kvstore:
+      store: memberlist
+    replication_factor: 1
+
+ruler_storage:
+  backend: filesystem
+  filesystem:
+    dir: /tmp/mimir/rules
+
+store_gateway:
+  sharding_ring:
+    replication_factor: 1
+
