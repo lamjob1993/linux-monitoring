@@ -1,14 +1,8 @@
-# Настройка Mimir в разрезе мониторинга
+# Установка Mimir в разрезе мониторинга
 
 _Пользуемся официальной документацией на GitHub (в основном там прописаны Docker файлы на запуск и всегда есть конфиги)_
 
 ## Tasks
-
----
-- https://habr.com/ru/companies/kts/articles/775050/ - статья на тему Grafana Mimir: remote storage
-- https://github.com/ktsstudio/mimir-demo/tree/main/simple - готовая связка grafana + mimir + prometheus на порту 9009
-
----
 
  - От вас требуется поднять `Mimir` частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/prometheus "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию
 ")
@@ -19,45 +13,17 @@ _Пользуемся официальной документацией на Git
 
 ---
 
-Минимально рабочий конфиг для запуска (в работе):
+Минимально рабочий конфиг Mimir для запуска в монолитном режиме:
 
 ```bash
-# Настройки сервера
+# Режим работы: monolithic (все компоненты в одном процессе)
+target: all
+# Настройки хранилища (например, локальная файловая система)
+blocks_storage:
+  backend: filesystem
+  filesystem:
+    dir: /var/lib/mimir/data
+# Порт для HTTP API
 server:
-  http_listen_port: 8080  # Порт для HTTP API
-
-# Distributor (распределитель данных)
-distributor:
-  ring:
-    kvstore:
-      store: inmemory  # Хранилище кольца распределения (inmemory для тестов)
-
-# Ingester (компонент для приема и хранения временных метрик)
-ingester:
-  ring:
-    kvstore:
-      store: inmemory  # Хранилище кольца инжестера (inmemory для тестов)
-    replication_factor: 1  # Фактор репликации (1 для тестов)
-
-# Storage (хранилище данных)
-#storage:
-#  engine: tsdb  # Использование локальной файловой системы
-#  tsdb:
-#    dir: /opt/linux-monitoring/mimir/tsdb  # Директория для хранения данных TSDB
-
-# Query Scheduler (для маршрутизации запросов)
-# query_scheduler:
-#  enabled: true
-
-# Query Frontend (для оптимизации запросов)
-#query_frontend:
-#  enabled: true
-
-# Querier (для выполнения запросов к данным)
-#querier:
-#  max_samples_per_query: 100000000  # Максимальное количество выборок для одного запроса
-
-# API (настройки API для Prometheus/Grafana)
-api:
-  prometheus_http_prefix: /api/v1  # Префикс для PromQL API
+  http_listen_port: 9009
 ```
