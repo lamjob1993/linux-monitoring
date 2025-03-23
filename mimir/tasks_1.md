@@ -31,7 +31,7 @@ server:
 
 ```
 
-#### 2. Рабочий конфиг Prometheus на `remote-write` в `Mimir`
+#### 2. Рабочий конфиг `Prometheus` на `remote-write` в `Mimir`
 
 ```bash
 
