@@ -75,7 +75,7 @@ scrape_configs:
       - targets: ['localhost:9090'] # Сбор метрик с самого Prometheus
 
 remote_write:
-  - url: http://<MIMIR_IP>:9009/api/v1/push
+  - url: http://<MIMIR_IP>:9009/api/v1/push             # имеем ввиду, что это не Data Source для Grafana
     # Если используется аутентификация (например, Basic Auth):
     #basic_auth:
     #  username: "user"
@@ -86,7 +86,8 @@ remote_write:
 ```
 
 #### 3. Добавление Data Source Mimir в Grafana
-- Prometheus server URL: http://ip-address-mimir:9009/prometheus - **prometheus** указываем явно после `ip address Mimir` и порта
+- Prometheus server URL: http://ip-address-mimir:9009/prometheus
+  - **prometheus** указываем явно после `ip address Mimir` и порта
 
 #### 4. Grafana должна четко в разделе Explore отображать метрики проэкспонированные с Mimir
 - Выбрать Explore → Выбрать Datasource → Mimir → Вбить метрику `up` в поле ввода
