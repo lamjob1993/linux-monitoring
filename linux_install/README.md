@@ -28,9 +28,10 @@
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%200.1.png" alt="Выбрать следующие пункты" width="550">
 - Выбираем `Guided - use entire disk:` Автоматическое использование всего диска без дополнительной конфигурации
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%200.2.png" alt="Выбрать следующие пункты" width="550">
-- Выбираем все файлы в одном разделе
+- Это этап, на котором система просит вас выбрать диск, который будет использоваться для установки операционной системы
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%201.png" alt="Выбрать следующие пункты" width="550">
-- Записываем изменения на диск
+- Выбираем `All files in one partition (recommended for new users):` Все файлы будут находиться в одном разделе
+  - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%202.png" alt="Выбрать следующие пункты" width="550">
 - Форматируем разделы
 - Оставляем дефолтный пакетный менеджер [apt](https://ru.wikipedia.org/wiki/Advanced_Packaging_Tool "apt (advanced packaging tool) — программа для установки, обновления и удаления программных пакетов в операционных системах Debian и основанных на них дистрибутивах (например: Ubuntu, Linux Mint и т. п.), иногда также используется в дистрибутивах, основанных на Mandrake, например Mandriva, ALT Linux и PCLinuxOS. Способна автоматически устанавливать и настраивать программы для UNIX-подобных операционных систем как из предварительно откомпилированных пакетов, так и из исходных кодов.")
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%204.png" alt="Выбрать следующие пункты" width="550">
