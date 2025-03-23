@@ -17,7 +17,7 @@ _Пользуемся официальной документацией на Git
 
 ```bash
 
-multitenancy_enabled: false
+multitenancy_enabled: false # Отключаем мультитенантность
 
 # Режим работы: monolithic (все компоненты в одном процессе)
 target: all
@@ -87,3 +87,6 @@ remote_write:
 
 #### 3. Добавление Data Source Mimir в Grafana
 - Prometheus server URL: http://IP-ADDRESS-MIMIR:9009/**prometheus** - prometheus указываем явно после `ip address Mimir`
+
+#### 4. Grafana должна четко в разделе Explore отображать метрики проэкспонированные с Mimir
+- Выбрать Explore → Выбрать Datasource → Mimir → Вбить метрику `up` в поле ввода
