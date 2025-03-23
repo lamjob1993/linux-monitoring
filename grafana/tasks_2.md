@@ -2,7 +2,7 @@
 
 _Эта директория выполняется в финале_
 
-## Tasks
+## Tasks 2
 
 ### [Примеры дашбордов](https://play.grafana.org/dashboards)
 
