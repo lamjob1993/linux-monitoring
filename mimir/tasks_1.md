@@ -6,9 +6,9 @@ _Пользуемся официальной документацией на Git
 
  - [Вспоминаем нашу схему](https://github.com/lamjob1993/linux-monitoring/blob/main/mimir/README.md#%D1%81%D1%85%D0%B5%D0%BC%D0%B0-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B-mimir)
    - По данному разделу нужно выполнить только деплой:
-     - Grafana
-     - Mimir
-     - Prometheus
+     - Grafana / Если Grafana уже поднят, то отлично
+     - Mimir / Поднимаем с нуля
+     - Prometheus / Если Prometheus уже поднят, то отлично
  - [Далее обязательно смотрим этот ролик](https://grafana.com/docs/mimir/latest/get-started/)
  - [Далее обязательно смотрим на этот репозиторий с конфигами и черпаем вдохновение для деплоя Mimir](https://github.com/ktsstudio/mimir-demo/tree/main/simple)
    - Кстати, говоря на этом этапе можно поверхностно пощупать контейнеры в разрезе Docker Compose, только деплоить Compose файл лучше на отдельной виртуалке
