@@ -15,7 +15,7 @@ _Пользуемся официальной документацией на Git
  - [Далее обязательно смотрим на режимы деплоя Mimir на официальном сайте](https://grafana.com/docs/mimir/latest/references/architecture/deployment-modes/)
    - А также постепенно погружаемся в схему балансировки, в следующих `Tasks` будет горизонтальное масштабирование `Prometheus` в разрезе трех инстансов `Mimir` (так называемый хэшринг из кольца `Mimir`, или кольцо хэшринга) завязанных на `Nginx`
  - [Далее обязательно смотрим этот ролик](https://grafana.com/docs/mimir/latest/get-started/)
- - В помощь представлен [базовый конфиг](https://github.com/lamjob1993/linux-monitoring/blob/main/mimir/mimir-config-default.yml) `Mimir`
+ - В помощь представлен [базовый конфиг](https://github.com/lamjob1993/linux-monitoring/blob/main/mimir/mimir-config-default.yml) `Mimir` для вдохновения
  - [Далее обязательно смотрим на этот репозиторий с конфигами и черпаем вдохновение для деплоя Mimir](https://github.com/ktsstudio/mimir-demo/tree/main/simple)
    - Кстати, говоря на этом этапе можно поверхностно пощупать контейнеры в разрезе `Docker Compose`, только деплоить Compose файл лучше на отдельной виртуалке
      - Если будете ставить `Docker`, то строго [по этой ссылке](https://docs.docker.com/engine/install/debian/) по инструкции
