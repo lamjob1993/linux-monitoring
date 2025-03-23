@@ -14,18 +14,18 @@
   3. Настраиваем доступ по **`SSH`** в **`GitHub`** по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
   4. Открываем директорию **`prometheus`** → `README.md` → `beginning` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md`
   5. Открываем директорию **`grafana`** → `README.md` → `tasks_1.md`
-  6. Открываем директорию **`node-exporter`** → `README.md` → `tasks.md`
-  7. Открываем директорию **`pushgateway`** → `README.md` → `tasks.md`
-  8. Открываем директорию **`prometheus-federate`** → `README.md` → `tasks.md`
-  9. Открываем директорию **`alertmanager`** → `README.md` → `tasks.md`
-  10. Открываем директорию **`process-exporter`** → `README.md` → `tasks.md`
-  11. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks.md`
+  6. Открываем директорию **`node-exporter`** → `README.md` → `tasks_1.md`
+  7. Открываем директорию **`pushgateway`** → `README.md` → `tasks_1.md`
+  8. Открываем директорию **`prometheus-federate`** → `README.md` → `tasks_1.md`
+  9. Открываем директорию **`alertmanager`** → `README.md` → `tasks_1.md`
+  10. Открываем директорию **`process-exporter`** → `README.md` → `tasks_1.md`
+  11. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks_1.md`
   12. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md`
-  13. Открываем директорию **`postgresql`** → `README.md` → `tasks.md`
-  14. Открываем директорию **`postgres_exporter`** → `README.md` → `tasks.md`
-  15. Открываем директорию **`mimir`** → `README.md` → `tasks_1.md` → `tasks_2.md`
-  16. Открываем директорию **`nginx`** → `README.md` → `tasks.md`
-  17. Открываем директорию **`nginx-exporter`** → `README.md` → `tasks.md`
+  13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md`
+  14. Открываем директорию **`postgres_exporter`** → `README.md` → `tasks_1.md`
+  15. Открываем директорию **`mimir`** → `README.md` → `tasks_1.md`
+  16. Открываем директорию **`nginx`** → `README.md` → `tasks_1.md`
+  17. Открываем директорию **`nginx-exporter`** → `README.md` → `tasks_1.md`
   18. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md`
   19. После исполнения всех пунктов:
       - У вас должна быть написана полная Bash-автоматизация на деплой бэкенда мониторинга
