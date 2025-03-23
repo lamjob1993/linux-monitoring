@@ -12,7 +12,7 @@ _Пользуемся официальной документацией на Git
  - Настройте рабочий конфиг `Mimir` 
  - Настройте `Prometheus` на `remote-write` в `Mimir`
  - Пропишите `Data Source Mimir` в `Grafana`
- - Снимите метрики в разделе Explore из `Data Source Mimir` в `Grafana`
-   - Достаточно метрики `up`
+ - Снимите метрики в разделе **Explore** из `Data Source Mimir` в `Grafana`
+   - Достаточно вывести метрику `up`
 
 ---
