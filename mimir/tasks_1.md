@@ -9,7 +9,7 @@ _Пользуемся официальной документацией на Git
      - Grafana
      - Mimir
      - Prometheus
- - [Далее этот ролик обязателен к просмотру](https://grafana.com/docs/mimir/latest/get-started/)
+ - [Далее обязательно смотрим этот ролик](https://grafana.com/docs/mimir/latest/get-started/)
  - [Далее обязательно смотрим на этот репозиторий с конфигами для деплоя Mimir](https://github.com/ktsstudio/mimir-demo/tree/main/simple)
  - От вас требуется поднять один инстанс `Mimir` в монолитном режиме частично способом из раздела [Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/prometheus "Запускаем голый бинарь Prometheus, пишем юнит и простую автоматизацию.")
  - При этом упростите установку `Mimir` - после распаковки архива сделайте директорию распаковки рабочей сразу, чтобы не повторять шаги способом установки `Prometheus`
