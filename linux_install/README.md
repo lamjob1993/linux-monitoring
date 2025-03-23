@@ -26,6 +26,7 @@
 - Выбираем обязательно английский язык
 - Вписываем имя хоста (виртуалки)
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%200.0.1.png" alt="Выбрать следующие пункты" width="550">
+- Доменное имя оставляем пустым  
 - Вписываем имя пользователя
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Debian%20Install%200.1.png" alt="Выбрать следующие пункты" width="550">
 - Выбираем `Guided - use entire disk:` Автоматическое использование всего диска без дополнительной конфигурации
