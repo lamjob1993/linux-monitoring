@@ -86,7 +86,7 @@ remote_write:
 ```
 
 #### 3. Добавление Data Source Mimir в Grafana
-- Prometheus server URL: http://IP-ADDRESS-MIMIR:9009/**prometheus** - prometheus указываем явно после `ip address Mimir`
+- Prometheus server URL: http://ip-address-mimir:9009/prometheus - prometheus указываем явно после `ip address Mimir`
 
 #### 4. Grafana должна четко в разделе Explore отображать метрики проэкспонированные с Mimir
 - Выбрать Explore → Выбрать Datasource → Mimir → Вбить метрику `up` в поле ввода
