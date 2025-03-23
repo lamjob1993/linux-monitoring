@@ -17,6 +17,8 @@ _Пользуемся официальной документацией на Git
 
 ```bash
 
+multitenancy_enabled: false
+
 # Режим работы: monolithic (все компоненты в одном процессе)
 target: all
 
@@ -29,6 +31,34 @@ blocks_storage:
 # Порт для HTTP API
 server:
   http_listen_port: 9009
+
+compactor:
+  data_dir: /tmp/mimir/compactor
+  sharding_ring:
+    kvstore:
+      store: memberlist
+
+distributor:
+  ring:
+    instance_addr: 127.0.0.1
+    kvstore:
+      store: memberlist
+
+ingester:
+  ring:
+    instance_addr: 127.0.0.1
+    kvstore:
+      store: memberlist
+    replication_factor: 1
+
+ruler_storage:
+  backend: filesystem
+  filesystem:
+    dir: /tmp/mimir/rules
+
+store_gateway:
+  sharding_ring:
+    replication_factor: 1
 
 ```
 
