@@ -6,12 +6,13 @@ _Пользуемся официальной документацией на Git
 
 - Требуется вывести три инстанса `Mimir` в кольцо хэшринга
 - В помощь представлен [базовый конфиг](https://github.com/lamjob1993/linux-monitoring/blob/main/mimir/mimir-config-default.yml) `Mimir`, который включает все модули + заглушки, из которого можно черпать вдохновение для выведения `Mimir` в кольцо для горизонтального масштабирования
-- Успешный хэшринг будет выглядеть вот так:
+- Успешный хэшринг будет выглядеть вот так (будет доступен по ссылке `Memberlist Status`):
     
     | Memberlist Cluster Members |               |        |
     |----------------------------|---------------|--------|
     | **Name**                   | **Address**   | **State** |
-    | debian-2f01f116            | 10.49.71.205:7946 | Alive  |
-    | debian-4ce0a848            | 10.49.71.206:7946 | Alive  |
-    | debian-b1a9343d            | 10.49.71.167:7946 | Alive  |
+    | debian-2f01f116            | 10.49.71.205:7946 | <span style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px;">Alive</span>  |
+    | debian-4ce0a848            | 10.49.71.206:7946 | <span style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px;">Alive</span>  |
+    | debian-b1a9343d            | 10.49.71.167:7946 | <span style="background-color: green; color: white; padding: 5px 10px; border-radius: 5px;">Alive</span>  |
 
+- 
