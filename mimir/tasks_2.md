@@ -4,6 +4,8 @@
 
 _Пользуемся официальной документацией на GitHub (в основном там прописаны Docker файлы на запуск и всегда есть конфиги)_
 
+Рабочий конфиг для контейнера и успешный запуск Mimir - https://github.com/grafana/mimir/blob/main/docs/sources/mimir/get-started/_index.md
+
 ## Tasks 2
 
 - Требуется вывести три инстанса `Mimir` в [кольцо хэшринга](https://grafana.com/docs/mimir/latest/references/architecture/hash-ring/) (это горизонтальное масштабирование)
