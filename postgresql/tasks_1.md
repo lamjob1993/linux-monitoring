@@ -23,4 +23,4 @@ _Пользуемся официальной документацией на Git
   - Если вы хотите загрузить скрипт из файла: Сохраните SQL-код в файл, например, `schema.sql`
     - Загрузите его в **PostgreSQL**: `sudo -u postgres psql -d fintech_credit_conveyor -f schema.sql`
   - Проверьте созданные таблицы `\dt`
-- [Образец схемы](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/script_data_base.sql)
+- [Образец схемы БД](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/script_data_base.sql)
