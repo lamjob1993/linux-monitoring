@@ -24,3 +24,4 @@ _Пользуемся официальной документацией на Git
     - Загрузите его в **PostgreSQL**: `sudo -u postgres psql -d fintech_credit_conveyor -f schema.sql`
   - Проверьте созданные таблицы `\dt`
 - [Шпаргалка](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/script_data_base.sql)
+- [Пишу начало](https://chat.qwen.ai/c/a1646855-d45a-40fb-b3be-325bce101788)
