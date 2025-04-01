@@ -18,10 +18,7 @@ _Пользуемся официальной документацией на Git
 - Создайте новую базу данных
   - `CREATE DATABASE fintech_credit_conveyor`; 
 - Подключитесь к созданной базе данных `\c fintech_credit_conveyor`
-- Вставьте SQL-скрипт
-  - Выделите весь SQL-код и вставьте его прямо в терминал `psql` (нажмите правой кнопкой мыши или используйте комбинацию `Ctrl+Shift+V`)
-  - Если вы хотите загрузить скрипт из файла: Сохраните SQL-код в файл, например, `schema.sql`
-    - Загрузите его в **PostgreSQL**: `sudo -u postgres psql -d fintech_credit_conveyor -f schema.sql`
+- Создайте таблицы внутри базы данных
   - Проверьте созданные таблицы `\dt`
   - [Образец схемы БД](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/script_data_base.sql)
 - Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter) и натравите на него Prometheus
