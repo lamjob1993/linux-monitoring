@@ -20,6 +20,6 @@ _Пользуемся официальной документацией на Git
 - Подключитесь к созданной базе данных `\c fintech_credit_conveyor`
 - Создайте таблицы внутри базы данных
   - Проверьте созданные таблицы `\dt`
-  - [Образец схемы БД](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/script_data_base.sql)
-- Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter) и натравите на него Prometheus
+  - [Образец схемы БД](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0.md)
+- Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него Prometheus
 - Установите дашборд предназначенный для PostgreSQL и снимите метрики
