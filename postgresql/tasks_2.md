@@ -1,3 +1,9 @@
+# PostgreSQL
+
+_Пользуемся официальной документацией на GitHub (в основном там прописаны Docker файлы на запуск и всегда есть конфиги)_
+
+## Tasks
+
 ### Шаг 3. Установка Postgres Exporter
 
 - Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него **Prometheus**
