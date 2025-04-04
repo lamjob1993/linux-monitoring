@@ -1,3 +1,4 @@
+import json
 import random
 from faker import Faker
 import psycopg2
