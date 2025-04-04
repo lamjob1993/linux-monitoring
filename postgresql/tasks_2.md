@@ -6,7 +6,7 @@ _Пользуемся официальной документацией на Git
 
 ### Шаг 1. Установка Postgres Exporter
 
-- Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него **Prometheus**
+- Запустите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него **Prometheus**
 - ```bash
   docker run -d \
   --net=host \
