@@ -4,6 +4,8 @@ _Пользуемся официальной документацией на Git
 
 ## Tasks
 
+### Шаг 1. Установка PostgreSQL и создание первой БД
+
 - Установите БД **PostgreSQL** стандартным способом через `apt` в систему **Debian**
 - Далее нужно написать скрипт для создания базы данных
 - Основные темы и таблицы для скрипта:
@@ -21,6 +23,19 @@ _Пользуемся официальной документацией на Git
 - Создайте таблицы внутри базы данных
   - Проверьте созданные таблицы `\dt`
   - [Образец схемы БД](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0.md)
-- Набейте фейковыми данными таблицу с помощью Python Faker 
-- Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него Prometheus
-- Установите дашборд предназначенный для PostgreSQL и визуализируйте метрики в Grafana
+
+### Шаг 2. Генерация данных
+
+- Набейте фейковыми данными таблицу с помощью Python Faker
+  - Установите пакет для создания виртуальных окружений (если не установлен) `sudo apt install python3-venv`
+  - Создайте виртуальное окружение `python3 -m venv myenv`
+  - Активируйте его `source myenv/bin/activate`
+  - Теперь установите пакеты внутри окружения `pip install faker psycopg2-binary`
+
+### Шаг 3. Установка Postgres Exporter
+
+- Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него **Prometheus**
+
+### Шаг 4. Установка Grafana и адаптация дашборда PostgreSQL
+
+- Скачайте дашборд предназначенный для СУБД **PostgreSQL** и визуализируйте метрики в **Grafana**
