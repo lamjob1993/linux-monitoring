@@ -214,13 +214,6 @@ _Пользуемся официальной документацией на Git
     WHERE approval_end - approval_start > INTERVAL '1 day';
     ```
 
-25. **Клиенты с паспортами, у которых сумма цифр равна 21**  
-    ```sql
-    SELECT * 
-    FROM clients 
-    WHERE (SUBSTRING(passport FROM 1 FOR 4)::INT + SUBSTRING(passport FROM 6 FOR 6)::INT) = 21;
-    ```
-
 ---
 
 ### Примечания:
