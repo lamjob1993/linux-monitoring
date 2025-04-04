@@ -18,7 +18,7 @@ _Пользуемся официальной документацией на Git
    - **X.com**    # недоступен в РФ
 
 ### Backend. Часть 2
- - Сгенерируйте сертификаты и замониторьте их стандартными средствами Blackbox Exporter
+ - [Сгенерируйте сертификаты и замониторьте их стандартными средствами Blackbox Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/blackbox-exporter/tasks_2.md)
 
 ### Frontend
  - Скачайте дашборд предназначенный для `Blackbox Exporter` с сайта `Grafana Lab`
