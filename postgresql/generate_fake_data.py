@@ -100,15 +100,37 @@ def generate_logs(application_ids):
     logs = []
     stages = ['application_received', 'scoring', 'risk_assessment', 'approval', 'funding']
     
+    # IT-ориентированные сообщения об ошибках
+    it_messages = [
+        "Java error: OutOfMemoryError - GC overhead limit exceeded",
+        "Kafka connection timeout: Failed to connect to broker",
+        "Nginx 502 Bad Gateway: Connection refused while connecting to upstream",
+        "SSL certificate verification failed for kafka:9093",
+        "Java heap space error during credit scoring calculation",
+        "Kafka consumer group rebalance failed",
+        "Nginx configuration test failed: duplicate location \"/api\"",
+        "Database connection pool exhausted",
+        "HTTP 503 Service Unavailable: API gateway timeout",
+        "Java ClassNotFoundException: com.example.CreditService"
+    ]
+    
     for app_id in application_ids:
         for stage in stages:
             created_at = fake.date_time_between(start_date='-2y')
+            
+            # Технические детали с кодами ошибок
             details = {
-                "status": fake.random_element(elements=('success', 'warning', 'info')),
-                "message": fake.sentence()
+                "status": random.choice(['error', 'warning', 'info']),
+                "component": random.choice(['java', 'kafka', 'nginx', 'database']),
+                "message": random.choice(it_messages),
+                "error_code": random.choice([404, 500, 502, 503, 504])
             }
-            # Преобразование словаря в JSON-строку
-            logs.append((app_id, stage, json.dumps(details)))
+            
+            logs.append((
+                app_id,
+                stage,
+                details
+            ))
     
     return logs
 
