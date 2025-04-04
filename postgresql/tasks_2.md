@@ -8,7 +8,7 @@ _Пользуемся официальной документацией на Git
 
 - Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него **Prometheus**
 - ```bash
-  docker run \
+  docker run -d \
   --net=host \
   -e DATA_SOURCE_URI="localhost:5432/postgres?sslmode=disable" \
   -e DATA_SOURCE_USER=postgres \
