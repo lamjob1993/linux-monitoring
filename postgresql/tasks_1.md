@@ -29,6 +29,12 @@ _Пользуемся официальной документацией на Git
 - Набейте фейковыми данными БД с помощью библиотеки **Python Faker**
   - Установите пакет для создания виртуальных окружений (если не установлен) `sudo apt install python3-venv`
   - Создайте виртуальное окружение `python3 -m venv myenv`
+    - ```bash
+        -rw-r--r-- 1 lamjob lamjob  222 Mar 26 13:45 back_prometheus.yml
+        -rw-r--r-- 1 lamjob lamjob  776 Mar 26 13:05 docker-compose.yml
+        drwxr-xr-x 5 lamjob lamjob 4096 Apr  3 20:15 myenv
+        -rw-r--r-- 1 lamjob lamjob  327 Mar 26 13:51 prometheus.yml
+      ```
   - Активируйте его `source myenv/bin/activate`
     - ```bash
         lamjob@debian:~/Documents/monitoring$ source myenv/bin/activate
