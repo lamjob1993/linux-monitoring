@@ -103,16 +103,13 @@ def generate_logs(application_ids):
     for app_id in application_ids:
         for stage in stages:
             created_at = fake.date_time_between(start_date='-2y')
-            logs.append((
-                app_id,
-                stage,
-                {
-                    "status": fake.random_element(elements=('success', 'warning', 'info')),
-                    "message": fake.sentence()
-                }
-                # Преобразование словаря в JSON-строку
-                logs.append((app_id, stage, json.dumps(details)))
-                
+            details = {
+                "status": fake.random_element(elements=('success', 'warning', 'info')),
+                "message": fake.sentence()
+            }
+            # Преобразование словаря в JSON-строку
+            logs.append((app_id, stage, json.dumps(details)))
+    
     return logs
 
 try:
