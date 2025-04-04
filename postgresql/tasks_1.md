@@ -26,10 +26,14 @@ _Пользуемся официальной документацией на Git
 
 ### Шаг 2. Генерация данных для БД
 
-- Набейте фейковыми данными БД с помощью **Python Faker**
+- Набейте фейковыми данными БД с помощью библиотеки **Python Faker**
   - Установите пакет для создания виртуальных окружений (если не установлен) `sudo apt install python3-venv`
   - Создайте виртуальное окружение `python3 -m venv myenv`
   - Активируйте его `source myenv/bin/activate`
+    - ```bash
+        lamjob@debian:~/Documents/monitoring$ source myenv/bin/activate
+        (myenv) lamjob@debian:~/Documents/monitoring$
+      ```
   - Теперь установите пакеты внутри окружения `pip install faker psycopg2-binary`
 
 ### Шаг 3. Установка Postgres Exporter
