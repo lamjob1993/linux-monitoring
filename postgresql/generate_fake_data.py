@@ -125,11 +125,12 @@ def generate_logs(application_ids):
                 "message": random.choice(it_messages),
                 "error_code": random.choice([404, 500, 502, 503, 504])
             }
-            
+
+            # Явное преобразование в JSON-строку
             logs.append((
                 app_id,
                 stage,
-                details
+                json.dumps(details)
             ))
     
     return logs
