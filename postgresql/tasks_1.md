@@ -93,9 +93,7 @@ _Пользуемся официальной документацией на Git
     - Предварительно перейдите в директорию `lamjob@debian:/etc/postgresql/15/main$`
     - Откройте файл в редакторе `sudo nano postgresql.conf`
     - Добавьте звездочку в строку:
-    - ```bash
-      # - Connection Settings -
-
-      listen_addresses = '*'                  # what IP address(es) to listen on;
-
-      ```
+      - ```bash
+        # - Connection Settings -
+        listen_addresses = '*'                  # what IP address(es) to listen on;
+        ```
