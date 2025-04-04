@@ -62,6 +62,21 @@ _Пользуемся официальной документацией на Git
       (myenv) lamjob@debian:~/Documents/monitoring$
   
       ```
+    - Проверка библиотек установленных в виртуальном окружении `pip list`
+      - ```bash
+        (myenv) lamjob@debian:~/Documents/monitoring$ pip list
+        Package         Version
+        --------------- -------
+        Faker           37.1.0
+        pip             23.0.1
+        psycopg2-binary 2.9.10
+        setuptools      66.1.1
+        tzdata          2025.2
+        ```
+  - Запуск скрипта из активированного виртуального окружения `python generate_fake_data.py`
+    - В этом случае:
+      - Используется интерпретатор Python из виртуального окружения.
+      - Установленные зависимости (например, faker и psycopg2-binary) будут доступны, так как они установлены именно в это окружение.
 
 
 ### Шаг 3. Установка Postgres Exporter
