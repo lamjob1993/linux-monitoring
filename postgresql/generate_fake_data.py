@@ -37,9 +37,9 @@ def generate_credit_products(num_products):
     for _ in range(num_products):
         product_name = choice(product_types)
         interest_rate = round(uniform(5.0, 20.0), 2)
-        max_amount = randint(100000, 10000000)  # Явное преобразование в int
-        min_term = randint(6, 12)              # Явное преобразование в int
-        max_term = randint(24, 60)             # Явное преобразование в int
+        max_amount = int(randint(100000, 10000000))  # Явное преобразование в int [[4]]
+        min_term = int(randint(6, 12))              # Явное преобразование в int
+        max_term = int(randint(24, 60))             # Явное преобразование в int
         products.append((product_name, interest_rate, max_amount, min_term, max_term))
     return products
 
@@ -49,8 +49,8 @@ def generate_applications(clients, products):
     statuses = ['submitted', 'approved', 'rejected', 'closed']
     for client_id in clients:  # Итерация по client_ids
         product = choice(products)
-        amount = randint(100000, product[2])  # Теперь product[2] точно число
-        term = randint(product[3], product[4])  # Теперь product[3] и product[4] точно числа
+        amount = int(randint(100000, product[2]))  # Явное преобразование в int [[4]]
+        term = int(randint(product[3], product[4]))  # Явное преобразование в int
         status = choice(statuses)
         applications.append((
             client_id,  # client_id
@@ -142,7 +142,7 @@ def insert_data():
         print("Данные успешно добавлены в базу данных.")
     except Exception as e:
         print(f"Ошибка при вставке данных: {e}")
-        conn.rollback()
+        conn.rollback()  # Откат транзакции в случае ошибки [[1]]
 
 if __name__ == "__main__":
     insert_data()
