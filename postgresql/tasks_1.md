@@ -30,17 +30,39 @@ _Пользуемся официальной документацией на Git
   - Установите пакет для создания виртуальных окружений (если не установлен) `sudo apt install python3-venv`
   - Создайте виртуальное окружение `python3 -m venv myenv` - на этом этапе создается директория `myenv`
     - ```bash
+
         -rw-r--r-- 1 lamjob lamjob  222 Mar 26 13:45 back_prometheus.yml
         -rw-r--r-- 1 lamjob lamjob  776 Mar 26 13:05 docker-compose.yml
         drwxr-xr-x 5 lamjob lamjob 4096 Apr  3 20:15 myenv
         -rw-r--r-- 1 lamjob lamjob  327 Mar 26 13:51 prometheus.yml
+
       ```
   - Активируйте его `source myenv/bin/activate`
     - ```bash
+
         lamjob@debian:~/Documents/monitoring$ source myenv/bin/activate
         (myenv) lamjob@debian:~/Documents/monitoring$
+
       ```
   - Теперь установите пакеты внутри окружения `pip install faker psycopg2-binary`
+  - ```bash
+
+            (myenv) lamjob@debian:~/Documents/monitoring$ pip install faker psycopg2-binary
+        Collecting faker
+          Downloading faker-37.1.0-py3-none-any.whl (1.9 MB)
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 652.0 kB/s eta 0:00:00
+        Collecting psycopg2-binary
+          Downloading psycopg2_binary-2.9.10-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (3.0 MB)
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 3.0/3.0 MB 826.1 kB/s eta 0:00:00
+        Collecting tzdata
+          Downloading tzdata-2025.2-py2.py3-none-any.whl (347 kB)
+             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 347.8/347.8 kB 2.1 MB/s eta 0:00:00
+        Installing collected packages: tzdata, psycopg2-binary, faker
+        Successfully installed faker-37.1.0 psycopg2-binary-2.9.10 tzdata-2025.2
+        (myenv) lamjob@debian:~/Documents/monitoring$
+
+    ```
+
 
 ### Шаг 3. Установка Postgres Exporter
 
