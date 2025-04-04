@@ -1,150 +1,131 @@
-import psycopg2
+import random
 from faker import Faker
-from random import randint, choice, uniform
+from faker.providers import date_time, internet, person, lorem
+import psycopg2
 from datetime import datetime, timedelta
 
-# Настройки подключения к PostgreSQL
-try:
-    conn = psycopg2.connect(
-        dbname="fintech_credit_conveyor",
-        user="postgres",
-        password="your_password",  # Замените на ваш пароль
-        host="localhost"
-    )
-    cursor = conn.cursor()
-except Exception as e:
-    print(f"Ошибка подключения к базе данных: {e}")
-    exit(1)
-
-# Инициализация Faker с русской локализацией
+# Инициализация Faker с поддержкой русской локализации
 fake = Faker('ru_RU')
+fake.add_provider(date_time)
+fake.add_provider(internet)
+fake.add_provider(person)
+fake.add_provider(lorem)
 
-# Генерация клиентов
-def generate_clients(num_clients):
+# Подключение к базе данных
+conn = psycopg2.connect(
+    dbname="fintech_credit_conveyor",
+    user="postgres",
+    password="your_password",
+    host="localhost"
+)
+cursor = conn.cursor()
+
+# Генерация данных для таблицы clients
+def generate_clients(n=100):
     clients = []
-    for _ in range(num_clients):
+    for _ in range(n):
         full_name = fake.name()
-        birth_date = fake.date_of_birth(minimum_age=18, maximum_age=70)
-        passport = f"{randint(1000, 9999)} {randint(100000, 999999)}"  # Формат: 1234 567890
-        credit_score = randint(300, 850)  # Явное преобразование в int [[4]]
+        birth_date = fake.date_of_birth(minimum_age=18, maximum_age=80)
+        # Генерация уникального номера паспорта (пример: 1234 567890)
+        passport = f"{fake.random_number(digits=4)} {fake.random_number(digits=6)}"
+        credit_score = random.randint(300, 850)
         clients.append((full_name, birth_date, passport, credit_score))
     return clients
 
-# Генерация кредитных продуктов
-def generate_credit_products(num_products):
+# Генерация данных для таблицы credit_products
+def generate_credit_products(n=5):
     products = []
-    product_types = ["Потребительский кредит", "Ипотека", "Автокредит", "Кредит для бизнеса"]
-    for _ in range(num_products):
-        product_name = choice(product_types)
-        interest_rate = round(uniform(5.0, 20.0), 2)  # Явное преобразование в float
-        max_amount = randint(100000, 10000000)  # Явное преобразование в int [[4]]
-        min_term = randint(6, 12)  # Явное преобразование в int
-        max_term = randint(24, 60)  # Явное преобразование в int
+    product_names = ["Потребительский кредит", "Автокредит", "Ипотека", "Кредит для бизнеса", "Микрозайм"]
+    for i in range(n):
+        product_name = product_names[i] if i < len(product_names) else fake.job()
+        interest_rate = round(random.uniform(5.0, 20.0), 2)
+        max_amount = round(random.uniform(10000.0, 1000000.0), 2)
+        min_term = random.randint(3, 12)
+        max_term = random.randint(12, 60)
         products.append((product_name, interest_rate, max_amount, min_term, max_term))
     return products
 
-# Генерация заявок на кредит
-def generate_applications(clients, products):
+# Генерация данных для credit_applications
+def generate_applications(client_ids, product_ids, n=200):
     applications = []
     statuses = ['submitted', 'approved', 'rejected', 'closed']
-    for client_id in clients:  # Итерация по client_ids
-        product = choice(products)
-        amount = randint(100000, product[2])  # Явное преобразование в int [[4]]
-        term = randint(product[3], product[4])  # Явное преобразование в int
-        status = choice(statuses)
-        applications.append((
-            client_id,  # client_id
-            product[0], # product_id
-            amount,
-            term,
-            status
-        ))
+    for _ in range(n):
+        client_id = random.choice(client_ids)
+        product_id = random.choice(product_ids)
+        product = next(p for p in credit_products if p[0] == product_id)
+        amount = round(random.uniform(1000.0, float(product[2])), 2)
+        term = random.randint(product[3], product[4])
+        status = random.choices(statuses, weights=[40, 30, 20, 10])[0]
+        applications.append((client_id, product_id, amount, term, status))
     return applications
 
-# Генерация платежей
-def generate_payments(applications):
+# Генерация данных для payments
+def generate_payments(application_ids, n=500):
     payments = []
-    for app in applications:
-        if app[4] in ['approved', 'closed']:
-            num_payments = app[3] // 12  # Пример: раз в месяц
-            for i in range(num_payments):
-                amount_due = round(app[2] / num_payments, 2)  # Явное преобразование в float
-                payment_date = datetime.now() + timedelta(days=30 * i)
-                status = choice(['pending', 'paid', 'overdue'])
-                payments.append((
-                    app[0],  # application_id
-                    amount_due,
-                    payment_date.date(),
-                    status
-                ))
+    for app_id in application_ids:
+        term = next(a for a in credit_applications if a[0] == app_id)[4]
+        amount_due = round(next(a for a in credit_applications if a[0] == app_id)[3] / term, 2)
+        start_date = fake.date_between(start_date='-2y', end_date='-1y')
+        for month in range(term):
+            payment_date = start_date + timedelta(days=30*month)
+            status = random.choices(['pending', 'paid', 'overdue'], weights=[20, 70, 10])[0]
+            payments.append((app_id, amount_due, payment_date, status))
     return payments
 
-# Генерация логов конвейера
-def generate_conveyor_logs(applications):
+# Генерация данных для conveyor_log
+def generate_logs(application_ids):
     logs = []
-    stages = ["Проверка данных", "Оценка кредитоспособности", "Утверждение", "Выдача кредита"]
-    for app in applications:
-        for _ in range(randint(1, 3)):
-            stage = choice(stages)
+    stages = ['application_received', 'scoring', 'risk_assessment', 'approval', 'funding']
+    for app_id in application_ids:
+        for stage in stages:
+            created_at = fake.date_time_between(start_date='-2y', end_date='now')
             details = {
-                "decision_maker": fake.name(),
+                "stage": stage,
                 "comment": fake.sentence()
             }
-            logs.append((
-                app[0],  # application_id
-                stage,
-                details
-            ))
+            logs.append((app_id, stage, details))
     return logs
 
-# Вставка данных в таблицы
-def insert_data():
-    try:
-        # Генерация 100 клиентов
-        clients = generate_clients(100)
-        cursor.executemany(
-            "INSERT INTO clients (full_name, birth_date, passport, credit_score) VALUES (%s, %s, %s, %s)",
-            clients
-        )
-        client_ids = [client[0] for client in clients]
-
-        # Генерация 5 кредитных продуктов
-        products = generate_credit_products(5)
-        cursor.executemany(
-            "INSERT INTO credit_products (product_name, interest_rate, max_amount, min_term, max_term) VALUES (%s, %s, %s, %s, %s)",
-            products
-        )
-        product_ids = [product[0] for product in products]
-
-        # Генерация 200 заявок
-        applications = generate_applications(client_ids, product_ids)
-        cursor.executemany(
-            "INSERT INTO credit_applications (client_id, product_id, amount, term, status) VALUES (%s, %s, %s, %s, %s)",
-            applications
-        )
-        application_ids = [app[0] for app in applications]
-
-        # Генерация платежей
-        payments = generate_payments(applications)
-        cursor.executemany(
-            "INSERT INTO payments (application_id, amount_due, payment_date, status) VALUES (%s, %s, %s, %s)",
-            payments
-        )
-
-        # Генерация логов
-        logs = generate_conveyor_logs(applications)
-        cursor.executemany(
-            "INSERT INTO conveyor_log (application_id, stage, details) VALUES (%s, %s, %s)",
-            logs
-        )
-
-        conn.commit()
-        print("Данные успешно добавлены в базу данных.")
-    except Exception as e:
-        print(f"Ошибка при вставке данных: {e}")
-        conn.rollback()  # Откат транзакции в случае ошибки [[1]]
-
+# Основная функция генерации
 if __name__ == "__main__":
-    insert_data()
+    # Генерация клиентов
+    clients = generate_clients(100)
+    client_ids = [i+1 for i in range(len(clients))]
+    cursor.executemany(
+        "INSERT INTO clients (full_name, birth_date, passport, credit_score) VALUES (%s, %s, %s, %s)",
+        clients
+    )
+
+    # Генерация кредитных продуктов
+    credit_products = generate_credit_products(5)
+    product_ids = [i+1 for i in range(len(credit_products))]
+    cursor.executemany(
+        "INSERT INTO credit_products (product_name, interest_rate, max_amount, min_term, max_term) VALUES (%s, %s, %s, %s, %s)",
+        credit_products
+    )
+
+    # Генерация заявок
+    credit_applications = generate_applications(client_ids, product_ids, 200)
+    application_ids = [i+1 for i in range(len(credit_applications))]
+    cursor.executemany(
+        "INSERT INTO credit_applications (client_id, product_id, amount, term, status) VALUES (%s, %s, %s, %s, %s)",
+        credit_applications
+    )
+
+    # Генерация платежей
+    payments = generate_payments(application_ids, 500)
+    cursor.executemany(
+        "INSERT INTO payments (application_id, amount_due, payment_date, status) VALUES (%s, %s, %s, %s)",
+        payments
+    )
+
+    # Генерация логов
+    logs = generate_logs(application_ids)
+    cursor.executemany(
+        "INSERT INTO conveyor_log (application_id, stage, details) VALUES (%s, %s, %s)",
+        logs
+    )
+
+    conn.commit()
     cursor.close()
     conn.close()
