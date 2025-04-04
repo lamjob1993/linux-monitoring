@@ -22,7 +22,7 @@ _Пользуемся официальной документацией на Git
 - Подключитесь к созданной базе данных `\c fintech_credit_conveyor`
 - Создайте таблицы внутри базы данных
   - Проверьте созданные таблицы `\dt`
-  - [Образец схемы БД - пользуемся для создания базы](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0.md)
+  - [Образец схемы БД - пользуемся для создания базы](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0%20(%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%91%D0%94%20%D0%B8%20%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86).md)
 
 ### Шаг 2. Генерация данных для БД
 
