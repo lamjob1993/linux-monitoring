@@ -18,4 +18,4 @@ _Пользуемся официальной документацией на Git
 
 ### Шаг 2. Установка Grafana и адаптация дашборда PostgreSQL
 
-- [Скачайте дашборд](https://grafana.com/grafana/dashboards/12485-postgresql-exporter/) предназначенный для СУБД **PostgreSQL** и визуализируйте метрики в **Grafana**
+- [Скачайте дашборд](https://grafana.com/grafana/dashboards/9628-postgresql-database/) предназначенный для СУБД **PostgreSQL** и визуализируйте метрики в **Grafana**
