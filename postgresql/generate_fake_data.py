@@ -33,9 +33,9 @@ def generate_credit_products(num_products):
     for _ in range(num_products):
         product_name = choice(product_types)
         interest_rate = round(uniform(5.0, 20.0), 2)
-        max_amount = randint(100000, 10000000)
-        min_term = randint(6, 12)
-        max_term = randint(24, 60)
+        max_amount = int(randint(100000, 10000000))  # Явное преобразование в int
+        min_term = int(randint(6, 12))              # Явное преобразование в int
+        max_term = int(randint(24, 60))             # Явное преобразование в int
         products.append((product_name, interest_rate, max_amount, min_term, max_term))
     return products
 
@@ -43,14 +43,14 @@ def generate_credit_products(num_products):
 def generate_applications(clients, products):
     applications = []
     statuses = ['submitted', 'approved', 'rejected', 'closed']
-    for client in clients:
+    for client_id in clients:  # Итерация по client_ids
         product = choice(products)
-        amount = randint(100000, product[2])  # Не превышает max_amount продукта
-        term = randint(product[3], product[4])  # В рамках min_term и max_term
+        amount = randint(100000, product[2])  # Теперь product[2] точно число
+        term = randint(product[3], product[4])  # Теперь product[3] и product[4] точно числа
         status = choice(statuses)
         applications.append((
-            client[0],  # client_id (будет проставлен через enumerate)
-            product[0], # product_id (будет проставлен через enumerate)
+            client_id,  # client_id
+            product[0], # product_id
             amount,
             term,
             status
@@ -68,7 +68,7 @@ def generate_payments(applications):
                 payment_date = datetime.now() + timedelta(days=30*i)
                 status = choice(['pending', 'paid', 'overdue'])
                 payments.append((
-                    app[0],  # application_id (будет проставлен через enumerate)
+                    app[0],  # application_id
                     amount_due,
                     payment_date.date(),
                     status
