@@ -26,7 +26,7 @@ def generate_clients(num_clients):
         full_name = fake.name()
         birth_date = fake.date_of_birth(minimum_age=18, maximum_age=70)
         passport = f"{randint(1000, 9999)} {randint(100000, 999999)}"  # Формат: 1234 567890
-        credit_score = randint(300, 850)
+        credit_score = randint(300, 850)  # Явное преобразование в int [[4]]
         clients.append((full_name, birth_date, passport, credit_score))
     return clients
 
@@ -36,10 +36,10 @@ def generate_credit_products(num_products):
     product_types = ["Потребительский кредит", "Ипотека", "Автокредит", "Кредит для бизнеса"]
     for _ in range(num_products):
         product_name = choice(product_types)
-        interest_rate = round(uniform(5.0, 20.0), 2)
-        max_amount = int(randint(100000, 10000000))  # Явное преобразование в int [[4]]
-        min_term = int(randint(6, 12))              # Явное преобразование в int
-        max_term = int(randint(24, 60))             # Явное преобразование в int
+        interest_rate = round(uniform(5.0, 20.0), 2)  # Явное преобразование в float
+        max_amount = randint(100000, 10000000)  # Явное преобразование в int [[4]]
+        min_term = randint(6, 12)  # Явное преобразование в int
+        max_term = randint(24, 60)  # Явное преобразование в int
         products.append((product_name, interest_rate, max_amount, min_term, max_term))
     return products
 
@@ -49,8 +49,8 @@ def generate_applications(clients, products):
     statuses = ['submitted', 'approved', 'rejected', 'closed']
     for client_id in clients:  # Итерация по client_ids
         product = choice(products)
-        amount = int(randint(100000, product[2]))  # Явное преобразование в int [[4]]
-        term = int(randint(product[3], product[4]))  # Явное преобразование в int
+        amount = randint(100000, product[2])  # Явное преобразование в int [[4]]
+        term = randint(product[3], product[4])  # Явное преобразование в int
         status = choice(statuses)
         applications.append((
             client_id,  # client_id
@@ -68,7 +68,7 @@ def generate_payments(applications):
         if app[4] in ['approved', 'closed']:
             num_payments = app[3] // 12  # Пример: раз в месяц
             for i in range(num_payments):
-                amount_due = round(app[2] / num_payments, 2)
+                amount_due = round(app[2] / num_payments, 2)  # Явное преобразование в float
                 payment_date = datetime.now() + timedelta(days=30 * i)
                 status = choice(['pending', 'paid', 'overdue'])
                 payments.append((
