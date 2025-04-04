@@ -90,13 +90,10 @@ _Пользуемся официальной документацией на Git
       - Используется интерпретатор **Python** из виртуального окружения.
       - Установленные зависимости (например, **faker** и **psycopg2-binary**) будут доступны, так как они установлены именно в это окружение.
   - Подключитесь к базе данных через DBeaver
-    - Предварительно:
+    - Предварительно перейдите в директорию `lamjob@debian:/etc/postgresql/15/main$`
+    - Откройте файл в редакторе `sudo nano postgresql.conf`
+    - Добавьте звездочку в строку:
     - ```bash
-      lamjob@debian:/etc/postgresql/15/main$ pwd
-      /etc/postgresql/15/main
-
-      sudo nano postgresql.conf
-
       # - Connection Settings -
 
       listen_addresses = '*'                  # what IP address(es) to listen on;
