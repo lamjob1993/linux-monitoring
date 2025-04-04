@@ -1,6 +1,3 @@
-Для генерации тестовых данных в вашу базу данных с помощью библиотеки **Faker** (Python), адаптируйте следующий скрипт. Он учитывает структуру таблиц, связи и ограничения:
-
-```python
 import psycopg2
 from faker import Faker
 from random import randint, choice, uniform
@@ -142,45 +139,3 @@ if __name__ == "__main__":
     insert_data()
     cursor.close()
     conn.close()
-```
-
----
-
-### **Особенности скрипта**  
-1. **Связи и ограничения**:  
-   - Генерация `client_id` и `product_id` учитывает существующие данные через списки `client_ids` и `product_ids`.  
-   - Сумма кредита в заявке не превышает `max_amount` продукта .  
-   - Срок кредита находится в диапазоне `min_term` и `max_term` .  
-
-2. **Реалистичные данные**:  
-   - Паспорт: формат `XXXX XXXXXX` (например, `4512 785463`) .  
-   - Даты платежей: распределены с интервалом в 30 дней.  
-   - Логи конвейера: содержат JSONB-поля с деталями этапов .  
-
-3. **Локализация**:  
-   - Имена и фамилии генерируются на русском языке (`ru_RU`).  
-
----
-
-### **Запуск скрипта**  
-1. Установите зависимости:  
-   ```bash
-   pip install faker psycopg2-binary
-   ```  
-2. Замените `your_password` на пароль пользователя `postgres`.  
-3. Запустите скрипт:  
-   ```bash
-   python generate_fake_data.py
-   ```  
-
----
-
-### **Проверка данных**  
-После выполнения скрипта выполните запросы:  
-```sql
-SELECT * FROM clients LIMIT 10;
-SELECT * FROM credit_applications WHERE status = 'approved';
-SELECT * FROM conveyor_log WHERE details @> '{"decision_maker": "Иванов И.И."}';
-```  
-
-Если возникают ошибки с кодировкой, убедитесь, что кластер PostgreSQL инициализирован с `ru_RU.UTF-8` .
