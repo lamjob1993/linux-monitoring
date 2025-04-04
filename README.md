@@ -27,7 +27,7 @@
   10. Открываем директорию **`process-exporter`** → `README.md` → `tasks_1.md`
   11. **Открываем директорию** **`blackbox-exporter`** → `README.md` → `tasks_1.md` + **SSL серты**
   12. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md`
-  13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md`
+  13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md`
   14. Открываем директорию **`mimir`** → `README.md` → `tasks_1.md` → `tasks_2.md`
   15. Открываем директорию **`nginx`** → `README.md` → `tasks_1.md`
   16. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md`
