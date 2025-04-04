@@ -97,3 +97,8 @@ _Пользуемся официальной документацией на Git
         # - Connection Settings -
         listen_addresses = '*'                  # what IP address(es) to listen on;
         ```
+    - Откройте файл в редакторе `sudo nano pg_hba.conf`
+    - Добавьте строку:
+      - ```bash
+        host    all             all             0.0.0.0/0               md5
+        ```
