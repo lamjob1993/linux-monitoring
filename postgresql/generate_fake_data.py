@@ -45,8 +45,8 @@ def generate_applications(clients, products):
     statuses = ['submitted', 'approved', 'rejected', 'closed']
     for client_id in clients:  # Итерация по client_ids
         product = choice(products)
-        amount = randint(100000, product[2])
-        term = randint(product[3], product[4])
+        amount = randint(100000, product[2])  # Теперь product[2] точно число
+        term = randint(product[3], product[4])  # Теперь product[3] и product[4] точно числа
         status = choice(statuses)
         applications.append((
             client_id,  # client_id
