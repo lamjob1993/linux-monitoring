@@ -110,8 +110,9 @@ def generate_logs(application_ids):
                     "status": fake.random_element(elements=('success', 'warning', 'info')),
                     "message": fake.sentence()
                 }
-            ))
-    
+                # Преобразование словаря в JSON-строку
+                logs.append((app_id, stage, json.dumps(details)))
+                
     return logs
 
 try:
