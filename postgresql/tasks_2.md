@@ -7,6 +7,14 @@ _Пользуемся официальной документацией на Git
 ### Шаг 1. Установка Postgres Exporter
 
 - Установите [postgres_exporter](https://github.com/prometheus-community/postgres_exporter "Prometheus exporter for PostgreSQL server metrics.") и натравите на него **Prometheus**
+- ```bash
+  docker run \
+  --net=host \
+  -e DATA_SOURCE_URI="localhost:5432/postgres?sslmode=disable" \
+  -e DATA_SOURCE_USER=postgres \
+  -e DATA_SOURCE_PASS=password \
+  quay.io/prometheuscommunity/postgres-exporter
+  ```
 
 ### Шаг 2. Установка Grafana и адаптация дашборда PostgreSQL
 
