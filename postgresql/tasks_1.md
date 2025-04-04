@@ -47,7 +47,7 @@ _Пользуемся официальной документацией на Git
   - Теперь установите пакеты внутри окружения `pip install faker psycopg2-binary`
   - ```bash
 
-            (myenv) lamjob@debian:~/Documents/monitoring$ pip install faker psycopg2-binary
+    (myenv) lamjob@debian:~/Documents/monitoring$ pip install faker psycopg2-binary
         Collecting faker
           Downloading faker-37.1.0-py3-none-any.whl (1.9 MB)
              ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.9/1.9 MB 652.0 kB/s eta 0:00:00
