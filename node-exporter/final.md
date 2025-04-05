@@ -38,7 +38,7 @@ scrape_configs:
 
 ### **Установка и настройка**  
 **7. Как установить Node Exporter на сервер?**  
-1. Скачайте бинарный файл с [официального сайта](https://prometheus.io/download/) [[10]].  
+1. Скачайте бинарный файл с [официального сайта](https://prometheus.io/download/).  
 2. Запустите сервис:  
    ```bash
    ./node_exporter --web.listen-address=":9100"
