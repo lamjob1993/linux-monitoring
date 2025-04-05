@@ -1,169 +1,99 @@
-### **Базовые вопросы к собеседованию**
+# **Специфичные вопросы о Node Exporter к собеседованию**
 
-1. **Что такое Node Exporter? Для чего он используется?**  
-   Node Exporter — это экспортер метрик для Prometheus, предназначенный для сбора системных метрик серверов (CPU, память, диск, сеть и т.д.). Он используется для мониторинга состояния серверов.
+1. **Как Node Exporter собирает метрики CPU?**  
+   Node Exporter использует файлы `/proc/stat` для сбора данных о времени, затраченном CPU на различные задачи (user, system, idle и т.д.).
 
-2. **Какие типы метрик собирает Node Exporter?**  
-   - **Процессор**: `node_cpu_seconds_total`, загрузка CPU.  
-   - **Память**: `node_memory_MemTotal_bytes`, `node_memory_MemFree_bytes`.  
-   - **Диски**: `node_disk_io_time_seconds_total`, использование дисков.  
-   - **Сеть**: `node_network_receive_bytes_total`, трафик сети.  
-   - **Файловая система**: `node_filesystem_size_bytes`, использование файловых систем.
+2. **Как настроить мониторинг памяти с помощью Node Exporter?**  
+   Используйте метрики:  
+   - `node_memory_MemTotal_bytes` — общий объём памяти.  
+   - `node_memory_MemFree_bytes` — свободная память.  
 
-3. **Как установить Node Exporter?**  
-   Используйте Docker (`docker run prom/node-exporter`), скачайте бинарный файл с официального сайта или установите через пакетный менеджер (например, `apt` или `yum`).
+3. **Как Node Exporter мониторит использование дискового пространства?**  
+   Node Exporter собирает данные из `/proc/diskstats` и предоставляет метрики, такие как:  
+   - `node_filesystem_size_bytes` — общий размер файловой системы.  
+   - `node_filesystem_free_bytes` — свободное место.  
 
-4. **Как настроить Node Exporter для работы с Prometheus?**  
-   Установите Node Exporter → Настройте его endpoint в `prometheus.yml`:  
-   ```yaml
-   scrape_configs:
-     - job_name: 'node'
-       static_configs:
-         - targets: ['<server-ip>:9100']
-   ```
+4. **Как настроить мониторинг сетевого трафика с помощью Node Exporter?**  
+   Используйте метрики:  
+   - `node_network_receive_bytes_total` — полученные байты.  
+   - `node_network_transmit_bytes_total` — отправленные байты.  
 
-5. **На каком порту работает Node Exporter по умолчанию?**  
-   По умолчанию Node Exporter работает на порту **9100**.
+5. **Как Node Exporter собирает метрики нагрузки системы (load average)?**  
+   Node Exporter использует файл `/proc/loadavg` для сбора данных о нагрузке системы (`node_load1`, `node_load5`, `node_load15`).
 
-6. **Как проверить, что Node Exporter корректно собирает метрики?**  
-   Откройте браузер или используйте `curl` для запроса метрик:  
-   ```
-   http://<server-ip>:9100/metrics
-   ```
-   Если метрики отображаются, всё настроено правильно.
+6. **Как настроить мониторинг температуры сервера с помощью Node Exporter?**  
+   Убедитесь, что `textfile` collector включен → Напишите скрипт для сбора данных о температуре → Поместите данные в файл метрик.
 
----
+7. **Как настроить мониторинг RAID-массивов с помощью Node Exporter?**  
+   Используйте сторонние инструменты (например, `megacli`) для сбора данных о RAID → Интегрируйте их с `textfile` collector.
 
-### **Настройка и конфигурирование**
-
-7. **Как запустить Node Exporter в фоновом режиме?**  
-   Используйте systemd для управления Node Exporter:  
-   Создайте файл `/etc/systemd/system/node_exporter.service` с содержимым:  
-   ```ini
-   [Unit]
-   Description=Node Exporter
-
-   [Service]
-   ExecStart=/usr/local/bin/node_exporter
-
-   [Install]
-   WantedBy=multi-user.target
-   ```
-   Запустите службу:  
+8. **Как использовать текстовые файлы для пользовательских метрик в Node Exporter?**  
+   Настройте параметр `--collector.textfile.directory` при запуске Node Exporter. Пример:  
    ```bash
-   systemctl start node_exporter
-   systemctl enable node_exporter
+   ./node_exporter --collector.textfile.directory=/var/lib/node_exporter/textfile_collector
    ```
 
-8. **Как изменить порт Node Exporter?**  
-   Запустите Node Exporter с флагом `--web.listen-address`:  
+9. **Как настроить логирование для Node Exporter?**  
+   Используйте параметр `--log.level` при запуске Node Exporter. Пример:  
    ```bash
-   ./node_exporter --web.listen-address=":9200"
+   ./node_exporter --log.level=debug
    ```
 
-9. **Как ограничить доступ к метрикам Node Exporter?**  
-   Настройте firewall или reverse proxy (например, Nginx) для ограничения доступа к порту 9100.
-
-10. **Как добавить пользовательскую метрику в Node Exporter?**  
-    Node Exporter поддерживает текстовые файлы с метриками. Используйте флаг `--collector.textfile.directory` для указания директории с файлами метрик в формате Prometheus.
-
----
-
-### **Метрики и их анализ**
-
-11. **Как использовать метрики CPU из Node Exporter?**  
-    Метрика `node_cpu_seconds_total` показывает время, затраченное CPU на различные задачи (user, system, idle). Пример запроса PromQL:  
-    ```
-    rate(node_cpu_seconds_total{mode="idle"}[5m])
-    ```
-
-12. **Как отслеживать использование памяти с помощью Node Exporter?**  
+10. **Как мониторить состояние процессов с помощью Node Exporter?**  
     Используйте метрики:  
-    - `node_memory_MemTotal_bytes` — общий объём памяти.  
-    - `node_memory_MemFree_bytes` — свободная память.  
-    Пример запроса PromQL:  
-    ```
-    (node_memory_MemTotal_bytes - node_memory_MemFree_bytes) / node_memory_MemTotal_bytes * 100
-    ```
+    - `node_procs_running` — количество выполняющихся процессов.  
+    - `node_procs_blocked` — количество заблокированных процессов.  
 
-13. **Как мониторить использование дискового пространства?**  
+11. **Как Node Exporter собирает метрики о времени работы системы?**  
+    Node Exporter использует файл `/proc/uptime` для сбора данных о времени работы системы (`node_time_seconds`).
+
+12. **Как настроить мониторинг файловых дескрипторов с помощью Node Exporter?**  
     Используйте метрики:  
-    - `node_filesystem_size_bytes` — общий размер файловой системы.  
-    - `node_filesystem_free_bytes` — свободное место.  
-    Пример запроса PromQL:  
-    ```
-    (node_filesystem_size_bytes - node_filesystem_free_bytes) / node_filesystem_size_bytes * 100
-    ```
+    - `node_filefd_allocated` — количество выделенных файловых дескрипторов.  
+    - `node_filefd_maximum` — максимальное количество файловых дескрипторов.  
 
-14. **Как отслеживать сетевой трафик с помощью Node Exporter?**  
+13. **Как Node Exporter собирает метрики о блокировках файловой системы?**  
+    Node Exporter предоставляет метрики, такие как:  
+    - `node_filesystem_device_error` — ошибки устройства.  
+
+14. **Как настроить мониторинг времени выполнения операций ввода-вывода?**  
     Используйте метрики:  
-    - `node_network_receive_bytes_total` — полученные байты.  
-    - `node_network_transmit_bytes_total` — отправленные байты.  
-    Пример запроса PromQL:  
-    ```
-    rate(node_network_receive_bytes_total[5m])
-    ```
+    - `node_disk_io_time_seconds_total` — общее время выполнения операций ввода-вывода.  
 
-15. **Как мониторить нагрузку на процессор (load average)?**  
-    Используйте метрику `node_load1`, `node_load5`, `node_load15`. Пример запроса PromQL:  
-    ```
-    node_load1
-    ```
+15. **Как Node Exporter собирает метрики о контейнерах или виртуальных машинах?**  
+    Node Exporter собирает метрики непосредственно с хоста → Для контейнеров используйте cAdvisor или другие инструменты.
 
----
+16. **Как настроить мониторинг состояния файловых систем с помощью Node Exporter?**  
+    Используйте метрики:  
+    - `node_filesystem_readonly` — флаг "только для чтения".  
+    - `node_filesystem_mountpoint` — точки монтирования.  
 
-### **Интеграция с Prometheus**
+17. **Как Node Exporter собирает метрики о сетевых интерфейсах?**  
+    Node Exporter использует файлы `/sys/class/net` для сбора данных о сетевых интерфейсах.
 
-16. **Как настроить автоматическое обнаружение серверов в Prometheus?**  
-    Настройте Service Discovery в `prometheus.yml`:  
-    ```yaml
-    scrape_configs:
-      - job_name: 'node'
-        static_configs:
-          - targets: ['server1:9100', 'server2:9100']
-    ```
+18. **Как настроить мониторинг задержек DNS с помощью Node Exporter?**  
+    Node Exporter не предоставляет встроенных метрик DNS → Используйте Blackbox Exporter для проверки DNS.
 
-17. **Как использовать Node Exporter в Kubernetes?**  
-    Разверните Node Exporter как DaemonSet в Kubernetes → Настройте Service Discovery в Prometheus.
+19. **Как Node Exporter собирает метрики о состоянии ресурсов системы?**  
+    Node Exporter использует файлы `/proc` и `/sys` для сбора данных о CPU, памяти, дисках, сети и других ресурсах.
 
-18. **Как интегрировать Node Exporter с Grafana?**  
-    Добавьте Prometheus как источник данных в Grafana → Используйте метрики Node Exporter для создания дашбордов.
+20. **Как настроить мониторинг энергопотребления с помощью Node Exporter?**  
+    Убедитесь, что `power_supply` collector включен → Используйте метрики, такие как `node_power_supply_*`.
 
-19. **Какие готовые дашборды для Node Exporter доступны в Grafana?**  
-    В Grafana есть популярные дашборды, например:  
-    - "Node Exporter Full" (ID: 1860).  
-    - "Node Exporter Server Metrics" (ID: 405).
+21. **Как Node Exporter собирает метрики о состоянии процессора (CPU)?**  
+    Node Exporter использует файл `/proc/stat` для сбора данных о загрузке CPU (`node_cpu_seconds_total`).
 
-20. **Как настроить алерты для метрик Node Exporter?**  
-    Создайте правила алертов в Prometheus. Пример:  
-    ```yaml
-    groups:
-      - name: node_alerts
-        rules:
-          - alert: HighCPUUsage
-            expr: 100 - (avg by (instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 80
-            for: 5m
-            labels:
-              severity: critical
-            annotations:
-              summary: "High CPU usage on {{ $labels.instance }}"
-    ```
+22. **Как настроить мониторинг использования SWAP с помощью Node Exporter?**  
+    Используйте метрики:  
+    - `node_memory_SwapTotal_bytes` — общий объём SWAP.  
+    - `node_memory_SwapFree_bytes` — свободный SWAP.  
 
----
+23. **Как Node Exporter собирает метрики о состоянии системного времени?**  
+    Node Exporter использует метрику `node_timex_offset_seconds` для отслеживания отклонений системного времени.
 
-### **Продвинутые вопросы**
+24. **Как настроить мониторинг количества открытых сокетов с помощью Node Exporter?**  
+    Используйте метрики:  
+    - `node_sockstat_used` — количество используемых сокетов.  
 
-21. **Как расширить функциональность Node Exporter?**  
-    Используйте сторонние коллекции метрик (например, `textfile` collector) или создайте собственные скрипты для генерации метрик.
-
-22. **Как мониторить температуру сервера с помощью Node Exporter?**  
-    Убедитесь, что `textfile` collector включен → Напишите скрипт для сбора данных о температуре → Поместите данные в файл метрик.
-
-23. **Как мониторить RAID-массивы с помощью Node Exporter?**  
-    Используйте сторонние инструменты (например, `megacli`) для сбора данных о RAID → Интегрируйте их с `textfile` collector.
-
-24. **Как использовать Node Exporter для мониторинга виртуальных машин?**  
-    Установите Node Exporter на каждую виртуальную машину → Настройте Prometheus для сбора метрик.
-
-25. **Как настроить централизованное логирование для Node Exporter?**  
-    Настройте интеграцию с Loki для анализа логов → Используйте метрики Node Exporter для корреляции с логами.
+25. **Как Node Exporter собирает метрики о состоянии RAID через сторонние инструменты?**  
+    Используйте `textfile` collector → Напишите скрипт для сбора данных о RAID (например, через `megacli`) → Поместите данные в файл метрик.
