@@ -1,118 +1,63 @@
-### **Базовые вопросы к собеседованию**
+# **Что такое Alertmanager? Для чего он используется?**  
+Alertmanager — это компонент Prometheus, который управляет алертами: группирует их, устраняет дублирование и отправляет уведомления в различные каналы (например, Slack, Email, PagerDuty). Он используется для централизованного управления алертингом.
 
-1. **Что такое Alertmanager? Для чего он используется?**  
-   Alertmanager — это компонент Prometheus, который управляет алертами: группирует их, устраняет дублирование и отправляет уведомления в различные каналы (например, Slack, Email, PagerDuty). Он используется для централизованного управления алертингом.
+### **Специфичные вопросы о Alertmanager**
 
-2. **Какие основные функции выполняет Alertmanager?**  
-   - Группировка алертов.  
-   - Дедупликация (удаление дубликатов).  
-   - Отправка уведомлений через различные каналы.  
-   - Поддержка таймаутов и повторных уведомлений.  
+1. **Как Alertmanager обрабатывает дублирующиеся алерты?**  
+   Alertmanager автоматически удаляет дубликаты алертов, если они имеют одинаковые метки (labels).
 
-3. **Как Alertmanager работает с Prometheus?**  
-   Prometheus генерирует алерты на основе правил (`alerting rules`) → Передаёт алерты в Alertmanager → Alertmanager обрабатывает их и отправляет уведомления.
-
-4. **На каком порту работает Alertmanager по умолчанию?**  
-   По умолчанию Alertmanager работает на порту **9093**.
-
-5. **Как проверить, что Alertmanager корректно работает?**  
-   Откройте браузер или используйте `curl` для запроса статуса:  
-   ```
-   http://<alertmanager-ip>:9093
-   ```
-
----
-
-### **Настройка и конфигурирование**
-
-6. **Как установить Alertmanager?**  
-   Используйте Docker (`docker run prom/alertmanager`), скачайте бинарный файл с официального сайта или установите через пакетный менеджер (например, `apt` или `yum`).
-
-7. **Как настроить Alertmanager для работы с Prometheus?**  
-   Настройте файл `prometheus.yml`:  
+2. **Как настроить группировку алертов в Alertmanager?**  
+   Настройте параметр `group_by` в файле `alertmanager.yml`. Пример:  
    ```yaml
-   alerting:
-     alertmanagers:
-       - static_configs:
-           - targets:
-               - <alertmanager-ip>:9093
+   group_by: ['alertname', 'cluster']
    ```
 
-8. **Как запустить Alertmanager в фоновом режиме?**  
-   Используйте systemd для управления Alertmanager:  
-   Создайте файл `/etc/systemd/system/alertmanager.service` с содержимым:  
-   ```ini
-   [Unit]
-   Description=Alertmanager
+3. **Что такое `group_wait` и как он влияет на отправку уведомлений?**  
+   `group_wait` определяет время ожидания перед отправкой первого уведомления для группы алертов.
 
-   [Service]
-   ExecStart=/usr/local/bin/alertmanager --config.file=/etc/alertmanager/alertmanager.yml
-
-   [Install]
-   WantedBy=multi-user.target
-   ```
-   Запустите службу:  
-   ```bash
-   systemctl start alertmanager
-   systemctl enable alertmanager
+4. **Как настроить интервал между отправками новых уведомлений для группы алертов?**  
+   Используйте параметр `group_interval` в `alertmanager.yml`. Пример:  
+   ```yaml
+   group_interval: 5m
    ```
 
-9. **Как изменить порт Alertmanager?**  
-   Запустите Alertmanager с флагом `--web.listen-address`:  
-   ```bash
-   ./alertmanager --web.listen-address=":9100"
+5. **Как настроить повторную отправку уведомлений для одного алерта?**  
+   Используйте параметр `repeat_interval` в `alertmanager.yml`. Пример:  
+   ```yaml
+   repeat_interval: 1h
    ```
 
-10. **Как ограничить доступ к Alertmanager?**  
-    Настройте firewall или reverse proxy (например, Nginx) для ограничения доступа к порту 9093.
+6. **Как маршрутизировать алерты в зависимости от их меток?**  
+   Настройте маршруты в `alertmanager.yml` с использованием параметров `match` или `match_re`. Пример:  
+   ```yaml
+   routes:
+     - match:
+         severity: 'critical'
+       receiver: 'critical-receiver'
+   ```
 
----
+7. **Как использовать регулярные выражения для маршрутизации алертов?**  
+   Используйте параметр `match_re` для маршрутизации алертов по шаблонам меток. Пример:  
+   ```yaml
+   routes:
+     - match_re:
+         service: 'web|api'
+       receiver: 'team-receiver'
+   ```
 
-### **Группировка и маршрутизация алертов**
+8. **Как настроить молчание (silences) в Alertmanager?**  
+   Используйте UI Alertmanager → Перейдите в раздел "Silences" → Создайте правило для игнорирования алертов.
 
-11. **Что такое группировка алертов в Alertmanager?**  
-    Группировка объединяет несколько алертов в одно уведомление. Это помогает избежать спама уведомлениями.
+9. **Как настроить отправку уведомлений через Webhook?**  
+   Настройте файл `alertmanager.yml`:  
+   ```yaml
+   receivers:
+     - name: 'webhook-notifications'
+       webhook_configs:
+         - url: 'http://example.com/webhook'
+   ```
 
-12. **Как настроить группировку алертов?**  
-    Настройте файл `alertmanager.yml`:  
-    ```yaml
-    route:
-      group_by: ['alertname', 'cluster']
-      group_wait: 30s
-      group_interval: 5m
-      repeat_interval: 3h
-    ```
-
-13. **Что такое маршрутизация алертов?**  
-    Маршрутизация определяет, куда отправлять алерты, на основе меток (labels). Например, алерты для разных команд могут отправляться в разные каналы.
-
-14. **Как настроить маршрутизацию алертов?**  
-    Настройте файл `alertmanager.yml`:  
-    ```yaml
-    route:
-      receiver: 'default-receiver'
-      routes:
-        - match:
-            team: 'frontend'
-          receiver: 'frontend-receiver'
-        - match:
-            team: 'backend'
-          receiver: 'backend-receiver'
-    ```
-
-15. **Что такое `group_wait`, `group_interval` и `repeat_interval`?**  
-    - `group_wait`: Время ожидания перед отправкой первого уведомления.  
-    - `group_interval`: Интервал между отправками новых уведомлений для группы.  
-    - `repeat_interval`: Интервал повторной отправки уведомлений для одного алерта.
-
----
-
-### **Уведомления и каналы**
-
-16. **Какие каналы уведомлений поддерживает Alertmanager?**  
-    Email, Slack, PagerDuty, OpsGenie, Webhook, Telegram, VictorOps.
-
-17. **Как настроить отправку уведомлений в Slack?**  
+10. **Как интегрировать Alertmanager с Slack?**  
     Настройте файл `alertmanager.yml`:  
     ```yaml
     receivers:
@@ -123,7 +68,7 @@
             send_resolved: true
     ```
 
-18. **Как настроить отправку уведомлений на Email?**  
+11. **Как настроить отправку уведомлений на Email?**  
     Настройте файл `alertmanager.yml`:  
     ```yaml
     receivers:
@@ -136,42 +81,90 @@
             auth_password: 'password'
     ```
 
-19. **Как настроить повторяющиеся уведомления?**  
-    Настройте параметр `repeat_interval` в `alertmanager.yml`. Например:  
-    ```yaml
-    repeat_interval: 1h
-    ```
-
-20. **Как настроить отправку уведомлений через Webhook?**  
+12. **Как настроить отправку уведомлений через PagerDuty?**  
     Настройте файл `alertmanager.yml`:  
     ```yaml
     receivers:
-      - name: 'webhook-notifications'
-        webhook_configs:
-          - url: 'http://example.com/webhook'
+      - name: 'pagerduty-notifications'
+        pagerduty_configs:
+          - routing_key: 'your-routing-key'
     ```
 
----
-
-### **Продвинутые вопросы**
-
-21. **Как использовать метки (labels) для маршрутизации алертов?**  
-    Настройте `match` или `match_re` в файле `alertmanager.yml`. Пример:  
+13. **Как настроить отправку уведомлений через OpsGenie?**  
+    Настройте файл `alertmanager.yml`:  
     ```yaml
-    routes:
-      - match:
-          severity: 'critical'
-        receiver: 'critical-receiver'
+    receivers:
+      - name: 'opsgenie-notifications'
+        opsgenie_configs:
+          - api_key: 'your-api-key'
     ```
 
-22. **Как настроить молчание (silences) в Alertmanager?**  
-    Используйте UI Alertmanager → Перейдите в раздел "Silences" → Создайте правило для игнорирования алертов.
+14. **Как настроить отправку уведомлений через Telegram?**  
+    Настройте файл `alertmanager.yml`:  
+    ```yaml
+    receivers:
+      - name: 'telegram-notifications'
+        telegram_configs:
+          - api_url: 'https://api.telegram.org'
+            bot_token: 'your-bot-token'
+            chat_id: 'your-chat-id'
+    ```
 
-23. **Как настроить интеграцию Alertmanager с Grafana?**  
+15. **Как настроить отправку уведомлений через VictorOps?**  
+    Настройте файл `alertmanager.yml`:  
+    ```yaml
+    receivers:
+      - name: 'victorops-notifications'
+        victorops_configs:
+          - api_key: 'your-api-key'
+            routing_key: 'your-routing-key'
+    ```
+
+16. **Как настроить таймауты для каналов уведомлений в Alertmanager?**  
+    Укажите параметр `send_timeout` для каждого канала в `alertmanager.yml`. Пример:  
+    ```yaml
+    webhook_configs:
+      - url: 'http://example.com/webhook'
+        send_timeout: 10s
+    ```
+
+17. **Как настроить высокую доступность (High Availability) для Alertmanager?**  
+    Запустите несколько экземпляров Alertmanager → Настройте общее хранилище состояния (например, через меш-сеть или shared storage).
+
+18. **Как Alertmanager решает, какой канал уведомлений использовать для алерта?**  
+    Alertmanager использует маршрутизацию, определённую в файле `alertmanager.yml`, на основе меток алертов.
+
+19. **Как настроить логирование для Alertmanager?**  
+    Используйте параметр `--log.level` при запуске Alertmanager. Пример:  
+    ```bash
+    ./alertmanager --log.level=debug
+    ```
+
+20. **Как мониторить сам Alertmanager?**  
+    Используйте встроенные метрики Alertmanager (например, `alertmanager_alerts`) → Интегрируйте их с Prometheus.
+
+21. **Как настроить резервное копирование конфигурации Alertmanager?**  
+    Регулярно сохраняйте файл `alertmanager.yml` и данные состояния (если используется shared storage).
+
+22. **Как настроить отправку уведомлений только для разрешённых алертов?**  
+    Используйте параметр `send_resolved` в конфигурации каналов уведомлений. Пример:  
+    ```yaml
+    slack_configs:
+      - api_url: 'https://hooks.slack.com/services/...'
+        send_resolved: true
+    ```
+
+23. **Как настроить переопределение меток алертов в Alertmanager?**  
+    Испуйте секцию `relabel_configs` в `alertmanager.yml`. Пример:  
+    ```yaml
+    relabel_configs:
+      - source_labels: [severity]
+        target_label: priority
+        replacement: 'high'
+    ```
+
+24. **Как настроить интеграцию Alertmanager с Grafana?**  
     Используйте плагин Grafana для Alertmanager → Настройте источник данных Alertmanager.
 
-24. **Как мониторить сам Alertmanager?**  
-    Используйте встроенные метрики Alertmanager (например, `alertmanager_alerts`). Интегрируйте их с Prometheus.
-
-25. **Как настроить высокую доступность (High Availability) для Alertmanager?**  
-    Запустите несколько экземпляров Alertmanager → Настройте общее хранилище для состояния (например, через меш-сеть или shared storage).
+25. **Как проверить корректность конфигурации Alertmanager?**  
+    Используйте команду `amtool check-config` для проверки файла `alertmanager.yml`.
