@@ -1,30 +1,40 @@
-# **Сравнение ОС: Debian и CentOS к базоваому собеседованию**
+# **Технические вопросы о Debian и CentOS к собеседованию**
 
-Перед вами сравнительная таблица по базовым вопросам об операционных системах к собеседованию.
+Вот таблица с вопросами и ответами для **Debian** и **CentOS**:
 
-| **Категория**                  | **Debian**                                                                                     | **CentOS**                                                                                      |
-|--------------------------------|-----------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------|
-| **Пакетный менеджер**          | `apt` (Advanced Package Tool) для установки/удаления пакетов.                                 | `yum` (или `dnf` в CentOS 8+) для управления пакетами.                                          |
-| **Обновление системы**         | `sudo apt update && sudo apt upgrade`                                                         | `sudo yum update` (или `sudo dnf update` для CentOS 8+).                                        |
-| **Формат пакетов**             | `.deb`                                                                                        | `.rpm`                                                                                         |
-| **Репозитории**                | Настройка через `/etc/apt/sources.list` или файлы в `/etc/apt/sources.list.d/`.               | Настройка через файлы в `/etc/yum.repos.d/`.                                                   |
-| **SELinux**                    | SELinux отключен по умолчанию.                                                                | SELinux включен по умолчанию.                                                                  |
-| **Инициализация служб**        | Использует `systemd` (в современных версиях).                                                 | Использует `systemd`.                                                                          |
-| **Брандмауэр**                 | Использует `ufw` (Uncomplicated Firewall).                                                    | Использует `firewalld`.                                                                        |
-| **Добавление пользователя**    | `sudo adduser <username>`                                                                     | `sudo adduser <username>`                                                                      |
-| **Sudo-права**                 | Добавьте пользователя в группу `sudo`: `sudo usermod -aG sudo <username>`.                     | Добавьте пользователя в группу `wheel`: `sudo usermod -aG wheel <username>`.                   |
-| **Логи системы**               | Просмотр логов через `journalctl` или файлы в `/var/log/`.                                    | Просмотр логов через `journalctl`.                                                            |
-| **Настройка сети**             | Редактирование `/etc/network/interfaces` или использование `netplan`.                         | Редактирование файлов в `/etc/sysconfig/network-scripts/ifcfg-<interface>`.                   |
-| **Стабильность vs Инновации**  | Фокус на стабильность, иногда менее актуальные версии программ.                               | Фокус на совместимость с RHEL, часто более новые версии программ.                              |
-| **Поддержка сообщества**       | Поддерживается большим сообществом, много документации.                                       | Поддерживается сообществом Red Hat, официальная поддержка через Red Hat Enterprise Linux.      |
-| **Жизненный цикл выпуска**     | Долгий жизненный цикл (Debian Stable), но медленные обновления.                              | Более короткий жизненный цикл (до 2024 года CentOS заменён на CentOS Stream).                  |
-| **Целевое использование**      | Широко используется для серверов, рабочих станций и встраиваемых систем.                       | Основное применение — серверы, особенно для корпоративных решений.                             |
-| **Установка cron-задач**       | Используйте команду: `crontab -e`.                                                            | Используйте команду: `crontab -e`.                                                             |
-| **Переключение на root**       | Используйте команду: `sudo su`.                                                               | Используйте команду: `sudo su`.                                                                |
-| **Проверка свободного места**  | Используйте команду: `df -h`.                                                                 | Используйте команду: `df -h`.                                                                  |
-| **Запуск службы**              | Используйте команду: `sudo systemctl start <service-name>`.                                   | Используйте команду: `sudo systemctl start <service-name>`.                                    |
-| **Автозагрузка службы**        | Используйте команду: `sudo systemctl enable <service-name>`.                                  | Используйте команду: `sudo systemctl enable <service-name>`.                                   |
-| **Удаление пакета**            | Используйте команду: `sudo apt remove <package-name>` (полное удаление: `sudo apt purge`).   | Используйте команду: `sudo yum remove <package-name>`.                                         |
-| **Проверка версии ОС**         | Используйте команду: `lsb_release -a` или `cat /etc/os-release`.                              | Используйте команду: `cat /etc/centos-release`.                                                |
-| **Настройка RAID**             | Используйте утилиту `mdadm`. Пример: `sudo mdadm --create /dev/md0 --level=1 --raid-devices=2 /dev/sdX /dev/sdY`. | Используйте утилиту `mdadm`. Пример аналогичен Debian.                                         |
-| **Настройка LVM**              | Используйте команды: `pvcreate`, `vgcreate`, `lvcreate`.                                      | Используйте команды: `pvcreate`, `vgcreate`, `lvcreate`.                                       |
+---
+
+| **Вопрос**                                      | **Debian**                                                                 | **CentOS**                                                                 |
+|-------------------------------------------------|---------------------------------------------------------------------------|---------------------------------------------------------------------------|
+| **1. Как обновить систему?**                    | `sudo apt update && sudo apt upgrade`                                     | `sudo yum update` или `sudo dnf update`                                   |
+| **2. Как установить пакет?**                    | `sudo apt install <package-name>`                                        | `sudo yum install <package-name>` или `sudo dnf install <package-name>`   |
+| **3. Как удалить пакет?**                       | `sudo apt remove <package-name>`                                         | `sudo yum remove <package-name>` или `sudo dnf remove <package-name>`     |
+| **4. Как полностью удалить пакет (с конфигами)?**| `sudo apt purge <package-name>`                                          | `sudo yum remove <package-name>` (удаляет всё, включая конфиги)           |
+| **5. Как проверить статус службы?**             | `sudo systemctl status <service-name>`                                   | `sudo systemctl status <service-name>`                                   |
+| **6. Как запустить службу?**                    | `sudo systemctl start <service-name>`                                    | `sudo systemctl start <service-name>`                                    |
+| **7. Как добавить службу в автозапуск?**         | `sudo systemctl enable <service-name>`                                   | `sudo systemctl enable <service-name>`                                   |
+| **8. Как отключить службу в автозапуске?**       | `sudo systemctl disable <service-name>`                                  | `sudo systemctl disable <service-name>`                                  |
+| **9. Как посмотреть логи системы?**              | `journalctl -xe`                                                         | `journalctl -xe`                                                         |
+| **10. Как создать нового пользователя?**         | `sudo adduser <username>`                                                | `sudo useradd <username>`                                                |
+| **11. Как задать пароль пользователю?**          | `sudo passwd <username>`                                                 | `sudo passwd <username>`                                                 |
+| **12. Как добавить пользователя в группу?**      | `sudo usermod -aG <group-name> <username>`                               | `sudo usermod -aG <group-name> <username>`                               |
+| **13. Как настроить SSH-ключевую аутентификацию?**| `ssh-keygen`, затем `ssh-copy-id user@server-ip`                          | `ssh-keygen`, затем `ssh-copy-id user@server-ip`                          |
+| **14. Как проверить использование дискового пространства?** | `df -h`                                                              | `df -h`                                                                  |
+| **15. Как проверить использование оперативной памяти?** | `free -m` или `htop`                                                | `free -m` или `htop`                                                     |
+| **16. Как настроить файрвол?**                   | `sudo ufw allow 80/tcp`, затем `sudo ufw enable`                         | `sudo firewall-cmd --add-port=80/tcp --permanent`, затем `sudo firewall-cmd --reload` |
+| **17. Как изменить права доступа к файлу?**      | `chmod <permissions> <file>`                                             | `chmod <permissions> <file>`                                             |
+| **18. Как изменить владельца файла?**            | `sudo chown <new-owner>:<new-group> <file>`                              | `sudo chown <new-owner>:<new-group> <file>`                              |
+| **19. Как проверить открытые порты?**            | `netstat -tuln` или `ss -tuln`                                           | `netstat -tuln` или `ss -tuln`                                           |
+| **20. Как настроить SELinux/AppArmor?**          | `sudo aa-status` или `sudo aa-enforce /path/to/profile`                  | `sestatus`, затем `sudo setenforce 0` или редактирование `/etc/selinux/config` |
+| **21. Как посмотреть версию ОС?**                | `lsb_release -a`                                                         | `cat /etc/redhat-release`                                                |
+| **22. Как перезагрузить систему?**               | `sudo reboot`                                                            | `sudo reboot`                                                            |
+| **23. Как остановить службу?**                   | `sudo systemctl stop <service-name>`                                     | `sudo systemctl stop <service-name>`                                     |
+| **24. Как проверить загруженные модули ядра?**   | `lsmod`                                                                  | `lsmod`                                                                  |
+| **25. Как добавить репозиторий?**                | `sudo add-apt-repository <repo-url>`                                     | `sudo yum-config-manager --add-repo <repo-url>`                          |
+
+---
+
+### Примечания:
+- **Debian** использует `apt` для управления пакетами и `ufw` для файрвола.
+- **CentOS** использует `yum` или `dnf` для управления пакетами и `firewalld` для файрвола.
+- Некоторые команды (например, `systemctl`, `journalctl`) работают одинаково в обоих дистрибутивах.
