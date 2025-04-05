@@ -25,7 +25,7 @@
   8. Открываем директорию **`prometheus-federate`** → `README.md` → `tasks_1.md`
   9. Открываем директорию **`alertmanager`** → `README.md` → `tasks_1.md`
   10. Открываем директорию **`process-exporter`** → `README.md` → `tasks_1.md`
-  11. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md`
+  11. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md`
   12. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md`
   13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md`
   14. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md`
