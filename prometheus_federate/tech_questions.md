@@ -1,4 +1,4 @@
-# **Технические вопросы о Prometheus Federation к собеседованию**
+# **Технические вопросы по Prometheus Federation к собеседованию**
 
 ### **1. Что такое Prometheus Federation?**
 **Ответ:**  
