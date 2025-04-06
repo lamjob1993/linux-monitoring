@@ -40,7 +40,7 @@
   12. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Пишем Custom Exporter, разворачиваем Custom Exporter, выводим кастомные метрики, технические вопросы и вопросы к собеседованию
   13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md`
-      - **`Что будет:`** Изучаем PostgreSQL и PostgreSQL Exporter, разворачиваем PostgreSQL и Exporter, схема запуска PostgreSQL Exporter, выводим первые метрики, технические вопросы и вопросы к собеседованию
+      - **`Что будет:`** Изучаем PostgreSQL и PostgreSQL Exporter, разворачиваем СУБД PostgreSQL и Exporter, схема запуска PostgreSQL Exporter, выводим первые метрики, генерируем данные для БД кредитного конвейера с помощью Python и библиотеки Fake, изучаем технические вопросы и вопросы к собеседованию
   14. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Закрепляем еще раз темы → `tech_questions.md` → `job_interview.md`
   15. После исполнения всех пунктов (**добавить раздел, как считать количество и скорость метрик для каждой команды**):
