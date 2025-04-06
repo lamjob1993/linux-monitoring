@@ -1,4 +1,4 @@
-# **Технические вопросы о PostgreSQL Exporter к собеседованию**
+# **Технические вопросы по PostgreSQL Exporter к собеседованию**
 
 ### **1. Как установить PostgreSQL Exporter?**
 **Ответ:**  
