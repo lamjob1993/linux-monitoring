@@ -22,10 +22,10 @@ echo "files_processed_total 100" | curl --data-binary @- http://pushgateway:9091
 
 ---
 
-### **3. Как Pushgateway взаимодействует с Prometheus при скрапинге метрик? Какие особенности этого взаимодействия нужно учитывать?**
+### **3. Как Pushgateway взаимодействует с Prometheus при скрейпинге метрик? Какие особенности этого взаимодействия нужно учитывать?**
 **Ответ:**  
 "Pushgateway предоставляет метрики через `/metrics`, как любой другой экспортер. Однако есть важные особенности:
-1. **`honor_labels: true`:** При настройке скрапинга в Prometheus важно указать `honor_labels: true`, чтобы сохранить оригинальные метки, отправленные в Pushgateway. Без этого Prometheus может перезаписать метки, что приведёт к потере данных.
+1. **`honor_labels: true`:** При настройке скрейпинга в Prometheus важно указать `honor_labels: true`, чтобы сохранить оригинальные метки, отправленные в Pushgateway. Без этого Prometheus может перезаписать метки, что приведёт к потере данных.
    ```yaml
    scrape_configs:
      - job_name: 'pushgateway'
@@ -33,7 +33,7 @@ echo "files_processed_total 100" | curl --data-binary @- http://pushgateway:9091
        static_configs:
          - targets: ['pushgateway:9091']
    ```
-2. **Статичность метрик:** Метрики в Pushgateway остаются статичными до их удаления или перезаписи. Это отличается от обычного скрапинга, где метрики обновляются динамически."
+2. **Статичность метрик:** Метрики в Pushgateway остаются статичными до их удаления или перезаписи. Это отличается от обычного скрейпинга, где метрики обновляются динамически."
 
 ---
 
@@ -58,7 +58,7 @@ echo "files_processed_total 100" | curl --data-binary @- http://pushgateway:9091
 **Ответ:**  
 "При большом количестве метрик Pushgateway может создавать нагрузку на Prometheus из-за:
 1. **Увеличения объёма данных:** Каждая метрика добавляет нагрузку на хранилище Prometheus.
-2. **Частота скрапинга:** Чем чаще Prometheus скрапит Pushgateway, тем выше нагрузка.
+2. **Частота скрейпинга:** Чем чаще Prometheus скрейпит Pushgateway, тем выше нагрузка.
 
 Чтобы минимизировать влияние:
 1. Фильтруйте метрики через `metric_relabel_configs` в Prometheus, чтобы собирать только нужные данные.  
@@ -68,7 +68,7 @@ echo "files_processed_total 100" | curl --data-binary @- http://pushgateway:9091
        regex: "batch_job_duration_seconds"
        action: keep
    ```
-2. Уменьшайте частоту скрапинга (`scrape_interval`) для Pushgateway.  
+2. Уменьшайте частоту скрейпинга (`scrape_interval`) для Pushgateway.  
    ```yaml
    scrape_configs:
      - job_name: 'pushgateway'
