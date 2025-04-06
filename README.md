@@ -16,6 +16,7 @@
 
 ### Последовательность выполнения заданий
   1. Открываем директорию **`introduction_monitoring`** → `README.md` → `job_interview.md`
+    - 
   2. Открываем директорию **`linux_install`** → `README.md` → `Список пакетов.md` → `Установка пакетов.md` → `tech_questions.md` → `job_interview.md`
   3. Настраиваем доступ по **`SSH`** в **`GitHub`** по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
   4. Открываем директорию **`prometheus`** → `README.md` → `beginning` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md`
