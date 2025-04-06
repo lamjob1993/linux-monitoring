@@ -18,18 +18,31 @@
   1. Открываем директорию **`introduction_monitoring`** → `README.md` → `job_interview.md` → `support_tech_interview.md`
       - **`Что будет:`** Введение в мониторинг, инфраструктурная схема, роадмэп
   2. Открываем директорию **`linux_install`** → `README.md` → `Список пакетов.md` → `Установка пакетов.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Установка Debian, установка MobaXterm, установка VS Code
   3. Настраиваем доступ по **`SSH`** в **`GitHub`** по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
+      - **`Что будет:`** Генерация ключей, получение доступа по SSH
   4. Открываем директорию **`prometheus`** → `README.md` → `beginning` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Promethues, разворачиваем Prometheus, схема запуска Prometheus, автоматизация на Bash, технические вопросы и вопросы к собеседованию
   5. Открываем директорию **`grafana`** → `README.md` → `tasks_1.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Grafana, разворачиваем Grafana, схема запуска Grafana, рисуем и выводим первые дашборды, технические вопросы и вопросы к собеседованию
   6. Открываем директорию **`node-exporter`** → `README.md` → `tasks_1.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Node Exporter, разворачиваем Node Exporter, схема запуска Node Exporter, выводим первые метрики, технические вопросы и вопросы к собеседованию
   7. Открываем директорию **`pushgateway`** → `README.md` → `tasks_1.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Pushgateway, разворачиваем Pushgateway, схема запуска Pushgateway, пишем Bash скрипт на PUSH метрик, технические вопросы и вопросы к собеседованию
   8. Открываем директорию **`prometheus-federate`** → `README.md` → `tasks_1.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Prometheus Federation, разворачиваем федерацию на два дата центра, схема запуска Federation, выводим метрики из федерации в центральный Prometheus, технические вопросы и вопросы к собеседованию
   9. Открываем директорию **`alertmanager`** → `README.md` → `tasks_1.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Alertmanager, разворачиваем Alertmanager, схема запуска Alertmanager, выводим первые алерты в Telegram, технические вопросы и вопросы к собеседованию
   10. Открываем директорию **`process-exporter`** → `README.md` → `tasks_1.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Process Exporter, разворачиваем Process Exporter, схема запуска Process Exporter, выводим первые метрики, технические вопросы и вопросы к собеседованию
   11. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем Blackbox Exporter, разворачиваем Blackbox Exporter, схема запуска Blackbox Exporter, выводим первые метрики, мониторим сертификаты SSL, поднимаем Nginx и Nginx Exporter, технические вопросы и вопросы к собеседованию
   12. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Пишем Custom Exporter, разворачиваем Custom Exporter, выводим кастомные метрики, технические вопросы и вопросы к собеседованию
   13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Изучаем PostgreSQL и PostgreSQL Exporter, разворачиваем PostgreSQL и Exporter, схема запуска PostgreSQL Exporter, выводим первые метрики, технические вопросы и вопросы к собеседованию
   14. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
+      - **`Что будет:`** Закрепляем еще раз темы → `tech_questions.md` → `job_interview.md`
   15. После исполнения всех пунктов (**добавить раздел, как считать количество и скорость метрик для каждой команды**):
       - У вас должна быть написана полная Bash-автоматизация на деплой бэкенда мониторинга
       - Должны быть построены дашборды для всех экспортеров, включая глобальный дашборд с ссылками на них
