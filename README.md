@@ -13,8 +13,8 @@
 - Научимся практикам **CI/CD**
 - Поднимем кластер **Kubernetes** и замониторим его
 - В финале у вас будет личный репозиторий на **GitHub**, который пойдет в портфолио
-- [Пример схемы](https://raw.githubusercontent.com/lamjob1993/linux-monitoring/fd9a2eb51245e64e09c1da8e2b77ff13d26eaadf/.files/.bucket/%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%D0%B0.drawio.svg) поднятого бэкенда в первой части репозитория / Схемы постоянно обновляются, указаны приблизительные макеты
-- [Пример схемы](https://miro.com/app/board/uXjVIMhc1ds=/) после прохождения финального репозитория **Kubernetes** / Схемы постоянно обновляются, указаны приблизительные макеты
+- [Пример схемы](https://raw.githubusercontent.com/lamjob1993/linux-monitoring/fd9a2eb51245e64e09c1da8e2b77ff13d26eaadf/.files/.bucket/%D0%94%D0%B8%D0%B0%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B0%20%D0%BC%D0%BE%D0%BD%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%BD%D0%B3%D0%B0.drawio.svg) бэкенда мониторинга в первой части репозитория / Схемы постоянно обновляются, указаны приблизительные макеты
+- [Пример схемы](https://miro.com/app/board/uXjVIMhc1ds=/) бэкенда после прохождения финального репозитория **Kubernetes** / Схемы постоянно обновляются, указаны приблизительные макеты
 
 ### Последовательность выполнения заданий
   1. Открываем директорию **`introduction_monitoring`** → `README.md` → `job_interview.md` → `support_tech_interview.md`
