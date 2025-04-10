@@ -19,7 +19,7 @@
 
 ### Последовательность выполнения заданий
   1. Открываем директорию **`introduction_monitoring`** → `README.md` → `job_interview.md` → `support_tech_interview.md` → `legend_support_engineer.md`
-      - **`Что будет:`** Введение в мониторинг, инфраструктурная схема, роадмэп
+      - **`Что будет:`** Введение в мониторинг, схема мониторинга, роадмэп, как проходить интервью
   2. Открываем директорию **`linux_install`** → `README.md` → `Список пакетов.md` → `Установка пакетов.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Установка Debian, установка MobaXterm, установка VS Code
   3. Настраиваем доступ по **`SSH`** в **`GitHub`** по [инструкции](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
