@@ -18,7 +18,7 @@
 - [Пример схемы](https://miro.com/app/board/uXjVIMhc1ds=/) бэкенда после прохождения финального репозитория **Kubernetes** / Схемы постоянно обновляются, указаны приблизительные макеты
 
 ### Последовательность выполнения заданий
-  1. Открываем директорию **`introduction_monitoring`** → `README.md` → `job_interview.md` → `support_tech_interview.md`
+  1. Открываем директорию **`introduction_monitoring`** → `README.md` → `job_interview.md` → `support_tech_interview.md` → `legend_support_engineer.md`
       - **`Что будет:`** Введение в мониторинг, инфраструктурная схема, роадмэп
   2. Открываем директорию **`linux_install`** → `README.md` → `Список пакетов.md` → `Установка пакетов.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Установка Debian, установка MobaXterm, установка VS Code
