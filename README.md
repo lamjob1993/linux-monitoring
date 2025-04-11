@@ -43,7 +43,7 @@
       - **`Что будет:`** Изучаем Blackbox Exporter, разворачиваем Blackbox Exporter, схема запуска Blackbox Exporter, выводим первые метрики, мониторим сертификаты SSL, поднимаем Nginx и Nginx Exporter, технические вопросы и вопросы к собеседованию
   12. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Пишем Custom Exporter, разворачиваем Custom Exporter, выводим кастомные метрики, технические вопросы и вопросы к собеседованию
-  13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md`
+  13. Открываем директорию **`postgresql`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md` → **подумать над резервированием базы**
       - **`Что будет:`** Изучаем PostgreSQL и PostgreSQL Exporter, разворачиваем СУБД PostgreSQL и Exporter, схема запуска PostgreSQL Exporter, выводим первые метрики, генерируем данные для БД кредитного конвейера с помощью Python и библиотеки Fake, изучаем технические вопросы и вопросы к собеседованию
   14. Открываем директорию **`grafana`** → `README.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Закрепляем еще раз темы → `tech_questions.md` → `job_interview.md`
