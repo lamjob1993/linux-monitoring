@@ -41,7 +41,7 @@
       - **`Что будет:`** Изучаем Process Exporter, разворачиваем Process Exporter, схема запуска Process Exporter, выводим первые метрики, технические вопросы и вопросы к собеседованию
   11. Открываем директорию **`blackbox-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tasks_3.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Изучаем Blackbox Exporter, разворачиваем Blackbox Exporter, схема запуска Blackbox Exporter, выводим первые метрики, мониторим сертификаты SSL, технические вопросы и вопросы к собеседованию
-  12. Открываем директорию **`nginx`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
+  12. Открываем директорию **`nginx`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tech_questions.md` → `nginx_exporter_job_interview.md` → `nginx_job_interview.md`
       - **`Что будет:`** Изучаем Nginx и Nginx Exporter, разворачиваем Nginx и Nginx Exporter, схема запуска Nginx, выводим первые метрики, технические вопросы и вопросы к собеседованию
   13. Открываем директорию **`custom-exporter`** → `README.md` → `tasks_1.md` → `tasks_2.md` → `tech_questions.md` → `job_interview.md`
       - **`Что будет:`** Пишем Custom Exporter, разворачиваем Custom Exporter, выводим кастомные метрики, технические вопросы и вопросы к собеседованию
