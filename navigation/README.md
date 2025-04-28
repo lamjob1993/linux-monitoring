@@ -23,7 +23,7 @@
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/public_repository/README.md)
        * Наброски по pet-проекту должны быть готовы после прохождения раздела **Мониторинг**
        * Проект должен на 100% функционировать по ссылке на GitHub после прохождения темы **Docker Compose**
-    * [Подготовка к собеседованию по резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
+    * [Подготовка к собеседованию по аналитике резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
        * Приступаем к этому разделу после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
 
 2. **Установка ОС и первая практика**
