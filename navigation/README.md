@@ -7,26 +7,31 @@
 ## Содержание
 
 0. **Теория и фундаментальные основы**
-    * [Изучить перед прохождением курса на GitHub](https://teletype.in/@lamjob/wjNvt64l77l)
+    * [Изучить перед прохождением курса на GitHub, можно только теорию](https://teletype.in/@lamjob/wjNvt64l77l)
 
 1.  **Введение в мониторинг и общие концепции**
     * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
-       * Учим сразу базовую концепцию и закрепляем по мере прохождения курса
+       * **Учим сразу** базовую концепцию и закрепляем по мере прохождения курса
     * [Легенда инженера по сопровождению](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0.md)
-       * Учим легенду сразу и закрепляем по мере прохождения курса
+       * **Учим легенду сразу** и закрепляем по мере прохождения курса
     * [Вопросы на собеседовании к легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
-       * Учим сразу и закрепляем по мере прохождения курса
+       * **Учим сразу** и закрепляем по мере прохождения курса
     * [Вопросы по стеку сопровождения и мониторинга](https://teletype.in/@lamjob/sPRL_XpiLkV)
        * Технические вопросы к собеседованию без ответов
-       * Учим сразу базовые вопросы только по: Linux и сетям: протоколам и тд, а также стараемся по основам Docker
-          * Далее углубляемся в вопросы по мере прохождения курса
+       * **Учим сразу** базовые вопросы только по: Linux и сетям: протоколам и тд, а также стараемся по основам Docker
+          * Далее углубляемся в вопросы по мере прохождения курса: Ansible, Terraform, CI/CD, K8s
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/public_repository/README.md)
+       * Наброски по pet-проекту должны быть готовы после прохождения раздела **Мониторинг**
+       * Проект должен на 100% функционировать по ссылке на GitHub после прохождения темы **Docker Compose**
     * [Подготовка к собеседованию по резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
+       * Приступаем к этому разделу после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
+
+2. **Первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
        * [Технические вопросы к собеседованию: Debian и CentOS](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/tech_questions.md)
     * [Настройка доступа по SSH в GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
 
-2.  **Мониторинг**
+3.  **Мониторинг**
     * [Путь Прометея](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/README.md)
        * [Введение в Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/beginning)
        * [Prometheus Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus)
@@ -64,21 +69,21 @@
        * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
 
-3.  **Контейнеризация (Docker)**
+4.  **Контейнеризация (Docker)**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
 
-4.  **Управление инфраструктурой как кодом (Terraform)**
+5.  **Управление инфраструктурой как кодом (Terraform)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
 
-5.  **Управление конфигурацией (Ansible)**
+6.  **Управление конфигурацией (Ansible)**
     * [Ansible - Основы, инвентарь, модули](https://github.com/lamjob1993/ansible-monitoring/tree/main)
 
-6.  **CI/CD**
+7.  **CI/CD**
     * [CI/CD - Общие принципы](../CI-CD/general_principles.md) / В работе
     * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md) / В работе
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
     * ...
-7.  **Оркестрация контейнеров (Kubernetes)**
+8.  **Оркестрация контейнеров (Kubernetes)**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
     * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md) / В работе
     * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md) / В работе
