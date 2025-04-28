@@ -98,7 +98,7 @@ scrape_configs:
 ---
 
 ### 5. **Проверка локальных сертификатов**
-_Перед выполнением этого пункта для начала изучите [эту тему вместе с тасками](https://github.com/lamjob1993/linux-monitoring/tree/main/nginx) и возвращайтесь сюда на продолжение практики._
+_Перед выполнением этого пункта для начала изучите [эту тему вместе с тасками](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/nginx) и возвращайтесь сюда на продолжение практики._
 
 
 Если вы хотите протестировать локально сгенерированные сертификаты через Blackbox Exporter, выполните следующие шаги:
@@ -147,4 +147,4 @@ probe_ssl_earliest_cert_expiry
 - Если вы хотите проверять несколько доменов, добавьте их в секцию `targets` в конфигурации Prometheus.
 
 ### 7. **Nginx Exporter**
-- Вернитесь в раздел Nginx и выполните [второе упражнение](https://github.com/lamjob1993/linux-monitoring/blob/main/nginx/task_2.md)
+- Вернитесь в раздел Nginx и выполните [второе упражнение](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/nginx/task_2.md)
