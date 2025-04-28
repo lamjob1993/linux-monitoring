@@ -21,7 +21,7 @@
        * [Prometheus Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus)
        * Вопросы к интервью
     * [Grafana - Визуализация и дашборды. Часть 1](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
-       * [Grafana Tasks 1](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
+       * [Grafana Task 1](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
     * Экспортеры Prometheus:
        * [Node Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/node-exporter/README.md)
@@ -50,7 +50,7 @@
     * [Alertmanager и алерты](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/alertmanager)
        * Вопросы к интервью
     * [Grafana - Визуализация и дашборды. Часть 2](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
-       * [Grafana Tasks 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
+       * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
 
 3.  **Контейнеризация (Docker)**
