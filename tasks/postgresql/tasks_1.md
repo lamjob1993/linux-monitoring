@@ -22,7 +22,7 @@ _Пользуемся официальной документацией на Git
 - Подключитесь к созданной базе данных `\c fintech_credit_conveyor`
 - Создайте таблицы внутри базы данных
   - Проверьте созданные таблицы `\dt`
-  - [Образец схемы БД - пользуемся для создания базы](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0%20(%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%91%D0%94%20%D0%B8%20%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86).md "Создание базы данных")
+  - [Образец схемы БД - пользуемся для создания базы](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/%D0%A8%D0%BF%D0%B0%D1%80%D0%B3%D0%B0%D0%BB%D0%BA%D0%B0%20(%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%91%D0%94%20%D0%B8%20%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86).md "Создание базы данных")
 
 ### Шаг 2. Генерация данных для БД
 
@@ -85,7 +85,7 @@ _Пользуемся официальной документацией на Git
             password="your_password",
             host="localhost"
         ```
-  - [Запустите скрипт](https://github.com/lamjob1993/linux-monitoring/blob/main/postgresql/generate_fake_data.py) из активированного виртуального окружения `python generate_fake_data.py` (не забываем дать права на исполнение `chmod +x`, а также ознакомиться с блоками кода)
+  - [Запустите скрипт](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/generate_fake_data.py) из активированного виртуального окружения `python generate_fake_data.py` (не забываем дать права на исполнение `chmod +x`, а также ознакомиться с блоками кода)
     - В этом случае:
       - Используется интерпретатор **Python** из виртуального окружения.
       - Установленные зависимости (например, **faker** и **psycopg2-binary**) будут доступны, так как они установлены именно в это окружение.
