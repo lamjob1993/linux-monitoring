@@ -17,27 +17,39 @@
     * [Путь Прометея](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/README.md)
        * [Введение в Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/beginning)
        * [Prometheus Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus)
+       * Вопросы к интервью
     * [Grafana - Визуализация и дашборды. Часть 1](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
        * [Grafana Tasks 1](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
+       * Вопросы к интервью
     * Экспортеры Prometheus:
        * [Node Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/node-exporter/README.md)
           * [Node Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/node-exporter)
+          * Вопросы к интервью
        * [Process Exporter](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/process-exporter/README.md)
           * [Process Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/process-exporter)
+          * Вопросы к интервью
        * [Custom Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/custom_exporter_bash/README.md)
           * [Custom Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/custom_exporter_bash)
+          * Вопросы к интервью
        * [Blackbox Exporter и Nginx](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/README.md)
           * [Blackbox Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/blackbox-exporter)
+          * Вопросы к интервью
           * [NGINX](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/nginx/README.md)
              * [NGINX Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/nginx)
+             * Вопросы к интервью
        * Postgres Exporter и PostgreSQL
           * [PostgreSQL](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/README.md)
-             * [PostgreSQL Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)      
+             * [PostgreSQL Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)
+             * Вопросы к интервью    
     * [Pushgateway](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/pushgateway)
+       * Вопросы к интервью
     * [Prometheus Federation](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus_federate)
+       * Вопросы к интервью
     * [Alertmanager и алерты](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/alertmanager)
+       * Вопросы к интервью
     * [Grafana - Визуализация и дашборды. Часть 2](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
        * [Grafana Tasks 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
+       * Вопросы к интервью
 
 4.  **Контейнеризация (Docker)**
     * [Docker - Основы, образы, контейнеры](../Docker/interview-questions/docker_basics.md)
