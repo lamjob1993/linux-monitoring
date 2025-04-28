@@ -78,7 +78,7 @@ sudo apt install musl musl-tools
 - Сохраните изменения
 - Перезагрузите машину
 
-- Далее [установите](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Debian и других дистрибутивах на основе Debian (например, Ubuntu) сетевые утилиты и программы обычно входят в состав различных пакетов.") дополнительные пакеты по ходу выполнения курса на ваш вкус с [необходимым ПО](https://github.com/lamjob1993/linux-monitoring/blob/main/linux_install/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Linux существует множество сетевых программ, которые помогают в диагностике, мониторинге, настройке и управлении сетевыми соединениями."): **curl**, **net-tools** - как минимум, а также прочие пакеты
+- Далее [установите](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Debian и других дистрибутивах на основе Debian (например, Ubuntu) сетевые утилиты и программы обычно входят в состав различных пакетов.") дополнительные пакеты по ходу выполнения курса на ваш вкус с [необходимым ПО](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Linux существует множество сетевых программ, которые помогают в диагностике, мониторинге, настройке и управлении сетевыми соединениями."): **curl**, **net-tools** - как минимум, а также прочие пакеты
 
 ---
 
