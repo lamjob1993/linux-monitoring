@@ -71,7 +71,7 @@
 
 4.  **Контейнеризация (Docker)**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
-       * Вопросы к интервью
+    * Вопросы к интервью
 
 5.  **Управление инфраструктурой как кодом (Terraform)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
