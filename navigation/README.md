@@ -6,6 +6,8 @@
 
 ## Содержание
 
+0. **Теория и фундаментальные основы**
+    * [Изучить перед прохождением репозитория](https://teletype.in/@lamjob/wjNvt64l77l)
 1.  **Введение в мониторинг и общие концепции**
     * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
     * [Легенда инженера по сопровождению](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0.md)
@@ -51,12 +53,12 @@
        * [Grafana Tasks 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
 
-4.  **Контейнеризация (Docker)**
+3.  **Контейнеризация (Docker)**
     * [Docker - Основы, образы, контейнеры](../Docker/interview-questions/docker_basics.md)
     * [Docker - Сети и тома](../Docker/interview-questions/docker_networking_volumes.md)
     * ...
 
-6.  **Управление инфраструктурой как кодом (Terraform)**
+4.  **Управление инфраструктурой как кодом (Terraform)**
     * [Terraform - Основы и провайдеры](../Terraform/interview-questions/terraform_basics.md)
     * ...
 
@@ -64,12 +66,12 @@
     * [Ansible - Основы, инвентарь, модули](../Ansible/interview-questions/ansible_basics.md)
     * ...
 
-7.  **CI/CD**
+6.  **CI/CD**
     * [CI/CD - Общие принципы](../CI-CD/general_principles.md)
     * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md)
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md)
     * ...
-8.  **Оркестрация контейнеров (Kubernetes)**
+7.  **Оркестрация контейнеров (Kubernetes)**
     * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md)
     * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md)
     * ...
