@@ -71,20 +71,25 @@
 
 4.  **Контейнеризация (Docker)**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
+       * Вопросы к интервью
 
 5.  **Управление инфраструктурой как кодом (Terraform)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
+    * Вопросы к интервью
 
 6.  **Управление конфигурацией (Ansible)**
     * [Ansible - Основы, инвентарь, модули](https://github.com/lamjob1993/ansible-monitoring/tree/main)
+    * Вопросы к интервью
 
 7.  **CI/CD**
     * [CI/CD - Общие принципы](../CI-CD/general_principles.md) / В работе
     * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md) / В работе
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
+    * Вопросы к интервью 
     * ...
 8.  **Оркестрация контейнеров (Kubernetes)**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
     * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md) / В работе
     * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md) / В работе
+    * Вопросы к интервью
     * ...
