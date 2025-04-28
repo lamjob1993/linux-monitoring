@@ -9,38 +9,55 @@
 ## Содержание:
 
 1.  **Введение в мониторинг и общие концепции**
-    * [Общие вопросы по методологии и культуре](./general-interview-questions/devops_culture.md)
-    * [Общие вопросы по Linux и сетям](./general-interview-questions/linux_networking.md)
-    * [Общие каверзные вопросы](./general-interview-questions/trick_questions_general.md)
+    * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
+    * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
+    * [Настройка доступа по SSH в GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
 
-2.  **Мониторинг и логирование**
-    * [Prometheus - База, архитектура, метрики, PromQL](../Prometheus/interview-questions/prometheus_basics_metrics.md)
-    * [Prometheus - Alerting и Configuration](../Prometheus/interview-questions/prometheus_alerting_config.md)
-    * [Grafana - Визуализация и дашборды](../Grafana/interview-questions/grafana.md)
-    * [Экспортеры Prometheus (Node, Process, Blackbox, Postgres)](../Prometheus/interview-questions/exporters.md)
-    * [Pushgateway и Federation](../Prometheus/interview-questions/pushgateway_federation.md)
-    * ...и так далее для каждого инструмента...
+2.  **Мониторинг**
+    * [Путь Прометея](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/README.md)
+       * [Введение в Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/beginning)
+       * [Prometheus Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus)
+    * [Grafana - Визуализация и дашборды. Часть 1](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
+       * [Grafana Tasks 1](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
+    * Экспортеры Prometheus:
+       * [Node Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/node-exporter/README.md)
+          * [Node Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/node-exporter)
+       * [Process Exporter](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/process-exporter/README.md)
+          * [Process Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/process-exporter)
+       * [Custom Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/custom_exporter_bash/README.md)
+          * [Custom Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/custom_exporter_bash)
+       * [Blackbox Exporter и Nginx](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/README.md)
+          * [Blackbox Exporter Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/blackbox-exporter)
+          * [NGINX](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/nginx/README.md)
+             * [NGINX Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/nginx)
+       * Postgres Exporter и PostgreSQL
+          * [PostgreSQL](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/README.md)
+             * [PostgreSQL Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)      
+    * [Pushgateway](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/pushgateway)
+    * [Prometheus Federation](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus_federate)
+    * [Alertmanager и алерты](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/alertmanager)
+    * [Grafana - Визуализация и дашборды. Часть 2](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
+       * [Grafana Tasks 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
 
-3.  **Контейнеризация (Docker)**
+4.  **Контейнеризация (Docker)**
     * [Docker - Основы, образы, контейнеры](../Docker/interview-questions/docker_basics.md)
     * [Docker - Сети и тома](../Docker/interview-questions/docker_networking_volumes.md)
-    * ...
-
-4.  **Оркестрация контейнеров (Kubernetes)**
-    * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md)
-    * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md)
-    * ...
-
-5.  **Управление конфигурацией (Ansible)**
-    * [Ansible - Основы, инвентарь, модули](../Ansible/interview-questions/ansible_basics.md)
     * ...
 
 6.  **Управление инфраструктурой как кодом (Terraform)**
     * [Terraform - Основы и провайдеры](../Terraform/interview-questions/terraform_basics.md)
     * ...
 
+5.  **Управление конфигурацией (Ansible)**
+    * [Ansible - Основы, инвентарь, модули](../Ansible/interview-questions/ansible_basics.md)
+    * ...
+
 7.  **CI/CD**
     * [CI/CD - Общие принципы](../CI-CD/general_principles.md)
     * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md)
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md)
+    * ...
+8.  **Оркестрация контейнеров (Kubernetes)**
+    * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md)
+    * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md)
     * ...
