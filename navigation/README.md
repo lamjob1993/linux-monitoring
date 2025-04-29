@@ -7,7 +7,7 @@
 ## Содержание
 
 0. **Теория и фундаментальные основы**
-    * [Изучить перед прохождением курса на GitHub, можно только теорию](https://teletype.in/@lamjob/wjNvt64l77l)
+    * [Изучить перед прохождением курса на GitHub (можно изучить только теорию)](https://teletype.in/@lamjob/wjNvt64l77l)
 
 1.  **Введение в мониторинг и общие концепции**
     * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
