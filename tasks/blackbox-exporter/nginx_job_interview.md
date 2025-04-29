@@ -111,178 +111,6 @@ tail -f /var/log/nginx/access.log
 
 ---
 
-## Как вы использовали Nginx Exporter на практике, для каких команд устанавливали и какие кейсы с ним были?
-
----
-
-### 1. **Как Nginx Exporter использовался в вашей работе?**
-
-**Пример ответа:**
-"Nginx Exporter использовался для мониторинга состояния веб-серверов Nginx. Мы собирали метрики, такие как количество активных подключений (`nginx_connections_active`), общее количество обработанных запросов (`nginx_requests_total`), скорость обработки запросов и статус HTTP-ответов. Эти данные интегрировались с Prometheus для анализа и с Grafana для визуализации. Это позволяло нам отслеживать производительность серверов Nginx, выявлять проблемы с нагрузкой и оперативно реагировать на инциденты."
-
----
-
-### 2. **Какие команды вы использовали для работы с Nginx Exporter?**
-
-#### Установка Nginx Exporter:
-```bash
-wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.12.0/nginx-prometheus-exporter_0.12.0_linux_amd64.tar.gz
-tar xvfz nginx-prometheus-exporter_0.12.0_linux_amd64.tar.gz
-./nginx-prometheus-exporter -nginx.scrape-uri=http://localhost/nginx_status
-```
-**Я устанавливал Nginx Exporter через скачивание бинарного файла с GitHub. Запускал его с флагами для настройки URL сбора метрик (например, `/nginx_status`) и указания порта для экспортера.**
-
-#### Проверка работы Nginx Exporter:
-```bash
-curl http://localhost:9113/metrics
-```
-**Для проверки работы я использовал curl, чтобы получить метрики из `/metrics`. Это помогало убедиться, что экспортер корректно собирает данные.**
-
-#### Настройка автозапуска через systemd:
-```ini
-[Unit]
-Description=Nginx Exporter
-
-[Service]
-ExecStart=/usr/local/bin/nginx-prometheus-exporter -nginx.scrape-uri=http://localhost/nginx_status
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
-```
-**Для автоматического запуска я создавал unit-файл для systemd, чтобы Nginx Exporter работал как служба.**
-
----
-
-### 3. **Кому вы устанавливали Nginx Exporter?**
-
-**Пример ответа:**
-"Я устанавливал Nginx Exporter на:
-
-- **Серверы Nginx**: для мониторинга их производительности в production.
-- **Команды DevOps/SRE**: для отслеживания состояния серверов и настройки алертов.
-- **Команды разработчиков**: для анализа производительности их приложений, работающих за Nginx (например, время обработки запросов)."
-
----
-
-### 4. **Какие каверзные вопросы могут возникнуть и как на них ответить?**
-
-#### Вопрос: Как вы решали проблемы с производительностью Nginx Exporter?
-**Ответ:**
-"Если возникали проблемы с производительностью, я:
-
-1. Оптимизировал конфигурацию Nginx, например, увеличивал лимиты на количество подключений (`worker_connections`).
-2. Уменьшал частоту сбора данных через параметр `scrape_interval` в Prometheus.
-3. Настроил логирование для диагностики проблем."
-
-#### Вопрос: Как вы обеспечивали безопасность Nginx Exporter?
-**Ответ:**
-"Я ограничивал доступ к порту экспортера через firewall или настраивал reverse proxy (Nginx) с базовой аутентификацией. Также я ограничивал доступ к эндпоинту `/nginx_status`, разрешая только localhost."
-
-#### Вопрос: Как вы решали проблему с большим количеством метрик?
-**Ответ:**
-"Если метрик было слишком много, я:
-
-1. Отключал ненужные метрики через конфигурацию экспортера.
-2. Фильтровал метрики в Prometheus, используя `relabel_configs`.
-3. Использовал агрегацию данных в PromQL для уменьшения объёма информации."
-
-#### Вопрос: Как вы настраивали мониторинг SSL/TLS в Nginx?
-**Ответ:**
-"Я добавлял метрики о состоянии SSL/TLS сертификатов через Blackbox Exporter. Например, я использовал запросы для отслеживания сроков действия сертификатов (`probe_ssl_earliest_cert_expiry`)."
-
----
-
-### 5. **Пример успешного кейса использования Nginx Exporter**
-
-**Пример ответа:**
-"Однажды мы столкнулись с проблемой высокого времени ответа сервера Nginx. С помощью Nginx Exporter мы настроили мониторинг метрик, таких как `nginx_http_request_duration_seconds` и `nginx_connections_waiting`. Мы обнаружили, что во время пиковых нагрузок количество ожидающих подключений (`nginx_connections_waiting`) превышает допустимый порог. После оптимизации конфигурации Nginx (увеличение лимитов на подключения) время ответа значительно сократилось."
-
----
-
-### 6. **Что ещё можно добавить?**
-
-#### Интеграция с Prometheus и Grafana:
-"Мы интегрировали Nginx Exporter с Prometheus для сбора метрик и с Grafana для визуализации. Это позволило нам создавать информативные дашборды с данными о производительности серверов Nginx."
-
-#### Автоматизация установки:
-"Для масштабирования я написал Ansible playbook для автоматической установки и настройки Nginx Exporter."
-
-#### Мониторинг бизнес-метрик:
-"Мы использовали Nginx Exporter для мониторинга ключевых бизнес-метрик, таких как количество HTTP-ошибок (например, `nginx_http_requests_total{status=~"5.."}`) и среднее время обработки запросов."
-
-
----
-
-## **Технические вопросы по Nginx Exporter**
-
-1. **Что такое Nginx Exporter и для чего он используется?**
-   - Ответ: Nginx Exporter — это инструмент, который собирает метрики из веб-сервера Nginx и предоставляет их в формате, совместимом с Prometheus. Он используется для мониторинга производительности и состояния сервера Nginx.
-
-2. **Какие метрики предоставляет Nginx Exporter?**
-   - Ответ: Основные метрики включают:
-     - `nginx_connections_active` — текущее количество активных подключений.
-     - `nginx_requests_total` — общее количество обработанных запросов.
-     - `nginx_connections_handled` — количество обработанных подключений.
-     - `nginx_http_requests_total` — количество HTTP-запросов по статусам.
-
-3. **Как настроить Nginx для работы с Nginx Exporter?**
-   - Ответ: Необходимо включить модуль `stub_status` в конфигурации Nginx:
-     ```nginx
-     location /nginx_status {
-         stub_status on;
-         allow 127.0.0.1;
-         deny all;
-     }
-     ```
-
-4. **Как установить Nginx Exporter?**
-   - Ответ: Установка через скачивание бинарного файла или Docker:
-     ```bash
-     docker run -d --name nginx-exporter -p 9113:9113 nginx/nginx-prometheus-exporter:latest -nginx.scrape-uri=http://localhost/nginx_status
-     ```
-
-5. **Как проверить работу Nginx Exporter?**
-   - Ответ: Используйте команду:
-     ```bash
-     curl http://localhost:9113/metrics
-     ```
-     Она вернет метрики в формате Prometheus.
-
-6. **Как интегрировать Nginx Exporter с Prometheus?**
-   - Ответ: Добавьте таргет в конфигурацию Prometheus (`prometheus.yml`):
-     ```yaml
-     scrape_configs:
-       - job_name: 'nginx'
-         static_configs:
-           - targets: ['localhost:9113']
-     ```
-
-7. **Как обеспечить безопасность Nginx Exporter?**
-   - Ответ: Ограничьте доступ к порту экспортера через firewall или настройте reverse proxy (например, Nginx) с базовой аутентификацией.
-
-8. **Как уменьшить нагрузку на сервер от Nginx Exporter?**
-   - Ответ: Уменьшите частоту сбора данных через параметр `scrape_interval` в Prometheus или отключите ненужные метрики.
-
-9. **Можно ли использовать Nginx Exporter для мониторинга SSL/TLS?**
-   - Ответ: Нет, для этого используется Blackbox Exporter. Однако можно комбинировать оба инструмента.
-
-10. **Как настроить автозапуск Nginx Exporter?**
-    - Ответ: Создайте unit-файл для systemd:
-      ```ini
-      [Unit]
-      Description=Nginx Exporter
-
-      [Service]
-      ExecStart=/usr/local/bin/nginx-prometheus-exporter -nginx.scrape-uri=http://localhost/nginx_status
-      Restart=always
-
-      [Install]
-      WantedBy=multi-user.target
-      ```
-
----
-
 ### **Технические вопросы по Nginx**
 
 11. **Что такое Nginx и для чего он используется?**
@@ -418,3 +246,174 @@ WantedBy=multi-user.target
     }
     ```
 
+---
+
+# Как вы использовали Nginx Exporter на практике, для каких команд устанавливали и какие кейсы с ним были?
+
+---
+
+### 1. **Как Nginx Exporter использовался в вашей работе?**
+
+**Пример ответа:**
+"Nginx Exporter использовался для мониторинга состояния веб-серверов Nginx. Мы собирали метрики, такие как количество активных подключений (`nginx_connections_active`), общее количество обработанных запросов (`nginx_requests_total`), скорость обработки запросов и статус HTTP-ответов. Эти данные интегрировались с Prometheus для анализа и с Grafana для визуализации. Это позволяло нам отслеживать производительность серверов Nginx, выявлять проблемы с нагрузкой и оперативно реагировать на инциденты."
+
+---
+
+### 2. **Какие команды вы использовали для работы с Nginx Exporter?**
+
+#### Установка Nginx Exporter:
+```bash
+wget https://github.com/nginxinc/nginx-prometheus-exporter/releases/download/v0.12.0/nginx-prometheus-exporter_0.12.0_linux_amd64.tar.gz
+tar xvfz nginx-prometheus-exporter_0.12.0_linux_amd64.tar.gz
+./nginx-prometheus-exporter -nginx.scrape-uri=http://localhost/nginx_status
+```
+**Я устанавливал Nginx Exporter через скачивание бинарного файла с GitHub. Запускал его с флагами для настройки URL сбора метрик (например, `/nginx_status`) и указания порта для экспортера.**
+
+#### Проверка работы Nginx Exporter:
+```bash
+curl http://localhost:9113/metrics
+```
+**Для проверки работы я использовал curl, чтобы получить метрики из `/metrics`. Это помогало убедиться, что экспортер корректно собирает данные.**
+
+#### Настройка автозапуска через systemd:
+```ini
+[Unit]
+Description=Nginx Exporter
+
+[Service]
+ExecStart=/usr/local/bin/nginx-prometheus-exporter -nginx.scrape-uri=http://localhost/nginx_status
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+**Для автоматического запуска я создавал unit-файл для systemd, чтобы Nginx Exporter работал как служба.**
+
+---
+
+### 3. **Кому вы устанавливали Nginx Exporter?**
+
+**Пример ответа:**
+"Я устанавливал Nginx Exporter на:
+
+- **Серверы Nginx**: для мониторинга их производительности в production.
+- **Команды DevOps/SRE**: для отслеживания состояния серверов и настройки алертов.
+- **Команды разработчиков**: для анализа производительности их приложений, работающих за Nginx (например, время обработки запросов)."
+
+---
+
+### 4. **Какие каверзные вопросы могут возникнуть и как на них ответить?**
+
+#### Вопрос: Как вы решали проблемы с производительностью Nginx Exporter?
+**Ответ:**
+"Если возникали проблемы с производительностью, я:
+
+1. Оптимизировал конфигурацию Nginx, например, увеличивал лимиты на количество подключений (`worker_connections`).
+2. Уменьшал частоту сбора данных через параметр `scrape_interval` в Prometheus.
+3. Настроил логирование для диагностики проблем."
+
+#### Вопрос: Как вы обеспечивали безопасность Nginx Exporter?
+**Ответ:**
+"Я ограничивал доступ к порту экспортера через firewall или настраивал reverse proxy (Nginx) с базовой аутентификацией. Также я ограничивал доступ к эндпоинту `/nginx_status`, разрешая только localhost."
+
+#### Вопрос: Как вы решали проблему с большим количеством метрик?
+**Ответ:**
+"Если метрик было слишком много, я:
+
+1. Отключал ненужные метрики через конфигурацию экспортера.
+2. Фильтровал метрики в Prometheus, используя `relabel_configs`.
+3. Использовал агрегацию данных в PromQL для уменьшения объёма информации."
+
+#### Вопрос: Как вы настраивали мониторинг SSL/TLS в Nginx?
+**Ответ:**
+"Я добавлял метрики о состоянии SSL/TLS сертификатов через Blackbox Exporter. Например, я использовал запросы для отслеживания сроков действия сертификатов (`probe_ssl_earliest_cert_expiry`)."
+
+---
+
+### 5. **Пример успешного кейса использования Nginx Exporter**
+
+**Пример ответа:**
+"Однажды мы столкнулись с проблемой высокого времени ответа сервера Nginx. С помощью Nginx Exporter мы настроили мониторинг метрик, таких как `nginx_http_request_duration_seconds` и `nginx_connections_waiting`. Мы обнаружили, что во время пиковых нагрузок количество ожидающих подключений (`nginx_connections_waiting`) превышает допустимый порог. После оптимизации конфигурации Nginx (увеличение лимитов на подключения) время ответа значительно сократилось."
+
+---
+
+### 6. **Что ещё можно добавить?**
+
+#### Интеграция с Prometheus и Grafana:
+"Мы интегрировали Nginx Exporter с Prometheus для сбора метрик и с Grafana для визуализации. Это позволило нам создавать информативные дашборды с данными о производительности серверов Nginx."
+
+#### Автоматизация установки:
+"Для масштабирования я написал Ansible playbook для автоматической установки и настройки Nginx Exporter."
+
+#### Мониторинг бизнес-метрик:
+"Мы использовали Nginx Exporter для мониторинга ключевых бизнес-метрик, таких как количество HTTP-ошибок (например, `nginx_http_requests_total{status=~"5.."}`) и среднее время обработки запросов."
+
+
+---
+
+# **Технические вопросы по Nginx Exporter**
+
+1. **Что такое Nginx Exporter и для чего он используется?**
+   - Ответ: Nginx Exporter — это инструмент, который собирает метрики из веб-сервера Nginx и предоставляет их в формате, совместимом с Prometheus. Он используется для мониторинга производительности и состояния сервера Nginx.
+
+2. **Какие метрики предоставляет Nginx Exporter?**
+   - Ответ: Основные метрики включают:
+     - `nginx_connections_active` — текущее количество активных подключений.
+     - `nginx_requests_total` — общее количество обработанных запросов.
+     - `nginx_connections_handled` — количество обработанных подключений.
+     - `nginx_http_requests_total` — количество HTTP-запросов по статусам.
+
+3. **Как настроить Nginx для работы с Nginx Exporter?**
+   - Ответ: Необходимо включить модуль `stub_status` в конфигурации Nginx:
+     ```nginx
+     location /nginx_status {
+         stub_status on;
+         allow 127.0.0.1;
+         deny all;
+     }
+     ```
+
+4. **Как установить Nginx Exporter?**
+   - Ответ: Установка через скачивание бинарного файла или Docker:
+     ```bash
+     docker run -d --name nginx-exporter -p 9113:9113 nginx/nginx-prometheus-exporter:latest -nginx.scrape-uri=http://localhost/nginx_status
+     ```
+
+5. **Как проверить работу Nginx Exporter?**
+   - Ответ: Используйте команду:
+     ```bash
+     curl http://localhost:9113/metrics
+     ```
+     Она вернет метрики в формате Prometheus.
+
+6. **Как интегрировать Nginx Exporter с Prometheus?**
+   - Ответ: Добавьте таргет в конфигурацию Prometheus (`prometheus.yml`):
+     ```yaml
+     scrape_configs:
+       - job_name: 'nginx'
+         static_configs:
+           - targets: ['localhost:9113']
+     ```
+
+7. **Как обеспечить безопасность Nginx Exporter?**
+   - Ответ: Ограничьте доступ к порту экспортера через firewall или настройте reverse proxy (например, Nginx) с базовой аутентификацией.
+
+8. **Как уменьшить нагрузку на сервер от Nginx Exporter?**
+   - Ответ: Уменьшите частоту сбора данных через параметр `scrape_interval` в Prometheus или отключите ненужные метрики.
+
+9. **Можно ли использовать Nginx Exporter для мониторинга SSL/TLS?**
+   - Ответ: Нет, для этого используется Blackbox Exporter. Однако можно комбинировать оба инструмента.
+
+10. **Как настроить автозапуск Nginx Exporter?**
+    - Ответ: Создайте unit-файл для systemd:
+      ```ini
+      [Unit]
+      Description=Nginx Exporter
+
+      [Service]
+      ExecStart=/usr/local/bin/nginx-prometheus-exporter -nginx.scrape-uri=http://localhost/nginx_status
+      Restart=always
+
+      [Install]
+      WantedBy=multi-user.target
+      ```
