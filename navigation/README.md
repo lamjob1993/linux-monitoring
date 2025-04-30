@@ -68,15 +68,15 @@
        * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
 
-4.  **Контейнеризация (Docker)**
+4.  **Docker. Контейнеризация**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
 
-5.  **Управление инфраструктурой как кодом (Terraform)**
+5.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC).**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
     * Вопросы к интервью
 
-6.  **Управление конфигурацией (Ansible)**
+6.  **Ansible. Развертывание и управление конфигурацией и приложениями как кодом (IaC).**
     * [Ansible - Основы, инвентарь, модули](https://github.com/lamjob1993/ansible-monitoring/tree/main)
     * Вопросы к интервью
 
@@ -86,7 +86,7 @@
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
     * Вопросы к интервью 
     * ...
-8.  **Оркестрация контейнеров (Kubernetes)**
+8.  **Kubernetes. Оркестрация контейнеров**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
     * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md) / В работе
     * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md) / В работе
