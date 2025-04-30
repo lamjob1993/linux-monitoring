@@ -53,9 +53,11 @@
           * [Blackbox Exporter и Nginx Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/blackbox-exporter)
           * [Вопросы к интервью Blackbox](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/blackbox_interview.md)
           * [Вопросы к интервью Nginx](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/nginx_interview.md)
-       * [Postgres Exporter и PostgreSQL](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)
+       * Postgres Exporter и PostgreSQL
+          * [PostgreSQL](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/README.md)
+          * [Postgres Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/README.md#%D1%87%D1%82%D0%BE-%D1%82%D0%B0%D0%BA%D0%BE%D0%B5-postgres-exporter-%D0%B8-%D0%B7%D0%B0%D1%87%D0%B5%D0%BC-%D0%BD%D1%83%D0%B6%D0%B5%D0%BD)
           * [PostgreSQL Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)
-          * Вопросы к интервью    
+          * [Вопросы к интервью](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/job_interview.md)
     * [Pushgateway](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/pushgateway)
        * Вопросы к интервью
     * [Prometheus Federation](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus_federate)
