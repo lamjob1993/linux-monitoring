@@ -35,7 +35,7 @@
     * [Путь Прометея](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/README.md)
        * [Введение в Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/beginning)
        * [Prometheus Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus)
-       * Вопросы к интервью
+       * [Вопросы к интервью](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/prometheus/job_interview.md)
     * [Grafana - Визуализация и дашборды. Часть 1](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
        * [Grafana Task 1](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
