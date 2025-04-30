@@ -51,7 +51,8 @@
           * Вопросы к интервью
        * [Blackbox Exporter и Nginx](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/README.md)
           * [Blackbox Exporter и Nginx Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/blackbox-exporter)
-          * Вопросы к интервью
+          * [Вопросы к интервью Blackbox](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/blackbox_interview.md)
+          * [Вопросы к интервью Nginx](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/nginx_interview.md)
        * [Postgres Exporter и PostgreSQL](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)
           * [PostgreSQL Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)
           * Вопросы к интервью    
