@@ -2,7 +2,7 @@
 
 _Пользуемся официальной документацией на GitHub (в основном там прописаны Docker файлы на запуск и всегда есть конфиги)_
 
-Перед выполнением задания нужно пройти [мини-курс от Selectel по Bash](https://selectel.ru/blog/tutorials/linux-bash-scripting-guide/).
+Перед выполнением задания нужно пройти [мини-курс от Selectel по Bash](https://selectel.ru/blog/tutorials/linux-bash-scripting-guide/) и можно только основы.
 
 ## Rules
 
