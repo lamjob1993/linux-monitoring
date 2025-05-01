@@ -17,7 +17,7 @@
     * [Вопросы на собеседовании к легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
        * **Учим сразу** и закрепляем по мере прохождения курса
     * [Вопросы по стеку сопровождения и мониторинга](https://teletype.in/@lamjob/sPRL_XpiLkV)
-       * Технические вопросы к собеседованию без ответов
+       * Технические вопросы к собеседованию без ответов (в работе)
        * **Учим строго сразу**: Linux, сети и Docker
        * **Учим позже (после)** и углубляемся в вопросы по мере прохождения курса: Terraform, Ansible, CI/CD, K8s
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/public_repository/README.md)
@@ -25,7 +25,7 @@
        * Pet-проект должен быть готов на 100% по ссылке на [GitHub](https://github.com/) после прохождения раздела Docker: после темы **"Docker Compose"**
     * [Подготовка к собеседованию по аналитике резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
        * Приступаем к этому разделу после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
-    * Золотая база к собеседованию (пока в работе)
+    * Золотая база к собеседованию (в работе)
 
 2. **Установка ОС и первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
