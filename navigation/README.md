@@ -25,6 +25,7 @@
        * Проект должен на 100% функционировать по ссылке на [GitHub](https://github.com/) после прохождения темы **"Docker Compose"**
     * [Подготовка к собеседованию по аналитике резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
        * Приступаем к этому разделу после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
+    * Золотая база (пока в работе)
 
 2. **Установка ОС и первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
