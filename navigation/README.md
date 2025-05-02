@@ -8,7 +8,7 @@ _Этот документ является центральным навига�
 
 0. **Теория и фундаментальные основы**
     * [Изучить необходимую теорию](https://teletype.in/@lamjob/wjNvt64l77l)
-    * [Изучить мини-практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR))
+    * [Изучить мини-практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR)
 1.  **Введение в мониторинг и общие концепции**
     * [Предисловие](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5.md)
     * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
