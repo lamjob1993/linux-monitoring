@@ -100,7 +100,7 @@ _Roadmap / Дорожная карта_
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
     * Вопросы к интервью 
     * ...
-10.  **Kubernetes. Оркестрация контейнеров**
+10. **Kubernetes. Оркестрация контейнеров**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
     * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md) / В работе
     * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md) / В работе
