@@ -10,11 +10,11 @@
 
 _Roadmap / Дорожная карта_
 
-0.1. **Теория и фундаментальные основы**
+1. **Теория и фундаментальные основы**
     * [Изучаем необходимую теорию](https://teletype.in/@lamjob/wjNvt64l77l)
     * [Изучаем теорию и практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR)
 
-1.  **Введение в мониторинг и общие концепции**
+2.  **Введение в мониторинг и общие концепции**
     * [Предисловие](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5%20%D0%BA%20%D0%BA%D1%83%D1%80%D1%81%D1%83.md)
     * [Кто такой инженер по сопровождению](https://teletype.in/@lamjob/B9uUuCqXaTu)
     * [Наш технический стек](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%A1%D1%82%D0%B5%D0%BA%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0.md)
@@ -23,7 +23,7 @@ _Roadmap / Дорожная карта_
     * [Легенда инженера по сопровождению](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0.md)
        * **Учим сразу** легенду и закрепляем по мере прохождения курса
 
-1. **Вопросы к собеседованию**
+3. **Вопросы к собеседованию**
     * [Вопросы на собеседовании к легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
        * **Учим сразу** вопросы и закрепляем по мере прохождения курса
     * [Вопросы по стеку сопровождения и мониторинга](https://teletype.in/@lamjob/sPRL_XpiLkV)
@@ -37,13 +37,13 @@ _Roadmap / Дорожная карта_
     * [Технические вопросы к собеседованию без ответов](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BE%D0%B2.md)
     * Золотая база к собеседованию (в работе)
 
-2. **Установка ОС и первая практика**
+4. **Установка ОС и первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
     * [Технические вопросы к собеседованию: Debian и CentOS](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/tech_questions.md)
     * [Настройка доступа по SSH в GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
     * [Делаем форк этого репозитория к себе в аккаунт GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%A4%D0%BE%D1%80%D0%BA%20%D0%B2%20GitHub.md)
 
-3.  **Prometheus. Мониторинг в базовом исполнении**
+5.  **Prometheus. Мониторинг в базовом исполнении**
     * [Путь Прометея](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/README.md)
        * [Введение в Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/beginning)
        * [Prometheus Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus)
@@ -80,31 +80,31 @@ _Roadmap / Дорожная карта_
        * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
 
-4.  **Docker. Контейнеризация**
+6.  **Docker. Контейнеризация**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
 
-5.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
+7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
     * Вопросы к интервью
 
-6.  **Ansible. Развертывание и управление конфигурацией и приложениями как кодом (IaC)**
+8.  **Ansible. Развертывание и управление конфигурацией и приложениями как кодом (IaC)**
     * [Ansible - Основы, инвентарь, модули](https://github.com/lamjob1993/ansible-monitoring/tree/main)
     * Вопросы к интервью
 
-7.  **CI/CD**
+9.  **CI/CD**
     * [CI/CD - Общие принципы](../CI-CD/general_principles.md) / В работе
     * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md) / В работе
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
     * Вопросы к интервью 
     * ...
-8.  **Kubernetes. Оркестрация контейнеров**
+10.  **Kubernetes. Оркестрация контейнеров**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
     * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md) / В работе
     * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md) / В работе
     * Вопросы к интервью
     * ...
-9. **Финальная часть**
+11. **Финальная часть**
     * Дипломный (выпускной pet-проект)
     * Добавить раздел по безопасности
     * Самопрезентация на собеседовании (презентация вашего pet-проекта собеседующему)
