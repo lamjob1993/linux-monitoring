@@ -31,7 +31,7 @@ _Roadmap / Дорожная карта_
     * [Подготовка к собеседованию по аналитике резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
        * Приступаем к этому разделу после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
     * Золотая база к собеседованию (в работе)
-    * Технические вопросы к собеседованию без ответов (в работе)
+    * [Технические вопросы к собеседованию без ответов](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BE%D0%B2.md)
 
 2. **Установка ОС и первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
