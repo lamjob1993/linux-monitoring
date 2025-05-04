@@ -27,8 +27,9 @@ _Roadmap / Дорожная карта_
     * [Вопросы к собеседованию по легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
        * **Учим сразу** вопросы и закрепляем по мере прохождения курса
     * [Технические вопросы к собеседованию без ответов](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BE%D0%B2.md)
-       * **Учим строго сразу**: Linux → Сети → Docker (это три основных кита для прохождения собеседования)
-       * **Учим позже (после: Linux → Сети → Docker)** и углубляемся в вопросы после Docker по мере прохождения курса: Terraform → Ansible → CI/CD → K8s
+       * **Учим строго сразу**: Linux → Сети → Docker → это три основных кита для прохождения собеседования
+       * **Учим позже после**: Linux → Сети → Docker и углубляемся в вопросы после Docker по мере прохождения курса: Terraform → Ansible → CI/CD → K8s
+       * **Вопросы специально** написаны без ответов, чтобы вы сами их искали и тем самым готовились и запоминали
     * [Подготовка к собеседованию по аналитике вашего резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
        * **Приступаем к этому разделу** после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/public_repository/README.md)
