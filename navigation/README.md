@@ -1,4 +1,4 @@
-# Навигация
+![image](https://github.com/user-attachments/assets/3faec36c-4a31-4a52-9a11-7397fcf6fc9c)# Навигация
 
 - _Этот документ является центральным навигатором по всем разделам курса (разделы выполняются последовательно)._
 - _Теория и вопросы к собеседованию с полными ответами находятся в директориях соответствующих инструментов._
@@ -79,10 +79,12 @@ _Roadmap / Дорожная карта_
     * [Grafana - Визуализация и дашборды. Часть 2](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
        * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
+    * [Готовим драфт по pet-проекту](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
 
 6.  **Docker. Контейнеризация**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
+    * [Пишем финальный pet-проект и публикуем](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
 
 7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
