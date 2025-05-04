@@ -24,7 +24,7 @@ _Roadmap / Дорожная карта_
        * **Учим сразу** легенду и закрепляем по мере прохождения курса
 
 3. **Вопросы к собеседованию**
-    * [Вопросы к собеседованию по легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
+    * [Вопросы к собеседованию по легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
        * **Учим сразу** вопросы и закрепляем по мере прохождения курса
     * [Технические вопросы к собеседованию без ответов](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BE%D0%B2.md)
        * **Учим строго сразу**: Linux → Сети → Docker → это три основных кита для прохождения собеседования
