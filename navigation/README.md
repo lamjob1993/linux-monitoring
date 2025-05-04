@@ -13,6 +13,7 @@ _Roadmap / Дорожная карта_
 0. **Теория и фундаментальные основы**
     * [Изучаем необходимую теорию](https://teletype.in/@lamjob/wjNvt64l77l)
     * [Изучаем теорию и практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR)
+
 1.  **Введение в мониторинг и общие концепции**
     * [Предисловие](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5%20%D0%BA%20%D0%BA%D1%83%D1%80%D1%81%D1%83.md)
     * [Кто такой инженер по сопровождению](https://teletype.in/@lamjob/B9uUuCqXaTu)
@@ -21,24 +22,28 @@ _Roadmap / Дорожная карта_
        * **Учим сразу** базовую концепцию и закрепляем по мере прохождения курса
     * [Легенда инженера по сопровождению](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0.md)
        * **Учим сразу** легенду и закрепляем по мере прохождения курса
+
+1.1. Вопросы к собеседованию
     * [Вопросы на собеседовании к легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
        * **Учим сразу** вопросы и закрепляем по мере прохождения курса
     * [Вопросы по стеку сопровождения и мониторинга](https://teletype.in/@lamjob/sPRL_XpiLkV)
        * **Учим строго сразу**: Linux → Сети → Docker (это три основных кита для прохождения собеседования)
-       * **Учим позже (после: Linux → Сети → Docker)** и углубляемся в вопросы по мере прохождения курса: Terraform → Ansible → CI/CD → K8s       
+       * **Учим позже (после: Linux → Сети → Docker)** и углубляемся в вопросы по мере прохождения курса: Terraform → Ansible → CI/CD → K8s
+    * [Подготовка к собеседованию по аналитике вашего резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
+       * Приступаем к этому разделу после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
+
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/public_repository/README.md)
        * Драфты по **pet-проекту** должны быть готовы после прохождения раздела **"Prometheus. Мониторинг в базовом исполнении"**
        * **Pet-проект** должен быть готов на 100% по ссылке на [GitHub](https://github.com/) после прохождения раздела Docker: после темы **"Docker Compose"**
-    * [Подготовка к собеседованию по аналитике вашего резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
-       * Приступаем к этому разделу после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
-    * Золотая база к собеседованию (в работе)
     * [Технические вопросы к собеседованию без ответов](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BE%D0%B2.md)
+    * Золотая база к собеседованию (в работе)
 
 2. **Установка ОС и первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
     * [Технические вопросы к собеседованию: Debian и CentOS](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/tech_questions.md)
     * [Настройка доступа по SSH в GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
     * [Делаем форк этого репозитория к себе в аккаунт GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%A4%D0%BE%D1%80%D0%BA%20%D0%B2%20GitHub.md)
+
 3.  **Prometheus. Мониторинг в базовом исполнении**
     * [Путь Прометея](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/README.md)
        * [Введение в Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/beginning)
