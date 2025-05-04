@@ -23,7 +23,7 @@ _Roadmap / Дорожная карта_
     * [Легенда инженера по сопровождению](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0.md)
        * **Учим сразу** легенду и закрепляем по мере прохождения курса
 
-1.1. **Вопросы к собеседованию**
+1. **Вопросы к собеседованию**
     * [Вопросы на собеседовании к легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
        * **Учим сразу** вопросы и закрепляем по мере прохождения курса
     * [Вопросы по стеку сопровождения и мониторинга](https://teletype.in/@lamjob/sPRL_XpiLkV)
