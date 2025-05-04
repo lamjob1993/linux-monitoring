@@ -71,10 +71,13 @@ _Roadmap / Дорожная карта_
           * [PostgreSQL Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/postgresql)
           * [Вопросы к интервью](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/postgresql/job_interview.md)
     * [Pushgateway](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/pushgateway)
+       * [Pushgateway Tasks](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/pushgateway/tasks_1.md)
        * Вопросы к интервью
     * [Prometheus Federation](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus_federate)
+       * [Prometheus Federation Tasks](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/prometheus_federate/tasks_1.md)
        * Вопросы к интервью
     * [Alertmanager и алерты](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/alertmanager)
+       * [Alertmanager Tasks](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/alertmanager/tasks_1.md)
        * Вопросы к интервью
     * [Grafana - Визуализация и дашборды. Часть 2](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
        * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
