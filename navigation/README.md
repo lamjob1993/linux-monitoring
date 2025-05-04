@@ -32,7 +32,7 @@ _Roadmap / Дорожная карта_
        * **Вопросы специально** написаны без ответов, чтобы вы сами их искали и тем самым готовились и запоминали
     * [Подготовка к собеседованию по аналитике вашего резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/cv_final/README.md)
        * **Приступаем к этому разделу** после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
-    * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/public_repository/README.md)
+    * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * **Драфты по pet-проекту** должны быть готовы после прохождения раздела **"Prometheus. Мониторинг в базовом исполнении"**
        * **Pet-проект** должен быть готов на 100% по ссылке на [GitHub](https://github.com/) после прохождения раздела Docker: после темы **"Docker Compose"**
     * Золотая база к собеседованию (в работе)
