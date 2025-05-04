@@ -30,7 +30,7 @@ _Roadmap / Дорожная карта_
        * **Учим строго сразу**: Linux → Сети → Docker → это три основных кита для прохождения собеседования
        * **Учим позже после**: Linux → Сети → Docker и углубляемся в вопросы после Docker по мере прохождения курса: Terraform → Ansible → CI/CD → K8s
        * **Вопросы специально** написаны без ответов, чтобы вы сами их искали и тем самым готовились и запоминали
-    * [Подготовка к собеседованию по аналитике вашего резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/cv_final/README.md)
+    * [Подготовка к собеседованию по аналитике вашего резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/cv_final/README.md)
        * **Приступаем к этому разделу** после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/public_repository/README.md)
        * **Драфты по pet-проекту** должны быть готовы после прохождения раздела **"Prometheus. Мониторинг в базовом исполнении"**
