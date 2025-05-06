@@ -7,7 +7,7 @@
 ```mermaid
 sequenceDiagram
     participant JA as Java Приложение
-    participant EXP as Exporter (Actuator)
+    participant EXP as Exporter (Actuator) and All Exporters
     participant PROM as Prometheus
     participant GRAF as Grafana
     participant LS as ELK (Logstash)
