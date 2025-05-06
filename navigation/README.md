@@ -25,6 +25,8 @@ _Roadmap / Дорожная карта_
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * **Драфты по pet-проекту** должны быть готовы после прохождения раздела **"Prometheus. Мониторинг в базовом исполнении"**
        * **Pet-проект** должен быть готов на 100% по ссылке на [GitHub](https://github.com/) после прохождения раздела Docker: после темы **"Docker Compose"**
+       * [Pet-проекты в качестве примеров (финтех тематика)
+](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     
 3. **Вопросы к собеседованию**
     * [Вопросы к собеседованию по легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
@@ -83,11 +85,15 @@ _Roadmap / Дорожная карта_
        * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
     * [Готовим драфт по pet-проекту](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)
+](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 6.  **Docker. Контейнеризация**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
     * [Пишем финальный pet-проект и публикуем](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
+    * [Pet-проекты в качестве примеров (финтех тематика)
+](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
