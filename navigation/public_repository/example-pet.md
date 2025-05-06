@@ -2,7 +2,7 @@
 
 Каждое приложение будет настроено для мониторинга метрик и логов через **Prometheus, [ELK Stack](https://habr.com/ru/articles/671344/)** и **[Actuator](https://habr.com/ru/companies/otus/articles/452624/)**.
 
-- Образец схемы для всех
+- Образец схемы для всех примеров одинаковый
 
 ```mermaid
 sequenceDiagram
