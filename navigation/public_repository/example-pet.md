@@ -2,7 +2,7 @@
 
 Каждое приложение будет настроено для мониторинга метрик и логов через **Prometheus, [ELK Stack](https://habr.com/ru/articles/671344/)** и **[Actuator](https://habr.com/ru/companies/otus/articles/452624/)**.
 
-- Образец схемы для всех примеров одинаковый
+- Образец схемы (диаграммы) для всех примеров одинаковый:
 
 ```mermaid
 sequenceDiagram
@@ -33,6 +33,37 @@ sequenceDiagram
     AM-->>User: Отправка уведомлений (email, Slack и т.д.)
 ```
 
+**Последовательность работы системы мониторинга на основе диаграммы:**
+
+### **1. Сбор и визуализация метрик (Prometheus + Grafana)**
+1. **Java-приложение** отправляет метрики через **Spring Boot Actuator** (Endpoint `/actuator/prometheus`).
+2. **Prometheus** периодически собирает (scrape) эти метрики из **Exporter** (Actuator).
+3. **Prometheus** хранит метрики в своей TSDB (Time Series Database).
+4. **Grafana** запрашивает метрики из **Prometheus** для визуализации.
+5. **Пользователь** просматривает дашборды в Grafana.
+
+### **2. Сбор и анализ логов (ELK Stack)**
+1. **Java-приложение** отправляет логи в **Logstash** (например, через Filebeat или напрямую).
+2. **Logstash** обрабатывает логи и отправляет их в **Elasticsearch** для индексации.
+3. **Kibana** запрашивает логи из **Elasticsearch**.
+4. **Пользователь** анализирует логи и просматривает дашборды в Kibana.
+
+### **3. Оповещения (Alertmanager)**
+1. **Prometheus** проверяет заданные правила алертинга (например, `high CPU usage`).
+2. Если правило срабатывает, **Prometheus** отправляет алерт в **Alertmanager**.
+3. **Alertmanager** обрабатывает алерт и отправляет уведомление:
+   - Email, Telegram, Working Messenger и т. д.
+4. **Пользователь/Система** получает уведомление и реагирует на проблему.
+
+### **Итоговая схема работы**
+- **Метрики**: Java → Actuator → Prometheus → Grafana → Пользователь.  
+- **Логи**: Java → Logstash → Elasticsearch → Kibana → Пользователь.  
+- **Алерты**: Prometheus → Alertmanager → Уведомления (Slack/Email).  
+
+Это стандартный стек мониторинга (**Prometheus + Grafana + ELK + Alertmanager**), который позволяет:
+- Собирать метрики и логи.
+- Визуализировать данные.
+- Настраивать алерты для быстрого реагирования на проблемы.  
 
 ---
 
