@@ -2,7 +2,37 @@
 
 Каждое приложение будет настроено для мониторинга метрик и логов через **Prometheus, [ELK Stack](https://habr.com/ru/articles/671344/)** и **[Actuator](https://habr.com/ru/companies/otus/articles/452624/)**.
 
-- Добавить схему
+- Образец схемы для всех
+
+```mermaid
+sequenceDiagram
+    participant JA as Java Приложение
+    participant EXP as Exporter (Actuator)
+    participant PROM as Prometheus
+    participant GRAF as Grafana
+    participant LS as ELK (Logstash)
+    participant ES as ELK (Elasticsearch)
+    participant KIB as ELK (Kibana)
+    participant AM as Alertmanager
+    participant User as Пользователь/Система
+
+    JA->>EXP: Отправка метрик (через Actuator)
+    PROM->>EXP: Сбор метрик (scrape)
+    PROM-->>PROM: Хранение метрик
+    GRAF->>PROM: Запрос метрик для визуализации
+    PROM-->>GRAF: Предоставление метрик
+    User->>GRAF: Просмотр дашбордов
+
+    JA->>LS: Отправка логов
+    LS-->>ES: Обработка и индексация логов
+    KIB->>ES: Запрос логов для анализа
+    ES-->>KIB: Предоставление логов
+    User->>KIB: Просмотр логов и дашбордов
+
+    PROM->>AM: Отправка оповещений (при срабатывании правил)
+    AM-->>User: Отправка уведомлений (email, Slack и т.д.)
+```
+
 
 ---
 
