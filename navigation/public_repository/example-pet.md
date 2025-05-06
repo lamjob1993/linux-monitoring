@@ -2,7 +2,7 @@
 
 Каждое приложение будет настроено для мониторинга метрик и логов через **Prometheus, [ELK Stack](https://habr.com/ru/articles/671344/)** и **[Actuator](https://habr.com/ru/companies/otus/articles/452624/)**.
 
-- Образец схемы (диаграммы) для всех примеров одинаковый:
+- Образец схемы (диаграммы) для всех примеров одинаковый ([mermaid](https://mermaid.live/edit#pako:eNpVjsFugzAQRH_F2lMrkQgSgsGHSg1pc4nUSs2pkMMKHIwSbGSM0hT49xrSVu2edjxvxttBpnIODI5ndckEakP2m1QSO49JLHTZmAqbA5nNHvotN6RSkl97sr7bKtIIVdelLO5v_HqESNztRowTI0p5Gm5WPOVfJO_JJtlhbVR9-OvsL6onT0n5Kmz9f0doblPPyRHZEWcZahKjnhBwoOK6wjK353fjSwpG8IqnwOyaoz6lkMrBctga9XaVGTCjW-6AVm0hwBaeG6vaOkfDNyUWGqsfpEb5rtSvLPT4zXeay5zrWLXSAPOWEwusgw-rqDd3aUT9MPQW0TLwHbgCW4Vz6kdRENGlH9DQdf3Bgc-p3Z2HdOXaWQQupe5i5Q1f2EN7aQ): [sequenceDiagram](https://mermaid.js.org/syntax/sequenceDiagram.html)):
 
 ```mermaid
 sequenceDiagram
