@@ -92,7 +92,7 @@ _Roadmap / Дорожная карта_
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
     * [Пишем финальный pet-проект и публикуем](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
-    * [Pet-проекты в качестве примеров (финтех тематика)
+       * [Pet-проекты в качестве примеров (финтех тематика)
 ](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
