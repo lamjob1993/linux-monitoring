@@ -85,41 +85,49 @@ _Roadmap / Дорожная карта_
        * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
        * Вопросы к интервью
     * [Готовим драфт по pet-проекту](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
-       * [Pet-проекты в качестве примеров (финтех тематика)
-](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 6.  **Docker. Контейнеризация**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
     * [Пишем финальный pet-проект и публикуем](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
-       * [Pet-проекты в качестве примеров (финтех тематика)
-](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
     * Вопросы к интервью
+    * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 8.  **Ansible. Развертывание и управление конфигурацией и приложениями как кодом (IaC)**
     * [Ansible - Основы, инвентарь, модули](https://github.com/lamjob1993/ansible-monitoring/tree/main)
     * Вопросы к интервью
+    * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 9.  **CI/CD**
     * [CI/CD - Общие принципы](../CI-CD/general_principles.md) / В работе
     * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md) / В работе
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
-    * Вопросы к интервью 
+    * Вопросы к интервью
+    * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * ...
+
 10. **Kubernetes. Оркестрация контейнеров**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
     * [Kubernetes - Архитектура и компоненты](../Kubernetes/interview-questions/kubernetes_architecture.md) / В работе
     * [Kubernetes - Поды, Deployments, Services](../Kubernetes/interview-questions/kubernetes_objects1.md) / В работе
+    * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * Вопросы к интервью
     * ...
+
 11. **Финальная часть**
     * Дипломный (выпускной pet-проект)
     * Добавить раздел по безопасности
-    * Самопрезентация на собеседовании (презентация вашего pet-проекта собеседующему)
-       * Изначально я веду собеседование и вы мне презентуете свой pet-проект
+    * Самопрезентация на собеседовании (презентация вашего pet-проекта собеседующему):
+       * Изначально я веду собеседование и вы мне презентуете свой pet-проект.
        * На реальном собеседовании стараемся выбить время в процессе, когда они у вас спросят, есть еще какие-то вопросы?
-       * Демонстрация схемы проекта строго обязательна (давайте попробуем выбрать Figma, как основную площадку для рисовки)
+       * Демонстрация схемы проекта строго обязательна (давайте попробуем выбрать Figma, как основную площадку для рисовки).
 
