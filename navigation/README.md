@@ -100,7 +100,7 @@ _Roadmap / Дорожная карта_
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 8.  **Ansible. Развертывание и управление конфигурацией и приложениями как кодом (IaC)**
-    * [Ansible - Основы, инвентарь, модули](https://github.com/lamjob1993/ansible-monitoring/tree/main)
+    * [Ansible - Основы, инвентори, модули, роли](https://github.com/lamjob1993/ansible-monitoring/tree/main)
     * Вопросы к интервью
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
