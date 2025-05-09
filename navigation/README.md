@@ -94,7 +94,7 @@ _Roadmap / Дорожная карта_
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
-    * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring) / В работе
+    * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring)
     * Вопросы к интервью
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
