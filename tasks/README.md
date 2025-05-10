@@ -1,6 +1,6 @@
 #  **Содержание раздела: Мониторинг**
 
-_Задания выполняются последовательно по списку._
+_Задания выполняются последовательно по списку_
 
  * [Путь Прометея](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/README.md)
     * [Введение в Prometheus](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus/beginning)
