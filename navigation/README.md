@@ -11,8 +11,8 @@
 _Roadmap / Дорожная карта_
 
 1. **Теория и фундаментальные основы**
-    * [Изучаем необходимую теорию](https://teletype.in/@lamjob/wjNvt64l77l)
-    * [Изучаем необходимую практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR)
+    * [Изучаем теорию](https://teletype.in/@lamjob/wjNvt64l77l)
+    * [Изучаем минимальную практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR)
 
 2.  **Введение в мониторинг и общие концепции**
     * [Предисловие](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5%20%D0%BA%20%D0%BA%D1%83%D1%80%D1%81%D1%83.md)
