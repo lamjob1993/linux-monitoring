@@ -106,7 +106,7 @@ _Roadmap / Дорожная карта_
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
 9.  **CI/CD**
-    * [CI/CD - Общие принципы](../CI-CD/general_principles.md) / В работе
+    * [CI/CD - Общие принципы](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md) / В работе
     * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
     * Вопросы к интервью
