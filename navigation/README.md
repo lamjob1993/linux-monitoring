@@ -107,8 +107,8 @@ _Roadmap / Дорожная карта_
 
 9.  **CI/CD**
     * [CI/CD - Общие принципы](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
-    * [Teamcity - Конфигурация и пайплайны](../CI-CD/Teamcity/interview_questions.md) / В работе
-    * [BitBucket - Pipelines](../CI-CD/Bitbucket/interview_questions.md) / В работе
+    * [Teamcity - Конфигурация и пайплайны](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
+    * [BitBucket - Pipelines](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * Вопросы к интервью
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
