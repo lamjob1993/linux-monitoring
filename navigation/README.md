@@ -19,6 +19,7 @@ _Roadmap / Дорожная карта_
     * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
        * **Учим сразу** базовую концепцию и закрепляем по мере прохождения курса
     * [Наш технический стек](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%A1%D1%82%D0%B5%D0%BA%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0.md)
+       * **Учим сразу** базовую концепцию и закрепляем по мере прохождения курса
     * [Кто такой инженер по сопровождению](https://teletype.in/@lamjob/B9uUuCqXaTu)
     * [Легенда инженера по сопровождению](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0.md)
        * **Учим сразу** легенду и закрепляем по мере прохождения курса
