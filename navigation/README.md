@@ -44,7 +44,7 @@ _Roadmap / Дорожная карта_
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
     * [Технические вопросы к собеседованию: Debian и CentOS](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/tech_questions.md)
     * [Настройка доступа по SSH в GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
-    * Делаем форк репозитория [linux-monitoring](https://github.com/lamjob1993/linux-monitoring) к себе в аккаунт GitHub
+    * Делаем [форк](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%A4%D0%BE%D1%80%D0%BA%20%D0%B2%20GitHub.md) нашего репозитория [linux-monitoring](https://github.com/lamjob1993/linux-monitoring) к себе в аккаунт GitHub
 
 5.  **Prometheus. Мониторинг в базовом исполнении**
     * [Содержание раздела: Мониторинг](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/README.md)
