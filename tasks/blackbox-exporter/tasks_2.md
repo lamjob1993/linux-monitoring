@@ -145,4 +145,4 @@ probe_ssl_earliest_cert_expiry
 - Если вы хотите проверять несколько доменов, добавьте их в секцию `targets` в конфигурации Prometheus.
 
 ### 7. **Nginx Exporter**
-- Вернитесь в раздел Nginx и выполните [второе упражнение](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/nginx/task_2.md)
+- [Установите экспортер](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/blackbox-exporter/tasks_3.md)
