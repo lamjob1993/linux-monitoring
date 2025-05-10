@@ -116,8 +116,6 @@ _Roadmap / Дорожная карта_
 
 10. **Kubernetes. Оркестрация контейнеров**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
-    * [Kubernetes - Архитектура и компоненты](https://github.com/lamjob1993/kubernetes-monitoring) / В работе
-    * [Kubernetes - Поды, Deployments, Services](https://github.com/lamjob1993/kubernetes-monitoring) / В работе
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * Вопросы к интервью
