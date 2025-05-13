@@ -7,7 +7,7 @@ _Задания выполняются последовательно по сп�
     * [Prometheus Tasks](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/prometheus)
     * [Вопросы к интервью](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/prometheus/job_interview.md)
  * [Grafana - Визуализация и дашборды. Часть 1](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
-    * [Grafana Task 1](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
+    * [Grafana Task 1](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/tasks_1.md)
     * Вопросы к интервью
  * Экспортеры Prometheus:
     * [Node Exporter](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/node-exporter/README.md)
@@ -38,7 +38,7 @@ _Задания выполняются последовательно по сп�
     * [Alertmanager Tasks](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/alertmanager/tasks_1.md)
     * Вопросы к интервью
  * [Grafana - Визуализация и дашборды. Часть 2](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/README.md)
-    * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/grafana)
+    * [Grafana Task 2](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/grafana/tasks_2.md)
     * Вопросы к интервью
  * [Готовим драфт по pet-проекту](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
     * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
