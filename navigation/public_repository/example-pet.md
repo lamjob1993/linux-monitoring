@@ -1,8 +1,8 @@
 # **Pet-проекты в качестве примеров (берем в работу только финтех тематику)**
 
 Каждое приложение будет настроено для мониторинга метрик и логов через **Prometheus, [ELK Stack](https://habr.com/ru/articles/671344/)** и **[Actuator](https://habr.com/ru/companies/otus/articles/452624/)**.
-
-- Образец схемы ([диаграммы](https://mermaid.live/edit#pako:eNpVjkFvgzAMhf9K5NMmQUVX2kAOk1bYeqm0Seup0IMFKUEtCQpBXQf89wW6TZtPtt_3nt1BpnIODI5ndckEakN2cSqJrackErpsTIXNgbjuY7_hhlRK8mtP1ncbRRqh6rqUxf2NX48QibrtiHFiRClPw02KJv-r5D2Jky3WRtWHv8ruonrynJRvwsb_V4Tm1vWSHJEd0c1Qkwj1hIADFdcVlrl9vxs3KRjBK54Cs22O-pRCKgfLYWvU-1VmwIxuuQNatYUAG3hu7NTWORoel1horH6QGuVeqd-x0OOZbzeXOdeRaqUBtpxQYB18AJvT-cyjIfWDYP4QLla-A1eLBDPqh-EqpAt_RQPP8wcHPqdwbxbQ5fAFMeJ4rA)) для всех примеров одинаковый (mermaid: [sequenceDiagram](https://mermaid.js.org/syntax/sequenceDiagram.html)):
+- Берем в работу **Figma** и рисуем красивую блочную схему проекта [в таком же стиле](https://miro.com/app/board/uXjVIMhc1ds=/). 
+- Образец схемы интегрированной в GitHub ([диаграммы](https://mermaid.live/edit#pako:eNpVjkFvgzAMhf9K5NMmQUVX2kAOk1bYeqm0Seup0IMFKUEtCQpBXQf89wW6TZtPtt_3nt1BpnIODI5ndckEakN2cSqJrackErpsTIXNgbjuY7_hhlRK8mtP1ncbRRqh6rqUxf2NX48QibrtiHFiRClPw02KJv-r5D2Jky3WRtWHv8ruonrynJRvwsb_V4Tm1vWSHJEd0c1Qkwj1hIADFdcVlrl9vxs3KRjBK54Cs22O-pRCKgfLYWvU-1VmwIxuuQNatYUAG3hu7NTWORoel1horH6QGuVeqd-x0OOZbzeXOdeRaqUBtpxQYB18AJvT-cyjIfWDYP4QLla-A1eLBDPqh-EqpAt_RQPP8wcHPqdwbxbQ5fAFMeJ4rA)) для всех примеров одинаковый (mermaid: [sequenceDiagram](https://mermaid.js.org/syntax/sequenceDiagram.html)):
 
 ```mermaid
 sequenceDiagram
@@ -32,8 +32,6 @@ sequenceDiagram
     PROM->>AM: Отправка оповещений (при срабатывании правил)
     AM-->>User: Отправка уведомлений (email, Slack и т.д.)
 ```
-
-- А также берем в работу **Figma** и рисуем красивую блочную схему проекта [в таком же стиле](https://miro.com/app/board/uXjVIMhc1ds=/). 
 
 ## **Последовательность работы системы мониторинга на основе диаграммы:**
 
