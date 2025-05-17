@@ -50,12 +50,14 @@ _Roadmap / Дорожная карта_
     * [Содержание раздела: Мониторинг](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/README.md)
     * [Готовим драфт по pet-проекту](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
+    * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг)
 
 6.  **Docker. Контейнеризация**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
     * [Пишем финальный pet-проект и публикуем](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
+    * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Docker)
 
 7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring)
@@ -76,6 +78,7 @@ _Roadmap / Дорожная карта_
     * Вопросы к интервью
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
+    * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Docker + Ansible + Terraform + CI/CD)
     * ...
 
 10. **Kubernetes. Оркестрация контейнеров**
@@ -83,6 +86,7 @@ _Roadmap / Дорожная карта_
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * Вопросы к интервью
+    * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Docker + Ansible + Terraform + CI/CD + Kubernetes)
     * ...
 
 11. **Финальная часть**
@@ -90,6 +94,6 @@ _Roadmap / Дорожная карта_
     * Добавить раздел по безопасности
     * Самопрезентация на собеседовании (презентация вашего pet-проекта собеседующему):
        * Изначально я веду собеседование и вы мне презентуете свой pet-проект
-       * На реальном собеседовании стараемся выбить время в процессе, когда они у вас спросят, есть еще какие-то вопросы?
+       * На реальном собеседовании стараемся выбить время в процессе, когда они у вас спросят, у вас есть еще какие-то вопросы?
        * Демонстрация схемы проекта строго обязательна (давайте попробуем выбрать Figma, как основную площадку для рисовки)
 
