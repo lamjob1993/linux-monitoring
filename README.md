@@ -1,6 +1,6 @@
 # Введение в Monitoring
 
-## Добро пожаловать в репозиторий по мониторингу
+## Добро пожаловать на курс по мониторингу с уклоном в DevOps и SRE
 
 ### [Содержание / Глобальная навигация по курсу](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/README.md)
 
