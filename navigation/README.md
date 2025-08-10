@@ -36,38 +36,38 @@ _Roadmap / Дорожная карта_
        * **Учим позже после**: Linux → Сети → Docker и углубляемся в вопросы после Docker по мере прохождения курса: Terraform → Ansible → CI/CD → K8s
        * **Вопросы специально** написаны без ответов, чтобы вы сами их искали и тем самым готовились и запоминали
 
-4. **Установка ОС и первая практика**
+5. **Установка ОС и первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
     * [Технические вопросы к собеседованию: Debian и CentOS](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/tech_questions.md)
     * [Настройка доступа по SSH в GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
     * Делаем [форк](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%A4%D0%BE%D1%80%D0%BA%20%D0%B2%20GitHub.md) нашего репозитория [linux-monitoring](https://github.com/lamjob1993/linux-monitoring) к себе в аккаунт GitHub
 
-5.  **Prometheus. Мониторинг в базовом исполнении**
+6.  **Prometheus. Мониторинг в базовом исполнении**
     * [Содержание раздела: Мониторинг](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/README.md)
     * [Готовим драфт по pet-проекту](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Linux + Сети)
 
-6.  **Docker. Контейнеризация**
+7.  **Docker. Контейнеризация**
     * [Docker - Основы, образы, контейнеры](https://github.com/lamjob1993/docker-monitoring)
     * Вопросы к интервью
     * [Пишем финальный pet-проект и публикуем](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Linux + Сети + Docker)
 
-7.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
+8.  **Terraform. Развертывание и управление инфраструктурой как кодом (IaC)**
     * [Terraform - Основы и провайдеры](https://github.com/lamjob1993/terraform-monitoring)
     * Вопросы к интервью
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
-8.  **Ansible. Развертывание и управление конфигурацией и приложениями как кодом (IaC)**
+9.  **Ansible. Развертывание и управление конфигурацией и приложениями как кодом (IaC)**
     * [Ansible - Основы, инвентори, модули, роли](https://github.com/lamjob1993/ansible-monitoring/tree/main)
     * Вопросы к интервью
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
-9.  **CI/CD**
+10.  **CI/CD**
     * [CI/CD - Общие принципы](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * [Teamcity - Конфигурация и пайплайны](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * [BitBucket - Pipelines](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
@@ -77,7 +77,7 @@ _Roadmap / Дорожная карта_
     * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Linux + Сети + Docker + Ansible + Terraform + CI/CD)
     * ...
 
-10. **Kubernetes. Оркестрация контейнеров**
+11. **Kubernetes. Оркестрация контейнеров**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
@@ -85,13 +85,13 @@ _Roadmap / Дорожная карта_
     * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Linux + Сети + Docker + Ansible + Terraform + CI/CD + Kubernetes)
     * ...
 
-11. **Финальная часть**
+12. **Финальная часть**
     * [Пишем резюме](https://t.me/c/2168307578/253/257)
        * [Подготовка к собеседованию по вашему финальному резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/cv_final/README.md)
     * Возвращаемся в разделы 3-4 данного содержания и закрепляем
     * Возвращаемся и изучаем повторно с закреплением [главы 7-10 по курсу Телеграм](https://t.me/c/2168307578/1/140)
 
-12. **Заметки**
+13. **Заметки**
    
     * Добавить софты и как держаться на собесе (в отдельную главу и уделить этой части отдельное внимание на собеседовании, попробовать прямо на собеседовании учить навыкам этикета и открытости)
        * Дипломный (выпускной pet-проект)
