@@ -26,8 +26,7 @@ _Roadmap / Дорожная карта_
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * **Драфты по pet-проекту** должны быть готовы после прохождения раздела **"Prometheus. Мониторинг в базовом исполнении"**
        * **Pet-проект** должен быть готов на 100% по ссылке на [GitHub](https://github.com/) после прохождения раздела Docker: после темы **"Docker Compose"**
-       * [Pet-проекты в качестве примеров (финтех тематика)
-](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
+       * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     
 4. **Вопросы к собеседованию (теория)**
     * [Вопросы к собеседованию по легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
@@ -89,9 +88,9 @@ _Roadmap / Дорожная карта_
     * ...
 
 11. **Финальная часть**
-    * **[Пишем резюме](https://t.me/c/2168307578/253/257)**
+    * [Пишем резюме](https://t.me/c/2168307578/253/257)
        * [Закрепляем резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/cv_final/README.md)
-    * Возвращаемся и изучаем [главы 6-10 по курсу Телеграм](https://t.me/c/2168307578/1/140) 
+    * Возвращаемся и изучаем повторно с закреплением [главы 7-10 по курсу Телеграм](https://t.me/c/2168307578/1/140) 
     * Добавить софты и как держаться на собесе (в отдельную главу и уделить этой части отдельное внимание на собеседовании, попробовать прямо на собеседовании учить навыкам этикета и открытости)
     * Дипломный (выпускной pet-проект)
     * Добавить раздел по безопасности
