@@ -15,7 +15,7 @@ _Roadmap / Дорожная карта_
     * [Изучаем теорию](https://teletype.in/@lamjob/wjNvt64l77l)
     * [Изучаем практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR)
 
-3.  **Введение в мониторинг и общие концепции**
+3.  **Введение в мониторинг и общие концепции (теория)**
     * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
        * **Учим сразу** базовую концепцию и закрепляем по мере прохождения курса
     * [Наш технический стек](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%A1%D1%82%D0%B5%D0%BA%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0.md)
@@ -29,7 +29,7 @@ _Roadmap / Дорожная карта_
        * [Pet-проекты в качестве примеров (финтех тематика)
 ](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     
-4. **Вопросы к собеседованию**
+4. **Вопросы к собеседованию (теория)**
     * [Вопросы к собеседованию по легенде инженера](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%BA%20%D0%BB%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B5.md)
        * **Учим сразу** вопросы и закрепляем по мере прохождения курса
     * [Технические вопросы к собеседованию без ответов](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BE%D0%B2.md)
@@ -89,7 +89,7 @@ _Roadmap / Дорожная карта_
     * ...
 
 11. **Финальная часть**
-    * [Подготовка к собеседованию по аналитике вашего резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/cv_final/README.md)
+    * [Закрепляем резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/cv_final/README.md)
        * **Приступаем к этому разделу** после того, как я [утвердил ваше резюме на финал](https://t.me/c/2168307578/253/257)
     * Добавить софты и как держаться на собесе (в отдельную главу и уделить этой части отдельное внимание на собеседовании, попробовать прямо на собеседовании учить навыкам этикета и открытости)
     * Дипломный (выпускной pet-проект)
