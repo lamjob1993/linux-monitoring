@@ -75,7 +75,7 @@ _Roadmap / Дорожная карта_
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Linux + Сети + Docker + Ansible + Terraform + CI/CD)
-    * ...
+      
 
 11. **Kubernetes. Оркестрация контейнеров**
     * [Kubernetes - Введение](https://github.com/lamjob1993/kubernetes-monitoring)
@@ -83,7 +83,7 @@ _Roadmap / Дорожная карта_
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * Вопросы к интервью
     * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Linux + Сети + Docker + Ansible + Terraform + CI/CD + Kubernetes)
-    * ...
+      
 
 12. **Финальная часть**
     * [Пишем резюме: Глава 6 по курсу ТГ](https://t.me/c/2168307578/253/257)
