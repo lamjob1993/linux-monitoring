@@ -67,7 +67,7 @@ _Roadmap / Дорожная карта_
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
 
-10.  **CI/CD**
+10. **CI/CD**
     * [CI/CD - Общие принципы](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * [Teamcity - Конфигурация и пайплайны](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * [BitBucket - Pipelines](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
