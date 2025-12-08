@@ -12,7 +12,7 @@ _Roadmap / Дорожная карта_
 
 1. [Предисловие к курсу](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%9F%D1%80%D0%B5%D0%B4%D0%B8%D1%81%D0%BB%D0%BE%D0%B2%D0%B8%D0%B5%20%D0%BA%20%D0%BA%D1%83%D1%80%D1%81%D1%83.md)
 2.  **Фундаментальные основы**
-    * [Вводный](https://teletype.in/@lamjob/JQl-KmyY6Lg)
+    * [Вводная статья](https://teletype.in/@lamjob/JQl-KmyY6Lg)
     * [Изучаем теорию](https://teletype.in/@lamjob/wjNvt64l77l)
     * [Изучаем практику по Linux](https://teletype.in/@lamjob/SsV-puwmQlR)
 
