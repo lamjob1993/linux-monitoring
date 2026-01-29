@@ -17,12 +17,12 @@ _Roadmap / Дорожная карта_
 
 3.  **Введение в мониторинг и общие концепции (теория)**
     * [Введение в мониторинг](https://github.com/lamjob1993/linux-monitoring/tree/main/navigation/introduction_monitoring)
-       * **Учим сразу** базовую концепцию и закрепляем по мере прохождения курса
-    * [Наш технический стек](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%A1%D1%82%D0%B5%D0%BA%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0.md)
-       * **Учим сразу** базовую концепцию и закрепляем по мере прохождения курса
+       * **Учим сразу** базовую концепцию и закрепляем по мере прохождения
+    * [Технический стек](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%A1%D1%82%D0%B5%D0%BA%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B0.md)
+       * **Учим сразу** базовую концепцию и закрепляем по мере прохождения
     * [Кто такой инженер по сопровождению](https://teletype.in/@lamjob/B9uUuCqXaTu)
     * [Легенда инженера по сопровождению](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%9B%D0%B5%D0%B3%D0%B5%D0%BD%D0%B4%D0%B0%20%D0%B8%D0%BD%D0%B6%D0%B5%D0%BD%D0%B5%D1%80%D0%B0.md)
-       * **Учим сразу** легенду и закрепляем по мере прохождения курса
+       * **Учим сразу** легенду и закрепляем по мере прохождения
     * [Пишем публичный репозиторий (pet-проект)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * **Драфты по pet-проекту** должны быть готовы после прохождения раздела **"Prometheus. Мониторинг в базовом исполнении"**
        * **Pet-проект** должен быть готов на 100% по ссылке на [GitHub](https://github.com/) после прохождения раздела Docker: после темы **"Docker Compose"**
@@ -33,14 +33,14 @@ _Roadmap / Дорожная карта_
        * **Учим сразу** вопросы и закрепляем по мере прохождения курса
     * [Технические вопросы к собеседованию без ответов](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/others/%D0%92%D0%BE%D0%BF%D1%80%D0%BE%D1%81%D1%8B%20%D0%B1%D0%B5%D0%B7%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BE%D0%B2.md)
        * **Учим строго сразу**: Linux → Сети → Docker → это три основных кита для прохождения собеседования
-       * **Учим позже после**: Linux → Сети → Docker и углубляемся в вопросы после Docker по мере прохождения курса: Terraform → Ansible → CI/CD → K8s
+       * **Учим позже после**: Linux → Сети → Docker и углубляемся в вопросы после Docker по мере прохождения: Terraform → Ansible → CI/CD → K8s
        * **Вопросы специально** написаны без ответов, чтобы вы сами их искали и тем самым готовились и запоминали
 
 5. **Установка ОС и первая практика**
     * [Установка Linux](https://github.com/lamjob1993/linux-monitoring/tree/main/tasks/linux_install)
     * [Технические вопросы к собеседованию: Debian и CentOS](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/tech_questions.md)
     * [Настройка доступа по SSH в GitHub](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%93%D0%B5%D0%BD%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F%20SSH%20%D0%B4%D0%BB%D1%8F%20GitHub.md)
-    * Делаем [форк](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%A4%D0%BE%D1%80%D0%BA%20%D0%B2%20GitHub.md) нашего репозитория [linux-monitoring](https://github.com/lamjob1993/linux-monitoring) к себе в аккаунт GitHub
+    * Делаем [форк](https://github.com/lamjob1993/linux-monitoring/blob/main/.files/%D0%A4%D0%BE%D1%80%D0%BA%20%D0%B2%20GitHub.md) репозитория [linux-monitoring](https://github.com/lamjob1993/linux-monitoring) к себе в аккаунт GitHub
 
 6.  **Prometheus. Мониторинг в базовом исполнении**
     * [Содержание раздела: Мониторинг](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/README.md)
@@ -71,7 +71,7 @@ _Roadmap / Дорожная карта_
     * [CI/CD - Общие принципы](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * [Teamcity - Конфигурация и пайплайны](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
     * [BitBucket - Pipelines](https://github.com/lamjob1993/ci-cd-monitoring) / В работе
-    * Вопросы к интервью
+    * Вопросы к собеседованию
     * [Обновляем финальный pet-проект](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/README.md)
        * [Pet-проекты в качестве примеров (финтех тематика)](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/public_repository/example-pet.md)
     * На этом этапе студент самостоятельно пишет ментору и ставит собеседование (готовим глобальный мониторинг + Linux + Сети + Docker + Ansible + Terraform + CI/CD)
@@ -86,10 +86,10 @@ _Roadmap / Дорожная карта_
       
 
 12. **Финальная часть**
-    * [Пишем резюме: Глава 6 по курсу ТГ](https://t.me/c/2168307578/253/257)
+    * [Пишем резюме: Глава 6](https://t.me/c/2168307578/253/257)
        * [Подготовка к собеседованию по вашему финальному резюме](https://github.com/lamjob1993/linux-monitoring/blob/main/navigation/cv_final/README.md)
     * Возвращаемся в **раздел 4** данного содержания и закрепляем
-    * Возвращаемся и изучаем повторно с закреплением [Главы 7-10 по курсу Телеграм](https://t.me/c/2168307578/1/140)
+    * Возвращаемся и изучаем повторно с закреплением [Главы 7-10](https://t.me/c/2168307578/1/140)
 
 13. **Мои заметки**
    
@@ -98,6 +98,6 @@ _Roadmap / Дорожная карта_
        * Добавить раздел по безопасности
        * Самопрезентация на собеседовании (презентация вашего pet-проекта собеседующему):
           * Изначально я веду собеседование и вы мне презентуете свой pet-проект
-          * На реальном собеседовании стараемся выбить время в процессе, когда они у вас спросят, у вас есть еще какие-то вопросы?
+          * На реальном собеседовании стараемся выбить время в процессе, когда они у вас спросят, у вас есть еще какие-то вопросы (только при взаимной симпатии)?
           * Демонстрация схемы проекта строго обязательна (давайте попробуем выбрать Figma, как основную площадку для рисовки)
    
