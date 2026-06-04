@@ -10,8 +10,8 @@
 
 ### Установка VMWare Workstation Pro. Часть 0
 
-- Скачайте последнюю версию [VirtualBox](https://www.virtualbox.org/wiki/Downloads) — программный продукт виртуализации для операционных систем Windows, Linux, FreeBSD, macOS, Solaris/OpenSolaris, ReactOS, DOS и других.") с официального сайта
-- Установите VirtualBox
+- Скачайте последнюю версию VmWare (программный продукт виртуализации для операционных систем Windows, Linux, FreeBSD, macOS, Solaris/OpenSolaris, ReactOS, DOS и других) с официального сайта или с торрента
+- Установите VmWare
 
 ---
 
