@@ -19,9 +19,10 @@
 
 - Для установки берем чистый образ [Debian Netinst 12.9.0 (amd64)+](https://www.debian.org/CD/netinst/ "Это один компакт-диск, который содержит только самое необходимое программное обеспечение для того, чтобы установить базовую систему и загрузить все остальные пакеты по сети.") и ставим без [Desktop Environment (DE)](https://ru.wikipedia.org/wiki/%D0%A1%D1%80%D0%B5%D0%B4%D0%B0_%D1%80%D0%B0%D0%B1%D0%BE%D1%87%D0%B5%D0%B3%D0%BE_%D1%81%D1%82%D0%BE%D0%BB%D0%B0 "Среда рабочего стола (СРС, англ. desktop environment) — разновидность графических интерфейсов пользователя, основанная на метафоре рабочего стола.")
 - Для **VMWare Workstation Pro** выбираем следующие параметры:
-  - **RAM**: `1024Mb`
-  - **HDD**: `10Gb`
-  - **CPU**: `2 Cores`
+  - **RAM**: `2048Mb`
+  - **HDD**: `20Gb`
+  - **CPU**: `4 Cores`
+  - **Network**: `NAT`
 - Далее при установке выбираем: установка через [GUI](https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D1%84%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B9_%D0%B8%D0%BD%D1%82%D0%B5%D1%80%D1%84%D0%B5%D0%B9%D1%81_%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F "Графический интерфейс пользователя сокр. ГИП (от англ. Graphical User Interface (GUI)), также графическая оболочка, — это способ взаимодействия пользователя с компьютером с использованием графических элементов, таких как окна, кнопки и меню.")
 - Выбираем обязательно английский язык
 - Вписываем имя хоста (виртуалки)
@@ -78,6 +79,18 @@ sudo apt install musl musl-tools
 ```bash
 sudo apt install bash-completion
 ```
+- Отредактируйте DNS файл resolv (так как он постоянно слетает) и заблокируйте от изменений
+```bash
+nano /etc/resolv.conf
+```
+```bash
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+- Далее применяем блокировку файла от перезаписи
+```bash
+chattr +i /etc/resolv.conf
+```
 - Перезагрузите машину
 
 - Далее [установите](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/%D0%A3%D1%81%D1%82%D0%B0%D0%BD%D0%BE%D0%B2%D0%BA%D0%B0%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Debian и других дистрибутивах на основе Debian (например, Ubuntu) сетевые утилиты и программы обычно входят в состав различных пакетов.") дополнительные пакеты по ходу выполнения курса на ваш вкус с [необходимым ПО](https://github.com/lamjob1993/linux-monitoring/blob/main/tasks/linux_install/%D0%A1%D0%BF%D0%B8%D1%81%D0%BE%D0%BA%20%D0%BF%D0%B0%D0%BA%D0%B5%D1%82%D0%BE%D0%B2.md "В Linux существует множество сетевых программ, которые помогают в диагностике, мониторинге, настройке и управлении сетевыми соединениями."): **curl**, **net-tools** - как минимум (другие пакеты представлены для ознакомления, не для установки сразу)
@@ -87,7 +100,7 @@ sudo apt install bash-completion
 ### Клонирование Debian (клонирование производим под VMWare Workstation Pro). Часть 2
 
 - Выключаем виртуальную машину Debian
-- Теперь заходим в сетевые настройки нашей виртуалки и ставим только бридж (мост)
+- Теперь заходим в сетевые настройки нашей виртуалки и ставим NAT
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%202).png" alt="Выбрать следующие пункты" width="850"> 
 - Клонируем 2 раза виртуальную машину Debian со следующими настройками и получаем 3 машины
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/VirtualBox%20(%D0%BA%D0%BB%D0%BE%D0%BD%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5).png" alt="Выбрать следующие пункты" width="850"> 
