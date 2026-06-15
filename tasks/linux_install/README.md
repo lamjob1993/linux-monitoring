@@ -81,7 +81,7 @@ sudo apt install bash-completion
 ```
 - Отредактируйте DNS файл resolv (так как он постоянно слетает) и заблокируйте от изменений
 ```bash
-nano /etc/resolv.conf
+sudo nano /etc/resolv.conf
 ```
 ```bash
 nameserver 8.8.8.8
@@ -89,7 +89,7 @@ nameserver 8.8.4.4
 ```
 - Далее применяем блокировку файла от перезаписи
 ```bash
-chattr +i /etc/resolv.conf
+sudo chattr +i /etc/resolv.conf
 ```
 - Перезагрузите машину
 
