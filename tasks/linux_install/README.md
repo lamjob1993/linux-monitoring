@@ -1,4 +1,4 @@
-# VMWare Workstation Pro 26+
+# VMWare Workstation Pro 25+
 
 ## Tasks
 
@@ -11,6 +11,10 @@
 ### Установка VMWare Workstation Pro. Часть 0
 
 - Скачайте последнюю версию VmWare (программный продукт виртуализации для операционных систем Windows, Linux, FreeBSD, macOS, Solaris/OpenSolaris, ReactOS, DOS и других) с официального сайта или с торрента
+  - Советую сайт rutracker.org и версию 25+
+    - [Пример](https://rutracker.org/forum/viewtopic.php?t=6858740)
+  - Резервный сайт для скачивания rutor.is
+    - [Пример](http://rutor.is/torrent/775500/vmware-workstation-pro-25h2u1-25.0.1.25219725-2026-rs-repack-by-kpojiuk)
 - Установите VmWare
 
 ---
