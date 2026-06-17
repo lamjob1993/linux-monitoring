@@ -107,10 +107,41 @@ sudo chattr +i /etc/resolv.conf
 - Переименуйте их по порядку 1, 2, 3
 - Перед запуском каждой нужно сгенерировать новый MAC - то есть для двух машин
 - Далее запустите 3 виртуальные машины одновременно и войдите в профиль пользователя
-  - Проверьте какие выдались IP адреса каждой машине (будут одинаковые, как и id с именем пользователя) и перепишите их в блокнот
+  - Проверьте какие выдались IP адреса каждой машине (будут одинаковые, как и id с именем пользователя)
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/2%20machines%20ip_a.png" alt="Выбрать следующие пункты" width="850"> 
-- Далее меняем id машины и имя пользователя в двух системах-клонах
+- Далее меняем id машин клонов
+```bash
+sudo rm -f /etc/machine-id
+sudo dbus-uuidgen --ensure=/etc/machine-id
+sudo rm -f /var/lib/dbus/machine-id
+sudo dbus-uuidgen --ensure=/var/lib/dbus/machine-id
+
+# Проверить результат
+cat /etc/machine-id
+```
+- Меняем имя пользователя в двух системах-клонах
+```bash
+# Сначала сменить hostname (если ещё не делал)
+sudo hostnamectl set-hostname debian-clone
+
+# Потом отредактировать /etc/hosts
+sudo nano /etc/hosts
+```
 - Далее прописываем статику (это выделенный ip адрес на две клон-тачки, допустим первая оригинальная тачка заканчиватся на октет 10, значит советую два клона сделать 11 и 12)
+```bash
+# Посмотреть имя соединения
+nmcli connection show
+
+# Прописать статику
+sudo nmcli con mod "Wired connection 1" \
+  ipv4.addresses 192.168.30.128/24 \
+  ipv4.gateway 192.168.30.2 \
+  ipv4.dns "8.8.8.8 1.1.1.1" \
+  ipv4.method manual
+
+# Применить
+sudo nmcli con down "Wired connection 1" && sudo nmcli con up "Wired connection 1"
+```
 - Далее сделайте ping трех машин друг до друга (слева на скриншоте указано два клона пингующих друг друга), сделайте пинг этих клонов с хостовой системы Windows (справа на скриншоте пинг двух клонов)
   - <img src="https://github.com/lamjob1993/linux-monitoring/blob/main/.files/.bucket/Ping%20All.png" alt="Выбрать следующие пункты" width="850"> 
 
